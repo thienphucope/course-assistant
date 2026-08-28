@@ -1,0 +1,55 @@
+COURSE RESOURCES
+================
+
+TEXTBOOK 1
+title: Lecture Slides from the Stanford Coursera course by Dan Jurafsky and Christopher Manning
+year: 2016
+usage: foundational NLP concepts
+
+TEXTBOOK 2
+title: Introduction to Natural Language Processing
+author: Jacob Eisenstein
+publisher: The MIT Press
+year: 2019
+usage: NLP foundations and statistical methods
+
+TEXTBOOK 3
+title: Xử lý ngôn ngữ tự nhiên
+author: Phan Thị Tươi
+publisher: Nhà xuất bản Đại học Quốc gia TP Hồ Chí Minh
+year: 2012
+usage: Vietnamese NLP reference
+
+REFERENCE 1
+title: Foundation of Statistical Natural Language Processing
+authors: Christopher D. Manning; Hinrich Schütze
+publisher: The MIT Press
+year: 2001
+usage: statistical NLP
+
+REFERENCE 2
+title: Natural Language Processing with Python
+authors: Steven Bird; Ewan Klein; Edward Loper
+year: 2009
+usage: practical NLP with Python
+
+REFERENCE 3
+title: Speech and Language Processing
+authors: Daniel Jurafsky; James H. Martin
+year: 2019
+usage: broad NLP reference
+
+REFERENCE 4
+title: An Introduction to Machine Translation
+author: W. John Hutchins
+year: 1992
+usage: machine translation background
+
+REFERENCE 5
+title: Natural Language Understanding and World Knowledge
+usage: world knowledge and inference
+
+study_note:
+Sinh viên nên xem thêm các giáo trình văn phạm tiếng Anh và tiếng Việt
+ở bậc đại học để hiểu sâu hơn về cú pháp và có thể vận dụng vào xây dựng
+hệ thống hiểu ngôn ngữ tự nhiên.

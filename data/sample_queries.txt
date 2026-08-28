@@ -1,0 +1,46 @@
+SAMPLE EVALUATION QUERIES
+==========================
+
+Mỗi dòng gồm:
+ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY
+
+Q001 | Môn NLP có bao nhiêu tín chỉ? | GET_COURSE_INFO | CO3085
+Q002 | CO3085 có mấy tín chỉ? | GET_COURSE_INFO | CO3085
+Q003 | Môn học gồm những phần nào? | GET_COURSE_INFO | CO3085
+Q004 | Tuần 3 học gì? | GET_SCHEDULE | WEEK_03
+Q005 | Chương 4 học vào tuần nào? | GET_SCHEDULE | CH04
+Q006 | Chương nào nói về CFG? | GET_TOPIC | CFG
+Q007 | PCFG được học ở đâu? | GET_TOPIC | PCFG
+Q008 | Chương nào nói về semantic grammar? | GET_TOPIC | SEMANTIC_GRAMMAR
+Q009 | L.O.2.5 là gì? | GET_LO | LO2.5
+Q010 | L.O.4.2 liên quan đến nội dung nào? | GET_LO | LO4.2
+Q011 | Bài tập lớn yêu cầu xây dựng những gì? | GET_ASSIGNMENT | BTL01
+Q012 | Phần I của bài tập lớn là gì? | GET_ASSIGNMENT | PART_I
+Q013 | Bài tập lớn có phần hỏi đáp không? | GET_ASSIGNMENT | PART_II
+Q014 | Có được dùng LLM/RAG không? | GET_RULE | LLM_RAG
+Q015 | Quy định về sử dụng AI là gì? | GET_RULE | AI_USAGE
+Q016 | Midterm bao nhiêu phút? | GET_COURSE_INFO | MIDTERM
+Q017 | Final bao nhiêu phút? | GET_COURSE_INFO | FINAL
+Q018 | Tài liệu tham khảo về statistical NLP là gì? | GET_RESOURCE | STATISTICAL_NLP
+Q019 | Tài liệu nào liên quan đến Python NLP? | GET_RESOURCE | PYTHON_NLP
+Q020 | Chương 12 nói về gì? | GET_TOPIC | CH12
+Q021 | Chương nào học về reference? | GET_TOPIC | REFERENCE
+Q022 | Chương nào học về question answering? | GET_TOPIC | QUESTION_ANSWERING
+Q023 | Chương nào học về selectional restriction? | GET_TOPIC | SELECTIONAL_RESTRICTION
+Q024 | Chương 10 có những phương pháp gì? | GET_TOPIC | CH10
+Q025 | Chương 11 có liên quan đến hỏi đáp không? | GET_TOPIC | CH11
+
+OUT-OF-SCOPE EXAMPLES
+---------------------
+Q026 | Hôm nay ở TP.HCM có mưa không? | UNKNOWN | OUT_OF_SCOPE
+Q027 | Ai là tổng thống của Pháp? | UNKNOWN | OUT_OF_SCOPE
+Q028 | Hãy giải bài tập xác suất này giúp tôi. | UNKNOWN | OUT_OF_SCOPE
+
+REFERENCE / CONTEXT EXAMPLES
+----------------------------
+Q029 | Chương 4 nói về gì? | GET_TOPIC | CH04
+Q030 | Nó có liên quan đến parsing không? | CONTEXT_DEPENDENT | CH04
+Q031 | Chương 11 có hỏi đáp không? | GET_TOPIC | CH11
+Q032 | Còn chương sau? | CONTEXT_DEPENDENT | CH12
+Q033 | Bài tập lớn có phần parser không? | GET_ASSIGNMENT | PART_I
+Q034 | Phần này cần xuất file gì? | CONTEXT_DEPENDENT | PART_I

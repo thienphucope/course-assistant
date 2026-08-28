@@ -1,0 +1,36 @@
+COURSE REGULATIONS - SAMPLE
+===========================
+
+Lưu ý:
+Các quy định chi tiết về deadline, format nộp bài và chính sách lớp học
+trong file này là dữ liệu MẪU phục vụ Course Assistant. Khi triển khai
+thực tế, các thông tin này phải được thay bằng thông tin chính thức.
+
+attendance:
+Sinh viên được khuyến khích tham dự đầy đủ các buổi học và thực hiện
+các bài tập được giao.
+
+academic_integrity:
+Sinh viên phải tuân thủ nguyên tắc liêm chính học thuật và code of ethics.
+
+AI_usage:
+Sinh viên phải khai báo việc sử dụng AI trong báo cáo, nghiên cứu và
+quá trình thực hiện theo quy định của môn học.
+
+source_code:
+Sinh viên phải hiểu và có khả năng giải thích mã nguồn do nhóm sử dụng.
+
+assignment_sharing:
+Không được sao chép hoặc chia sẻ bài làm giữa các nhóm.
+
+external_libraries:
+Được phép sử dụng thư viện công khai nếu tuân thủ yêu cầu của bài tập.
+
+LLM_RAG:
+LLM/RAG nếu được sử dụng chỉ nên đóng vai trò mở rộng. Sinh viên phải
+mô tả rõ mô hình, dữ liệu, retrieval và cách đánh giá.
+
+OUT_OF_SCOPE:
+Hệ thống Course Assistant chỉ chịu trách nhiệm trong phạm vi dữ liệu
+môn học. Với câu hỏi ngoài phạm vi hoặc không có dữ liệu, hệ thống phải
+thông báo rằng không tìm thấy thông tin thay vì tự tạo thông tin.
