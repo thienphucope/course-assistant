@@ -27,16 +27,22 @@ Nguồn và phạm vi
 
 Cấu trúc
 --------
-course_info.txt       : thông tin chung về môn học
-schedule.txt           : kế hoạch học tập mẫu 15 tuần
-topics.txt             : kiến thức/chủ đề của 12 chương
-assignments.txt        : bài tập lớn và các mốc mẫu
-resources.txt          : giáo trình và tài liệu tham khảo
-regulations.txt        : quy định học tập mẫu
-faq.txt                : các câu hỏi - trả lời thường gặp
-dialogues.txt          : hội thoại mẫu có tham chiếu/ngữ cảnh
-sample_queries.txt     : bộ truy vấn kiểm thử có nhãn kỳ vọng
-entities.txt           : từ điển thực thể và từ đồng nghĩa mẫu
+Tiêu chí: core query KB = tra theo ENTITY (kb/); còn lại = scaffolding/.
+
+kb/  (core Knowledge Base - tra theo entity lúc chạy)
+  course_info.txt      : thông tin chung về môn học
+  schedule.txt         : kế hoạch học tập mẫu 15 tuần
+  topics.txt           : kiến thức/chủ đề của 12 chương
+  assignments.txt      : bài tập lớn và các mốc mẫu
+  resources.txt        : giáo trình và tài liệu tham khảo
+  regulations.txt      : quy định học tập mẫu
+
+scaffolding/  (KHÔNG thuộc core query KB entity-indexed)
+  entities.txt         : từ điển thực thể + đồng nghĩa (design-time)
+  sample_queries.txt   : truy vấn kiểm thử có nhãn kỳ vọng (chấm Phần IV)
+  dialogues.txt        : hội thoại có tham chiếu - test-set cho Phần III
+  faq.txt              : Q->A theo chuỗi - corpus retrieval/optional; kéo về
+                         kb/ (hoặc data/retrieval/) nếu làm RAG
 
 Gợi ý sử dụng
 -------------
