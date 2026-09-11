@@ -1,4 +1,4 @@
 {
-    "call": "hcmut.iaslab.nlp.app.utils.test",
-	"usage": "python -m cli run --json_conf conf/app.json"
+  "call": "hcmut.iaslab.nlp.app.utils.run",
+  "usage": "Compatibility entry point; prefer python run.py --help"
 }

@@ -1,36 +1,32 @@
-import setuptools
+"""Packaging metadata for the Course Assistant implementation template.
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+The assignment intentionally uses the Python standard library for the classical
+NLP core.  Keep package discovery and the console entry point here; optional
+future adapters should declare their dependencies explicitly instead of making
+the core pipeline depend on them.
+"""
 
-with open('requirements.txt') as fin:
-    lines = fin.readlines()
-    lines = [o.strip() for o in lines]
-    lines = [o for o in lines if len(o) > 0]
-    req = [o for o in lines if not o.startswith('#') and not o.startswith('git+')]
+from pathlib import Path
 
-setuptools.setup(
+from setuptools import find_packages, setup
 
-    name="NAME",  # Replace with your username
 
-    version="1.0.0",
+ROOT = Path(__file__).resolve().parent
+REQUIREMENTS = [
+    line.strip()
+    for line in (ROOT / "requirements.txt").read_text(encoding="utf-8").splitlines()
+    if line.strip() and not line.lstrip().startswith("#")
+]
 
-    author="Hung",
 
-    author_email="thanhhungqb@gmail.com",
-
-    description="DESC",
-
-    long_description=long_description,
-
-    install_requires=req,
-
+setup(
+    name="co3085-course-assistant-template",
+    version="0.1.0",
+    description="Extensible classical-NLP Course Assistant template",
+    long_description=(ROOT / "README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",
-
-    url="https://github.com/thanhhungqb",
-
-    packages=setuptools.find_packages(),
-
-    python_requires='>=3.6',
-
+    packages=find_packages(),
+    install_requires=REQUIREMENTS,
+    python_requires=">=3.10",
+    entry_points={"console_scripts": ["course-assistant=hcmut.iaslab.nlp.app.cli:main"]},
 )
