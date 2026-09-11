@@ -1,0 +1,8 @@
+# CHALLENGE EVALUATION QUERIES - TEMPLATE
+# These cases are authored by the team and must be reported separately from the
+# supplied/official set.
+# Format: ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY | STATUS | TERMS
+
+C001 | TODO_POLITE_PARAPHRASE | TODO_INTENT | TODO_ENTITY | FOUND | TODO_TERM
+C002 | TODO_GRAMMAR_VALID_BUT_MISSING_FACT | TODO_INTENT | TODO_ENTITY | NOT_FOUND | không tìm thấy
+C003 | TODO_NEAR_MISS_OR_UNKNOWN | UNKNOWN | OUT_OF_SCOPE | SKIPPED | ngoài phạm vi

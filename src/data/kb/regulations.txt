@@ -1,0 +1,30 @@
+COURSE REGULATIONS - TEMPLATE
+=============================
+
+# The keys below are stable query targets. Replace text only with authoritative
+# policies and return NOT_FOUND when a requested policy is absent.
+
+attendance:
+TODO_ATTENDANCE_POLICY
+
+academic_integrity:
+TODO_ACADEMIC_INTEGRITY_POLICY
+
+AI_usage:
+TODO_AI_DISCLOSURE_POLICY
+
+source_code:
+TODO_SOURCE_CODE_POLICY
+
+assignment_sharing:
+TODO_ASSIGNMENT_SHARING_POLICY
+
+external_libraries:
+TODO_EXTERNAL_LIBRARY_POLICY
+
+LLM_RAG:
+TODO_LLM_RAG_POLICY
+
+OUT_OF_SCOPE:
+The assistant must report unavailable or out-of-domain information instead of
+inventing an answer.

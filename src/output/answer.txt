@@ -1,0 +1,1 @@
+# GENERATED FILE TEMPLATE: paired Q/A blocks grounded in query results.

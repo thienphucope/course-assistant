@@ -1,0 +1,13 @@
+COURSE ASSISTANT FAQ - TEMPLATE
+===============================
+
+# FAQ entries are examples for manual review. The runtime must answer from the
+# normalized KB rather than returning these strings by question matching.
+
+Q1:
+question: TODO_REPRESENTATIVE_QUESTION
+answer: TODO_GROUNDED_REFERENCE_ANSWER
+
+Q2:
+question: TODO_REPRESENTATIVE_QUESTION
+answer: TODO_GROUNDED_REFERENCE_ANSWER

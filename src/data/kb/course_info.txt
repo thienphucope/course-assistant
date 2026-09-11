@@ -1,0 +1,40 @@
+COURSE INFORMATION - TEMPLATE
+=============================
+
+# Replace every TODO with authoritative data before enabling its query handler.
+course_id: TODO_COURSE_ID
+course_name: TODO_COURSE_NAME
+course_name_en: TODO_ENGLISH_NAME
+semester: TODO_SEMESTER
+credits: TODO_NUMBER
+format: TODO_WEEKLY_FORMAT
+
+course_description:
+TODO: add the official multiline course description.
+
+main_parts:
+Part I - TODO
+Part II - TODO
+Part III - TODO
+
+learning_outcomes:
+LO1 - TODO
+LO2 - TODO
+LO3 - TODO
+LO4 - TODO
+
+detailed_learning_outcomes:
+LO1.1 - TODO
+LO2.1 - TODO
+LO3.1 - TODO
+LO4.1 - TODO
+
+assessment:
+class_attention_and_assignments: TODO_PERCENT
+major_assignment: TODO_PERCENT
+midterm_exam: TODO_PERCENT
+final_exam: TODO_PERCENT
+
+exam_format:
+midterm: TODO_FORMAT_AND_DURATION
+final: TODO_FORMAT_AND_DURATION

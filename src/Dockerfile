@@ -1,17 +1,15 @@
-# Runtime template. Build from the repository root:
-# docker build -f src/Dockerfile -t course-assistant .
+# Self-contained runtime template. Build with:
+# docker build -t course-assistant src
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 WORKDIR /app
-COPY src/requirements.txt /app/src/requirements.txt
-RUN python -m pip install --no-cache-dir -r /app/src/requirements.txt
+COPY requirements.txt /app/requirements.txt
+RUN python -m pip install --no-cache-dir -r /app/requirements.txt
 
-COPY src /app/src
-COPY data /app/data
-WORKDIR /app/src
+COPY . /app
 
 ENTRYPOINT ["python", "run.py", "--root", "/app"]
 CMD ["--help"]

@@ -1,0 +1,1 @@
+# GENERATED FILE TEMPLATE: one JSON object with intent/entity fields per line.

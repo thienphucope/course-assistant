@@ -1,0 +1,134 @@
+<!doctype html>
+<!--
+  Interactive documentation template for the implementation branch.
+  Keep STAGES synchronized with pipeline.py and replace TODO descriptions as
+  stages are implemented. The complete worked simulation lives on branch sample.
+-->
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Assistant — Pipeline Template</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #07111f; color: #dcecff; overflow: hidden; }
+    canvas { display: block; width: 100vw; height: 100vh; }
+    .panel {
+      position: fixed; left: 20px; top: 20px; width: min(390px, calc(100vw - 40px));
+      padding: 16px; border: 1px solid #294766; border-radius: 14px;
+      background: rgb(7 17 31 / 88%); backdrop-filter: blur(10px);
+    }
+    h1 { margin: 0 0 7px; font-size: 18px; }
+    p { margin: 6px 0; color: #9eb6ce; font-size: 13px; line-height: 1.45; }
+    button {
+      margin-top: 10px; border: 0; border-radius: 9px; padding: 9px 12px;
+      background: #2dd4bf; color: #05231f; font-weight: 700; cursor: pointer;
+    }
+    #detail { color: #e8f5ff; }
+  </style>
+</head>
+<body>
+  <canvas id="map" aria-label="Animated overview of the NLP pipeline"></canvas>
+  <section class="panel">
+    <h1>Course Assistant · implementation map</h1>
+    <p>Mỗi hộp là một contract trong <code>hcmut/iaslab/nlp/app</code>. Nhấn
+      vào hộp để xem trách nhiệm; chấm sáng mô phỏng một câu hỏi đi qua pipeline.</p>
+    <p id="detail">Chọn một stage để điền mô tả triển khai và invariant.</p>
+    <button id="replay" type="button">Chạy lại mô phỏng</button>
+  </section>
+  <script>
+    // TODO: keep this list synchronized with pipeline.py as architecture evolves.
+    const STAGES = [
+      { id: "input", label: "Input", file: "input/sentences.txt", note: "Một câu UTF-8 mỗi dòng." },
+      { id: "token", label: "Tokenizer", file: "tokenizer.py", note: "Chuẩn hóa câu thành terminal của CFG." },
+      { id: "grammar", label: "Grammar", file: "data/grammar.cfg", note: "Nguồn cú pháp dùng chung cho parse và generate." },
+      { id: "parse", label: "Parser", file: "parser.py", note: "Nhận/reject toàn câu và tạo Tree." },
+      { id: "semantic", label: "Semantics", file: "semantic.py", note: "Tree → intent + entity + slots." },
+      { id: "context", label: "Context", file: "dialogue.py", note: "Phân giải tham chiếu bằng state có kiểu." },
+      { id: "query", label: "Query", file: "query.py", note: "Frame → truy vấn KB có provenance." },
+      { id: "kb", label: "Knowledge Base", file: "data/kb/", note: "Fact chuẩn hóa; không chứa logic ngôn ngữ." },
+      { id: "answer", label: "Answer", file: "answer.py", note: "Kết quả có căn cứ → câu trả lời template." },
+      { id: "output", label: "Outputs", file: "output/", note: "Parse, semantic, query, answer và evaluation." }
+    ];
+
+    const canvas = document.querySelector("#map");
+    const context = canvas.getContext("2d");
+    const detail = document.querySelector("#detail");
+    let nodes = [];
+    let startedAt = performance.now();
+
+    function resize() {
+      const ratio = devicePixelRatio || 1;
+      canvas.width = innerWidth * ratio;
+      canvas.height = innerHeight * ratio;
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      layout();
+    }
+
+    function layout() {
+      const left = Math.max(450, innerWidth * 0.33);
+      const usable = Math.max(360, innerWidth - left - 45);
+      const columns = innerWidth < 1050 ? 2 : 3;
+      const width = Math.min(210, (usable - (columns - 1) * 32) / columns);
+      const rows = Math.ceil(STAGES.length / columns);
+      const height = 72;
+      const gapY = Math.min(62, (innerHeight - rows * height - 70) / Math.max(1, rows - 1));
+      nodes = STAGES.map((stage, index) => ({
+        ...stage,
+        x: left + (index % columns) * (width + 32),
+        y: 35 + Math.floor(index / columns) * (height + gapY),
+        width,
+        height
+      }));
+    }
+
+    function center(node) { return { x: node.x + node.width / 2, y: node.y + node.height / 2 }; }
+
+    function draw(now) {
+      context.clearRect(0, 0, innerWidth, innerHeight);
+      context.fillStyle = "#07111f";
+      context.fillRect(0, 0, innerWidth, innerHeight);
+
+      context.lineWidth = 2;
+      context.strokeStyle = "#284b6e";
+      for (let index = 0; index < nodes.length - 1; index += 1) {
+        const from = center(nodes[index]);
+        const to = center(nodes[index + 1]);
+        context.beginPath(); context.moveTo(from.x, from.y); context.lineTo(to.x, to.y); context.stroke();
+      }
+
+      for (const node of nodes) {
+        context.fillStyle = "#10273d";
+        context.strokeStyle = "#3c6b91";
+        context.beginPath(); context.roundRect(node.x, node.y, node.width, node.height, 12);
+        context.fill(); context.stroke();
+        context.fillStyle = "#e5f4ff"; context.font = "700 15px system-ui";
+        context.fillText(node.label, node.x + 13, node.y + 27);
+        context.fillStyle = "#80a9c8"; context.font = "12px ui-monospace, monospace";
+        context.fillText(node.file, node.x + 13, node.y + 50, node.width - 26);
+      }
+
+      const duration = 9000;
+      const progress = ((now - startedAt) % duration) / duration * (nodes.length - 1);
+      const index = Math.min(nodes.length - 2, Math.floor(progress));
+      const phase = progress - index;
+      const from = center(nodes[index]); const to = center(nodes[index + 1]);
+      const x = from.x + (to.x - from.x) * phase;
+      const y = from.y + (to.y - from.y) * phase;
+      context.shadowBlur = 20; context.shadowColor = "#2dd4bf";
+      context.fillStyle = "#5eead4"; context.beginPath(); context.arc(x, y, 7, 0, Math.PI * 2); context.fill();
+      context.shadowBlur = 0;
+      requestAnimationFrame(draw);
+    }
+
+    canvas.addEventListener("click", event => {
+      const selected = nodes.find(node => event.offsetX >= node.x && event.offsetX <= node.x + node.width && event.offsetY >= node.y && event.offsetY <= node.y + node.height);
+      if (selected) detail.textContent = `${selected.file}: ${selected.note}`;
+    });
+    document.querySelector("#replay").addEventListener("click", () => { startedAt = performance.now(); });
+    addEventListener("resize", resize);
+    resize(); requestAnimationFrame(draw);
+  </script>
+</body>
+</html>

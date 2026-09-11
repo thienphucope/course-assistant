@@ -1,0 +1,21 @@
+STUDY PLAN - TEMPLATE
+=====================
+
+# Repeat the block for every week. Preserve two-digit WEEK headings because the
+# loader canonicalizes them to WEEK_NN. Omit fields only when truly unavailable.
+
+WEEK 01
+part: TODO_PART
+chapter: Chapter 1
+topics:
+- TODO_TOPIC
+activity: TODO_OPTIONAL_ACTIVITY
+milestone: TODO_OPTIONAL_MILESTONE
+
+WEEK 02
+part: TODO_PART
+chapter: Chapter 2
+topics:
+- TODO_TOPIC
+
+# TODO: add WEEK 03 through the final teaching week.

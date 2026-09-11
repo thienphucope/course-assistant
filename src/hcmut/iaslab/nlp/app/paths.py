@@ -37,7 +37,7 @@ class ProjectPaths:
         resolved = Path(root).expanduser().resolve()
         return cls(
             root=resolved,
-            source=resolved / "src",
+            source=resolved,
             data=resolved / "data",
             grammar=resolved / "data" / "grammar.cfg",
             kb=resolved / "data" / "kb",

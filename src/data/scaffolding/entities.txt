@@ -1,0 +1,45 @@
+COURSE ASSISTANT ENTITY LEXICON - TEMPLATE
+==========================================
+
+# Format: surface alias = canonical ID or canonical display value.
+# Add every alias accepted by grammar.cfg and keep IDs stable across all files.
+
+COURSE
+TODO_COURSE_CODE = COURSE_01
+TODO_COURSE_ALIAS = COURSE_01
+
+PART
+Part I = PART_I
+Part II = PART_II
+Part III = PART_III
+Part IV = PART_IV
+
+CHAPTERS
+Chương 1 = CH01
+Chương 2 = CH02
+# TODO: add all chapters.
+
+TOPICS
+CFG = CFG
+Parsing = PARSING
+# TODO: add canonical topic aliases used by grammar and KB keywords.
+
+ASSIGNMENT
+BTL = ASSIGNMENT_01
+Phần I = PART_I
+Phần II = PART_II
+Phần III = PART_III
+Phần IV = PART_IV
+
+INTENTS
+GET_COURSE_INFO
+GET_SCHEDULE
+GET_TOPIC
+GET_ASSIGNMENT
+GET_DEADLINE
+GET_RESOURCE
+GET_RULE
+GET_INSTRUCTOR
+GET_LO
+CONTEXT_DEPENDENT
+UNKNOWN

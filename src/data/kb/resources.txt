@@ -1,0 +1,17 @@
+COURSE RESOURCES - TEMPLATE
+===========================
+
+# Repeat TEXTBOOK/REFERENCE blocks. Query matching should use normalized title,
+# author, and usage fields rather than hard-coded list positions.
+
+TEXTBOOK 1
+title: TODO_TITLE
+author: TODO_AUTHOR
+year: TODO_YEAR
+usage: TODO_TOPIC_KEYWORDS
+
+REFERENCE 1
+title: TODO_TITLE
+authors: TODO_AUTHORS
+year: TODO_YEAR
+usage: TODO_TOPIC_KEYWORDS

@@ -1,0 +1,12 @@
+SAMPLE EVALUATION QUERIES - TEMPLATE
+====================================
+
+# Format:
+# ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY | EXPECTED_QUERY_STATUS | REQUIRED_ANSWER_TERMS
+# Separate multiple mandatory answer fragments with ``;;``.
+
+Q001 | TODO_VALID_COURSE_QUESTION | GET_COURSE_INFO | COURSE_01 | FOUND | TODO_FACT
+Q002 | TODO_VALID_SCHEDULE_QUESTION | GET_SCHEDULE | WEEK_01 | FOUND | TODO_FACT_1;;TODO_FACT_2
+Q003 | TODO_OUT_OF_DOMAIN_QUESTION | UNKNOWN | OUT_OF_SCOPE | SKIPPED | ngoài phạm vi
+
+# TODO: cover every Q_* grammar branch plus missing-KB behavior.

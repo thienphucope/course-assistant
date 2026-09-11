@@ -1,10 +1,10 @@
 # Course Assistant implementation template
 
-This directory is the clean implementation skeleton derived from the complete
-reference project in `docs/sample-src/`. It preserves the reference contracts
-and call flow, but leaves assignment algorithms as explicit `NotImplementedError`
-tasks. Infrastructure data types and the pipeline orchestration are present so
-implementation can proceed one stage at a time without redesigning the project.
+This directory is a self-contained implementation skeleton derived from the
+complete reference project on branch `sample` at `docs/sample-src/`. It mirrors
+the reference project's code, data, input, output, tests, packaging, Docker, and
+visual-documentation files. Assignment algorithms remain explicit
+`NotImplementedError` tasks; data files contain schemas and TODO placeholders.
 
 ## Call flow
 
@@ -41,6 +41,30 @@ question
 | `paths.py` | Resolve all project locations independently of current cwd. |
 | `cli.py` | Provide scriptable `ask`, `generate`, and `evaluate` commands. |
 | `utils.py` | Preserve the original JSON-launcher compatibility hook. |
+
+## Complete project tree
+
+```text
+src/
+├── data/
+│   ├── grammar.cfg              # valid seed CFG + every semantic Q_* branch
+│   ├── kb/                      # six authoritative-data schemas
+│   └── scaffolding/             # entities, tests, challenges, dialogues, FAQ
+├── hcmut/iaslab/nlp/app/        # replaceable pipeline stages
+├── input/sentences.txt          # batch-input template
+├── models/README.md             # optional model policy
+├── output/                      # all nine required deliverable placeholders
+├── tests/                       # KB, parser/generator, and pipeline test skeletons
+├── visually-explained-documentation.html
+├── Dockerfile
+├── pyproject.toml
+├── setup.py
+├── requirements.txt
+└── run.py
+```
+
+The placeholder files are intentional: they show the required schema and output
+format without copying the completed answers from the `sample` branch.
 
 Every Python file starts with a module docstring describing its boundary,
 invariants, and intended extension points. Read those docstrings before filling

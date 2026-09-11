@@ -1,0 +1,40 @@
+MAJOR ASSIGNMENT - TEMPLATE
+===========================
+
+assignment_id: TODO_ASSIGNMENT_ID
+title: TODO_ASSIGNMENT_TITLE
+team_size: TODO
+domain: TODO
+goal:
+TODO: copy the authoritative assignment objective.
+
+PART I - Grammar and Parser
+---------------------------
+requirements:
+- TODO_REQUIREMENT
+
+suggested_outputs:
+output/grammar.txt
+output/samples.txt
+output/parse-results.txt
+
+PART II - Semantic Interpretation and QA
+----------------------------------------
+minimum_requirements:
+- TODO_REQUIREMENT
+
+suggested_intents:
+GET_COURSE_INFO
+GET_SCHEDULE
+GET_TOPIC
+UNKNOWN
+
+PART III - Local Discourse Context
+----------------------------------
+optional_or_extension:
+- TODO_CONTEXT_EXTENSION
+
+PART IV - Evaluation
+--------------------
+requirements:
+- TODO_EVALUATION_REQUIREMENT

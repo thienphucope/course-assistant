@@ -1,0 +1,28 @@
+NLP TOPIC KNOWLEDGE BASE - TEMPLATE
+===================================
+
+# Repeat one block per chapter. chapter_id is the canonical join key used by
+# schedule, query, semantics, and dialogue context.
+
+CHAPTER 1: TODO_CHAPTER_TITLE
+chapter_id: CH01
+part: TODO_PART
+keywords: TODO_KEYWORD_1, TODO_KEYWORD_2
+summary:
+TODO: add a grounded summary from the supplied course material.
+
+subtopics:
+1.1 TODO_SUBTOPIC
+1.2 TODO_SUBTOPIC
+
+CHAPTER 2: TODO_CHAPTER_TITLE
+chapter_id: CH02
+part: TODO_PART
+keywords: TODO_KEYWORD
+summary:
+TODO: add a grounded summary.
+
+subtopics:
+2.1 TODO_SUBTOPIC
+
+# TODO: add the remaining chapters and validate every schedule reference.

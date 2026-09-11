@@ -1,0 +1,7 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# Project metadata stays in setup.py for compatibility with the supplied
+# scaffold. It can be migrated into [project] here when legacy launchers no
+# longer need setup.py.
