@@ -1,0 +1,58 @@
+LOCAL DISCOURSE CONTEXT - SAMPLE DIALOGUES
+=============================================
+
+DIALOGUE 01
+------------
+U1: Tuần 3 học gì?
+A1: Tuần 3 học Chương 3 về Văn phạm và phân tích cú pháp, gồm CFG,
+top-down parsing, bottom-up chart parsing, PCFG và dependency grammar.
+
+U2: Tài liệu của chương này là gì?
+EXPECTED_REFERENCE: "chương này" -> CH03
+A2: Có thể tham khảo các tài liệu nền tảng NLP trong danh sách resources.
+
+DIALOGUE 02
+------------
+U1: Chương 4 nói về gì?
+A1: Chương 4 nói về Features và Augmented Grammar.
+
+U2: Nó có liên quan đến parsing không?
+EXPECTED_REFERENCE: "Nó" -> CH04
+A2: Có. Chương 4 trình bày parsing với features và augmented grammar.
+
+DIALOGUE 03
+------------
+U1: Bài tập lớn có phần parser không?
+A1: Có. Phần I của bài tập lớn yêu cầu xây dựng grammar và parser.
+
+U2: Phần này cần xuất file gì?
+EXPECTED_REFERENCE: "Phần này" -> PART_I_GRAMMAR_PARSER
+A2: Các output mẫu gồm grammar.txt, samples.txt và parse-results.txt.
+
+DIALOGUE 04
+------------
+U1: Chương 11 có hỏi đáp không?
+A1: Có. Chương 11 đề cập đến procedural semantics và question answering.
+
+U2: Còn chương sau?
+EXPECTED_REFERENCE: "chương sau" -> CH12
+A2: Chương 12 tập trung vào discourse context và reference.
+
+DIALOGUE 05
+------------
+U1: L.O.2.5 học về gì?
+A1: L.O.2.5 liên quan đến lý thuyết xác suất để giải quyết nhập nhằng
+từ ở mức câu.
+
+U2: Nội dung này nằm ở chương nào?
+EXPECTED_REFERENCE: "Nội dung này" -> LO2.5
+A2: Nội dung này thuộc Chương 6, Ambiguity Resolution: Statistical Methods.
+
+DIALOGUE 06
+------------
+U1: Tuần 5 học những gì?
+A1: Tuần 5 học Chương 4 về augmented transition networks, generalized feature systems và unification grammar.
+
+U2: Tài liệu của phần này ở đâu?
+EXPECTED_REFERENCE: "phần này" -> CH04
+A2: Có thể tham khảo các tài liệu NLP nền tảng trong danh sách resources.

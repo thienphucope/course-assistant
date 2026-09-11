@@ -1,0 +1,208 @@
+NLP TOPIC KNOWLEDGE BASE
+========================
+
+CHAPTER 1: INTRODUCTION TO NATURAL LANGUAGE PROCESSING
+chapter_id: CH01
+part: Introduction
+keywords: NLP, NLU, text-based, dialog-based, evaluation
+summary:
+NLP studies computational methods for processing natural language.
+The course introduces applications, levels of language analysis,
+representation and understanding, and organization of natural language
+understanding systems.
+
+subtopics:
+1.1 The study of natural language
+1.2 Applications of Natural Language Understanding
+1.2.1 Text-based applications
+1.2.2 Dialog-based applications
+1.3 Evaluating Natural Language Understanding Systems
+1.4 Different levels of language analysis
+1.5 Representation and understanding
+1.6 Organization of NLU systems
+
+CHAPTER 2: LINGUISTIC BACKGROUND - ENGLISH SYNTAX
+chapter_id: CH02
+part: Syntactic Processing
+keywords: syntax, word, noun phrase, verb phrase, adjective phrase, adverb
+summary:
+The chapter reviews basic English syntax, including words, noun phrases,
+verb phrases, simple sentences, adjective phrases and adverbial phrases.
+
+subtopics:
+2.1 Words
+2.2 Simple noun phrases
+2.3 Verb phrases and simple sentences
+2.4 Noun phrases revisited
+2.5 Adjective phrases
+2.6 Adverbial phrases
+
+CHAPTER 3: GRAMMAR AND PARSING
+chapter_id: CH03
+part: Syntactic Processing
+keywords: CFG, parsing, PCFG, dependency grammar
+summary:
+The chapter introduces context-free grammar, sentence structure and
+parsing methods. It also introduces probabilistic CFG and dependency
+grammar.
+
+subtopics:
+3.1 Context-Free Grammars
+3.1.1 Grammar and sentence structure
+3.1.2 What marks a good grammar
+3.1.3 Top-down parser
+3.1.4 Bottom-up chart parser
+3.1.5 Top-down chart parser
+3.2 Probabilistic Context-Free Grammars
+3.3 Dependency Grammar and Parsing
+3.4 Stanford Dependencies
+
+CHAPTER 4: FEATURES AND AUGMENTED GRAMMAR
+chapter_id: CH04
+part: Syntactic Processing
+keywords: feature, augmented grammar, lexicon, unification
+summary:
+The chapter extends formal grammar with feature systems and augmented
+grammar. It covers lexicon, parsing with features, augmented transition
+networks, generalized feature systems and unification grammar.
+
+subtopics:
+4.1 Feature systems and augmented grammars
+4.2 Basic feature systems for English
+4.3 Lexicon
+4.4 Simple grammar using feature systems
+4.5 Parsing with features
+4.6 Augmented transition networks
+4.7 Generalized feature systems and unification grammar
+
+CHAPTER 5: GRAMMAR FOR NATURAL LANGUAGE
+chapter_id: CH05
+part: Syntactic Processing
+keywords: auxiliary, movement, question, relative clause
+summary:
+The chapter focuses on grammar phenomena important for natural language,
+including auxiliary verbs, movement, questions and relative clauses.
+
+subtopics:
+5.1 Auxiliary verbs and verb phrases
+5.2 Movement phenomena in language
+5.3 Handling questions in context-free grammar
+5.4 Relative clauses
+
+CHAPTER 6: AMBIGUITY RESOLUTION - STATISTICAL METHODS
+chapter_id: CH06
+part: Syntactic Processing
+keywords: probability, POS tagging, lexical probability, PCFG, best-first
+summary:
+Statistical methods are introduced for resolving ambiguity at sentence
+level. Topics include probability theory, probability estimation,
+part-of-speech tagging, lexical probabilities, PCFG and best-first parsing.
+
+subtopics:
+6.1 Basic probability theory
+6.2 Estimating probabilities
+6.3 Part-of-speech tagging
+6.4 Lexical probabilities
+6.5 Probabilistic context-free grammar
+6.6 Best-first parsing
+6.7 Simple context-dependent best-first parser
+
+CHAPTER 7: SEMANTICS AND LOGICAL FORM
+chapter_id: CH07
+part: Semantic Interpretation
+keywords: semantics, logical form, word sense, thematic role, speech act
+summary:
+The chapter introduces semantic interpretation and logical forms,
+including word senses, ambiguity, verbs and states, thematic roles,
+speech acts and embedded sentences.
+
+subtopics:
+7.1 Semantics and logical form
+7.2 Word senses and ambiguity
+7.3 Basic logical form language
+7.4 Encoding ambiguity in logical form
+7.5 Verbs and states in logical form
+7.6 Thematic roles
+7.7 Speech acts and embedded sentences
+
+CHAPTER 8: LINKING SYNTAX AND SEMANTICS
+chapter_id: CH08
+part: Semantic Interpretation
+keywords: compositionality, semantic interpretation, semantic role
+summary:
+The chapter connects syntactic parsing with semantic interpretation.
+It discusses compositionality, semantic interpretation during parsing,
+semantic roles, simple questions, feature unification and generation
+from logical form.
+
+subtopics:
+8.1 Semantic interpretation and compositionality
+8.2 Simple grammar and lexicon with semantic interpretation
+8.3 Prepositional phrases and verb phrases
+8.4 Lexicalized semantic interpretation and semantic roles
+8.5 Handling simple questions
+8.6 Semantic interpretation using feature unification
+8.7 Generating sentences from logical form
+
+CHAPTER 9: AMBIGUITY RESOLUTION
+chapter_id: CH09
+part: Semantic Interpretation
+keywords: selectional restriction, semantic network, WSD
+summary:
+The chapter covers knowledge-based and statistical methods for semantic
+ambiguity resolution.
+
+subtopics:
+9.1 Selectional restriction
+9.2 Semantic filtering using selectional restriction
+9.3 Semantic networks
+9.4 Statistical word sense disambiguation
+
+CHAPTER 10: OTHER STRATEGIES FOR SEMANTIC INTERPRETATION
+chapter_id: CH10
+part: Semantic Interpretation
+keywords: grammatical relations, semantic grammar, template matching
+summary:
+Alternative approaches to semantic interpretation include grammatical
+relations, semantic grammars, template matching and semantically driven
+parsing.
+
+subtopics:
+10.1 Grammatical relations
+10.2 Semantic grammars
+10.3 Template matching
+10.4 Semantically driven parsing techniques
+
+CHAPTER 11: KNOWLEDGE REPRESENTATION AND REASONING
+chapter_id: CH11
+part: Context and World Knowledge
+keywords: knowledge representation, reasoning, frame, QA
+summary:
+The chapter introduces knowledge representation and reasoning and applies
+them to simple natural-language question answering.
+
+subtopics:
+11.1 Knowledge representation
+11.2 Frames: representing stereotypical information
+11.3 Handling natural language quantification
+11.4 Time and aspectual classes of verbs
+11.5 Procedural semantics and question answering
+
+CHAPTER 12: DISCOURSE CONTEXT AND REFERENCE
+chapter_id: CH12
+part: Context and World Knowledge
+keywords: discourse context, reference, anaphora, pronoun, centering
+summary:
+The chapter introduces local discourse context and discourse entities,
+with emphasis on reference expressions, pronouns, centering, definite
+descriptions, sets, ellipsis and surface anaphora.
+
+subtopics:
+12.1 Defining local discourse context and discourse entities
+12.2 Simple model of anaphora based on history list
+12.3 Pronouns and centering
+12.4 Definite descriptions
+12.5 Definite reference and sets
+12.6 Ellipsis
+12.7 Surface anaphora
+

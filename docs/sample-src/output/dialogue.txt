@@ -1,0 +1,70 @@
+LOCAL DISCOURSE CONTEXT RESULTS
+================================
+
+D01 | PASS | expected=CH03 | resolved=CH03
+U1: Tuần 3 học gì?
+PARSE1: (S (PREFIX ε) (QUESTION (Q_SCHEDULE_WEEK (WEEK_ENTITY tuần (WEEK_NUMBER 3)) (WEEK_CONTENT_QUESTION học gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC1: GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)
+A1: Tuần 3 học Chương 3, gồm context-free grammar, grammar and sentence structure, top-down parsing, bottom-up chart parsing, top-down chart parsing, probabilistic context-free grammar, dependency grammar, Stanford dependencies.
+U2: Tài liệu của chương này là gì?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_RESOURCE tài liệu của (CONTEXT_REFERENCE chương này) (RESOURCE_CONTEXT_QUESTION là gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_RESOURCE(entity=CH03, topic=CH03, chapter=CH03)
+CONTEXT2: chương gần nhất → CH03
+A2: Tài liệu phù hợp: Lecture Slides from the Stanford Coursera course by Dan Jurafsky and Christopher Manning; Introduction to Natural Language Processing; Foundation of Statistical Natural Language Processing.
+
+D02 | PASS | expected=CH04 | resolved=CH04
+U1: Chương 4 nói về gì?
+PARSE1: (S (PREFIX ε) (QUESTION (Q_TOPIC_BY_CHAPTER (CHAPTER_ENTITY chương (CHAPTER_NUMBER 4)) (CHAPTER_CONTENT_QUESTION nói về gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC1: GET_TOPIC(entity=CH04, chapter=CH04)
+A1: Chương 4 — FEATURES AND AUGMENTED GRAMMAR: The chapter extends formal grammar with feature systems and augmented grammar. It covers lexicon, parsing with features, augmented transition networks, generalized feature systems and unification grammar.
+U2: Nó có liên quan đến parsing không?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_TOPIC_RELATION (CONTEXT_PRONOUN nó) (RELATION_PHRASE có liên quan đến) (TOPIC_ENTITY parsing) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_TOPIC(entity=CH04, chapter=CH04, relation=PARSING)
+CONTEXT2: tham chiếu gần nhất → CH04
+A2: Có. Chương 4 có nội dung liên quan đến parsing.
+
+D03 | PASS | expected=PART_I_GRAMMAR_PARSER | resolved=PART_I
+U1: Bài tập lớn có phần parser không?
+PARSE1: (S (PREFIX ε) (QUESTION (Q_ASSIGNMENT_FEATURE (ASSIGNMENT_ENTITY bài tập lớn) có phần (ASSIGNMENT_FEATURE parser) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC1: GET_ASSIGNMENT(entity=PART_I, assignment=BTL01, section=PART_I, feature=parser)
+A1: Có. Phần I — Grammar and Parser: xây dựng grammar cho miền Course Assistant, sinh câu hợp lệ từ grammar, xây dựng parser, xuất parse tree, xử lý câu không hợp lệ.
+U2: Phần này cần xuất file gì?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_ASSIGNMENT_OUTPUT phần này (OUTPUT_QUESTION cần xuất file gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_ASSIGNMENT(entity=PART_I, assignment=BTL01, section=PART_I, field=OUTPUTS)
+CONTEXT2: phần BTL gần nhất → PART_I
+A2: Phần I có các output: output/grammar.txt, output/samples.txt, output/parse-results.txt.
+
+D04 | PASS | expected=CH12 | resolved=CH12
+U1: Chương 11 có hỏi đáp không?
+PARSE1: (S (PREFIX ε) (QUESTION (Q_TOPIC_RELATION (CHAPTER_ENTITY chương (CHAPTER_NUMBER 11)) (RELATION_PHRASE có) (TOPIC_ENTITY hỏi đáp) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC1: GET_TOPIC(entity=CH11, chapter=CH11, relation=QUESTION_ANSWERING)
+A1: Có. Chương 11 có nội dung liên quan đến question answering.
+U2: Còn chương sau?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_NEXT_CHAPTER còn chương sau)) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_TOPIC(entity=CH12, chapter=CH12)
+CONTEXT2: chương sau CH11 → CH12
+A2: Chương 12 — DISCOURSE CONTEXT AND REFERENCE: The chapter introduces local discourse context and discourse entities, with emphasis on reference expressions, pronouns, centering, definite descriptions, sets, ellipsis and surface anaphora.
+
+D05 | PASS | expected=LO2.5 | resolved=LO2.5
+U1: L.O.2.5 học về gì?
+PARSE1: (S (PREFIX ε) (QUESTION (Q_LO (LO_ENTITY lo2.5) (LO_QUESTION học về gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC1: GET_LO(entity=LO2.5, lo=LO2.5)
+A1: LO2.5: Kiến thức xác suất để giải quyết nhập nhằng từ ở mức câu.
+U2: Nội dung này nằm ở chương nào?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_LO_CHAPTER nội dung này nằm ở chương nào)) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_TOPIC(entity=LO2.5, lo=LO2.5)
+CONTEXT2: learning outcome gần nhất → LO2.5
+A2: LO2.5 tương ứng với Chương 6 — AMBIGUITY RESOLUTION - STATISTICAL METHODS.
+
+D06 | PASS | expected=CH04 | resolved=CH04
+U1: Tuần 5 học những gì?
+PARSE1: (S (PREFIX ε) (QUESTION (Q_SCHEDULE_WEEK (WEEK_ENTITY tuần (WEEK_NUMBER 5)) (WEEK_CONTENT_QUESTION học những gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC1: GET_SCHEDULE(entity=WEEK_05, week=WEEK_05)
+A1: Tuần 5 học Chương 4, gồm augmented transition networks, generalized feature systems, unification grammar; hoạt động: feature-based parsing exercises.
+U2: Tài liệu của phần này ở đâu?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_RESOURCE tài liệu của (CONTEXT_REFERENCE phần này) (RESOURCE_CONTEXT_QUESTION ở đâu))) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_RESOURCE(entity=CH04, topic=CH04, chapter=CH04)
+CONTEXT2: chương gần nhất → CH04
+A2: Tài liệu phù hợp: Lecture Slides from the Stanford Coursera course by Dan Jurafsky and Christopher Manning; Introduction to Natural Language Processing; Foundation of Statistical Natural Language Processing.
+
+Tổng: 6/6 hội thoại đúng (100.00%).

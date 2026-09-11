@@ -1,0 +1,18 @@
+001	Q: Môn NLP có bao nhiêu tín chỉ?
+	A: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+002	Q: Tuần 3 học gì?
+	A: Tuần 3 học Chương 3, gồm context-free grammar, grammar and sentence structure, top-down parsing, bottom-up chart parsing, top-down chart parsing, probabilistic context-free grammar, dependency grammar, Stanford dependencies.
+003	Q: Chương nào nói về CFG?
+	A: CFG được trình bày trong Chương 3 (GRAMMAR AND PARSING).
+004	Q: Deadline BTL khi nào?
+	A: Các mốc BTL trong dữ liệu mẫu là tuần 8: BTL checkpoint 1 - grammar and parser; tuần 12: BTL checkpoint 2 - semantic interpretation and QA; tuần 15: BTL final submission and demo.
+005	Q: Tài liệu nào liên quan đến Python NLP?
+	A: Tài liệu phù hợp: Natural Language Processing with Python.
+006	Q: Chương 4 nói về gì?
+	A: Chương 4 — FEATURES AND AUGMENTED GRAMMAR: The chapter extends formal grammar with feature systems and augmented grammar. It covers lexicon, parsing with features, augmented transition networks, generalized feature systems and unification grammar.
+007	Q: Nó có liên quan đến parsing không?
+	A: Có. Chương 4 có nội dung liên quan đến parsing.
+008	Q: Tuần 99 học gì?
+	A: Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học.
+009	Q: Hôm nay ở TP.HCM có mưa không?
+	A: Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.

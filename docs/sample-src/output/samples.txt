@@ -1,0 +1,1000 @@
+Môn này nặng mấy tín?
+Cho mình hỏi môn này nặng mấy tín ạ?
+Môn học gồm những phần nào?
+Cho mình hỏi môn học gồm những phần nào ạ?
+Môn nlp học về gì?
+Cho mình hỏi môn nlp học về gì ạ?
+Midterm bao nhiêu phút?
+Cho mình hỏi midterm bao nhiêu phút ạ?
+Khi nào tụi mình thi midterm?
+Cho mình hỏi khi nào tụi mình thi midterm ạ?
+Điểm được tính như thế nào?
+Cho mình hỏi điểm được tính như thế nào ạ?
+Giáo viên môn nlp là ai?
+Cho mình hỏi giáo viên môn nlp là ai ạ?
+Tuần 1 học gì?
+Cho mình hỏi tuần 1 học gì ạ?
+Chương 1 học vào tuần nào?
+Cho mình hỏi chương 1 học vào tuần nào ạ?
+Phần cfg và cfg nằm ở tuần nào?
+Cho mình hỏi phần cfg và cfg nằm ở tuần nào ạ?
+Cfg được học ở đâu?
+Cho mình hỏi cfg được học ở đâu ạ?
+Chương 1 nói về gì?
+Cho mình hỏi chương 1 nói về gì ạ?
+Chương 1 có cfg không?
+Cho mình hỏi chương 1 có cfg không ạ?
+Lo1 là gì?
+Cho mình hỏi lo1 là gì ạ?
+Tôi cần hoàn thành những bài tập nào?
+Cho mình hỏi tôi cần hoàn thành những bài tập nào ạ?
+Phần i của btl là gì?
+Cho mình hỏi phần i của btl là gì ạ?
+Btl có phần hỏi đáp không?
+Cho mình hỏi btl có phần hỏi đáp không ạ?
+Phần i cần xuất file gì?
+Cho mình hỏi phần i cần xuất file gì ạ?
+Deadline btl?
+Cho mình hỏi deadline btl ạ?
+Tài liệu tham khảo về statistical nlp là gì?
+Cho mình hỏi tài liệu tham khảo về statistical nlp là gì ạ?
+Quy định về llm/rag là gì?
+Cho mình hỏi quy định về llm/rag là gì ạ?
+Nó có cfg không?
+Cho mình hỏi nó có cfg không ạ?
+Còn chương sau?
+Cho mình hỏi còn chương sau ạ?
+Phần này cần xuất file gì?
+Cho mình hỏi phần này cần xuất file gì ạ?
+Tài liệu của chương này là gì?
+Cho mình hỏi tài liệu của chương này là gì ạ?
+Nội dung này nằm ở chương nào?
+Cho mình hỏi nội dung này nằm ở chương nào ạ?
+Môn nlp có bao nhiêu tín chỉ?
+Cho mình hỏi môn nlp có bao nhiêu tín chỉ ạ?
+Môn học có những phần nào?
+Cho mình hỏi môn học có những phần nào ạ?
+Môn nlp có nội dung gì?
+Cho mình hỏi môn nlp có nội dung gì ạ?
+Midterm kéo dài bao lâu?
+Cho mình hỏi midterm kéo dài bao lâu ạ?
+Khi nào tụi mình thi giữa kỳ?
+Cho mình hỏi khi nào tụi mình thi giữa kỳ ạ?
+Điểm gồm những thành phần nào?
+Cho mình hỏi điểm gồm những thành phần nào ạ?
+Giáo viên môn co3085 là ai?
+Cho mình hỏi giáo viên môn co3085 là ai ạ?
+Tuần 1 học những gì?
+Cho mình hỏi tuần 1 học những gì ạ?
+Chương 1 được học ở tuần nào?
+Cho mình hỏi chương 1 được học ở tuần nào ạ?
+Phần cfg và cfg học ở tuần nào?
+Cho mình hỏi phần cfg và cfg học ở tuần nào ạ?
+Cfg nằm ở chương nào?
+Cho mình hỏi cfg nằm ở chương nào ạ?
+Chương 1 học về gì?
+Cho mình hỏi chương 1 học về gì ạ?
+Chương 1 có context-free grammar không?
+Cho mình hỏi chương 1 có context-free grammar không ạ?
+Lo1 học về gì?
+Cho mình hỏi lo1 học về gì ạ?
+Btl yêu cầu xây dựng những gì?
+Cho mình hỏi btl yêu cầu xây dựng những gì ạ?
+Phần i của btl01 là gì?
+Cho mình hỏi phần i của btl01 là gì ạ?
+Btl có phần semantic không?
+Cho mình hỏi btl có phần semantic không ạ?
+Phần i có output gì?
+Cho mình hỏi phần i có output gì ạ?
+Deadline btl là khi nào?
+Cho mình hỏi deadline btl là khi nào ạ?
+Tài liệu tham khảo về nlp thống kê là gì?
+Cho mình hỏi tài liệu tham khảo về nlp thống kê là gì ạ?
+Quy định về llm là gì?
+Cho mình hỏi quy định về llm là gì ạ?
+Nó có context-free grammar không?
+Cho mình hỏi nó có context-free grammar không ạ?
+Chương tiếp theo thì sao?
+Cho mình hỏi chương tiếp theo thì sao ạ?
+Phần này có output gì?
+Cho mình hỏi phần này có output gì ạ?
+Tài liệu của chương này ở đâu?
+Cho mình hỏi tài liệu của chương này ở đâu ạ?
+Môn nlp có mấy tín chỉ?
+Cho mình hỏi môn nlp có mấy tín chỉ ạ?
+Môn học gồm mấy phần?
+Cho mình hỏi môn học gồm mấy phần ạ?
+Môn nlp mô tả như thế nào?
+Cho mình hỏi môn nlp mô tả như thế nào ạ?
+Midterm có thời lượng bao nhiêu phút?
+Cho mình hỏi midterm có thời lượng bao nhiêu phút ạ?
+Khi nào tụi mình thi final?
+Cho mình hỏi khi nào tụi mình thi final ạ?
+Điểm là gì?
+Cho mình hỏi điểm là gì ạ?
+Giáo viên môn xử lý ngôn ngữ tự nhiên là ai?
+Cho mình hỏi giáo viên môn xử lý ngôn ngữ tự nhiên là ai ạ?
+Tuần 1 học nội dung gì?
+Cho mình hỏi tuần 1 học nội dung gì ạ?
+Chương 1 nằm ở tuần nào?
+Cho mình hỏi chương 1 nằm ở tuần nào ạ?
+Phần cfg và cfg được học vào tuần nào?
+Cho mình hỏi phần cfg và cfg được học vào tuần nào ạ?
+Cfg thuộc chương nào?
+Cho mình hỏi cfg thuộc chương nào ạ?
+Chương 1 có nội dung gì?
+Cho mình hỏi chương 1 có nội dung gì ạ?
+Chương 1 có văn phạm phi ngữ cảnh không?
+Cho mình hỏi chương 1 có văn phạm phi ngữ cảnh không ạ?
+Lo1 liên quan đến nội dung nào?
+Cho mình hỏi lo1 liên quan đến nội dung nào ạ?
+Btl yêu cầu những gì?
+Cho mình hỏi btl yêu cầu những gì ạ?
+Phần i của bài tập lớn là gì?
+Cho mình hỏi phần i của bài tập lớn là gì ạ?
+Btl có phần parser không?
+Cho mình hỏi btl có phần parser không ạ?
+Phần i xuất những file nào?
+Cho mình hỏi phần i xuất những file nào ạ?
+Deadline btl khi nào?
+Cho mình hỏi deadline btl khi nào ạ?
+Tài liệu tham khảo về python nlp là gì?
+Cho mình hỏi tài liệu tham khảo về python nlp là gì ạ?
+Quy định về rag là gì?
+Cho mình hỏi quy định về rag là gì ạ?
+Nó có văn phạm phi ngữ cảnh không?
+Cho mình hỏi nó có văn phạm phi ngữ cảnh không ạ?
+Phần này xuất những file nào?
+Cho mình hỏi phần này xuất những file nào ạ?
+Tài liệu của chương này gồm những gì?
+Cho mình hỏi tài liệu của chương này gồm những gì ạ?
+Môn nlp có số tín chỉ là bao nhiêu?
+Cho mình hỏi môn nlp có số tín chỉ là bao nhiêu ạ?
+Môn nlp gồm những phần nào?
+Cho mình hỏi môn nlp gồm những phần nào ạ?
+Môn co3085 học về gì?
+Cho mình hỏi môn co3085 học về gì ạ?
+Giữa kỳ bao nhiêu phút?
+Cho mình hỏi giữa kỳ bao nhiêu phút ạ?
+Khi nào tụi mình thi cuối kỳ?
+Cho mình hỏi khi nào tụi mình thi cuối kỳ ạ?
+Đánh giá được tính như thế nào?
+Cho mình hỏi đánh giá được tính như thế nào ạ?
+Giáo viên môn natural language processing là ai?
+Cho mình hỏi giáo viên môn natural language processing là ai ạ?
+Tuần 1 học những nội dung gì?
+Cho mình hỏi tuần 1 học những nội dung gì ạ?
+Chương 01 học vào tuần nào?
+Cho mình hỏi chương 01 học vào tuần nào ạ?
+Phần cfg và context-free grammar nằm ở tuần nào?
+Cho mình hỏi phần cfg và context-free grammar nằm ở tuần nào ạ?
+Context-free grammar được học ở đâu?
+Cho mình hỏi context-free grammar được học ở đâu ạ?
+Chương 1 có những phương pháp gì?
+Cho mình hỏi chương 1 có những phương pháp gì ạ?
+Chương 1 có pcfg không?
+Cho mình hỏi chương 1 có pcfg không ạ?
+Lo1 liên quan đến gì?
+Cho mình hỏi lo1 liên quan đến gì ạ?
+Btl có những yêu cầu gì?
+Cho mình hỏi btl có những yêu cầu gì ạ?
+Phần i của đồ án là gì?
+Cho mình hỏi phần i của đồ án là gì ạ?
+Btl có phần ngữ cảnh không?
+Cho mình hỏi btl có phần ngữ cảnh không ạ?
+Phần ii cần xuất file gì?
+Cho mình hỏi phần ii cần xuất file gì ạ?
+Deadline btl01?
+Cho mình hỏi deadline btl01 ạ?
+Tài liệu tham khảo về nlp với python là gì?
+Cho mình hỏi tài liệu tham khảo về nlp với python là gì ạ?
+Quy định về công cụ ai là gì?
+Cho mình hỏi quy định về công cụ ai là gì ạ?
+Nó có pcfg không?
+Cho mình hỏi nó có pcfg không ạ?
+Tài liệu của phần này là gì?
+Cho mình hỏi tài liệu của phần này là gì ạ?
+Môn co3085 có bao nhiêu tín chỉ?
+Cho mình hỏi môn co3085 có bao nhiêu tín chỉ ạ?
+Môn nlp có những phần nào?
+Cho mình hỏi môn nlp có những phần nào ạ?
+Môn co3085 có nội dung gì?
+Cho mình hỏi môn co3085 có nội dung gì ạ?
+Giữa kỳ kéo dài bao lâu?
+Cho mình hỏi giữa kỳ kéo dài bao lâu ạ?
+Khi nào thi midterm?
+Cho mình hỏi khi nào thi midterm ạ?
+Đánh giá gồm những thành phần nào?
+Cho mình hỏi đánh giá gồm những thành phần nào ạ?
+Giáo viên nlp là ai?
+Cho mình hỏi giáo viên nlp là ai ạ?
+Tuần 1 có nội dung gì?
+Cho mình hỏi tuần 1 có nội dung gì ạ?
+Chương 01 được học ở tuần nào?
+Cho mình hỏi chương 01 được học ở tuần nào ạ?
+Phần cfg và context-free grammar học ở tuần nào?
+Cho mình hỏi phần cfg và context-free grammar học ở tuần nào ạ?
+Context-free grammar nằm ở chương nào?
+Cho mình hỏi context-free grammar nằm ở chương nào ạ?
+Chương 1 trình bày gì?
+Cho mình hỏi chương 1 trình bày gì ạ?
+Chương 1 có probabilistic context-free grammar không?
+Cho mình hỏi chương 1 có probabilistic context-free grammar không ạ?
+Lo2 là gì?
+Cho mình hỏi lo2 là gì ạ?
+Btl là gì?
+Cho mình hỏi btl là gì ạ?
+Phần ii của btl là gì?
+Cho mình hỏi phần ii của btl là gì ạ?
+Btl có phần đánh giá không?
+Cho mình hỏi btl có phần đánh giá không ạ?
+Phần ii có output gì?
+Cho mình hỏi phần ii có output gì ạ?
+Deadline btl01 là khi nào?
+Cho mình hỏi deadline btl01 là khi nào ạ?
+Tài liệu tham khảo về cfg là gì?
+Cho mình hỏi tài liệu tham khảo về cfg là gì ạ?
+Quy định về ai là gì?
+Cho mình hỏi quy định về ai là gì ạ?
+Nó có probabilistic context-free grammar không?
+Cho mình hỏi nó có probabilistic context-free grammar không ạ?
+Tài liệu của phần này ở đâu?
+Cho mình hỏi tài liệu của phần này ở đâu ạ?
+Môn co3085 có mấy tín chỉ?
+Cho mình hỏi môn co3085 có mấy tín chỉ ạ?
+Môn nlp gồm mấy phần?
+Cho mình hỏi môn nlp gồm mấy phần ạ?
+Môn co3085 mô tả như thế nào?
+Cho mình hỏi môn co3085 mô tả như thế nào ạ?
+Giữa kỳ có thời lượng bao nhiêu phút?
+Cho mình hỏi giữa kỳ có thời lượng bao nhiêu phút ạ?
+Khi nào thi giữa kỳ?
+Cho mình hỏi khi nào thi giữa kỳ ạ?
+Đánh giá là gì?
+Cho mình hỏi đánh giá là gì ạ?
+Giáo viên co3085 là ai?
+Cho mình hỏi giáo viên co3085 là ai ạ?
+Tuần 1 học chương nào?
+Cho mình hỏi tuần 1 học chương nào ạ?
+Chương 01 nằm ở tuần nào?
+Cho mình hỏi chương 01 nằm ở tuần nào ạ?
+Phần cfg và context-free grammar được học vào tuần nào?
+Cho mình hỏi phần cfg và context-free grammar được học vào tuần nào ạ?
+Context-free grammar thuộc chương nào?
+Cho mình hỏi context-free grammar thuộc chương nào ạ?
+Chương 01 nói về gì?
+Cho mình hỏi chương 01 nói về gì ạ?
+Chương 1 có dependency grammar không?
+Cho mình hỏi chương 1 có dependency grammar không ạ?
+Lo2 học về gì?
+Cho mình hỏi lo2 học về gì ạ?
+Btl có nội dung gì?
+Cho mình hỏi btl có nội dung gì ạ?
+Phần ii của btl01 là gì?
+Cho mình hỏi phần ii của btl01 là gì ạ?
+Btl01 có phần hỏi đáp không?
+Cho mình hỏi btl01 có phần hỏi đáp không ạ?
+Phần ii xuất những file nào?
+Cho mình hỏi phần ii xuất những file nào ạ?
+Deadline btl01 khi nào?
+Cho mình hỏi deadline btl01 khi nào ạ?
+Tài liệu tham khảo về parsing là gì?
+Cho mình hỏi tài liệu tham khảo về parsing là gì ạ?
+Quy định về sử dụng ai là gì?
+Cho mình hỏi quy định về sử dụng ai là gì ạ?
+Nó có dependency grammar không?
+Cho mình hỏi nó có dependency grammar không ạ?
+Tài liệu của phần này gồm những gì?
+Cho mình hỏi tài liệu của phần này gồm những gì ạ?
+Môn co3085 có số tín chỉ là bao nhiêu?
+Cho mình hỏi môn co3085 có số tín chỉ là bao nhiêu ạ?
+Môn co3085 gồm những phần nào?
+Cho mình hỏi môn co3085 gồm những phần nào ạ?
+Môn xử lý ngôn ngữ tự nhiên học về gì?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên học về gì ạ?
+Final bao nhiêu phút?
+Cho mình hỏi final bao nhiêu phút ạ?
+Khi nào thi final?
+Cho mình hỏi khi nào thi final ạ?
+Cách tính điểm được tính như thế nào?
+Cho mình hỏi cách tính điểm được tính như thế nào ạ?
+Giáo viên xử lý ngôn ngữ tự nhiên là ai?
+Cho mình hỏi giáo viên xử lý ngôn ngữ tự nhiên là ai ạ?
+Tuần 01 học gì?
+Cho mình hỏi tuần 01 học gì ạ?
+Chương 2 học vào tuần nào?
+Cho mình hỏi chương 2 học vào tuần nào ạ?
+Phần cfg và văn phạm phi ngữ cảnh nằm ở tuần nào?
+Cho mình hỏi phần cfg và văn phạm phi ngữ cảnh nằm ở tuần nào ạ?
+Văn phạm phi ngữ cảnh được học ở đâu?
+Cho mình hỏi văn phạm phi ngữ cảnh được học ở đâu ạ?
+Chương 01 học về gì?
+Cho mình hỏi chương 01 học về gì ạ?
+Chương 1 có văn phạm phụ thuộc không?
+Cho mình hỏi chương 1 có văn phạm phụ thuộc không ạ?
+Lo2 liên quan đến nội dung nào?
+Cho mình hỏi lo2 liên quan đến nội dung nào ạ?
+Btl01 yêu cầu xây dựng những gì?
+Cho mình hỏi btl01 yêu cầu xây dựng những gì ạ?
+Phần ii của bài tập lớn là gì?
+Cho mình hỏi phần ii của bài tập lớn là gì ạ?
+Btl01 có phần semantic không?
+Cho mình hỏi btl01 có phần semantic không ạ?
+Phần iii cần xuất file gì?
+Cho mình hỏi phần iii cần xuất file gì ạ?
+Deadline bài tập lớn?
+Cho mình hỏi deadline bài tập lớn ạ?
+Tài liệu tham khảo về ngữ nghĩa là gì?
+Cho mình hỏi tài liệu tham khảo về ngữ nghĩa là gì ạ?
+Quy định về thư viện ngoài là gì?
+Cho mình hỏi quy định về thư viện ngoài là gì ạ?
+Nó có văn phạm phụ thuộc không?
+Cho mình hỏi nó có văn phạm phụ thuộc không ạ?
+Tài liệu của nội dung này là gì?
+Cho mình hỏi tài liệu của nội dung này là gì ạ?
+Môn xử lý ngôn ngữ tự nhiên có bao nhiêu tín chỉ?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên có bao nhiêu tín chỉ ạ?
+Môn co3085 có những phần nào?
+Cho mình hỏi môn co3085 có những phần nào ạ?
+Môn xử lý ngôn ngữ tự nhiên có nội dung gì?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên có nội dung gì ạ?
+Final kéo dài bao lâu?
+Cho mình hỏi final kéo dài bao lâu ạ?
+Khi nào thi cuối kỳ?
+Cho mình hỏi khi nào thi cuối kỳ ạ?
+Cách tính điểm gồm những thành phần nào?
+Cho mình hỏi cách tính điểm gồm những thành phần nào ạ?
+Giáo viên natural language processing là ai?
+Cho mình hỏi giáo viên natural language processing là ai ạ?
+Tuần 01 học những gì?
+Cho mình hỏi tuần 01 học những gì ạ?
+Chương 2 được học ở tuần nào?
+Cho mình hỏi chương 2 được học ở tuần nào ạ?
+Phần cfg và văn phạm phi ngữ cảnh học ở tuần nào?
+Cho mình hỏi phần cfg và văn phạm phi ngữ cảnh học ở tuần nào ạ?
+Văn phạm phi ngữ cảnh nằm ở chương nào?
+Cho mình hỏi văn phạm phi ngữ cảnh nằm ở chương nào ạ?
+Chương 01 có nội dung gì?
+Cho mình hỏi chương 01 có nội dung gì ạ?
+Chương 1 có features không?
+Cho mình hỏi chương 1 có features không ạ?
+Lo2 liên quan đến gì?
+Cho mình hỏi lo2 liên quan đến gì ạ?
+Btl01 yêu cầu những gì?
+Cho mình hỏi btl01 yêu cầu những gì ạ?
+Phần ii của đồ án là gì?
+Cho mình hỏi phần ii của đồ án là gì ạ?
+Btl01 có phần parser không?
+Cho mình hỏi btl01 có phần parser không ạ?
+Phần iii có output gì?
+Cho mình hỏi phần iii có output gì ạ?
+Deadline bài tập lớn là khi nào?
+Cho mình hỏi deadline bài tập lớn là khi nào ạ?
+Tài liệu tham khảo về semantic là gì?
+Cho mình hỏi tài liệu tham khảo về semantic là gì ạ?
+Quy định về mã nguồn là gì?
+Cho mình hỏi quy định về mã nguồn là gì ạ?
+Nó có features không?
+Cho mình hỏi nó có features không ạ?
+Tài liệu của nội dung này ở đâu?
+Cho mình hỏi tài liệu của nội dung này ở đâu ạ?
+Môn xử lý ngôn ngữ tự nhiên có mấy tín chỉ?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên có mấy tín chỉ ạ?
+Môn co3085 gồm mấy phần?
+Cho mình hỏi môn co3085 gồm mấy phần ạ?
+Môn xử lý ngôn ngữ tự nhiên mô tả như thế nào?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên mô tả như thế nào ạ?
+Final có thời lượng bao nhiêu phút?
+Cho mình hỏi final có thời lượng bao nhiêu phút ạ?
+Midterm thi khi nào?
+Cho mình hỏi midterm thi khi nào ạ?
+Cách tính điểm là gì?
+Cho mình hỏi cách tính điểm là gì ạ?
+Giảng viên môn nlp là ai?
+Cho mình hỏi giảng viên môn nlp là ai ạ?
+Tuần 01 học nội dung gì?
+Cho mình hỏi tuần 01 học nội dung gì ạ?
+Chương 2 nằm ở tuần nào?
+Cho mình hỏi chương 2 nằm ở tuần nào ạ?
+Phần cfg và văn phạm phi ngữ cảnh được học vào tuần nào?
+Cho mình hỏi phần cfg và văn phạm phi ngữ cảnh được học vào tuần nào ạ?
+Văn phạm phi ngữ cảnh thuộc chương nào?
+Cho mình hỏi văn phạm phi ngữ cảnh thuộc chương nào ạ?
+Chương 01 có những phương pháp gì?
+Cho mình hỏi chương 01 có những phương pháp gì ạ?
+Chương 1 có nét không?
+Cho mình hỏi chương 1 có nét không ạ?
+Lo3 là gì?
+Cho mình hỏi lo3 là gì ạ?
+Btl01 có những yêu cầu gì?
+Cho mình hỏi btl01 có những yêu cầu gì ạ?
+Phần iii của btl là gì?
+Cho mình hỏi phần iii của btl là gì ạ?
+Btl01 có phần ngữ cảnh không?
+Cho mình hỏi btl01 có phần ngữ cảnh không ạ?
+Phần iii xuất những file nào?
+Cho mình hỏi phần iii xuất những file nào ạ?
+Deadline bài tập lớn khi nào?
+Cho mình hỏi deadline bài tập lớn khi nào ạ?
+Tài liệu tham khảo về tri thức thế giới là gì?
+Cho mình hỏi tài liệu tham khảo về tri thức thế giới là gì ạ?
+Quy định về source code là gì?
+Cho mình hỏi quy định về source code là gì ạ?
+Nó có nét không?
+Cho mình hỏi nó có nét không ạ?
+Tài liệu của nội dung này gồm những gì?
+Cho mình hỏi tài liệu của nội dung này gồm những gì ạ?
+Môn xử lý ngôn ngữ tự nhiên có số tín chỉ là bao nhiêu?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên có số tín chỉ là bao nhiêu ạ?
+Môn xử lý ngôn ngữ tự nhiên gồm những phần nào?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên gồm những phần nào ạ?
+Môn natural language processing học về gì?
+Cho mình hỏi môn natural language processing học về gì ạ?
+Cuối kỳ bao nhiêu phút?
+Cho mình hỏi cuối kỳ bao nhiêu phút ạ?
+Giữa kỳ thi khi nào?
+Cho mình hỏi giữa kỳ thi khi nào ạ?
+Giảng viên môn co3085 là ai?
+Cho mình hỏi giảng viên môn co3085 là ai ạ?
+Tuần 01 học những nội dung gì?
+Cho mình hỏi tuần 01 học những nội dung gì ạ?
+Chương 02 học vào tuần nào?
+Cho mình hỏi chương 02 học vào tuần nào ạ?
+Phần cfg và pcfg nằm ở tuần nào?
+Cho mình hỏi phần cfg và pcfg nằm ở tuần nào ạ?
+Pcfg được học ở đâu?
+Cho mình hỏi pcfg được học ở đâu ạ?
+Chương 01 trình bày gì?
+Cho mình hỏi chương 01 trình bày gì ạ?
+Chương 1 có augmented grammar không?
+Cho mình hỏi chương 1 có augmented grammar không ạ?
+Lo3 học về gì?
+Cho mình hỏi lo3 học về gì ạ?
+Btl01 là gì?
+Cho mình hỏi btl01 là gì ạ?
+Phần iii của btl01 là gì?
+Cho mình hỏi phần iii của btl01 là gì ạ?
+Btl01 có phần đánh giá không?
+Cho mình hỏi btl01 có phần đánh giá không ạ?
+Phần iv cần xuất file gì?
+Cho mình hỏi phần iv cần xuất file gì ạ?
+Deadline đồ án?
+Cho mình hỏi deadline đồ án ạ?
+Tài liệu tham khảo về world knowledge là gì?
+Cho mình hỏi tài liệu tham khảo về world knowledge là gì ạ?
+Quy định về liêm chính học thuật là gì?
+Cho mình hỏi quy định về liêm chính học thuật là gì ạ?
+Nó có augmented grammar không?
+Cho mình hỏi nó có augmented grammar không ạ?
+Môn natural language processing có bao nhiêu tín chỉ?
+Cho mình hỏi môn natural language processing có bao nhiêu tín chỉ ạ?
+Môn xử lý ngôn ngữ tự nhiên có những phần nào?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên có những phần nào ạ?
+Môn natural language processing có nội dung gì?
+Cho mình hỏi môn natural language processing có nội dung gì ạ?
+Cuối kỳ kéo dài bao lâu?
+Cho mình hỏi cuối kỳ kéo dài bao lâu ạ?
+Final thi khi nào?
+Cho mình hỏi final thi khi nào ạ?
+Giảng viên môn xử lý ngôn ngữ tự nhiên là ai?
+Cho mình hỏi giảng viên môn xử lý ngôn ngữ tự nhiên là ai ạ?
+Tuần 01 có nội dung gì?
+Cho mình hỏi tuần 01 có nội dung gì ạ?
+Chương 02 được học ở tuần nào?
+Cho mình hỏi chương 02 được học ở tuần nào ạ?
+Phần cfg và pcfg học ở tuần nào?
+Cho mình hỏi phần cfg và pcfg học ở tuần nào ạ?
+Pcfg nằm ở chương nào?
+Cho mình hỏi pcfg nằm ở chương nào ạ?
+Chương 2 nói về gì?
+Cho mình hỏi chương 2 nói về gì ạ?
+Chương 1 có văn phạm gia tố không?
+Cho mình hỏi chương 1 có văn phạm gia tố không ạ?
+Lo3 liên quan đến nội dung nào?
+Cho mình hỏi lo3 liên quan đến nội dung nào ạ?
+Btl01 có nội dung gì?
+Cho mình hỏi btl01 có nội dung gì ạ?
+Phần iii của bài tập lớn là gì?
+Cho mình hỏi phần iii của bài tập lớn là gì ạ?
+Bài tập lớn có phần hỏi đáp không?
+Cho mình hỏi bài tập lớn có phần hỏi đáp không ạ?
+Phần iv có output gì?
+Cho mình hỏi phần iv có output gì ạ?
+Deadline đồ án là khi nào?
+Cho mình hỏi deadline đồ án là khi nào ạ?
+Tài liệu tham khảo về machine translation là gì?
+Cho mình hỏi tài liệu tham khảo về machine translation là gì ạ?
+Có được chia sẻ bài làm không?
+Cho mình hỏi có được chia sẻ bài làm không ạ?
+Nó có văn phạm gia tố không?
+Cho mình hỏi nó có văn phạm gia tố không ạ?
+Môn natural language processing có mấy tín chỉ?
+Cho mình hỏi môn natural language processing có mấy tín chỉ ạ?
+Môn xử lý ngôn ngữ tự nhiên gồm mấy phần?
+Cho mình hỏi môn xử lý ngôn ngữ tự nhiên gồm mấy phần ạ?
+Môn natural language processing mô tả như thế nào?
+Cho mình hỏi môn natural language processing mô tả như thế nào ạ?
+Cuối kỳ có thời lượng bao nhiêu phút?
+Cho mình hỏi cuối kỳ có thời lượng bao nhiêu phút ạ?
+Cuối kỳ thi khi nào?
+Cho mình hỏi cuối kỳ thi khi nào ạ?
+Giảng viên môn natural language processing là ai?
+Cho mình hỏi giảng viên môn natural language processing là ai ạ?
+Tuần 01 học chương nào?
+Cho mình hỏi tuần 01 học chương nào ạ?
+Chương 02 nằm ở tuần nào?
+Cho mình hỏi chương 02 nằm ở tuần nào ạ?
+Phần cfg và pcfg được học vào tuần nào?
+Cho mình hỏi phần cfg và pcfg được học vào tuần nào ạ?
+Pcfg thuộc chương nào?
+Cho mình hỏi pcfg thuộc chương nào ạ?
+Chương 2 học về gì?
+Cho mình hỏi chương 2 học về gì ạ?
+Chương 1 có unification không?
+Cho mình hỏi chương 1 có unification không ạ?
+Lo3 liên quan đến gì?
+Cho mình hỏi lo3 liên quan đến gì ạ?
+Bài tập lớn yêu cầu xây dựng những gì?
+Cho mình hỏi bài tập lớn yêu cầu xây dựng những gì ạ?
+Phần iii của đồ án là gì?
+Cho mình hỏi phần iii của đồ án là gì ạ?
+Bài tập lớn có phần semantic không?
+Cho mình hỏi bài tập lớn có phần semantic không ạ?
+Phần iv xuất những file nào?
+Cho mình hỏi phần iv xuất những file nào ạ?
+Deadline đồ án khi nào?
+Cho mình hỏi deadline đồ án khi nào ạ?
+Tài liệu nào nói về statistical nlp?
+Cho mình hỏi tài liệu nào nói về statistical nlp ạ?
+Llm/rag được quy định như thế nào?
+Cho mình hỏi llm/rag được quy định như thế nào ạ?
+Nó có unification không?
+Cho mình hỏi nó có unification không ạ?
+Môn natural language processing có số tín chỉ là bao nhiêu?
+Cho mình hỏi môn natural language processing có số tín chỉ là bao nhiêu ạ?
+Môn natural language processing gồm những phần nào?
+Cho mình hỏi môn natural language processing gồm những phần nào ạ?
+Nlp học về gì?
+Cho mình hỏi nlp học về gì ạ?
+Giảng viên nlp là ai?
+Cho mình hỏi giảng viên nlp là ai ạ?
+Tuần 2 học gì?
+Cho mình hỏi tuần 2 học gì ạ?
+Chương 3 học vào tuần nào?
+Cho mình hỏi chương 3 học vào tuần nào ạ?
+Phần cfg và probabilistic context-free grammar nằm ở tuần nào?
+Cho mình hỏi phần cfg và probabilistic context-free grammar nằm ở tuần nào ạ?
+Probabilistic context-free grammar được học ở đâu?
+Cho mình hỏi probabilistic context-free grammar được học ở đâu ạ?
+Chương 2 có nội dung gì?
+Cho mình hỏi chương 2 có nội dung gì ạ?
+Chương 1 có hợp nhất không?
+Cho mình hỏi chương 1 có hợp nhất không ạ?
+Lo4 là gì?
+Cho mình hỏi lo4 là gì ạ?
+Bài tập lớn yêu cầu những gì?
+Cho mình hỏi bài tập lớn yêu cầu những gì ạ?
+Phần iv của btl là gì?
+Cho mình hỏi phần iv của btl là gì ạ?
+Bài tập lớn có phần parser không?
+Cho mình hỏi bài tập lớn có phần parser không ạ?
+Deadline của btl?
+Cho mình hỏi deadline của btl ạ?
+Tài liệu nào nói về nlp thống kê?
+Cho mình hỏi tài liệu nào nói về nlp thống kê ạ?
+Llm/rag là gì?
+Cho mình hỏi llm/rag là gì ạ?
+Nó có hợp nhất không?
+Cho mình hỏi nó có hợp nhất không ạ?
+Nlp có bao nhiêu tín chỉ?
+Cho mình hỏi nlp có bao nhiêu tín chỉ ạ?
+Môn natural language processing có những phần nào?
+Cho mình hỏi môn natural language processing có những phần nào ạ?
+Nlp có nội dung gì?
+Cho mình hỏi nlp có nội dung gì ạ?
+Giảng viên co3085 là ai?
+Cho mình hỏi giảng viên co3085 là ai ạ?
+Tuần 2 học những gì?
+Cho mình hỏi tuần 2 học những gì ạ?
+Chương 3 được học ở tuần nào?
+Cho mình hỏi chương 3 được học ở tuần nào ạ?
+Phần cfg và probabilistic context-free grammar học ở tuần nào?
+Cho mình hỏi phần cfg và probabilistic context-free grammar học ở tuần nào ạ?
+Probabilistic context-free grammar nằm ở chương nào?
+Cho mình hỏi probabilistic context-free grammar nằm ở chương nào ạ?
+Chương 2 có những phương pháp gì?
+Cho mình hỏi chương 2 có những phương pháp gì ạ?
+Chương 1 có pos tagging không?
+Cho mình hỏi chương 1 có pos tagging không ạ?
+Lo4 học về gì?
+Cho mình hỏi lo4 học về gì ạ?
+Bài tập lớn có những yêu cầu gì?
+Cho mình hỏi bài tập lớn có những yêu cầu gì ạ?
+Phần iv của btl01 là gì?
+Cho mình hỏi phần iv của btl01 là gì ạ?
+Bài tập lớn có phần ngữ cảnh không?
+Cho mình hỏi bài tập lớn có phần ngữ cảnh không ạ?
+Deadline của btl là khi nào?
+Cho mình hỏi deadline của btl là khi nào ạ?
+Tài liệu nào nói về python nlp?
+Cho mình hỏi tài liệu nào nói về python nlp ạ?
+Llm/rag có được phép không?
+Cho mình hỏi llm/rag có được phép không ạ?
+Nó có pos tagging không?
+Cho mình hỏi nó có pos tagging không ạ?
+Nlp có mấy tín chỉ?
+Cho mình hỏi nlp có mấy tín chỉ ạ?
+Môn natural language processing gồm mấy phần?
+Cho mình hỏi môn natural language processing gồm mấy phần ạ?
+Nlp mô tả như thế nào?
+Cho mình hỏi nlp mô tả như thế nào ạ?
+Giảng viên xử lý ngôn ngữ tự nhiên là ai?
+Cho mình hỏi giảng viên xử lý ngôn ngữ tự nhiên là ai ạ?
+Tuần 2 học nội dung gì?
+Cho mình hỏi tuần 2 học nội dung gì ạ?
+Chương 3 nằm ở tuần nào?
+Cho mình hỏi chương 3 nằm ở tuần nào ạ?
+Phần cfg và probabilistic context-free grammar được học vào tuần nào?
+Cho mình hỏi phần cfg và probabilistic context-free grammar được học vào tuần nào ạ?
+Probabilistic context-free grammar thuộc chương nào?
+Cho mình hỏi probabilistic context-free grammar thuộc chương nào ạ?
+Chương 2 trình bày gì?
+Cho mình hỏi chương 2 trình bày gì ạ?
+Chương 1 có gán nhãn từ loại không?
+Cho mình hỏi chương 1 có gán nhãn từ loại không ạ?
+Lo4 liên quan đến nội dung nào?
+Cho mình hỏi lo4 liên quan đến nội dung nào ạ?
+Bài tập lớn là gì?
+Cho mình hỏi bài tập lớn là gì ạ?
+Phần iv của bài tập lớn là gì?
+Cho mình hỏi phần iv của bài tập lớn là gì ạ?
+Bài tập lớn có phần đánh giá không?
+Cho mình hỏi bài tập lớn có phần đánh giá không ạ?
+Deadline của btl khi nào?
+Cho mình hỏi deadline của btl khi nào ạ?
+Tài liệu nào nói về nlp với python?
+Cho mình hỏi tài liệu nào nói về nlp với python ạ?
+Llm được quy định như thế nào?
+Cho mình hỏi llm được quy định như thế nào ạ?
+Nó có gán nhãn từ loại không?
+Cho mình hỏi nó có gán nhãn từ loại không ạ?
+Nlp có số tín chỉ là bao nhiêu?
+Cho mình hỏi nlp có số tín chỉ là bao nhiêu ạ?
+Nlp gồm những phần nào?
+Cho mình hỏi nlp gồm những phần nào ạ?
+Co3085 học về gì?
+Cho mình hỏi co3085 học về gì ạ?
+Giảng viên natural language processing là ai?
+Cho mình hỏi giảng viên natural language processing là ai ạ?
+Tuần 2 học những nội dung gì?
+Cho mình hỏi tuần 2 học những nội dung gì ạ?
+Chương 03 học vào tuần nào?
+Cho mình hỏi chương 03 học vào tuần nào ạ?
+Phần cfg và dependency grammar nằm ở tuần nào?
+Cho mình hỏi phần cfg và dependency grammar nằm ở tuần nào ạ?
+Dependency grammar được học ở đâu?
+Cho mình hỏi dependency grammar được học ở đâu ạ?
+Chương 02 nói về gì?
+Cho mình hỏi chương 02 nói về gì ạ?
+Chương 1 có logical form không?
+Cho mình hỏi chương 1 có logical form không ạ?
+Lo4 liên quan đến gì?
+Cho mình hỏi lo4 liên quan đến gì ạ?
+Bài tập lớn có nội dung gì?
+Cho mình hỏi bài tập lớn có nội dung gì ạ?
+Phần iv của đồ án là gì?
+Cho mình hỏi phần iv của đồ án là gì ạ?
+Đồ án có phần hỏi đáp không?
+Cho mình hỏi đồ án có phần hỏi đáp không ạ?
+Deadline của btl01?
+Cho mình hỏi deadline của btl01 ạ?
+Tài liệu nào nói về cfg?
+Cho mình hỏi tài liệu nào nói về cfg ạ?
+Llm là gì?
+Cho mình hỏi llm là gì ạ?
+Nó có logical form không?
+Cho mình hỏi nó có logical form không ạ?
+Co3085 có bao nhiêu tín chỉ?
+Cho mình hỏi co3085 có bao nhiêu tín chỉ ạ?
+Nlp có những phần nào?
+Cho mình hỏi nlp có những phần nào ạ?
+Co3085 có nội dung gì?
+Cho mình hỏi co3085 có nội dung gì ạ?
+Ai dạy môn nlp?
+Cho mình hỏi ai dạy môn nlp ạ?
+Tuần 2 có nội dung gì?
+Cho mình hỏi tuần 2 có nội dung gì ạ?
+Chương 03 được học ở tuần nào?
+Cho mình hỏi chương 03 được học ở tuần nào ạ?
+Phần cfg và dependency grammar học ở tuần nào?
+Cho mình hỏi phần cfg và dependency grammar học ở tuần nào ạ?
+Dependency grammar nằm ở chương nào?
+Cho mình hỏi dependency grammar nằm ở chương nào ạ?
+Chương 02 học về gì?
+Cho mình hỏi chương 02 học về gì ạ?
+Chương 1 có dạng luận lý không?
+Cho mình hỏi chương 1 có dạng luận lý không ạ?
+Lo1.1 là gì?
+Cho mình hỏi lo1.1 là gì ạ?
+Đồ án yêu cầu xây dựng những gì?
+Cho mình hỏi đồ án yêu cầu xây dựng những gì ạ?
+Btl gồm phần i là gì?
+Cho mình hỏi btl gồm phần i là gì ạ?
+Đồ án có phần semantic không?
+Cho mình hỏi đồ án có phần semantic không ạ?
+Deadline của btl01 là khi nào?
+Cho mình hỏi deadline của btl01 là khi nào ạ?
+Tài liệu nào nói về parsing?
+Cho mình hỏi tài liệu nào nói về parsing ạ?
+Llm có được phép không?
+Cho mình hỏi llm có được phép không ạ?
+Nó có dạng luận lý không?
+Cho mình hỏi nó có dạng luận lý không ạ?
+Co3085 có mấy tín chỉ?
+Cho mình hỏi co3085 có mấy tín chỉ ạ?
+Nlp gồm mấy phần?
+Cho mình hỏi nlp gồm mấy phần ạ?
+Co3085 mô tả như thế nào?
+Cho mình hỏi co3085 mô tả như thế nào ạ?
+Ai dạy môn co3085?
+Cho mình hỏi ai dạy môn co3085 ạ?
+Tuần 2 học chương nào?
+Cho mình hỏi tuần 2 học chương nào ạ?
+Chương 03 nằm ở tuần nào?
+Cho mình hỏi chương 03 nằm ở tuần nào ạ?
+Phần cfg và dependency grammar được học vào tuần nào?
+Cho mình hỏi phần cfg và dependency grammar được học vào tuần nào ạ?
+Dependency grammar thuộc chương nào?
+Cho mình hỏi dependency grammar thuộc chương nào ạ?
+Chương 02 có nội dung gì?
+Cho mình hỏi chương 02 có nội dung gì ạ?
+Chương 1 có thematic roles không?
+Cho mình hỏi chương 1 có thematic roles không ạ?
+Lo1.1 học về gì?
+Cho mình hỏi lo1.1 học về gì ạ?
+Đồ án yêu cầu những gì?
+Cho mình hỏi đồ án yêu cầu những gì ạ?
+Btl gồm phần ii là gì?
+Cho mình hỏi btl gồm phần ii là gì ạ?
+Đồ án có phần parser không?
+Cho mình hỏi đồ án có phần parser không ạ?
+Deadline của btl01 khi nào?
+Cho mình hỏi deadline của btl01 khi nào ạ?
+Tài liệu nào nói về ngữ nghĩa?
+Cho mình hỏi tài liệu nào nói về ngữ nghĩa ạ?
+Rag được quy định như thế nào?
+Cho mình hỏi rag được quy định như thế nào ạ?
+Nó có thematic roles không?
+Cho mình hỏi nó có thematic roles không ạ?
+Co3085 có số tín chỉ là bao nhiêu?
+Cho mình hỏi co3085 có số tín chỉ là bao nhiêu ạ?
+Co3085 gồm những phần nào?
+Cho mình hỏi co3085 gồm những phần nào ạ?
+Xử lý ngôn ngữ tự nhiên học về gì?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên học về gì ạ?
+Ai dạy môn xử lý ngôn ngữ tự nhiên?
+Cho mình hỏi ai dạy môn xử lý ngôn ngữ tự nhiên ạ?
+Tuần 02 học gì?
+Cho mình hỏi tuần 02 học gì ạ?
+Chương 4 học vào tuần nào?
+Cho mình hỏi chương 4 học vào tuần nào ạ?
+Phần cfg và văn phạm phụ thuộc nằm ở tuần nào?
+Cho mình hỏi phần cfg và văn phạm phụ thuộc nằm ở tuần nào ạ?
+Văn phạm phụ thuộc được học ở đâu?
+Cho mình hỏi văn phạm phụ thuộc được học ở đâu ạ?
+Chương 02 có những phương pháp gì?
+Cho mình hỏi chương 02 có những phương pháp gì ạ?
+Chương 1 có vai trò chủ đề không?
+Cho mình hỏi chương 1 có vai trò chủ đề không ạ?
+Lo1.1 liên quan đến nội dung nào?
+Cho mình hỏi lo1.1 liên quan đến nội dung nào ạ?
+Đồ án có những yêu cầu gì?
+Cho mình hỏi đồ án có những yêu cầu gì ạ?
+Btl gồm phần iii là gì?
+Cho mình hỏi btl gồm phần iii là gì ạ?
+Đồ án có phần ngữ cảnh không?
+Cho mình hỏi đồ án có phần ngữ cảnh không ạ?
+Deadline của bài tập lớn?
+Cho mình hỏi deadline của bài tập lớn ạ?
+Tài liệu nào nói về semantic?
+Cho mình hỏi tài liệu nào nói về semantic ạ?
+Rag là gì?
+Cho mình hỏi rag là gì ạ?
+Nó có vai trò chủ đề không?
+Cho mình hỏi nó có vai trò chủ đề không ạ?
+Xử lý ngôn ngữ tự nhiên có bao nhiêu tín chỉ?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên có bao nhiêu tín chỉ ạ?
+Co3085 có những phần nào?
+Cho mình hỏi co3085 có những phần nào ạ?
+Xử lý ngôn ngữ tự nhiên có nội dung gì?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên có nội dung gì ạ?
+Ai dạy môn natural language processing?
+Cho mình hỏi ai dạy môn natural language processing ạ?
+Tuần 02 học những gì?
+Cho mình hỏi tuần 02 học những gì ạ?
+Chương 4 được học ở tuần nào?
+Cho mình hỏi chương 4 được học ở tuần nào ạ?
+Phần cfg và văn phạm phụ thuộc học ở tuần nào?
+Cho mình hỏi phần cfg và văn phạm phụ thuộc học ở tuần nào ạ?
+Văn phạm phụ thuộc nằm ở chương nào?
+Cho mình hỏi văn phạm phụ thuộc nằm ở chương nào ạ?
+Chương 02 trình bày gì?
+Cho mình hỏi chương 02 trình bày gì ạ?
+Chương 1 có selectional restriction không?
+Cho mình hỏi chương 1 có selectional restriction không ạ?
+Lo1.1 liên quan đến gì?
+Cho mình hỏi lo1.1 liên quan đến gì ạ?
+Đồ án là gì?
+Cho mình hỏi đồ án là gì ạ?
+Btl gồm phần iv là gì?
+Cho mình hỏi btl gồm phần iv là gì ạ?
+Đồ án có phần đánh giá không?
+Cho mình hỏi đồ án có phần đánh giá không ạ?
+Deadline của bài tập lớn là khi nào?
+Cho mình hỏi deadline của bài tập lớn là khi nào ạ?
+Tài liệu nào nói về tri thức thế giới?
+Cho mình hỏi tài liệu nào nói về tri thức thế giới ạ?
+Rag có được phép không?
+Cho mình hỏi rag có được phép không ạ?
+Nó có selectional restriction không?
+Cho mình hỏi nó có selectional restriction không ạ?
+Xử lý ngôn ngữ tự nhiên có mấy tín chỉ?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên có mấy tín chỉ ạ?
+Co3085 gồm mấy phần?
+Cho mình hỏi co3085 gồm mấy phần ạ?
+Xử lý ngôn ngữ tự nhiên mô tả như thế nào?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên mô tả như thế nào ạ?
+Ai dạy nlp?
+Cho mình hỏi ai dạy nlp ạ?
+Tuần 02 học nội dung gì?
+Cho mình hỏi tuần 02 học nội dung gì ạ?
+Chương 4 nằm ở tuần nào?
+Cho mình hỏi chương 4 nằm ở tuần nào ạ?
+Phần cfg và văn phạm phụ thuộc được học vào tuần nào?
+Cho mình hỏi phần cfg và văn phạm phụ thuộc được học vào tuần nào ạ?
+Văn phạm phụ thuộc thuộc chương nào?
+Cho mình hỏi văn phạm phụ thuộc thuộc chương nào ạ?
+Chương 3 nói về gì?
+Cho mình hỏi chương 3 nói về gì ạ?
+Chương 1 có giới hạn lựa chọn không?
+Cho mình hỏi chương 1 có giới hạn lựa chọn không ạ?
+Lo2.1 là gì?
+Cho mình hỏi lo2.1 là gì ạ?
+Đồ án có nội dung gì?
+Cho mình hỏi đồ án có nội dung gì ạ?
+Btl có phần i không?
+Cho mình hỏi btl có phần i không ạ?
+Deadline của bài tập lớn khi nào?
+Cho mình hỏi deadline của bài tập lớn khi nào ạ?
+Tài liệu nào nói về world knowledge?
+Cho mình hỏi tài liệu nào nói về world knowledge ạ?
+Công cụ ai được quy định như thế nào?
+Cho mình hỏi công cụ ai được quy định như thế nào ạ?
+Nó có giới hạn lựa chọn không?
+Cho mình hỏi nó có giới hạn lựa chọn không ạ?
+Xử lý ngôn ngữ tự nhiên có số tín chỉ là bao nhiêu?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên có số tín chỉ là bao nhiêu ạ?
+Xử lý ngôn ngữ tự nhiên gồm những phần nào?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên gồm những phần nào ạ?
+Natural language processing học về gì?
+Cho mình hỏi natural language processing học về gì ạ?
+Ai dạy co3085?
+Cho mình hỏi ai dạy co3085 ạ?
+Tuần 02 học những nội dung gì?
+Cho mình hỏi tuần 02 học những nội dung gì ạ?
+Chương 04 học vào tuần nào?
+Cho mình hỏi chương 04 học vào tuần nào ạ?
+Phần cfg và features nằm ở tuần nào?
+Cho mình hỏi phần cfg và features nằm ở tuần nào ạ?
+Features được học ở đâu?
+Cho mình hỏi features được học ở đâu ạ?
+Chương 3 học về gì?
+Cho mình hỏi chương 3 học về gì ạ?
+Chương 1 có semantic network không?
+Cho mình hỏi chương 1 có semantic network không ạ?
+Lo2.1 học về gì?
+Cho mình hỏi lo2.1 học về gì ạ?
+Btl có phần ii không?
+Cho mình hỏi btl có phần ii không ạ?
+Deadline của đồ án?
+Cho mình hỏi deadline của đồ án ạ?
+Tài liệu nào nói về machine translation?
+Cho mình hỏi tài liệu nào nói về machine translation ạ?
+Công cụ ai là gì?
+Cho mình hỏi công cụ ai là gì ạ?
+Nó có semantic network không?
+Cho mình hỏi nó có semantic network không ạ?
+Natural language processing có bao nhiêu tín chỉ?
+Cho mình hỏi natural language processing có bao nhiêu tín chỉ ạ?
+Xử lý ngôn ngữ tự nhiên có những phần nào?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên có những phần nào ạ?
+Natural language processing có nội dung gì?
+Cho mình hỏi natural language processing có nội dung gì ạ?
+Ai dạy xử lý ngôn ngữ tự nhiên?
+Cho mình hỏi ai dạy xử lý ngôn ngữ tự nhiên ạ?
+Tuần 02 có nội dung gì?
+Cho mình hỏi tuần 02 có nội dung gì ạ?
+Chương 04 được học ở tuần nào?
+Cho mình hỏi chương 04 được học ở tuần nào ạ?
+Phần cfg và features học ở tuần nào?
+Cho mình hỏi phần cfg và features học ở tuần nào ạ?
+Features nằm ở chương nào?
+Cho mình hỏi features nằm ở chương nào ạ?
+Chương 3 có nội dung gì?
+Cho mình hỏi chương 3 có nội dung gì ạ?
+Chương 1 có mạng ngữ nghĩa không?
+Cho mình hỏi chương 1 có mạng ngữ nghĩa không ạ?
+Lo2.1 liên quan đến nội dung nào?
+Cho mình hỏi lo2.1 liên quan đến nội dung nào ạ?
+Btl có phần iii không?
+Cho mình hỏi btl có phần iii không ạ?
+Deadline của đồ án là khi nào?
+Cho mình hỏi deadline của đồ án là khi nào ạ?
+Tài liệu nào liên quan đến statistical nlp?
+Cho mình hỏi tài liệu nào liên quan đến statistical nlp ạ?
+Công cụ ai có được phép không?
+Cho mình hỏi công cụ ai có được phép không ạ?
+Nó có mạng ngữ nghĩa không?
+Cho mình hỏi nó có mạng ngữ nghĩa không ạ?
+Natural language processing có mấy tín chỉ?
+Cho mình hỏi natural language processing có mấy tín chỉ ạ?
+Xử lý ngôn ngữ tự nhiên gồm mấy phần?
+Cho mình hỏi xử lý ngôn ngữ tự nhiên gồm mấy phần ạ?
+Natural language processing mô tả như thế nào?
+Cho mình hỏi natural language processing mô tả như thế nào ạ?
+Ai dạy natural language processing?
+Cho mình hỏi ai dạy natural language processing ạ?
+Tuần 02 học chương nào?
+Cho mình hỏi tuần 02 học chương nào ạ?
+Chương 04 nằm ở tuần nào?
+Cho mình hỏi chương 04 nằm ở tuần nào ạ?
+Phần cfg và features được học vào tuần nào?
+Cho mình hỏi phần cfg và features được học vào tuần nào ạ?
+Features thuộc chương nào?
+Cho mình hỏi features thuộc chương nào ạ?
+Chương 3 có những phương pháp gì?
+Cho mình hỏi chương 3 có những phương pháp gì ạ?
+Chương 1 có wsd không?
+Cho mình hỏi chương 1 có wsd không ạ?
+Lo2.1 liên quan đến gì?
+Cho mình hỏi lo2.1 liên quan đến gì ạ?
+Btl có phần iv không?
+Cho mình hỏi btl có phần iv không ạ?
+Deadline của đồ án khi nào?
+Cho mình hỏi deadline của đồ án khi nào ạ?
+Tài liệu nào liên quan đến nlp thống kê?
+Cho mình hỏi tài liệu nào liên quan đến nlp thống kê ạ?
+Ai được quy định như thế nào?
+Cho mình hỏi ai được quy định như thế nào ạ?
+Nó có wsd không?
+Cho mình hỏi nó có wsd không ạ?
+Natural language processing có số tín chỉ là bao nhiêu?
+Cho mình hỏi natural language processing có số tín chỉ là bao nhiêu ạ?
+Natural language processing gồm những phần nào?
+Cho mình hỏi natural language processing gồm những phần nào ạ?
+Tuần 3 học gì?
+Cho mình hỏi tuần 3 học gì ạ?
+Chương 5 học vào tuần nào?
+Cho mình hỏi chương 5 học vào tuần nào ạ?
+Phần cfg và nét nằm ở tuần nào?
+Cho mình hỏi phần cfg và nét nằm ở tuần nào ạ?
+Nét được học ở đâu?
+Cho mình hỏi nét được học ở đâu ạ?
+Chương 3 trình bày gì?
+Cho mình hỏi chương 3 trình bày gì ạ?
+Chương 1 có word sense disambiguation không?
+Cho mình hỏi chương 1 có word sense disambiguation không ạ?
+Lo2.2 là gì?
+Cho mình hỏi lo2.2 là gì ạ?
+Btl01 gồm phần i là gì?
+Cho mình hỏi btl01 gồm phần i là gì ạ?
+Hạn nộp btl khi nào?
+Cho mình hỏi hạn nộp btl khi nào ạ?
+Tài liệu nào liên quan đến python nlp?
+Cho mình hỏi tài liệu nào liên quan đến python nlp ạ?
+Ai là gì?
+Cho mình hỏi ai là gì ạ?
+Nó có word sense disambiguation không?
+Cho mình hỏi nó có word sense disambiguation không ạ?
+Natural language processing có những phần nào?
+Cho mình hỏi natural language processing có những phần nào ạ?

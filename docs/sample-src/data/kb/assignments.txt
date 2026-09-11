@@ -1,0 +1,82 @@
+MAJOR ASSIGNMENT - COURSE ASSISTANT
+====================================
+
+Lưu ý:
+Các mốc dưới đây là DỮ LIỆU MẪU được thiết kế cho bài tập lớn Course
+Assistant. Đây không phải lịch nộp chính thức của học phần.
+
+assignment_id: BTL01
+title: Intelligent Course Assistant
+team_size: 3-4 students
+domain: Course information and learning support
+goal:
+Xây dựng hệ thống xử lý câu hỏi tự nhiên trong miền thông tin của một
+môn học. Hệ thống phải thể hiện pipeline NLP từ parsing đến semantic
+interpretation và question answering.
+
+PART I - Grammar and Parser
+---------------------------
+requirements:
+- xây dựng grammar cho miền Course Assistant
+- sinh câu hợp lệ từ grammar
+- xây dựng parser
+- xuất parse tree
+- xử lý câu không hợp lệ
+
+suggested_outputs:
+output/grammar.txt
+output/samples.txt
+output/parse-results.txt
+
+PART II - Semantic Interpretation and QA
+----------------------------------------
+minimum_requirements:
+- semantic representation
+- intent identification
+- entity extraction
+- query to knowledge base
+- answer generation
+- xử lý câu hỏi ngoài miền
+- xử lý trường hợp không tìm thấy thông tin
+
+suggested_intents:
+GET_COURSE_INFO
+GET_SCHEDULE
+GET_TOPIC
+GET_ASSIGNMENT
+GET_DEADLINE
+GET_RESOURCE
+GET_RULE
+GET_INSTRUCTOR
+UNKNOWN
+
+PART III - Local Discourse Context
+----------------------------------
+optional_or_extension:
+- xử lý một số hội thoại nhiều lượt
+- lưu discourse entities đơn giản
+- xử lý tham chiếu đại từ hoặc mô tả xác định
+- xử lý một số trường hợp ellipsis đơn giản
+
+PART IV - Evaluation
+--------------------
+requirements:
+- tạo test set
+- đo accuracy hoặc metric phù hợp
+- phân tích lỗi
+- trình bày các trường hợp hệ thống không trả lời đúng
+
+LLM/RAG EXTENSION
+-----------------
+status: optional
+description:
+Sinh viên có thể mở rộng bằng retrieval và/hoặc LLM. Phần này chỉ là
+mở rộng của NLP, không bắt buộc.
+
+not_required:
+- agent
+- multi-agent
+- fine-tuning LLM
+- huấn luyện language model
+- RAG pipeline quy mô lớn
+

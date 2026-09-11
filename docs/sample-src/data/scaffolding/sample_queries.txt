@@ -1,0 +1,57 @@
+SAMPLE EVALUATION QUERIES
+==========================
+
+Mỗi dòng gồm:
+ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY | EXPECTED_QUERY_STATUS | REQUIRED_ANSWER_TERMS (;; = tất cả phải xuất hiện)
+
+Q001 | Môn NLP có bao nhiêu tín chỉ? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ
+Q002 | CO3085 có mấy tín chỉ? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ
+Q003 | Môn học gồm những phần nào? | GET_COURSE_INFO | CO3085 | FOUND | ba phần chính
+Q004 | Tuần 3 học gì? | GET_SCHEDULE | WEEK_03 | FOUND | Tuần 3;;Chương 3
+Q005 | Chương 4 học vào tuần nào? | GET_SCHEDULE | CH04 | FOUND | tuần 4, 5
+Q006 | Chương nào nói về CFG? | GET_TOPIC | CFG | FOUND | Chương 3
+Q007 | PCFG được học ở đâu? | GET_TOPIC | PCFG | FOUND | Chương 3;;Chương 6
+Q008 | Chương nào nói về semantic grammar? | GET_TOPIC | SEMANTIC_GRAMMAR | FOUND | Chương 10
+Q009 | L.O.2.5 là gì? | GET_LO | LO2.5 | FOUND | LO2.5
+Q010 | L.O.4.2 liên quan đến nội dung nào? | GET_LO | LO4.2 | FOUND | LO4.2
+Q011 | Bài tập lớn yêu cầu xây dựng những gì? | GET_ASSIGNMENT | BTL01 | FOUND | Intelligent Course Assistant;;Các phần gồm
+Q012 | Phần I của bài tập lớn là gì? | GET_ASSIGNMENT | PART_I | FOUND | Phần I;;Grammar and Parser
+Q013 | Bài tập lớn có phần hỏi đáp không? | GET_ASSIGNMENT | PART_II | FOUND | Phần II;;Semantic Interpretation and QA
+Q014 | Có được dùng LLM/RAG không? | GET_RULE | LLM_RAG | FOUND | LLM/RAG;;mở rộng
+Q015 | Quy định về sử dụng AI là gì? | GET_RULE | AI_USAGE | FOUND | khai báo;;AI
+Q016 | Midterm bao nhiêu phút? | GET_COURSE_INFO | MIDTERM | FOUND | 60 phút
+Q017 | Final bao nhiêu phút? | GET_COURSE_INFO | FINAL | FOUND | 90 phút
+Q018 | Tài liệu tham khảo về statistical NLP là gì? | GET_RESOURCE | STATISTICAL_NLP | FOUND | Foundation of Statistical Natural Language Processing
+Q019 | Tài liệu nào liên quan đến Python NLP? | GET_RESOURCE | PYTHON_NLP | FOUND | Natural Language Processing with Python
+Q020 | Chương 12 nói về gì? | GET_TOPIC | CH12 | FOUND | Chương 12;;DISCOURSE CONTEXT AND REFERENCE
+Q021 | Chương nào học về reference? | GET_TOPIC | REFERENCE | FOUND | Chương 12
+Q022 | Chương nào học về question answering? | GET_TOPIC | QUESTION_ANSWERING | FOUND | Chương 11
+Q023 | Chương nào học về selectional restriction? | GET_TOPIC | SELECTIONAL_RESTRICTION | FOUND | Chương 9
+Q024 | Chương 10 có những phương pháp gì? | GET_TOPIC | CH10 | FOUND | Chương 10;;semantic grammars
+Q025 | Chương 11 có liên quan đến hỏi đáp không? | GET_TOPIC | CH11 | FOUND | Có.;;Chương 11
+
+OUT-OF-SCOPE EXAMPLES
+---------------------
+Q026 | Hôm nay ở TP.HCM có mưa không? | UNKNOWN | OUT_OF_SCOPE | SKIPPED | ngoài phạm vi
+Q027 | Ai là tổng thống của Pháp? | UNKNOWN | OUT_OF_SCOPE | SKIPPED | ngoài phạm vi
+Q028 | Hãy giải bài tập xác suất này giúp tôi. | UNKNOWN | OUT_OF_SCOPE | SKIPPED | ngoài phạm vi
+
+REFERENCE / CONTEXT EXAMPLES
+----------------------------
+Q029 | Chương 4 nói về gì? | GET_TOPIC | CH04 | FOUND | Chương 4;;FEATURES AND AUGMENTED GRAMMAR
+Q030 | Nó có liên quan đến parsing không? | CONTEXT_DEPENDENT | CH04 | FOUND | Có.;;Chương 4;;parsing
+Q031 | Chương 11 có hỏi đáp không? | GET_TOPIC | CH11 | FOUND | Có.;;Chương 11;;question answering
+Q032 | Còn chương sau? | CONTEXT_DEPENDENT | CH12 | FOUND | Chương 12
+Q033 | Bài tập lớn có phần parser không? | GET_ASSIGNMENT | PART_I | FOUND | Có.;;Phần I;;Grammar and Parser
+Q034 | Phần này cần xuất file gì? | CONTEXT_DEPENDENT | PART_I | FOUND | output/grammar.txt;;output/samples.txt;;output/parse-results.txt
+
+LITERAL EXAMPLES FROM NLPAssignment-Course Assistant.pdf
+---------------------------------------------------------
+S001 | Môn NLP có bao nhiêu tín chỉ? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ
+S002 | Tuần 5 học những nội dung gì? | GET_SCHEDULE | WEEK_05 | FOUND | Tuần 5;;Chương 4
+S003 | Phần CFG và Parsing nằm ở tuần nào? | GET_SCHEDULE | CFG | FOUND | CFG;;parsing;;tuần 3
+S004 | Bài tập lớn có những yêu cầu gì? | GET_ASSIGNMENT | BTL01 | FOUND | Intelligent Course Assistant;;Các phần gồm
+S005 | Deadline của bài tập lớn là khi nào? | GET_DEADLINE | BTL01 | FOUND | tuần 8;;tuần 12;;tuần 15
+S006 | Tài liệu nào nói về CFG? | GET_RESOURCE | CFG | FOUND | Tài liệu phù hợp
+S007 | Bài tập lớn có được sử dụng công cụ AI không? | GET_RULE | AI_USAGE | FOUND | khai báo;;AI
+S008 | Tôi cần hoàn thành những bài tập nào? | GET_ASSIGNMENT | BTL01 | FOUND | Intelligent Course Assistant;;Các phần gồm

@@ -1,0 +1,91 @@
+COURSE ASSISTANT - EVALUATION REPORT
+====================================
+
+Phương pháp: chấm end-to-end intent, entity, trạng thái query và fact bắt buộc trong câu trả lời.
+Câu CONTEXT_DEPENDENT được chấm intent trước phân giải và entity sau phân giải.
+Câu UNKNOWN đúng khi parser từ chối và hệ thống không truy vấn KB.
+
+A. BỘ KIỂM THỬ DO ĐỀ CUNG CẤP
+-----------------------------
+Số câu: 42
+Intent đúng: 42/42 (100.00%)
+Entity đúng: 42/42 (100.00%)
+Query/status đúng: 42/42 (100.00%)
+Answer/fact đúng: 42/42 (100.00%)
+Đúng end-to-end: 42/42 (100.00%)
+
+ID | Kết quả | Expected | Actual | Parse | Query expected/actual | Answer
+Q001 | PASS | GET_COURSE_INFO/CO3085 | GET_COURSE_INFO/CO3085 | tree | FOUND/FOUND | ok
+Q002 | PASS | GET_COURSE_INFO/CO3085 | GET_COURSE_INFO/CO3085 | tree | FOUND/FOUND | ok
+Q003 | PASS | GET_COURSE_INFO/CO3085 | GET_COURSE_INFO/CO3085 | tree | FOUND/FOUND | ok
+Q004 | PASS | GET_SCHEDULE/WEEK_03 | GET_SCHEDULE/WEEK_03 | tree | FOUND/FOUND | ok
+Q005 | PASS | GET_SCHEDULE/CH04 | GET_SCHEDULE/CH04 | tree | FOUND/FOUND | ok
+Q006 | PASS | GET_TOPIC/CFG | GET_TOPIC/CFG | tree | FOUND/FOUND | ok
+Q007 | PASS | GET_TOPIC/PCFG | GET_TOPIC/PCFG | tree | FOUND/FOUND | ok
+Q008 | PASS | GET_TOPIC/SEMANTIC_GRAMMAR | GET_TOPIC/SEMANTIC_GRAMMAR | tree | FOUND/FOUND | ok
+Q009 | PASS | GET_LO/LO2.5 | GET_LO/LO2.5 | tree | FOUND/FOUND | ok
+Q010 | PASS | GET_LO/LO4.2 | GET_LO/LO4.2 | tree | FOUND/FOUND | ok
+Q011 | PASS | GET_ASSIGNMENT/BTL01 | GET_ASSIGNMENT/BTL01 | tree | FOUND/FOUND | ok
+Q012 | PASS | GET_ASSIGNMENT/PART_I | GET_ASSIGNMENT/PART_I | tree | FOUND/FOUND | ok
+Q013 | PASS | GET_ASSIGNMENT/PART_II | GET_ASSIGNMENT/PART_II | tree | FOUND/FOUND | ok
+Q014 | PASS | GET_RULE/LLM_RAG | GET_RULE/LLM_RAG | tree | FOUND/FOUND | ok
+Q015 | PASS | GET_RULE/AI_USAGE | GET_RULE/AI_USAGE | tree | FOUND/FOUND | ok
+Q016 | PASS | GET_COURSE_INFO/MIDTERM | GET_COURSE_INFO/MIDTERM | tree | FOUND/FOUND | ok
+Q017 | PASS | GET_COURSE_INFO/FINAL | GET_COURSE_INFO/FINAL | tree | FOUND/FOUND | ok
+Q018 | PASS | GET_RESOURCE/STATISTICAL_NLP | GET_RESOURCE/STATISTICAL_NLP | tree | FOUND/FOUND | ok
+Q019 | PASS | GET_RESOURCE/PYTHON_NLP | GET_RESOURCE/PYTHON_NLP | tree | FOUND/FOUND | ok
+Q020 | PASS | GET_TOPIC/CH12 | GET_TOPIC/CH12 | tree | FOUND/FOUND | ok
+Q021 | PASS | GET_TOPIC/REFERENCE | GET_TOPIC/REFERENCE | tree | FOUND/FOUND | ok
+Q022 | PASS | GET_TOPIC/QUESTION_ANSWERING | GET_TOPIC/QUESTION_ANSWERING | tree | FOUND/FOUND | ok
+Q023 | PASS | GET_TOPIC/SELECTIONAL_RESTRICTION | GET_TOPIC/SELECTIONAL_RESTRICTION | tree | FOUND/FOUND | ok
+Q024 | PASS | GET_TOPIC/CH10 | GET_TOPIC/CH10 | tree | FOUND/FOUND | ok
+Q025 | PASS | GET_TOPIC/CH11 | GET_TOPIC/CH11 | tree | FOUND/FOUND | ok
+Q026 | PASS | UNKNOWN/OUT_OF_SCOPE | UNKNOWN/OUT_OF_SCOPE | () | SKIPPED/SKIPPED | ok
+Q027 | PASS | UNKNOWN/OUT_OF_SCOPE | UNKNOWN/OUT_OF_SCOPE | () | SKIPPED/SKIPPED | ok
+Q028 | PASS | UNKNOWN/OUT_OF_SCOPE | UNKNOWN/OUT_OF_SCOPE | () | SKIPPED/SKIPPED | ok
+Q029 | PASS | GET_TOPIC/CH04 | GET_TOPIC/CH04 | tree | FOUND/FOUND | ok
+Q030 | PASS | CONTEXT_DEPENDENT/CH04 | CONTEXT_DEPENDENT/CH04 | tree | FOUND/FOUND | ok
+Q031 | PASS | GET_TOPIC/CH11 | GET_TOPIC/CH11 | tree | FOUND/FOUND | ok
+Q032 | PASS | CONTEXT_DEPENDENT/CH12 | CONTEXT_DEPENDENT/CH12 | tree | FOUND/FOUND | ok
+Q033 | PASS | GET_ASSIGNMENT/PART_I | GET_ASSIGNMENT/PART_I | tree | FOUND/FOUND | ok
+Q034 | PASS | CONTEXT_DEPENDENT/PART_I | CONTEXT_DEPENDENT/PART_I | tree | FOUND/FOUND | ok
+S001 | PASS | GET_COURSE_INFO/CO3085 | GET_COURSE_INFO/CO3085 | tree | FOUND/FOUND | ok
+S002 | PASS | GET_SCHEDULE/WEEK_05 | GET_SCHEDULE/WEEK_05 | tree | FOUND/FOUND | ok
+S003 | PASS | GET_SCHEDULE/CFG | GET_SCHEDULE/CFG | tree | FOUND/FOUND | ok
+S004 | PASS | GET_ASSIGNMENT/BTL01 | GET_ASSIGNMENT/BTL01 | tree | FOUND/FOUND | ok
+S005 | PASS | GET_DEADLINE/BTL01 | GET_DEADLINE/BTL01 | tree | FOUND/FOUND | ok
+S006 | PASS | GET_RESOURCE/CFG | GET_RESOURCE/CFG | tree | FOUND/FOUND | ok
+S007 | PASS | GET_RULE/AI_USAGE | GET_RULE/AI_USAGE | tree | FOUND/FOUND | ok
+S008 | PASS | GET_ASSIGNMENT/BTL01 | GET_ASSIGNMENT/BTL01 | tree | FOUND/FOUND | ok
+
+B. BỘ THỬ THÁCH BỔ SUNG
+-----------------------
+Số câu: 8
+Intent đúng: 6/8 (75.00%)
+Entity đúng: 6/8 (75.00%)
+Query/status đúng: 6/8 (75.00%)
+Answer/fact đúng: 6/8 (75.00%)
+Đúng end-to-end: 6/8 (75.00%)
+
+ID | Kết quả | Expected | Actual | Parse | Query expected/actual | Answer
+C001 | PASS | GET_SCHEDULE/WEEK_08 | GET_SCHEDULE/WEEK_08 | tree | FOUND/FOUND | ok
+C002 | PASS | GET_DEADLINE/BTL01 | GET_DEADLINE/BTL01 | tree | FOUND/FOUND | ok
+C003 | PASS | GET_COURSE_INFO/CO3085 | GET_COURSE_INFO/CO3085 | tree | FOUND/FOUND | ok
+C004 | PASS | GET_COURSE_INFO/CO3085 | GET_COURSE_INFO/CO3085 | tree | FOUND/FOUND | ok
+C005 | PASS | GET_COURSE_INFO/MIDTERM | GET_COURSE_INFO/MIDTERM | tree | NOT_FOUND/NOT_FOUND | ok
+C006 | PASS | GET_INSTRUCTOR/CO3085 | GET_INSTRUCTOR/CO3085 | tree | NOT_FOUND/NOT_FOUND | ok
+C007 | FAIL | GET_COURSE_INFO/CO3085 | UNKNOWN/OUT_OF_SCOPE | () | NOT_FOUND/SKIPPED | sai
+C008 | FAIL | GET_SCHEDULE/WEEK_03 | UNKNOWN/OUT_OF_SCOPE | () | FOUND/SKIPPED | sai
+
+C. PHÂN TÍCH LỖI
+-----------------
+C007: Môn NLP học mấy buổi mỗi tuần? | expected=GET_COURSE_INFO/CO3085 | actual=UNKNOWN/OUT_OF_SCOPE | Grammar thiếu mẫu hoặc từ đồng nghĩa; parser trả ().
+C008: Tuần thứ ba tụi mình học bài gì vậy? | expected=GET_SCHEDULE/WEEK_03 | actual=UNKNOWN/OUT_OF_SCOPE | Grammar thiếu mẫu hoặc từ đồng nghĩa; parser trả ().
+
+D. ƯU ĐIỂM VÀ HẠN CHẾ
+----------------------
+Ưu điểm: kết quả quyết định được, giải thích được bằng cây cú pháp, chạy offline,
+không hallucination và phân biệt rõ lỗi cú pháp với thiếu dữ liệu KB.
+Hạn chế: grammar đóng không hiểu mọi cách diễn đạt; thêm từ đồng nghĩa hoặc mẫu
+câu mới cần cập nhật grammar. Ngữ cảnh chỉ giữ thực thể gần nhất và các quan hệ
+định trước, chưa xử lý tham chiếu xa hay nhập nhằng hội thoại phức tạp.

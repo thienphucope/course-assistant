@@ -1,0 +1,65 @@
+COURSE INFORMATION
+==================
+
+course_id: CO3085
+course_name: Xử lý Ngôn ngữ Tự nhiên
+course_name_en: Natural Language Processing
+semester: HK261
+credits: 3
+ects: 6
+course_type: Specialty / Graduation knowledge block
+department: Khoa Khoa học và Kỹ thuật Máy tính
+format: 2 lecture periods per week, 15 weeks
+total_course_hours: 150
+lecture_hours: 30
+major_assignment_hours: 45
+self_study_hours: 60
+
+course_description:
+Môn học cung cấp các khái niệm, lý thuyết và kỹ thuật nền tảng của
+xử lý ngôn ngữ tự nhiên. Nội dung được tổ chức thành ba phần chính:
+(1) Xử lý cú pháp, (2) Diễn dịch ngữ nghĩa, và (3) Ngữ cảnh và tri thức
+thế giới.
+
+Mục tiêu:
+Sinh viên có khả năng phân tích các vấn đề NLP và xây dựng các chương
+trình/hệ thống cơ bản có khả năng hiểu ngôn ngữ tự nhiên trong một miền
+ứng dụng cụ thể.
+
+main_parts:
+Part I - Syntactic Processing
+Part II - Semantic Interpretation
+Part III - Context and World Knowledge
+
+learning_outcomes:
+LO1 - Tổng quan về tổ chức hệ thống NLP và các ứng dụng.
+LO2 - Xử lý cú pháp; xây dựng văn phạm đơn giản và phân tích cú pháp.
+LO3 - Diễn dịch ngữ nghĩa; tạo dạng luận lý và giải quyết nhập nhằng.
+LO4 - Ngữ nghĩa và tri thức thế giới; xây dựng cơ sở tri thức và hệ thống
+     hỏi đáp đơn giản.
+
+detailed_learning_outcomes:
+LO1.1 - Hiểu cấu trúc hệ thống NLP, ứng dụng và cách đánh giá hệ thống
+        hiểu ngôn ngữ tự nhiên.
+LO2.1 - Kiến thức cơ sở về cú pháp tiếng Anh.
+LO2.2 - Kiến thức cơ bản về văn phạm và phân tích cú pháp.
+LO2.3 - Kiến thức về nét và văn phạm gia tố.
+LO2.4 - Kiến thức tạo văn phạm cho ngôn ngữ tự nhiên và phương pháp parsing.
+LO2.5 - Kiến thức xác suất để giải quyết nhập nhằng từ ở mức câu.
+LO3.1 - Kiến thức về ngôn ngữ dạng luận lý và tạo dạng luận lý đơn giản.
+LO3.2 - Tạo tự động diễn dịch ngữ nghĩa cho câu tự nhiên.
+LO3.3 - Giải quyết nhập nhằng ngữ nghĩa dựa trên tri thức và thống kê.
+LO3.4 - Diễn dịch ngữ nghĩa bằng quan hệ văn phạm và văn phạm ngữ nghĩa.
+LO4.1 - Biểu diễn tri thức, suy diễn và xây dựng hệ thống hỏi đáp đơn giản.
+LO4.2 - Ngữ cảnh diễn ngôn cục bộ và sự tham chiếu.
+
+assessment:
+class_attention_and_assignments: 15 percent
+major_assignment: 15 percent
+midterm_exam: 30 percent
+final_exam: 40 percent
+
+exam_format:
+midterm: open-book, written, 60 minutes
+final: open-book, written, 90 minutes
+

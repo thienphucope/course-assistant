@@ -1,0 +1,123 @@
+# CO3085 Course Assistant semantic CFG
+# Syntax: NON_TERMINAL -> symbols | another alternative
+# Quoted lowercase values are terminals. A blank alternative is epsilon.
+# The intent is encoded by the Q_* child selected below; entity values are
+# captured by named constituents such as WEEK_ENTITY and TOPIC_ENTITY.
+
+%start S
+
+S -> PREFIX QUESTION SUFFIX
+
+PREFIX -> | PLEASE_PREFIX
+PLEASE_PREFIX -> "cho" "mình" "hỏi" | "cho" "em" "hỏi" | "xin" "hỏi" | "hãy" "cho" "biết"
+
+SUFFIX -> | END_MARK | POLITE | POLITE END_MARK
+END_MARK -> "?" | "!" | "."
+POLITE -> "ạ" | "vậy" | "nhé"
+
+QUESTION -> Q_COURSE_CREDITS | Q_COURSE_PARTS | Q_COURSE_DESCRIPTION | Q_COURSE_EXAM_DURATION | Q_COURSE_EXAM_TIME | Q_COURSE_ASSESSMENT | Q_INSTRUCTOR | Q_SCHEDULE_WEEK | Q_SCHEDULE_CHAPTER | Q_SCHEDULE_TOPICS | Q_TOPIC_BY_NAME | Q_TOPIC_BY_CHAPTER | Q_TOPIC_RELATION | Q_LO | Q_ASSIGNMENT_OVERVIEW | Q_ASSIGNMENT_PART | Q_ASSIGNMENT_FEATURE | Q_ASSIGNMENT_OUTPUT | Q_DEADLINE | Q_RESOURCE | Q_RULE | Q_CONTEXT_TOPIC_RELATION | Q_CONTEXT_NEXT_CHAPTER | Q_CONTEXT_ASSIGNMENT_OUTPUT | Q_CONTEXT_RESOURCE | Q_CONTEXT_LO_CHAPTER
+
+# Course information
+Q_COURSE_CREDITS -> COURSE_SUBJECT "có" CREDIT_QUESTION | COURSE_REFERENCE "nặng" "mấy" "tín"
+CREDIT_QUESTION -> "bao" "nhiêu" "tín" "chỉ" | "mấy" "tín" "chỉ" | "số" "tín" "chỉ" "là" "bao" "nhiêu"
+COURSE_REFERENCE -> "môn" "này"
+
+Q_COURSE_PARTS -> COURSE_SUBJECT PARTS_QUESTION | "môn" "học" PARTS_QUESTION
+PARTS_QUESTION -> "gồm" "những" "phần" "nào" | "có" "những" "phần" "nào" | "gồm" "mấy" "phần"
+
+Q_COURSE_DESCRIPTION -> COURSE_SUBJECT DESCRIPTION_QUESTION
+DESCRIPTION_QUESTION -> "học" "về" "gì" | "có" "nội" "dung" "gì" | "mô" "tả" "như" "thế" "nào"
+
+Q_COURSE_EXAM_DURATION -> EXAM_ENTITY DURATION_QUESTION
+DURATION_QUESTION -> "bao" "nhiêu" "phút" | "kéo" "dài" "bao" "lâu" | "có" "thời" "lượng" "bao" "nhiêu" "phút"
+
+Q_COURSE_EXAM_TIME -> "khi" "nào" "tụi" "mình" "thi" EXAM_ENTITY | "khi" "nào" "thi" EXAM_ENTITY | EXAM_ENTITY "thi" "khi" "nào"
+
+Q_COURSE_ASSESSMENT -> ASSESSMENT_ENTITY ASSESSMENT_QUESTION
+ASSESSMENT_ENTITY -> "điểm" | "đánh" "giá" | "cách" "tính" "điểm"
+ASSESSMENT_QUESTION -> "được" "tính" "như" "thế" "nào" | "gồm" "những" "thành" "phần" "nào" | "là" "gì"
+
+Q_INSTRUCTOR -> "giáo" "viên" COURSE_SUBJECT "là" "ai" | "giảng" "viên" COURSE_SUBJECT "là" "ai" | "ai" "dạy" COURSE_SUBJECT
+
+COURSE_SUBJECT -> "môn" COURSE_ENTITY | COURSE_ENTITY
+COURSE_ENTITY -> "nlp" | "co3085" | "xử" "lý" "ngôn" "ngữ" "tự" "nhiên" | "natural" "language" "processing"
+EXAM_ENTITY -> "midterm" | "giữa" "kỳ" | "final" | "cuối" "kỳ"
+
+# Schedule
+Q_SCHEDULE_WEEK -> WEEK_ENTITY WEEK_CONTENT_QUESTION | "nội" "dung" WEEK_ENTITY WEEK_CONTENT_QUESTION
+WEEK_CONTENT_QUESTION -> "học" "gì" | "học" "những" "gì" | "học" "nội" "dung" "gì" | "học" "những" "nội" "dung" "gì" | "có" "nội" "dung" "gì" | "học" "chương" "nào"
+
+Q_SCHEDULE_CHAPTER -> CHAPTER_ENTITY CHAPTER_TIME_QUESTION
+CHAPTER_TIME_QUESTION -> "học" "vào" "tuần" "nào" | "được" "học" "ở" "tuần" "nào" | "nằm" "ở" "tuần" "nào"
+
+Q_SCHEDULE_TOPICS -> "phần" TOPIC_ENTITY TOPIC_CONJUNCTION TOPIC_ENTITY TOPIC_TIME_QUESTION
+TOPIC_CONJUNCTION -> "và" | ","
+TOPIC_TIME_QUESTION -> "nằm" "ở" "tuần" "nào" | "học" "ở" "tuần" "nào" | "được" "học" "vào" "tuần" "nào"
+
+WEEK_ENTITY -> "tuần" WEEK_NUMBER
+WEEK_NUMBER -> "1" | "01" | "2" | "02" | "3" | "03" | "4" | "04" | "5" | "05" | "6" | "06" | "7" | "07" | "8" | "08" | "9" | "09" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "20" | "99"
+
+# Topics and chapters
+Q_TOPIC_BY_NAME -> CHAPTER_WH TOPIC_LINK TOPIC_ENTITY | TOPIC_ENTITY TOPIC_LOCATION_QUESTION
+CHAPTER_WH -> "chương" "nào"
+TOPIC_LINK -> "nói" "về" | "học" "về" | "trình" "bày" | "có" "nội" "dung"
+TOPIC_LOCATION_QUESTION -> "được" "học" "ở" "đâu" | "nằm" "ở" "chương" "nào" | "thuộc" "chương" "nào"
+
+Q_TOPIC_BY_CHAPTER -> CHAPTER_ENTITY CHAPTER_CONTENT_QUESTION
+CHAPTER_CONTENT_QUESTION -> "nói" "về" "gì" | "học" "về" "gì" | "có" "nội" "dung" "gì" | "có" "những" "phương" "pháp" "gì" | "trình" "bày" "gì"
+
+Q_TOPIC_RELATION -> CHAPTER_ENTITY RELATION_PHRASE TOPIC_ENTITY YES_NO
+RELATION_PHRASE -> "có" | "có" "liên" "quan" "đến" | "có" "nói" "về" | "có" "học" "về" | "có" "đề" "cập" "đến"
+YES_NO -> "không"
+
+CHAPTER_ENTITY -> "chương" CHAPTER_NUMBER
+CHAPTER_NUMBER -> "1" | "01" | "2" | "02" | "3" | "03" | "4" | "04" | "5" | "05" | "6" | "06" | "7" | "07" | "8" | "08" | "9" | "09" | "10" | "11" | "12" | "13" | "99"
+
+TOPIC_ENTITY -> "cfg" | "context-free" "grammar" | "văn" "phạm" "phi" "ngữ" "cảnh" | "pcfg" | "probabilistic" "context-free" "grammar" | "dependency" "grammar" | "văn" "phạm" "phụ" "thuộc" | "features" | "nét" | "augmented" "grammar" | "văn" "phạm" "gia" "tố" | "unification" | "hợp" "nhất" | "pos" "tagging" | "gán" "nhãn" "từ" "loại" | "logical" "form" | "dạng" "luận" "lý" | "thematic" "roles" | "vai" "trò" "chủ" "đề" | "selectional" "restriction" | "giới" "hạn" "lựa" "chọn" | "semantic" "network" | "mạng" "ngữ" "nghĩa" | "wsd" | "word" "sense" "disambiguation" | "semantic" "grammar" | "văn" "phạm" "ngữ" "nghĩa" | "knowledge" "representation" | "biểu" "diễn" "tri" "thức" | "question" "answering" | "hỏi" "đáp" | "local" "discourse" "context" | "ngữ" "cảnh" "diễn" "ngôn" "cục" "bộ" | "reference" | "tham" "chiếu" | "anaphora" | "đồng" "tham" "chiếu" | "centering" | "parsing" | "phân" "tích" "cú" "pháp"
+
+# Learning outcomes
+Q_LO -> LO_ENTITY LO_QUESTION
+LO_QUESTION -> "là" "gì" | "học" "về" "gì" | "liên" "quan" "đến" "nội" "dung" "nào" | "liên" "quan" "đến" "gì"
+LO_ENTITY -> "lo1" | "lo2" | "lo3" | "lo4" | "lo1.1" | "lo2.1" | "lo2.2" | "lo2.3" | "lo2.4" | "lo2.5" | "lo3.1" | "lo3.2" | "lo3.3" | "lo3.4" | "lo4.1" | "lo4.2" | "lo9.9"
+
+# Assignment and deadlines
+Q_ASSIGNMENT_OVERVIEW -> ASSIGNMENT_ENTITY ASSIGNMENT_OVERVIEW_QUESTION | "tôi" "cần" "hoàn" "thành" "những" "bài" "tập" "nào"
+ASSIGNMENT_OVERVIEW_QUESTION -> "yêu" "cầu" "xây" "dựng" "những" "gì" | "yêu" "cầu" "những" "gì" | "có" "những" "yêu" "cầu" "gì" | "là" "gì" | "có" "nội" "dung" "gì"
+
+Q_ASSIGNMENT_PART -> ASSIGNMENT_PART "của" ASSIGNMENT_ENTITY "là" "gì" | ASSIGNMENT_ENTITY ASSIGNMENT_PART_QUESTION
+ASSIGNMENT_PART_QUESTION -> "gồm" ASSIGNMENT_PART "là" "gì" | "có" ASSIGNMENT_PART "không"
+
+Q_ASSIGNMENT_FEATURE -> ASSIGNMENT_ENTITY "có" "phần" ASSIGNMENT_FEATURE YES_NO
+ASSIGNMENT_FEATURE -> "hỏi" "đáp" | "semantic" | "parser" | "ngữ" "cảnh" | "đánh" "giá"
+
+Q_ASSIGNMENT_OUTPUT -> ASSIGNMENT_PART OUTPUT_QUESTION
+OUTPUT_QUESTION -> "cần" "xuất" "file" "gì" | "có" "output" "gì" | "xuất" "những" "file" "nào"
+
+Q_DEADLINE -> "deadline" ASSIGNMENT_ENTITY DEADLINE_TAIL | "deadline" "của" ASSIGNMENT_ENTITY DEADLINE_TAIL | "hạn" "nộp" ASSIGNMENT_ENTITY DEADLINE_QUESTION | ASSIGNMENT_ENTITY DEADLINE_QUESTION
+DEADLINE_TAIL -> | "là" "khi" "nào" | "khi" "nào"
+DEADLINE_QUESTION -> "khi" "nào" | "là" "khi" "nào" | "vào" "tuần" "nào"
+
+ASSIGNMENT_ENTITY -> "btl" | "btl01" | "bài" "tập" "lớn" | "đồ" "án"
+ASSIGNMENT_PART -> "phần" ROMAN_NUMBER
+ROMAN_NUMBER -> "i" | "ii" | "iii" | "iv"
+
+# Resources and regulations
+Q_RESOURCE -> "tài" "liệu" RESOURCE_QUESTION RESOURCE_TOPIC | "tài" "liệu" "tham" "khảo" "về" RESOURCE_TOPIC "là" "gì"
+RESOURCE_QUESTION -> "nào" "nói" "về" | "nào" "liên" "quan" "đến" | "gì" "về"
+RESOURCE_TOPIC -> "statistical" "nlp" | "nlp" "thống" "kê" | "python" "nlp" | "nlp" "với" "python" | "cfg" | "parsing" | "ngữ" "nghĩa" | "semantic" | "tri" "thức" "thế" "giới" | "world" "knowledge" | "machine" "translation"
+
+Q_RULE -> "có" "được" RULE_ACTION YES_NO | ASSIGNMENT_ENTITY "có" "được" RULE_ACTION YES_NO | "quy" "định" "về" RULE_TOPIC "là" "gì" | RULE_TOPIC RULE_QUESTION
+RULE_ACTION -> "dùng" RULE_TOPIC | "sử" "dụng" RULE_TOPIC | "chia" "sẻ" "bài" "làm"
+RULE_QUESTION -> "được" "quy" "định" "như" "thế" "nào" | "là" "gì" | "có" "được" "phép" "không"
+RULE_TOPIC -> "llm/rag" | "llm" | "rag" | "công" "cụ" "ai" | "ai" | "sử" "dụng" "ai" | "thư" "viện" "ngoài" | "mã" "nguồn" | "source" "code" | "liêm" "chính" "học" "thuật"
+
+# Context-dependent questions. The dialogue resolver supplies omitted entities.
+Q_CONTEXT_TOPIC_RELATION -> CONTEXT_PRONOUN RELATION_PHRASE TOPIC_ENTITY YES_NO
+CONTEXT_PRONOUN -> "nó" | "chương" "này" | "phần" "này" | "nội" "dung" "này"
+
+Q_CONTEXT_NEXT_CHAPTER -> "còn" "chương" "sau" | "chương" "tiếp" "theo" "thì" "sao"
+Q_CONTEXT_ASSIGNMENT_OUTPUT -> "phần" "này" OUTPUT_QUESTION
+Q_CONTEXT_RESOURCE -> "tài" "liệu" "của" CONTEXT_REFERENCE RESOURCE_CONTEXT_QUESTION
+CONTEXT_REFERENCE -> "chương" "này" | "phần" "này" | "nội" "dung" "này"
+RESOURCE_CONTEXT_QUESTION -> "là" "gì" | "ở" "đâu" | "gồm" "những" "gì"
+Q_CONTEXT_LO_CHAPTER -> "nội" "dung" "này" "nằm" "ở" "chương" "nào"

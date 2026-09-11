@@ -1,0 +1,9 @@
+001	GET_COURSE_INFO(entity=CO3085, course=CO3085, field=CREDITS)
+002	GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)
+003	GET_TOPIC(entity=CFG, topic=CFG)
+004	GET_DEADLINE(entity=BTL01, assignment=BTL01)
+005	GET_RESOURCE(entity=PYTHON_NLP, topic=PYTHON_NLP)
+006	GET_TOPIC(entity=CH04, chapter=CH04)
+007	CONTEXT_DEPENDENT(action=TOPIC_RELATION, relation=PARSING) => GET_TOPIC(entity=CH04, chapter=CH04, relation=PARSING) [tham chiếu gần nhất → CH04]
+008	GET_SCHEDULE(entity=WEEK_99, week=WEEK_99)
+009	UNKNOWN()

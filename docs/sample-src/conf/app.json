@@ -1,0 +1,5 @@
+{
+  "call": "hcmut.iaslab.nlp.app.utils.run",
+  "description": "Run the complete classical NLP Course Assistant pipeline"
+}
+

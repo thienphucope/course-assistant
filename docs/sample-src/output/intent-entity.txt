@@ -1,0 +1,9 @@
+{"entity": "CO3085", "id": 1, "intent": "GET_COURSE_INFO", "question": "Môn NLP có bao nhiêu tín chỉ?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "WEEK_03", "id": 2, "intent": "GET_SCHEDULE", "question": "Tuần 3 học gì?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "CFG", "id": 3, "intent": "GET_TOPIC", "question": "Chương nào nói về CFG?", "resolved_intent": "GET_TOPIC"}
+{"entity": "BTL01", "id": 4, "intent": "GET_DEADLINE", "question": "Deadline BTL khi nào?", "resolved_intent": "GET_DEADLINE"}
+{"entity": "PYTHON_NLP", "id": 5, "intent": "GET_RESOURCE", "question": "Tài liệu nào liên quan đến Python NLP?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "CH04", "id": 6, "intent": "GET_TOPIC", "question": "Chương 4 nói về gì?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH04", "id": 7, "intent": "CONTEXT_DEPENDENT", "question": "Nó có liên quan đến parsing không?", "resolved_intent": "GET_TOPIC"}
+{"entity": "WEEK_99", "id": 8, "intent": "GET_SCHEDULE", "question": "Tuần 99 học gì?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": null, "id": 9, "intent": "UNKNOWN", "question": "Hôm nay ở TP.HCM có mưa không?", "resolved_intent": "UNKNOWN"}

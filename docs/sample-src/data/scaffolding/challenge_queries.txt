@@ -1,0 +1,12 @@
+# SUPPLEMENTARY TEST DATA
+# Source: project authors, created specifically for error/limitation analysis.
+# Format: ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY | EXPECTED_QUERY_STATUS | REQUIRED_ANSWER_TERMS
+
+C001 | Cho mình hỏi tuần 8 học nội dung gì ạ? | GET_SCHEDULE | WEEK_08 | FOUND | Tuần 8;;Chương 6
+C002 | Hạn nộp bài tập lớn vào tuần nào? | GET_DEADLINE | BTL01 | FOUND | tuần 8;;tuần 12;;tuần 15
+C003 | NLP có nội dung gì? | GET_COURSE_INFO | CO3085 | FOUND | ba phần chính
+C004 | Môn này nặng mấy tín? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ
+C005 | Khi nào tụi mình thi giữa kỳ? | GET_COURSE_INFO | MIDTERM | NOT_FOUND | không tìm thấy thông tin này
+C006 | Giáo viên môn NLP là ai? | GET_INSTRUCTOR | CO3085 | NOT_FOUND | không tìm thấy thông tin này
+C007 | Môn NLP học mấy buổi mỗi tuần? | GET_COURSE_INFO | CO3085 | NOT_FOUND | không tìm thấy thông tin này
+C008 | Tuần thứ ba tụi mình học bài gì vậy? | GET_SCHEDULE | WEEK_03 | FOUND | Tuần 3;;Chương 3

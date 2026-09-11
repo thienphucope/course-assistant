@@ -1,0 +1,69 @@
+COURSE ASSISTANT FAQ
+=====================
+
+Q1:
+question: Môn NLP có bao nhiêu tín chỉ?
+answer: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+
+Q2:
+question: NLP có những phần chính nào?
+answer: Môn học gồm ba phần chính: Xử lý cú pháp; Diễn dịch ngữ nghĩa;
+và Ngữ cảnh và tri thức thế giới.
+
+Q3:
+question: Chương nào học về CFG?
+answer: CFG được trình bày trong Chương 3, Grammar and Parsing.
+
+Q4:
+question: Chương nào học về PCFG?
+answer: PCFG được trình bày trong Chương 3 và tiếp tục được sử dụng trong
+Chương 6 về các phương pháp thống kê.
+
+Q5:
+question: Chương nào học về Features và Augmented Grammar?
+answer: Chương 4.
+
+Q6:
+question: Chương nào học về semantic grammar?
+answer: Chương 10, Other Strategies for Semantic Interpretation.
+
+Q7:
+question: Chương nào học về knowledge representation?
+answer: Chương 11.
+
+Q8:
+question: Chương nào học về local discourse context?
+answer: Chương 12.
+
+Q9:
+question: L.O.4.2 liên quan đến nội dung gì?
+answer: L.O.4.2 liên quan đến ngữ cảnh diễn ngôn cục bộ và sự tham chiếu.
+
+Q10:
+question: L.O.2.5 liên quan đến nội dung gì?
+answer: L.O.2.5 liên quan đến lý thuyết xác suất và việc giải quyết nhập
+nhằng từ ở mức câu.
+
+Q11:
+question: L.O.3.3 liên quan đến nội dung gì?
+answer: L.O.3.3 liên quan đến giải quyết nhập nhằng ngữ nghĩa dựa trên
+cơ sở tri thức và thống kê.
+
+Q12:
+question: Bài tập lớn có thể sử dụng LLM hoặc RAG không?
+answer: Có thể sử dụng như một phần mở rộng nếu được cho phép, nhưng
+LLM/RAG không thay thế các yêu cầu NLP cốt lõi.
+
+Q13:
+question: Nếu hệ thống không tìm thấy câu trả lời thì phải làm gì?
+answer: Hệ thống nên thông báo rằng không tìm thấy thông tin trong
+knowledge base thay vì tự tạo thông tin.
+
+Q14:
+question: Midterm kéo dài bao lâu?
+answer: Theo đề cương, midterm có thời lượng 60 phút.
+
+Q15:
+question: Final kéo dài bao lâu?
+answer: Theo đề cương, final có thời lượng 90 phút.
+

@@ -1,0 +1,167 @@
+PROPOSED 15-WEEK STUDY PLAN
+============================
+
+Lưu ý: Đây là kế hoạch mẫu được xây dựng từ cấu trúc 12 chương trong
+đề cương CO3085. Nó phục vụ bài tập Course Assistant và không thay thế
+lịch học hành chính chính thức.
+
+WEEK 01
+part: Introduction
+chapter: Chapter 1
+topics:
+- nghiên cứu ngôn ngữ tự nhiên
+- ứng dụng text-based
+- ứng dụng dialog-based
+- đánh giá hệ thống hiểu ngôn ngữ tự nhiên
+- các mức phân tích ngôn ngữ
+- biểu diễn và hiểu ngôn ngữ
+- tổ chức hệ thống NLU
+
+WEEK 02
+part: Syntactic Processing
+chapter: Chapter 2
+topics:
+- words
+- simple noun phrases
+- verb phrases
+- simple sentences
+- adjective phrases
+- adverbial phrases
+
+WEEK 03
+part: Syntactic Processing
+chapter: Chapter 3
+topics:
+- context-free grammar
+- grammar and sentence structure
+- top-down parsing
+- bottom-up chart parsing
+- top-down chart parsing
+- probabilistic context-free grammar
+- dependency grammar
+- Stanford dependencies
+
+WEEK 04
+part: Syntactic Processing
+chapter: Chapter 4
+topics:
+- feature systems
+- augmented grammars
+- feature systems for English
+- lexicon
+- grammar using feature systems
+- parsing with features
+
+WEEK 05
+part: Syntactic Processing
+chapter: Chapter 4
+topics:
+- augmented transition networks
+- generalized feature systems
+- unification grammar
+activity: feature-based parsing exercises
+
+WEEK 06
+part: Syntactic Processing
+chapter: Chapter 5
+topics:
+- auxiliary verbs and verb phrases
+- movement phenomena
+- handling questions in CFG
+- relative clauses
+
+WEEK 07
+part: Syntactic Processing
+chapter: Chapter 6
+topics:
+- basic probability theory
+- estimating probabilities
+- part-of-speech tagging
+- lexical probabilities
+- probabilistic context-free grammar
+
+WEEK 08
+part: Syntactic Processing
+chapter: Chapter 6
+topics:
+- best-first parsing
+- simple context-dependent best-first parser
+activity: ambiguity-resolution exercises
+milestone: BTL checkpoint 1 - grammar and parser
+
+WEEK 09
+part: Semantic Interpretation
+chapter: Chapter 7
+topics:
+- semantics and logical form
+- word senses and ambiguity
+- basic logical form language
+- encoding ambiguity in logical form
+- verbs and states
+- thematic roles
+- speech acts and embedded sentences
+
+WEEK 10
+part: Semantic Interpretation
+chapter: Chapter 8
+topics:
+- semantic interpretation and compositionality
+- grammar and lexicon with semantic interpretation
+- prepositional phrases and verb phrases
+- lexicalized semantic interpretation
+- semantic roles
+- handling simple questions
+
+WEEK 11
+part: Semantic Interpretation
+chapter: Chapter 9
+topics:
+- selectional restrictions
+- semantic filtering
+- semantic networks
+- statistical word sense disambiguation
+
+WEEK 12
+part: Semantic Interpretation
+chapter: Chapter 10
+topics:
+- grammatical relations
+- semantic grammars
+- template matching
+- semantically driven parsing
+milestone: BTL checkpoint 2 - semantic interpretation and QA
+
+WEEK 13
+part: Context and World Knowledge
+chapter: Chapter 11
+topics:
+- knowledge representation
+- frames
+- natural language quantification
+- time and aspectual classes
+- procedural semantics
+- question answering
+
+WEEK 14
+part: Context and World Knowledge
+chapter: Chapter 12
+topics:
+- local discourse context
+- discourse entities
+- anaphora
+- pronouns and centering
+- definite descriptions
+- definite reference and sets
+- ellipsis
+- surface anaphora
+
+WEEK 15
+part: Integration and Evaluation
+topics:
+- integrate grammar/parser/semantic interpretation/QA
+- local discourse context
+- error analysis
+- system evaluation
+- demonstration and final BTL review
+milestone: BTL final submission and demo
+

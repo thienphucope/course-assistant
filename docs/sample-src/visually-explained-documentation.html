@@ -1,0 +1,2210 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tài liệu trực quan giải thích kiến trúc, luồng gọi, thuật toán và từng file của CO3085 Course Assistant.">
+  <title>CO3085 Course Assistant | Bản đồ vận hành</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07111f;
+      --panel: #0c1929;
+      --panel-2: #101f32;
+      --panel-3: #14283d;
+      --line: #27415c;
+      --line-strong: #3c617f;
+      --text: #e8f1f7;
+      --muted: #9db1c1;
+      --cyan: #54d6d0;
+      --cyan-soft: #163f47;
+      --amber: #ffbd59;
+      --amber-soft: #4c3518;
+      --blue: #75a9ff;
+      --blue-soft: #18345d;
+      --green: #7bdda1;
+      --green-soft: #173d2a;
+      --red: #ff8f8f;
+      --red-soft: #4c252a;
+      --violet: #c0a2ff;
+      --radius: 16px;
+      --shadow: 0 18px 50px rgba(0, 0, 0, .24);
+      --mono: "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+    code, pre { font-family: var(--mono); }
+    code { color: #c8e7ff; }
+    pre {
+      margin: 0;
+      padding: 1rem;
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #07101b;
+      color: #d7e8f3;
+      font-size: .88rem;
+      line-height: 1.7;
+      tab-size: 2;
+    }
+    :focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
+    }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: .75rem;
+      left: .75rem;
+      padding: .65rem 1rem;
+      transform: translateY(-160%);
+      border-radius: 8px;
+      background: var(--amber);
+      color: #1a1206;
+      font-weight: 800;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .progress {
+      position: fixed;
+      z-index: 80;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: #0b1b2d;
+    }
+    .progress > span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--cyan);
+    }
+    .shell {
+      display: grid;
+      grid-template-columns: 268px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 2rem 1.25rem;
+      overflow-y: auto;
+      border-right: 1px solid var(--line);
+      background: #081421;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: 2rem;
+    }
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid #4c7a88;
+      border-radius: 12px;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-weight: 800;
+    }
+    .brand strong, .brand span { display: block; }
+    .brand strong { font-size: .96rem; }
+    .brand span { color: var(--muted); font-size: .78rem; }
+    .nav-label {
+      margin: 1.4rem .65rem .45rem;
+      color: #6f8ca2;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .side-nav { display: grid; gap: .28rem; }
+    .side-nav a {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: center;
+      padding: .58rem .65rem;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+    }
+    .side-nav a:hover, .side-nav a.active {
+      border-color: var(--line);
+      background: var(--panel-2);
+      color: var(--text);
+    }
+    .side-nav b {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .75rem;
+    }
+    .sidebar-note {
+      margin-top: 2rem;
+      padding: .85rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    main { min-width: 0; }
+    .content {
+      width: min(1200px, calc(100% - 3rem));
+      margin: 0 auto;
+      padding: 3.5rem 0 7rem;
+    }
+    section {
+      scroll-margin-top: 1.25rem;
+      padding: 4.4rem 0;
+      border-bottom: 1px solid rgba(39, 65, 92, .72);
+    }
+    section:first-child { padding-top: 1rem; }
+    section:last-child { border-bottom: 0; }
+    .eyebrow {
+      margin: 0 0 .9rem;
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.16; letter-spacing: -.025em; }
+    h1 { max-width: 800px; font-size: clamp(2.5rem, 6vw, 5.4rem); }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 3rem); }
+    h3 { font-size: 1.08rem; }
+    .lede {
+      max-width: 760px;
+      margin: 1.25rem 0 0;
+      color: #bdd0dc;
+      font-size: 1.08rem;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 430px);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+    .section-head p { margin: 0; color: var(--muted); }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .75rem;
+      margin: 2rem 0;
+    }
+    .metric {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+    .metric strong {
+      display: block;
+      color: var(--amber);
+      font-family: var(--mono);
+      font-size: 1.45rem;
+    }
+    .metric span { color: var(--muted); font-size: .82rem; }
+    .rule {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-top: 1.5rem;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      min-height: 34px;
+      padding: .3rem .7rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: #bfd0db;
+      font-size: .8rem;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+    .pipeline-wrap {
+      margin-top: 2.3rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(105px, 1fr));
+      gap: 1.15rem;
+    }
+    .stage {
+      position: relative;
+      min-height: 112px;
+      padding: .8rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color .16s ease, transform .16s ease, background .16s ease;
+    }
+    .stage:not(:last-child)::after {
+      content: "›";
+      position: absolute;
+      right: -1rem;
+      top: 38%;
+      color: #5c7990;
+      font-size: 1.5rem;
+      pointer-events: none;
+    }
+    .stage:hover { transform: translateY(-2px); border-color: var(--line-strong); }
+    .stage.active { border-color: var(--cyan); background: var(--cyan-soft); }
+    .stage small { display: block; color: var(--cyan); font-family: var(--mono); font-size: .68rem; }
+    .stage strong { display: block; margin: .45rem 0 .25rem; font-size: .93rem; }
+    .stage span { color: var(--muted); font-size: .74rem; line-height: 1.35; }
+    .stage-detail {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr;
+      gap: 1rem;
+      min-height: 180px;
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #091522;
+    }
+    .stage-detail > div { padding: .4rem; }
+    .stage-detail h3 { margin-bottom: .55rem; }
+    .stage-detail p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .io-label { color: var(--amber); font-family: var(--mono); font-size: .72rem; font-weight: 800; }
+    .file-link { display: inline-block; margin-top: .6rem; color: var(--blue); font-family: var(--mono); font-size: .8rem; }
+
+    .call-chain {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: .75rem;
+      margin-top: 2rem;
+    }
+    .call {
+      position: relative;
+      min-height: 134px;
+      padding: 1rem;
+      border-top: 3px solid var(--blue);
+      border-radius: 8px 8px 12px 12px;
+      background: var(--panel);
+    }
+    .call:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -.7rem;
+      top: 48%;
+      z-index: 2;
+      color: var(--blue);
+      font-weight: 900;
+    }
+    .call b { color: var(--blue); font-family: var(--mono); font-size: .72rem; }
+    .call strong { display: block; margin: .35rem 0; font-size: .9rem; }
+    .call p { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.45; }
+
+    .trace-switcher, .filter-row, .earley-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin: 1rem 0;
+    }
+    .pill-button {
+      min-height: 40px;
+      padding: .45rem .8rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      cursor: pointer;
+    }
+    .pill-button:hover, .pill-button.active {
+      border-color: var(--cyan);
+      background: var(--cyan-soft);
+      color: #ddfffc;
+    }
+    .trace-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+      gap: 1rem;
+    }
+    .trace-main, .trace-side, .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+    .trace-main, .trace-side { padding: 1.25rem; }
+    .question-line { margin: 0 0 .8rem; font-size: 1.22rem; font-weight: 750; }
+    .tokens { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+    .token {
+      padding: .2rem .55rem;
+      border: 1px solid #365572;
+      border-radius: 7px;
+      background: #10243a;
+      color: #d8ebf6;
+      font-family: var(--mono);
+      font-size: .78rem;
+    }
+    .trace-ladder { display: grid; gap: .65rem; }
+    .trace-step {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: .75rem;
+      padding: .75rem;
+      border-left: 3px solid var(--line-strong);
+      background: #091522;
+    }
+    .trace-step span { color: var(--cyan); font-family: var(--mono); font-size: .72rem; font-weight: 800; }
+    .trace-step code { overflow-wrap: anywhere; font-size: .8rem; }
+    .answer-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid #2b7652;
+      border-radius: 12px;
+      background: var(--green-soft);
+      color: #dbf8e7;
+    }
+    .trace-side h3 { margin-bottom: .8rem; }
+    .trace-side dl { display: grid; grid-template-columns: 95px 1fr; gap: .6rem; margin: 0; }
+    .trace-side dt { color: var(--muted); font-size: .78rem; }
+    .trace-side dd { margin: 0; overflow-wrap: anywhere; font-family: var(--mono); font-size: .78rem; }
+    .status-ok { color: var(--green); }
+    .status-stop { color: var(--red); }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .card { padding: 1.2rem; }
+    .card p { margin: .65rem 0 0; color: var(--muted); }
+    .formula {
+      padding: .75rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #07101b;
+      color: var(--violet);
+      font-family: var(--mono);
+      font-size: .9rem;
+      overflow-wrap: anywhere;
+    }
+    .chart-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: .45rem;
+      margin: 1.25rem 0;
+    }
+    .chart-cell {
+      min-height: 92px;
+      padding: .65rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #091522;
+    }
+    .chart-cell.active { border-color: var(--amber); background: var(--amber-soft); }
+    .chart-cell b { color: var(--amber); font-family: var(--mono); font-size: .7rem; }
+    .chart-cell span { display: block; margin-top: .35rem; font-family: var(--mono); font-size: .75rem; }
+    .earley-note {
+      min-height: 116px;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+    }
+    .earley-note strong { color: var(--amber); }
+    .earley-note p { margin: .4rem 0 0; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: .75rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--cyan); font-family: var(--mono); font-size: .75rem; }
+    td { color: #c5d4dd; font-size: .86rem; }
+    .scroll-table { overflow-x: auto; }
+
+    .semantic-map {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: stretch;
+      gap: .75rem;
+    }
+    .semantic-node {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+    .semantic-node b { color: var(--cyan); font-family: var(--mono); font-size: .75rem; }
+    .semantic-node code { display: block; margin-top: .5rem; font-size: .82rem; }
+    .arrow { align-self: center; color: var(--blue); font-size: 1.5rem; font-weight: 900; }
+    .decision-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr 1fr;
+      margin-top: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .decision-grid > div { padding: .8rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .decision-grid > div:nth-child(3n) { border-right: 0; }
+    .decision-grid .head { background: var(--panel-3); color: var(--cyan); font-weight: 800; }
+    .decision-grid .yes { background: var(--green-soft); }
+    .decision-grid .no { background: var(--red-soft); }
+
+    .dialogue {
+      display: grid;
+      grid-template-columns: 1fr 180px 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .turns { display: grid; gap: .8rem; }
+    .bubble {
+      padding: .85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 14px 14px 14px 4px;
+      background: var(--panel-2);
+    }
+    .bubble.answer { margin-left: 1.5rem; border-radius: 14px 14px 4px 14px; background: var(--blue-soft); }
+    .bubble b { display: block; margin-bottom: .25rem; color: var(--blue); font-size: .74rem; }
+    .memory {
+      padding: 1rem;
+      border: 1px solid var(--amber);
+      border-radius: 50%;
+      background: var(--amber-soft);
+      text-align: center;
+      aspect-ratio: 1;
+      display: grid;
+      place-content: center;
+    }
+    .memory small { color: #efcf9e; }
+    .memory strong { color: var(--amber); font-family: var(--mono); }
+
+    .loop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .8rem;
+      margin-bottom: 1rem;
+    }
+    .loop-step {
+      position: relative;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+    .loop-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -.7rem;
+      top: 42%;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+    .loop-step b { color: var(--cyan); font-family: var(--mono); font-size: .75rem; }
+    .loop-step p { margin: .35rem 0 0; color: var(--muted); font-size: .82rem; }
+    .bars { display: grid; gap: .8rem; margin-top: 1rem; }
+    .bar-row { display: grid; grid-template-columns: 170px minmax(0, 1fr) 76px; gap: .75rem; align-items: center; }
+    .bar-row span { color: var(--muted); font-size: .82rem; }
+    .bar-track { height: 10px; overflow: hidden; border-radius: 999px; background: #07101b; }
+    .bar-fill { height: 100%; border-radius: inherit; background: var(--green); }
+    .bar-fill.challenge { width: 75%; background: var(--amber); }
+    .bar-fill.full { width: 100%; }
+    .bar-row strong { font-family: var(--mono); font-size: .78rem; }
+
+    .file-toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .search-box {
+      width: 100%;
+      min-height: 44px;
+      padding: .7rem .9rem;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--text);
+    }
+    .file-count { color: var(--muted); font-family: var(--mono); font-size: .82rem; }
+    .file-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
+    .file-card {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: .8rem;
+      min-height: 108px;
+      padding: .85rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+    .file-card.hidden { display: none; }
+    .file-kind {
+      align-self: start;
+      padding: .25rem .45rem;
+      border-radius: 6px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-family: var(--mono);
+      font-size: .7rem;
+      text-align: center;
+    }
+    .file-card code { display: block; margin-bottom: .35rem; color: #e5f1f8; font-size: .78rem; overflow-wrap: anywhere; }
+    .file-card p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+    .empty-files { display: none; padding: 2rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); text-align: center; }
+    .empty-files.show { display: block; }
+
+    .command-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .command-card {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+    .command-card h3 { margin-bottom: .7rem; }
+    .command-card p { color: var(--muted); font-size: .85rem; }
+    .footer-note { margin-top: 2rem; color: var(--muted); font-size: .86rem; }
+
+    .system-map-section {
+      min-height: 100vh;
+      padding-top: .75rem;
+    }
+    .map-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1rem;
+    }
+    .map-header h1 { max-width: none; font-size: clamp(1.7rem, 3.2vw, 2.7rem); }
+    .map-header p { max-width: 520px; margin: 0; color: var(--muted); }
+    .map-header .eyebrow { color: var(--cyan); }
+    .simulator {
+      position: relative;
+      min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      border-radius: 18px;
+      background: #06101c;
+      box-shadow: var(--shadow);
+    }
+    .sim-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: .75rem;
+      padding: .75rem 1rem;
+      border-bottom: 1px solid var(--line);
+      background: #0a1726;
+    }
+    .scenario-controls, .transport-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+      align-items: center;
+    }
+    .sim-button {
+      min-height: 40px;
+      padding: .45rem .72rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .sim-button:hover, .sim-button[aria-pressed="true"] {
+      border-color: var(--cyan);
+      background: var(--cyan-soft);
+      color: var(--text);
+    }
+    .sim-button.primary {
+      border-color: var(--cyan);
+      background: var(--cyan);
+      color: #041314;
+      font-weight: 800;
+    }
+    .sim-button:disabled { cursor: not-allowed; opacity: .45; }
+    .canvas-shell {
+      position: relative;
+      min-height: 690px;
+    }
+    #architecture-canvas {
+      display: block;
+      width: 100%;
+      height: 690px;
+      cursor: crosshair;
+      touch-action: manipulation;
+    }
+    #architecture-canvas:focus-visible { outline: 2px solid var(--cyan); outline-offset: -4px; }
+    .canvas-help {
+      position: absolute;
+      top: .75rem;
+      left: 1rem;
+      max-width: 360px;
+      padding: .45rem .65rem;
+      border-radius: 7px;
+      background: rgba(6, 16, 28, .9);
+      color: var(--muted);
+      font-size: .78rem;
+      pointer-events: none;
+    }
+    .map-detail {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: min(330px, calc(100% - 2rem));
+      min-height: 178px;
+      padding: .9rem 1rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      background: rgba(8, 20, 33, .96);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .3);
+    }
+    .map-detail .detail-kicker {
+      color: var(--cyan);
+      font-family: var(--mono);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+    .map-detail h2 { margin-top: .3rem; font-size: 1.08rem; }
+    .map-detail p { margin: .45rem 0; color: #b6c9d6; font-size: .8rem; line-height: 1.45; }
+    .map-detail code { display: block; color: var(--amber); font-size: .72rem; overflow-wrap: anywhere; }
+    .map-detail p:last-child { margin-bottom: 0; color: var(--muted); }
+    .sim-footer {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      min-height: 72px;
+      padding: .75rem 1rem;
+      border-top: 1px solid var(--line);
+      background: #0a1726;
+    }
+    .live-stage { min-width: 0; }
+    .live-stage b { display: block; color: var(--amber); font-family: var(--mono); font-size: .72rem; }
+    .live-stage code { display: block; overflow: hidden; color: #dcebf4; font-size: .82rem; text-overflow: ellipsis; white-space: nowrap; }
+    .sim-progress {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      min-width: 190px;
+    }
+    .sim-progress-track { width: 130px; height: 7px; overflow: hidden; border-radius: 99px; background: #203247; }
+    .sim-progress-fill { width: 0; height: 100%; background: var(--cyan); transition: width .2s ease; }
+    .sim-progress span { color: var(--muted); font-family: var(--mono); font-size: .72rem; }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      padding: .65rem 1rem;
+      border-top: 1px solid rgba(39, 65, 92, .6);
+      background: #081421;
+      color: var(--muted);
+      font-size: .74rem;
+    }
+    .map-legend span { display: inline-flex; gap: .4rem; align-items: center; }
+    .legend-mark { width: 11px; height: 11px; border-radius: 3px; background: var(--cyan); }
+    .legend-mark.data { background: var(--violet); }
+    .legend-mark.tool { background: var(--amber); }
+    .legend-mark.output { background: var(--green); }
+    .legend-mark.stop { background: var(--red); }
+    .legacy-overview { display: none; }
+
+    @media (max-width: 1080px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar { position: relative; width: 100%; height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .side-nav { grid-template-columns: repeat(4, 1fr); }
+      .sidebar-note, .nav-label { display: none; }
+      .pipeline { grid-template-columns: repeat(4, 1fr); }
+      .stage:nth-child(4)::after { display: none; }
+      .call-chain { grid-template-columns: repeat(3, 1fr); }
+      .call:nth-child(3)::after { display: none; }
+      .canvas-shell, #architecture-canvas { min-height: 760px; height: 760px; }
+    }
+    @media (max-width: 760px) {
+      .content { width: min(100% - 1.4rem, 1200px); padding-top: 2rem; }
+      .sidebar { padding: 1rem; }
+      .brand { margin-bottom: .8rem; }
+      .side-nav { display: flex; overflow-x: auto; padding-bottom: .3rem; }
+      .side-nav a { grid-template-columns: 1fr; min-width: max-content; }
+      .side-nav b { display: none; }
+      section { padding: 3rem 0; }
+      .section-head, .trace-board, .two-col, .three-col, .dialogue, .command-grid { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .pipeline { display: flex; overflow-x: auto; }
+      .stage { min-width: 155px; }
+      .stage-detail { grid-template-columns: 1fr; }
+      .call-chain, .loop { grid-template-columns: 1fr 1fr; }
+      .call::after, .loop-step::after { display: none; }
+      .chart-strip { grid-template-columns: repeat(3, 1fr); }
+      .semantic-map { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); justify-self: center; }
+      .decision-grid { grid-template-columns: 92px 1fr 1fr; font-size: .78rem; }
+      .memory { width: 150px; justify-self: center; }
+      .file-toolbar { grid-template-columns: 1fr; }
+      .file-grid { grid-template-columns: 1fr; }
+      .file-card { grid-template-columns: 96px minmax(0, 1fr); }
+      .bar-row { grid-template-columns: 118px minmax(0, 1fr) 62px; }
+      .map-header { display: block; }
+      .map-header p { margin-top: .55rem; }
+      .sim-toolbar { align-items: stretch; }
+      .scenario-controls, .transport-controls { width: 100%; min-width: 0; }
+      .sim-button { flex: 1 1 auto; }
+      .canvas-shell { min-height: 0; height: auto; }
+      #architecture-canvas { min-height: 980px; height: 980px; }
+      .map-detail { position: static; width: auto; min-height: 0; margin: .75rem 1rem 1rem; }
+      .canvas-help { max-width: calc(100% - 2rem); }
+      .sim-footer { grid-template-columns: 1fr; }
+      .sim-progress { width: 100%; }
+      .sim-progress-track { flex: 1; }
+    }
+    @media (max-width: 460px) {
+      h1 { font-size: 2.45rem; }
+      .metrics, .call-chain, .loop { grid-template-columns: 1fr; }
+      .chart-strip { grid-template-columns: repeat(2, 1fr); }
+      .trace-step { grid-template-columns: 1fr; }
+      .decision-grid { grid-template-columns: 1fr; }
+      .decision-grid > div { border-right: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+    @media print {
+      :root { color-scheme: light; --bg: #fff; --panel: #fff; --panel-2: #f5f7fa; --panel-3: #eef2f6; --line: #b7c2cc; --text: #17212b; --muted: #4e5d69; }
+      .sidebar, .progress, .trace-switcher, .filter-row, .earley-controls, .search-box { display: none !important; }
+      .shell { display: block; }
+      .content { width: 100%; padding: 0; }
+      section { break-inside: avoid; padding: 1.2rem 0; }
+      .file-card.hidden { display: grid; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+  <div class="progress" aria-hidden="true"><span id="reading-progress"></span></div>
+
+  <div class="shell">
+    <aside class="sidebar" aria-label="Mục lục">
+      <div class="brand">
+        <div class="brand-mark">NLP</div>
+        <div><strong>Course Assistant</strong><span>Visual source guide</span></div>
+      </div>
+      <p class="nav-label">Đọc theo luồng</p>
+      <nav class="side-nav" id="side-nav">
+        <a href="#overview"><b>01</b><span>Canvas toàn hệ thống</span></a>
+        <a href="#trace"><b>02</b><span>Theo dấu một câu</span></a>
+        <a href="#parser"><b>03</b><span>Parser Earley</span></a>
+        <a href="#meaning"><b>04</b><span>Semantic và KB</span></a>
+        <a href="#dialogue"><b>05</b><span>Ngữ cảnh hội thoại</span></a>
+        <a href="#quality"><b>06</b><span>Sinh câu và đánh giá</span></a>
+        <a href="#files"><b>07</b><span>Bản đồ 58 file</span></a>
+        <a href="#run"><b>08</b><span>Cách chạy</span></a>
+      </nav>
+      <div class="sidebar-note">
+        Bấm một khối trong pipeline, một câu mẫu hoặc một bước Earley để đổi phần giải thích.
+      </div>
+    </aside>
+
+    <main id="main">
+      <div class="content">
+        <section id="overview" class="system-map-section" aria-labelledby="system-map-title">
+          <div class="map-header">
+            <div>
+              <p class="eyebrow">TOÀN BỘ PROJECT · MỘT CANVAS</p>
+              <h1 id="system-map-title">Nhìn luồng chạy, dữ liệu và điểm dừng cùng lúc</h1>
+            </div>
+            <p>Chọn một tình huống rồi bấm <strong>Chạy mô phỏng</strong>. Gói câu hỏi sẽ đi qua đúng các module mà chương trình thật gọi; bấm node bất kỳ để xem file và vai trò.</p>
+          </div>
+
+          <div class="simulator">
+            <div class="sim-toolbar">
+              <div class="scenario-controls" id="scenario-controls" role="group" aria-label="Chọn tình huống mô phỏng">
+                <button class="sim-button" type="button" data-scenario="happy" aria-pressed="true">Có dữ liệu</button>
+                <button class="sim-button" type="button" data-scenario="context" aria-pressed="false">Dùng ngữ cảnh</button>
+                <button class="sim-button" type="button" data-scenario="missing" aria-pressed="false">KB thiếu dữ liệu</button>
+                <button class="sim-button" type="button" data-scenario="unknown" aria-pressed="false">Ngoài văn phạm</button>
+              </div>
+              <div class="transport-controls" aria-label="Điều khiển mô phỏng">
+                <button class="sim-button primary" id="sim-play" type="button">Chạy mô phỏng</button>
+                <button class="sim-button" id="sim-step" type="button">Từng bước</button>
+                <button class="sim-button" id="sim-reset" type="button">Làm lại</button>
+              </div>
+            </div>
+
+            <div class="canvas-shell">
+              <canvas id="architecture-canvas" role="img" aria-label="Bản đồ tương tác toàn bộ kiến trúc Course Assistant, từ input qua pipeline NLP, knowledge base, kiểm thử và output.">
+                Bản đồ kiến trúc: run.py gọi CLI và pipeline; pipeline gọi tokenizer, Earley parser, semantic, dialogue context, query KB, answer rồi ghi output. Generator và evaluator dùng chung grammar và pipeline.
+              </canvas>
+              <div class="canvas-help">18 node · 58 file · Bấm node để xem chi tiết · Đường sáng là luồng đang chạy</div>
+              <aside class="map-detail" id="map-detail" aria-live="polite">
+                <span class="detail-kicker" id="node-kind">RUNTIME · COMPOSITION ROOT</span>
+                <h2 id="node-title">CourseAssistant pipeline</h2>
+                <p id="node-purpose">Nơi nối parser, semantic, dialogue, truy vấn KB và tạo câu trả lời thành một luồng duy nhất.</p>
+                <code id="node-files">src/.../app/pipeline.py</code>
+                <p id="node-io">Nhận câu hỏi → trả PipelineResult có đầy đủ trace.</p>
+              </aside>
+            </div>
+
+            <div class="sim-footer">
+              <div class="live-stage">
+                <b id="sim-stage-label">SẴN SÀNG · CÓ DỮ LIỆU</b>
+                <code id="sim-payload">“Tuần 3 học gì?”</code>
+              </div>
+              <div class="sim-progress" id="sim-progress" role="progressbar" aria-label="Tiến độ mô phỏng" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <div class="sim-progress-track"><div class="sim-progress-fill" id="sim-progress-fill"></div></div>
+                <span id="sim-progress-text">0%</span>
+              </div>
+            </div>
+
+            <div class="map-legend" aria-label="Chú giải màu trên bản đồ">
+              <span><i class="legend-mark"></i>runtime</span>
+              <span><i class="legend-mark data"></i>dữ liệu / luật</span>
+              <span><i class="legend-mark tool"></i>sinh / đánh giá</span>
+              <span><i class="legend-mark output"></i>artifact đầu ra</span>
+              <span><i class="legend-mark stop"></i>điểm dừng / fallback</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="overview-notes" class="legacy-overview" aria-labelledby="overview-title">
+          <p class="eyebrow">Python · Classical NLP · CO3085</p>
+          <h1 id="overview-title">Từ câu hỏi đến câu trả lời có căn cứ</h1>
+          <p class="lede">
+            Project nhận một câu tiếng Việt trong miền môn học, dựng cây cú pháp, rút intent và entity,
+            tra sáu file knowledge base rồi điền dữ liệu vào mẫu trả lời. Bạn có thể nhìn thấy kết quả
+            của từng tầng và biết câu dừng ở đâu.
+          </p>
+
+          <div class="metrics" aria-label="Số liệu project">
+            <div class="metric"><strong>24</strong><span>nhánh câu hỏi Q_*</span></div>
+            <div class="metric"><strong>15 / 12</strong><span>tuần / chương trong KB</span></div>
+            <div class="metric"><strong>42 / 42</strong><span>test chính thức end-to-end</span></div>
+            <div class="metric"><strong>6 / 6</strong><span>hội thoại đúng tham chiếu</span></div>
+          </div>
+
+          <div class="rule" aria-label="Ràng buộc thiết kế">
+            <span class="tag"><span class="dot"></span>Chạy offline</span>
+            <span class="tag"><span class="dot"></span>Python standard library</span>
+            <span class="tag"><span class="dot"></span>Không dùng LLM/RAG</span>
+            <span class="tag"><span class="dot"></span>Không tạo fact ngoài KB</span>
+          </div>
+
+          <div class="pipeline-wrap" aria-label="Pipeline NLP tương tác">
+            <div class="pipeline" id="pipeline">
+              <button class="stage active" type="button" data-stage="input" aria-pressed="true"><small>01 · INPUT</small><strong>Câu hỏi</strong><span>Chuỗi UTF-8 từ file hoặc CLI</span></button>
+              <button class="stage" type="button" data-stage="tokenizer" aria-pressed="false"><small>02 · NORMALIZE</small><strong>Tokenizer</strong><span>Unicode, chữ thường, token</span></button>
+              <button class="stage" type="button" data-stage="parser" aria-pressed="false"><small>03 · SYNTAX</small><strong>Earley parser</strong><span>Cây cú pháp hoặc ()</span></button>
+              <button class="stage" type="button" data-stage="semantic" aria-pressed="false"><small>04 · MEANING</small><strong>Semantic</strong><span>Intent, entity, predicate</span></button>
+              <button class="stage" type="button" data-stage="context" aria-pressed="false"><small>05 · CONTEXT</small><strong>Dialogue</strong><span>Phân giải câu rút gọn</span></button>
+              <button class="stage" type="button" data-stage="query" aria-pressed="false"><small>06 · LOOKUP</small><strong>Query KB</strong><span>Index và source file</span></button>
+              <button class="stage" type="button" data-stage="answer" aria-pressed="false"><small>07 · OUTPUT</small><strong>Answer</strong><span>Template có dữ liệu</span></button>
+            </div>
+            <div class="stage-detail" aria-live="polite">
+              <div><span class="io-label">TẦNG ĐANG XEM</span><h3 id="stage-title">Câu hỏi đầu vào</h3><p id="stage-purpose"></p><a class="file-link" id="stage-file" href="#files"></a></div>
+              <div><span class="io-label">NHẬN</span><p id="stage-input"></p></div>
+              <div><span class="io-label">TRẢ / ĐIỂM DỪNG</span><p id="stage-output"></p></div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:2.2rem">Luồng gọi khi chạy <code>python run.py all</code></h3>
+          <div class="call-chain" aria-label="Chuỗi lời gọi chương trình">
+            <div class="call"><b>1</b><strong>run.py</strong><p>Thêm thư mục src vào Python path rồi gọi <code>cli.main()</code>.</p></div>
+            <div class="call"><b>2</b><strong>cli.py</strong><p>Đọc tham số, dựng <code>CourseAssistant</code>, chọn lệnh cần chạy.</p></div>
+            <div class="call"><b>3</b><strong>pipeline.py</strong><p>Nạp grammar, lexicon, KB và nối các tầng xử lý.</p></div>
+            <div class="call"><b>4</b><strong>process()</strong><p>Chạy parse, semantic, context, query và answer cho từng dòng.</p></div>
+            <div class="call"><b>5</b><strong>output.py</strong><p>Ghi cây, predicate, intent/entity, query và câu trả lời.</p></div>
+            <div class="call"><b>6</b><strong>evaluate.py</strong><p>Chạy test có nhãn, tính metric và ghi báo cáo hội thoại.</p></div>
+          </div>
+        </section>
+
+        <section id="trace" aria-labelledby="trace-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Một câu, bảy tầng</p><h2 id="trace-title">Theo dấu dữ liệu trong pipeline</h2></div>
+            <p>Đổi câu mẫu để xem đường đi khi KB có dữ liệu, khi KB thiếu dữ liệu và khi parser từ chối câu.</p>
+          </div>
+
+          <div class="trace-switcher" id="trace-switcher" aria-label="Chọn câu mẫu">
+            <button class="pill-button active" type="button" data-trace="week" aria-pressed="true">Tuần học gì</button>
+            <button class="pill-button" type="button" data-trace="credit" aria-pressed="false">Số tín chỉ</button>
+            <button class="pill-button" type="button" data-trace="context" aria-pressed="false">Chương sau</button>
+            <button class="pill-button" type="button" data-trace="missing" aria-pressed="false">KB thiếu</button>
+            <button class="pill-button" type="button" data-trace="unknown" aria-pressed="false">Ngoài miền</button>
+          </div>
+
+          <div class="trace-board" aria-live="polite">
+            <div class="trace-main">
+              <p class="question-line" id="trace-question"></p>
+              <div class="tokens" id="trace-tokens" aria-label="Danh sách token"></div>
+              <div class="trace-ladder">
+                <div class="trace-step"><span>PARSE</span><code id="trace-parse"></code></div>
+                <div class="trace-step"><span>SEMANTIC</span><code id="trace-semantic"></code></div>
+                <div class="trace-step"><span>CONTEXT</span><code id="trace-context"></code></div>
+                <div class="trace-step"><span>QUERY</span><code id="trace-query"></code></div>
+              </div>
+              <div class="answer-box"><strong>ANSWER</strong><div id="trace-answer"></div></div>
+            </div>
+            <aside class="trace-side">
+              <h3>Trạng thái cuối</h3>
+              <dl>
+                <dt>Intent</dt><dd id="trace-intent"></dd>
+                <dt>Entity</dt><dd id="trace-entity"></dd>
+                <dt>KB</dt><dd id="trace-found"></dd>
+                <dt>Source</dt><dd id="trace-source"></dd>
+                <dt>Kết luận</dt><dd id="trace-result"></dd>
+              </dl>
+            </aside>
+          </div>
+        </section>
+
+        <section id="parser" aria-labelledby="parser-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Cú pháp</p><h2 id="parser-title">Earley chart parser hoạt động ra sao</h2></div>
+            <p>Parser lưu state theo vị trí token. Ba thao tác Predict, Scan và Complete xây cây mà không gọi thư viện NLP.</p>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Dạng một state</h3>
+              <p>Mỗi state lưu luật, vị trí dấu chấm, nơi constituent bắt đầu và vị trí hiện tại.</p>
+              <div class="formula">[A → α • β, start, end]</div>
+              <p>Code dùng khóa <code>(lhs, rhs, dot, start, end)</code> để loại state trùng. <code>children</code> giữ nhánh cây đầu tiên theo thứ tự luật.</p>
+            </div>
+            <div class="card">
+              <h3>Điều kiện nhận câu</h3>
+              <p>Parser chỉ nhận khi augmented start state đi từ token 0 đến token n và dấu chấm đứng cuối luật.</p>
+              <div class="formula">[__START__ → S •, 0, n]</div>
+              <p>Câu còn token thừa không đạt điều kiện này. Hàm <code>ParseResult.output()</code> trả <code>()</code>.</p>
+            </div>
+          </div>
+
+          <div class="earley-controls" id="earley-controls" aria-label="Ba thao tác Earley">
+            <button class="pill-button active" type="button" data-earley="predict" aria-pressed="true">1. Predict</button>
+            <button class="pill-button" type="button" data-earley="scan" aria-pressed="false">2. Scan</button>
+            <button class="pill-button" type="button" data-earley="complete" aria-pressed="false">3. Complete</button>
+            <button class="pill-button" type="button" data-earley="accept" aria-pressed="false">4. Accept</button>
+          </div>
+          <div class="chart-strip" id="chart-strip" aria-label="Chart cho câu Tuần 3 học gì">
+            <div class="chart-cell active" data-chart="0"><b>CHART[0]</b><span>• tuần</span></div>
+            <div class="chart-cell" data-chart="1"><b>CHART[1]</b><span>tuần • 3</span></div>
+            <div class="chart-cell" data-chart="2"><b>CHART[2]</b><span>3 • học</span></div>
+            <div class="chart-cell" data-chart="3"><b>CHART[3]</b><span>học • gì</span></div>
+            <div class="chart-cell" data-chart="4"><b>CHART[4]</b><span>gì • ?</span></div>
+            <div class="chart-cell" data-chart="5"><b>CHART[5]</b><span>? •</span></div>
+          </div>
+          <div class="earley-note" aria-live="polite"><strong id="earley-title"></strong><p id="earley-copy"></p><code id="earley-code"></code></div>
+
+          <div class="two-col" style="margin-top:1rem">
+            <div class="card">
+              <h3>Pseudocode sát với <code>parser.py</code></h3>
+              <pre>chart[0] ← [START → • S, 0, 0]
+
+for position in 0..n:
+  for state in chart[position]:
+    if state đã complete:
+      advance các state cha
+    else if next_symbol là non-terminal:
+      predict mọi luật của next_symbol
+    else if token[position] khớp next_symbol:
+      scan sang chart[position + 1]
+
+accept nếu [START → S •, 0, n] tồn tại</pre>
+            </div>
+            <div class="card">
+              <h3>Vì sao dùng Earley</h3>
+              <div class="scroll-table">
+                <table>
+                  <thead><tr><th>Tiêu chí</th><th>Earley trong project</th></tr></thead>
+                  <tbody>
+                    <tr><td>Loại grammar</td><td>Nhận CFG tổng quát, có epsilon và không cần đổi sang CNF.</td></tr>
+                    <tr><td>Nhập nhằng</td><td>Chart giữ state trùng một lần; code lấy cây đầu theo thứ tự luật.</td></tr>
+                    <tr><td>Đệ quy trái</td><td>Không mắc vòng lặp của recursive descent thuần.</td></tr>
+                    <tr><td>Độ phức tạp</td><td>Cận trên O(n³); câu trong miền ngắn nên chart nhỏ.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="meaning" aria-labelledby="meaning-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Ngữ nghĩa và tri thức</p><h2 id="meaning-title">Cây cú pháp trở thành truy vấn KB</h2></div>
+            <p>Semantic interpreter đọc nhãn Q_* để lấy intent và đọc constituent có tên để lấy entity. Nó chưa mở KB ở bước này.</p>
+          </div>
+
+          <div class="semantic-map" aria-label="Ánh xạ từ cây sang câu trả lời">
+            <div class="semantic-node"><b>CÂY</b><code>Q_SCHEDULE_WEEK<br>└─ WEEK_ENTITY: tuần 3</code></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="semantic-node"><b>PREDICATE</b><code>GET_SCHEDULE(<br>week=WEEK_03)</code></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="semantic-node"><b>LOOKUP</b><code>KB.weeks[WEEK_03]<br>source: schedule.txt</code></div>
+          </div>
+
+          <div class="three-col" style="margin-top:1rem">
+            <div class="card"><h3>Intent</h3><p>Nhãn <code>Q_SCHEDULE_WEEK</code> ánh xạ sang <code>GET_SCHEDULE</code>. Bảng <code>BRANCH_INTENTS</code> giữ ánh xạ này.</p></div>
+            <div class="card"><h3>Entity</h3><p><code>WEEK_ENTITY</code> chứa “tuần 3”. <code>EntityLexicon</code> chuẩn hóa thành khóa <code>WEEK_03</code>.</p></div>
+            <div class="card"><h3>Slots</h3><p>Frame giữ <code>{week: WEEK_03}</code>. Query engine chọn đúng index mà không quét FAQ.</p></div>
+          </div>
+
+          <h3 style="margin-top:2rem">Sáu loader, sáu cấu trúc tra cứu</h3>
+          <div class="scroll-table">
+            <table>
+              <thead><tr><th>File KB</th><th>Loader tạo ra</th><th>Intent dùng</th></tr></thead>
+              <tbody>
+                <tr><td><code>course_info.txt</code></td><td>Field, exam format, assessment, LO index</td><td>GET_COURSE_INFO, GET_LO</td></tr>
+                <tr><td><code>schedule.txt</code></td><td><code>week → record</code> và <code>chapter → weeks</code></td><td>GET_SCHEDULE, GET_DEADLINE</td></tr>
+                <tr><td><code>topics.txt</code></td><td><code>chapter_id → topic</code> và keyword score</td><td>GET_TOPIC</td></tr>
+                <tr><td><code>assignments.txt</code></td><td><code>PART_I..IV → requirements/outputs</code></td><td>GET_ASSIGNMENT</td></tr>
+                <tr><td><code>resources.txt</code></td><td>Danh sách tài liệu với title, author, usage</td><td>GET_RESOURCE</td></tr>
+                <tr><td><code>regulations.txt</code></td><td><code>rule_id → nội dung quy định</code></td><td>GET_RULE</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:2rem">Hai cổng kiểm soát câu trả lời</h3>
+          <div class="decision-grid" role="table" aria-label="Quyết định parse và KB">
+            <div class="head">Parser</div><div class="head">KB có record</div><div class="head">Kết quả</div>
+            <div>Có cây</div><div class="yes">Có</div><div class="yes">Điền dữ liệu KB vào template.</div>
+            <div>Có cây</div><div class="no">Không</div><div class="no">Báo không tìm thấy. Ví dụ: tuần 99, giảng viên.</div>
+            <div><code>()</code></div><div>Không query</div><div class="no">Báo câu ngoài grammar hoặc ngoài miền.</div>
+          </div>
+        </section>
+
+        <section id="dialogue" aria-labelledby="dialogue-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Phần III</p><h2 id="dialogue-title">History-list nối hai lượt nói</h2></div>
+            <p><code>DialogueContext</code> nhớ entity gần nhất theo loại. Resolver chỉ áp dụng các quan hệ đã định nghĩa trong đề.</p>
+          </div>
+
+          <div class="dialogue">
+            <div class="turns">
+              <div class="bubble"><b>U1</b>Chương 11 có hỏi đáp không?</div>
+              <div class="bubble answer"><b>A1</b>Có. Chương 11 có nội dung liên quan đến question answering.</div>
+            </div>
+            <div class="memory"><div><small>MEMORY</small><br><strong>last_chapter<br>= CH11</strong></div></div>
+            <div class="turns">
+              <div class="bubble"><b>U2</b>Còn chương sau?</div>
+              <div class="bubble answer"><b>RESOLVE</b>NEXT_CHAPTER(CH11) → CH12</div>
+            </div>
+          </div>
+
+          <div class="three-col" style="margin-top:1rem">
+            <div class="card"><h3>Nhớ gì</h3><p><code>last_chapter</code>, <code>last_assignment_part</code>, <code>last_lo</code>, <code>last_entity</code> và tối đa 20 entity trong history.</p></div>
+            <div class="card"><h3>Resolve gì</h3><p>“Nó”, “chương này”, “chương sau”, “phần này”, tài liệu của nội dung vừa hỏi và LO thuộc chương nào.</p></div>
+            <div class="card"><h3>Cập nhật lúc nào</h3><p>Context chỉ ghi entity khi query tìm thấy dữ liệu. Một câu lỗi không xóa hoặc thay entity đang nhớ.</p></div>
+          </div>
+        </section>
+
+        <section id="quality" aria-labelledby="quality-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Generation và evaluation</p><h2 id="quality-title">Grammar tự kiểm tra bằng chiều ngược</h2></div>
+            <p>Generator sinh từ CFG. Parser đọc lại từng câu. Evaluation chấm intent, entity, query-status và fact trong answer.</p>
+          </div>
+
+          <div class="loop" aria-label="Vòng kiểm tra generator parser">
+            <div class="loop-step"><b>1 · CHỌN NHÁNH</b><p>Phân bổ quota cho từng non-terminal <code>Q_*</code>.</p></div>
+            <div class="loop-step"><b>2 · KHAI TRIỂN</b><p>BFS thay non-terminal ngoài cùng bên trái bằng một RHS.</p></div>
+            <div class="loop-step"><b>3 · PHANH</b><p>Giới hạn 10.000 câu, số token và số sentential form.</p></div>
+            <div class="loop-step"><b>4 · ROUND-TRIP</b><p>Parse lại. Lệnh <code>all</code> dừng nếu có một câu bị từ chối.</p></div>
+          </div>
+
+          <div class="two-col">
+            <div class="card">
+              <h3>Kết quả hiện có</h3>
+              <div class="bars">
+                <div class="bar-row"><span>Official end-to-end</span><div class="bar-track"><div class="bar-fill full"></div></div><strong>42/42</strong></div>
+                <div class="bar-row"><span>Query + answer</span><div class="bar-track"><div class="bar-fill full"></div></div><strong>42/42</strong></div>
+                <div class="bar-row"><span>Hội thoại</span><div class="bar-track"><div class="bar-fill full"></div></div><strong>6/6</strong></div>
+                <div class="bar-row"><span>Challenge end-to-end</span><div class="bar-track"><div class="bar-fill challenge"></div></div><strong>6/8</strong></div>
+              </div>
+            </div>
+            <div class="card">
+              <h3>Hai ca challenge còn bị từ chối</h3>
+              <p><code>Môn NLP học mấy buổi mỗi tuần?</code> hỏi một thuộc tính mà KB chưa cung cấp.</p>
+              <p><code>Tuần thứ ba tụi mình học bài gì vậy?</code> dùng số thứ tự bằng chữ và khẩu ngữ ngoài grammar.</p>
+              <p>Báo cáo giữ hai ca này để chỉ ra giới hạn của grammar đóng và vị trí cần thêm rule.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="files" aria-labelledby="files-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Source atlas</p><h2 id="files-title">Ý nghĩa từng file trong project</h2></div>
+            <p>Gõ tên module hoặc lọc theo lớp. Danh sách gồm source, dữ liệu, test, cấu hình và output mẫu.</p>
+          </div>
+
+          <div class="file-toolbar">
+            <label><span class="io-label">TÌM FILE</span><input class="search-box" id="file-search" type="search" placeholder="Ví dụ: parser, schedule, output..." autocomplete="off"></label>
+            <span class="file-count" id="file-count">58 / 58 file</span>
+          </div>
+          <div class="filter-row" id="file-filters" aria-label="Lọc file theo nhóm">
+            <button class="pill-button active" type="button" data-filter="all" aria-pressed="true">Tất cả</button>
+            <button class="pill-button" type="button" data-filter="entry" aria-pressed="false">Entry & config</button>
+            <button class="pill-button" type="button" data-filter="source" aria-pressed="false">Source NLP</button>
+            <button class="pill-button" type="button" data-filter="data" aria-pressed="false">Data</button>
+            <button class="pill-button" type="button" data-filter="output" aria-pressed="false">Output</button>
+            <button class="pill-button" type="button" data-filter="test" aria-pressed="false">Tests</button>
+          </div>
+          <div class="file-grid" id="file-grid"></div>
+          <div class="empty-files" id="empty-files">Không có file khớp bộ lọc.</div>
+        </section>
+
+        <section id="run" aria-labelledby="run-title">
+          <div class="section-head">
+            <div><p class="eyebrow">Thực hành</p><h2 id="run-title">Chạy từng phần hoặc chạy trọn pipeline</h2></div>
+            <p>Các lệnh dùng đường dẫn tương đối với project root. Python 3.10 trở lên là đủ.</p>
+          </div>
+
+          <div class="command-grid">
+            <div class="command-card"><h3>Sinh toàn bộ output</h3><pre>python run.py all --samples 1000</pre><p>Nạp project, xử lý input, sinh câu, đánh giá và ghi chín file output.</p></div>
+            <div class="command-card"><h3>Xem full trace</h3><pre>python run.py answer --trace \
+  "Tuần 3 học gì?"</pre><p>In cây, predicate, query, source KB và câu trả lời.</p></div>
+            <div class="command-card"><h3>Hội thoại tương tác</h3><pre>python run.py interactive</pre><p>Dùng <code>/reset</code> để xóa history-list và <code>/quit</code> để thoát.</p></div>
+            <div class="command-card"><h3>Chạy kiểm thử</h3><pre>python -m unittest discover \
+  -s tests -v</pre><p>Kiểm tra loader, parser, generator, semantic, QA và context.</p></div>
+          </div>
+
+          <div class="card" style="margin-top:1rem">
+            <h3>Docker</h3>
+            <pre>docker build -t co3085-course-assistant .
+docker run --rm -v "${PWD}/output:/app/output" co3085-course-assistant</pre>
+            <p>Image dùng Python slim, không tải model. Container ghi artifact vào <code>/app/output</code>.</p>
+          </div>
+
+          <p class="footer-note">
+            Tài liệu này mô tả code trong cùng thư mục <code>sample-src</code>. README giữ hướng dẫn nộp bài; trang này tập trung vào cách dữ liệu chạy qua hệ thống.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    "use strict";
+
+    const stageData = {
+      input: {
+        title: "Câu hỏi đầu vào",
+        purpose: "CLI nhận câu từ đối số, file input hoặc vòng lặp interactive. Mỗi dòng tạo một lần gọi CourseAssistant.process().",
+        file: "run.py · cli.py",
+        input: "Chuỗi UTF-8, ví dụ: “Tuần 3 học gì?”",
+        output: "Chuỗi giữ nguyên để ghi trace; tokenizer nhận chuỗi ở tầng kế tiếp."
+      },
+      tokenizer: {
+        title: "Chuẩn hóa và tách token",
+        purpose: "Hàm normalize_text đưa Unicode về NFC, đổi chữ thường, chuẩn hóa L.O.2.5 thành lo2.5. Hàm tokenize tách từ và dấu câu.",
+        file: "src/.../tokenizer.py",
+        input: "“L.O.2.5 là gì?”",
+        output: "[lo2.5, là, gì, ?]. Token lạ còn nguyên để parser có thể từ chối."
+      },
+      parser: {
+        title: "Phân tích cú pháp Earley",
+        purpose: "Predict, Scan và Complete tạo chart. State hoàn tất mang children để dựng constituency tree.",
+        file: "src/.../parser.py · data/grammar.cfg",
+        input: "Danh sách token và start symbol S.",
+        output: "Tree nếu ăn hết token; () nếu không có augmented start state hoàn tất."
+      },
+      semantic: {
+        title: "Diễn giải cây thành predicate",
+        purpose: "Nhãn Q_* quyết định intent. Các node WEEK_ENTITY, CHAPTER_ENTITY, TOPIC_ENTITY và LO_ENTITY cung cấp entity.",
+        file: "src/.../semantic.py · entities.py",
+        input: "Cây có Q_SCHEDULE_WEEK và WEEK_ENTITY(3).",
+        output: "GET_SCHEDULE(entity=WEEK_03, week=WEEK_03). Cây rỗng tạo UNKNOWN()."
+      },
+      context: {
+        title: "Phân giải ngữ cảnh cục bộ",
+        purpose: "DialogueContext thay entity bị lược bằng chapter, phần BTL hoặc LO gần nhất. Câu đủ entity đi qua mà không đổi.",
+        file: "src/.../dialogue.py",
+        input: "CONTEXT_DEPENDENT(action=NEXT_CHAPTER), last_chapter=CH11.",
+        output: "GET_TOPIC(chapter=CH12). Thiếu history thì trả UNRESOLVED_CONTEXT."
+      },
+      query: {
+        title: "Truy vấn knowledge base",
+        purpose: "QueryEngine chọn index theo intent và slot. KnowledgeBase đã parse sáu file text khi khởi động.",
+        file: "src/.../kb.py · query.py",
+        input: "GET_SCHEDULE(week=WEEK_03).",
+        output: "Record tuần 3, query string và source kb/schedule.txt; record rỗng tạo NOT_FOUND."
+      },
+      answer: {
+        title: "Sinh câu trả lời có căn cứ",
+        purpose: "AnswerGenerator chọn template theo QueryResult.kind rồi đưa field từ KB vào. Nó không gọi model sinh văn bản.",
+        file: "src/.../answer.py · output.py",
+        input: "QueryResult(kind=SCHEDULE_WEEK, data=record tuần 3).",
+        output: "Câu trả lời tiếng Việt. UNKNOWN, UNRESOLVED_CONTEXT và thiếu record có thông báo riêng."
+      }
+    };
+
+    const traces = {
+      week: {
+        question: "Tuần 3 học gì?",
+        tokens: ["tuần", "3", "học", "gì", "?"],
+        parse: "(S … (Q_SCHEDULE_WEEK (WEEK_ENTITY tuần 3) (WEEK_CONTENT_QUESTION học gì)) …)",
+        semantic: "GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)",
+        context: "Không cần phân giải; câu chứa WEEK_03.",
+        query: "KB.weeks[WEEK_03]",
+        answer: "Tuần 3 học Chương 3, gồm context-free grammar, top-down parsing, chart parsing, PCFG và dependency grammar.",
+        intent: "GET_SCHEDULE", entity: "WEEK_03", found: "FOUND", source: "kb/schedule.txt", result: "Trả lời từ record tuần 3.", ok: true
+      },
+      credit: {
+        question: "Môn NLP có bao nhiêu tín chỉ?",
+        tokens: ["môn", "nlp", "có", "bao", "nhiêu", "tín", "chỉ", "?"],
+        parse: "(S … (Q_COURSE_CREDITS (COURSE_SUBJECT môn NLP) …) …)",
+        semantic: "GET_COURSE_INFO(entity=CO3085, field=CREDITS)",
+        context: "Không cần phân giải; COURSE_ENTITY chuẩn hóa thành CO3085.",
+        query: "KB.course[CREDITS]",
+        answer: "Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.",
+        intent: "GET_COURSE_INFO", entity: "CO3085", found: "FOUND", source: "kb/course_info.txt", result: "Template nhận credits=3 từ KB.", ok: true
+      },
+      context: {
+        question: "Còn chương sau?",
+        tokens: ["còn", "chương", "sau", "?"],
+        parse: "(S … (Q_CONTEXT_NEXT_CHAPTER còn chương sau) …)",
+        semantic: "CONTEXT_DEPENDENT(action=NEXT_CHAPTER) → GET_TOPIC(chapter=CH12)",
+        context: "last_chapter=CH11; NEXT_CHAPTER tăng số chương thành CH12.",
+        query: "KB.topics[CH12]",
+        answer: "Chương 12 tập trung vào discourse context và reference.",
+        intent: "CONTEXT_DEPENDENT", entity: "CH12", found: "FOUND", source: "kb/topics.txt", result: "Resolver bổ sung entity trước khi query.", ok: true
+      },
+      missing: {
+        question: "Tuần 99 học gì?",
+        tokens: ["tuần", "99", "học", "gì", "?"],
+        parse: "(S … (Q_SCHEDULE_WEEK (WEEK_ENTITY tuần 99) …) …)",
+        semantic: "GET_SCHEDULE(entity=WEEK_99, week=WEEK_99)",
+        context: "Không cần phân giải; grammar cho phép số tuần ngoài KB để kiểm tra not-found.",
+        query: "KB.weeks[WEEK_99] → empty",
+        answer: "Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học.",
+        intent: "GET_SCHEDULE", entity: "WEEK_99", found: "NOT_FOUND", source: "-", result: "Cú pháp đúng, dữ liệu thiếu.", ok: false
+      },
+      unknown: {
+        question: "Hôm nay ở TP.HCM có mưa không?",
+        tokens: ["hôm", "nay", "ở", "tp.hcm", "có", "mưa", "không", "?"],
+        parse: "()",
+        semantic: "UNKNOWN()",
+        context: "Không cập nhật history-list.",
+        query: "NO_QUERY",
+        answer: "Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.",
+        intent: "UNKNOWN", entity: "OUT_OF_SCOPE", found: "SKIPPED", source: "-", result: "Parser chặn câu trước tầng KB.", ok: false
+      }
+    };
+
+    const earleyData = {
+      predict: {
+        title: "Predict: mở non-terminal đang chờ",
+        copy: "Tại Chart[0], state đầu chờ S. Parser thêm luật của S, rồi thêm luật của PREFIX. PREFIX có epsilon nên parser có thể đi thẳng tới QUESTION.",
+        code: "[START → • S, 0, 0]  ⇒  [S → • PREFIX QUESTION SUFFIX, 0, 0]",
+        chart: 0
+      },
+      scan: {
+        title: "Scan: đối chiếu terminal với token",
+        copy: "Khi state chờ terminal “tuần” và token hiện tại khớp, parser dịch dấu chấm rồi đưa state sang chart kế tiếp. Mỗi token dùng đúng một lần.",
+        code: "[WEEK_ENTITY → • tuần WEEK_NUMBER, 0, 0]  ⇒  [WEEK_ENTITY → tuần • WEEK_NUMBER, 0, 1]",
+        chart: 1
+      },
+      complete: {
+        title: "Complete: trả constituent cho state cha",
+        copy: "Sau khi WEEK_ENTITY ăn “tuần 3”, parser tìm các state ở Chart[0] đang chờ WEEK_ENTITY, gắn cây con và dịch dấu chấm của state cha.",
+        code: "[WEEK_ENTITY → tuần WEEK_NUMBER •, 0, 2]  ⇒  [Q_SCHEDULE_WEEK → WEEK_ENTITY • WEEK_CONTENT_QUESTION, 0, 2]",
+        chart: 2
+      },
+      accept: {
+        title: "Accept: start state phủ toàn bộ câu",
+        copy: "Parser tiếp tục ba thao tác tới dấu hỏi. Chart[5] chứa augmented start state hoàn tất từ vị trí 0 đến 5, nên câu hợp grammar.",
+        code: "[__START__ → S •, 0, 5]",
+        chart: 5
+      }
+    };
+
+    const files = [
+      ["entry", ".dockerignore", "Loại cache, test và output khỏi Docker build context."],
+      ["entry", ".gitignore", "Bỏ qua bytecode, virtual environment và cache kiểm thử."],
+      ["entry", "Dockerfile", "Đóng gói project trong Python 3.12 slim và chạy lệnh all."],
+      ["entry", "pyproject.toml", "Khai báo package, phiên bản Python và console command course-assistant."],
+      ["entry", "requirements.txt", "Ghi rõ project không có dependency ngoài standard library."],
+      ["entry", "run.py", "Launcher tại project root; thêm src vào sys.path rồi gọi CLI."],
+      ["entry", "README.md", "Hướng dẫn cài, chạy, kiến trúc, đánh giá và giới hạn để nộp bài."],
+      ["entry", "visually-explained-documentation.html", "Tài liệu trực quan bạn đang đọc; không tham gia runtime."],
+      ["entry", "conf/app.json", "Giữ kiểu hook của code mẫu và trỏ tới utils.run."],
+
+      ["data", "data/README.md", "Ghi nguồn và vai trò của KB, scaffolding và challenge set."],
+      ["data", "data/grammar.cfg", "Nguồn CFG duy nhất cho parser lẫn generator; nhãn Q_* chứa intent."],
+      ["data", "data/kb/course_info.txt", "Thông tin môn, tín chỉ, mô tả, assessment, exam và learning outcomes."],
+      ["data", "data/kb/schedule.txt", "15 record tuần, topics, activity và ba milestone BTL."],
+      ["data", "data/kb/topics.txt", "12 record chương với keyword, summary và subtopics."],
+      ["data", "data/kb/assignments.txt", "Mục tiêu BTL, yêu cầu và output của Phần I đến IV."],
+      ["data", "data/kb/resources.txt", "Tám giáo trình và tài liệu với author, year, usage."],
+      ["data", "data/kb/regulations.txt", "Quy định AI, source code, chia sẻ bài, thư viện và LLM/RAG."],
+      ["data", "data/scaffolding/entities.txt", "Lexicon gốc về course, chapter, topic, assignment và intent."],
+      ["data", "data/scaffolding/sample_queries.txt", "42 câu có intent, entity, query-status và answer fact; gồm tám câu nguyên văn từ PDF."],
+      ["data", "data/scaffolding/dialogues.txt", "Sáu hội thoại có tham chiếu, gồm chuỗi ví dụ nguyên văn của đề."],
+      ["data", "data/scaffolding/faq.txt", "FAQ nguồn được giữ để tham khảo; runtime không dùng làm bảng đáp án."],
+      ["data", "data/scaffolding/challenge_queries.txt", "Sáu câu bổ sung, có ghi nguồn, dùng cho error analysis."],
+      ["data", "input/sentences.txt", "Chín câu đầu vào mẫu cho lệnh all, gồm valid, context, missing và unknown."],
+      ["data", "models/README.md", "Giải thích vì sao hướng rule-based không có trained model."],
+
+      ["output", "output/grammar.txt", "Bản grammar mà lần chạy đã dùng, phục vụ chấm và truy vết."],
+      ["output", "output/samples.txt", "1.000 câu hợp grammar; mỗi dòng một câu."],
+      ["output", "output/parse-results.txt", "Một cây ngoặc hoặc () tương ứng mỗi dòng input."],
+      ["output", "output/semantic.txt", "Predicate của mỗi câu và bước resolve nếu câu dùng context."],
+      ["output", "output/intent-entity.txt", "JSON Lines chứa question, intent, entity và resolved_intent."],
+      ["output", "output/query.txt", "Query logic, FOUND/NOT_FOUND và source KB cho mỗi input."],
+      ["output", "output/answer.txt", "Cặp câu hỏi và câu trả lời cuối cùng."],
+      ["output", "output/evaluation.txt", "Metric chính thức, challenge table, ca sai và phân tích hạn chế."],
+      ["output", "output/dialogue.txt", "Full trace của sáu hội thoại và accuracy tham chiếu."],
+
+      ["source", "src/hcmut/__init__.py", "Đánh dấu namespace package hcmut."],
+      ["source", "src/hcmut/iaslab/__init__.py", "Đánh dấu namespace package iaslab."],
+      ["source", "src/hcmut/iaslab/nlp/__init__.py", "Đánh dấu namespace package nlp."],
+      ["source", "src/hcmut/iaslab/nlp/app/__init__.py", "Export CourseAssistant và PipelineResult cho code gọi ngoài."],
+      ["source", "src/hcmut/iaslab/nlp/app/paths.py", "Tìm project root và gom đường dẫn data, input, output."],
+      ["source", "src/hcmut/iaslab/nlp/app/tokenizer.py", "Chuẩn hóa Unicode, L.O. notation, tokenize và ghép token khi generate."],
+      ["source", "src/hcmut/iaslab/nlp/app/tree.py", "Định nghĩa constituency Tree, walk, leaves và bracketed output."],
+      ["source", "src/hcmut/iaslab/nlp/app/grammar.py", "Parse cú pháp grammar.cfg thành Rule, index by_lhs và kiểm tra non-terminal."],
+      ["source", "src/hcmut/iaslab/nlp/app/parser.py", "Cài Earley State, Predict, Scan, Complete và dựng cây đầu tiên."],
+      ["source", "src/hcmut/iaslab/nlp/app/generator.py", "Sinh câu BFS theo từng Q_* với limit và state cap."],
+      ["source", "src/hcmut/iaslab/nlp/app/entities.py", "Nạp lexicon và chuẩn hóa week, chapter, LO, topic, rule, resource."],
+      ["source", "src/hcmut/iaslab/nlp/app/semantic.py", "Đọc Q_* và entity node để tạo SemanticFrame cùng predicate."],
+      ["source", "src/hcmut/iaslab/nlp/app/kb.py", "Sáu loader text, các index và kiểm tra số record khi khởi động."],
+      ["source", "src/hcmut/iaslab/nlp/app/query.py", "Dispatch theo intent, tra index, keyword score và trả QueryResult có source."],
+      ["source", "src/hcmut/iaslab/nlp/app/answer.py", "Template câu trả lời cùng ba thông báo missing, unknown và thiếu context."],
+      ["source", "src/hcmut/iaslab/nlp/app/dialogue.py", "History-list, resolve năm kiểu tham chiếu và cập nhật entity sau query."],
+      ["source", "src/hcmut/iaslab/nlp/app/pipeline.py", "Composition root nối parser, semantic, context, query và answer."],
+      ["source", "src/hcmut/iaslab/nlp/app/evaluate.py", "Chấm intent, entity, query-status, answer fact, end-to-end và dialogue."],
+      ["source", "src/hcmut/iaslab/nlp/app/output.py", "Ghi chín artifact UTF-8 với format ổn định."],
+      ["source", "src/hcmut/iaslab/nlp/app/cli.py", "Argparse cho all, parse, answer, generate, evaluate và interactive."],
+      ["source", "src/hcmut/iaslab/nlp/app/utils.py", "Compatibility hook run/test theo package layout code mẫu."],
+
+      ["test", "tests/__init__.py", "Đánh dấu thư mục test là Python package."],
+      ["test", "tests/test_kb.py", "Kiểm tra số record, reverse index, multiline LO và milestone."],
+      ["test", "tests/test_parser_generator.py", "Kiểm tra valid/invalid parse và generator round-trip."],
+      ["test", "tests/test_pipeline.py", "Kiểm tra 42 ca end-to-end, ví dụ PDF, grounded answer, missing KB, unknown và context."]
+    ];
+
+    const architectureNodes = [
+      {
+        id: "input", label: "INPUT", sub: "1 file · câu hỏi", kind: "data",
+        d: [22, 396], m: [165, 50, 190, 86],
+        purpose: "Điểm vào của dữ liệu thật: mỗi dòng là một câu hỏi tiếng Việt cần xử lý.",
+        files: ["input/sentences.txt"],
+        io: "Chuỗi UTF-8 → một lượt CourseAssistant.process()."
+      },
+      {
+        id: "launcher", label: "ENTRY + CLI", sub: "run.py → cli.py", kind: "runtime",
+        d: [190, 396], m: [165, 180, 190, 86],
+        purpose: "Launcher thiết lập Python path; CLI đọc lệnh all, parse, answer, generate, evaluate hoặc interactive.",
+        files: ["run.py", "src/.../app/cli.py"],
+        io: "Đối số dòng lệnh + input → gọi đúng workflow."
+      },
+      {
+        id: "pipeline", label: "PIPELINE", sub: "composition root", kind: "runtime",
+        d: [358, 396], m: [165, 310, 190, 86],
+        purpose: "Nơi khởi tạo và nối tất cả tầng NLP thành một transaction có thể truy vết.",
+        files: ["src/.../app/pipeline.py"],
+        io: "question + DialogueContext → PipelineResult."
+      },
+      {
+        id: "tokenizer", label: "TOKENIZER", sub: "normalize → tokens", kind: "runtime",
+        d: [526, 396], m: [165, 440, 190, 86],
+        purpose: "Chuẩn hóa Unicode, chữ thường và các ký hiệu đặc biệt trước khi tách token.",
+        files: ["src/.../app/tokenizer.py"],
+        io: "Chuỗi thô → danh sách token ổn định."
+      },
+      {
+        id: "parser", label: "EARLEY", sub: "Predict · Scan · Complete", kind: "runtime",
+        d: [694, 396], m: [165, 570, 190, 86],
+        purpose: "Chart parser đối chiếu toàn câu với CFG và dựng cây constituency đầu tiên.",
+        files: ["src/.../app/parser.py", "src/.../app/grammar.py", "src/.../app/tree.py"],
+        io: "tokens + grammar → ParseResult; câu sai trả cây ()."
+      },
+      {
+        id: "semantic", label: "SEMANTIC", sub: "Q_* → frame", kind: "runtime",
+        d: [862, 396], m: [165, 700, 190, 86],
+        purpose: "Đọc nhánh Q_* và entity trong cây để tạo intent, slot và predicate.",
+        files: ["src/.../app/semantic.py", "src/.../app/entities.py"],
+        io: "Parse tree → SemanticFrame(intent, entity, slots)."
+      },
+      {
+        id: "context", label: "CONTEXT", sub: "history-list", kind: "runtime",
+        d: [1030, 396], m: [165, 830, 190, 86],
+        purpose: "Giữ entity gần nhất và phân giải câu rút gọn như “còn chương sau?”.",
+        files: ["src/.../app/dialogue.py"],
+        io: "SemanticFrame + lịch sử → frame đã resolve hoặc UNRESOLVED_CONTEXT."
+      },
+      {
+        id: "query", label: "QUERY", sub: "intent → index", kind: "runtime",
+        d: [1198, 396], m: [165, 960, 190, 86],
+        purpose: "Dispatch theo intent, tra index phù hợp và luôn mang theo nguồn dữ liệu.",
+        files: ["src/.../app/query.py", "src/.../app/kb.py"],
+        io: "Intent + slot → QueryResult(FOUND, NOT_FOUND hoặc SKIPPED)."
+      },
+      {
+        id: "kb", label: "KNOWLEDGE BASE", sub: "6 file · fact source", kind: "data",
+        d: [1198, 230], m: [165, 1090, 190, 86],
+        purpose: "Nguồn sự thật duy nhất về môn học; được parse và lập index khi khởi động.",
+        files: ["data/kb/course_info.txt", "data/kb/schedule.txt", "data/kb/topics.txt", "data/kb/assignments.txt", "data/kb/resources.txt", "data/kb/regulations.txt", "data/README.md", "models/README.md"],
+        io: "Khóa course/week/chapter/... → record + source; không có thì empty."
+      },
+      {
+        id: "answer", label: "ANSWER", sub: "grounded template", kind: "runtime",
+        d: [1366, 396], m: [165, 1220, 190, 86],
+        purpose: "Chọn mẫu trả lời rồi chỉ điền fact đã truy xuất; có fallback riêng cho missing, unknown và thiếu context.",
+        files: ["src/.../app/answer.py", "src/.../app/output.py"],
+        io: "QueryResult → câu trả lời + trace có căn cứ."
+      },
+      {
+        id: "config", label: "PROJECT / CONFIG", sub: "8 file · đóng gói", kind: "data",
+        d: [30, 90], m: [10, 180, 130, 76],
+        purpose: "Mô tả cách cài, chạy, đóng gói và compatibility hook của project mẫu.",
+        files: [".dockerignore", ".gitignore", "Dockerfile", "pyproject.toml", "requirements.txt", "README.md", "conf/app.json", "visually-explained-documentation.html"],
+        io: "Cấu hình project → môi trường chạy tái lập, không dependency ngoài."
+      },
+      {
+        id: "testdata", label: "LABELED DATA", sub: "4 bộ scaffolding", kind: "data",
+        d: [240, 90], m: [380, 50, 130, 76],
+        purpose: "Dữ liệu có nhãn và challenge dùng để kiểm tra intent, entity, hội thoại và error analysis.",
+        files: ["data/scaffolding/sample_queries.txt", "data/scaffolding/dialogues.txt", "data/scaffolding/faq.txt", "data/scaffolding/challenge_queries.txt"],
+        io: "Câu hỏi + expected label → evaluator và báo cáo."
+      },
+      {
+        id: "grammar", label: "GRAMMAR.CFG", sub: "26 nhánh Q_*", kind: "data",
+        d: [690, 90], m: [10, 570, 130, 76],
+        purpose: "Một nguồn CFG được dùng chung bởi parser và generator; tên Q_* mang tín hiệu intent.",
+        files: ["data/grammar.cfg"],
+        io: "Luật CFG → Grammar.by_lhs; đồng thời là không gian sinh câu."
+      },
+      {
+        id: "lexicon", label: "ENTITY LEXICON", sub: "chuẩn hóa entity", kind: "data",
+        d: [880, 90], m: [380, 700, 130, 76],
+        purpose: "Ánh xạ các cách viết course, chapter, week, LO, topic và regulation về dạng chuẩn.",
+        files: ["data/scaffolding/entities.txt"],
+        io: "Biến thể bề mặt → entity canonical."
+      },
+      {
+        id: "package", label: "PACKAGE GLUE", sub: "paths · utils · init", kind: "runtime",
+        d: [30, 680], m: [10, 310, 130, 76],
+        purpose: "Định vị project root, export API và giữ package layout tương thích code mẫu.",
+        files: ["src/hcmut/__init__.py", "src/hcmut/iaslab/__init__.py", "src/hcmut/iaslab/nlp/__init__.py", "src/.../app/__init__.py", "src/.../app/paths.py", "src/.../app/utils.py"],
+        io: "Package import → đường dẫn và entry hook nhất quán."
+      },
+      {
+        id: "tests", label: "UNIT TESTS", sub: "18 / 18 pass", kind: "tool",
+        d: [260, 680], m: [380, 310, 130, 76],
+        purpose: "Khóa các bất biến của KB, parser/generator, pipeline, missing data, unknown và context.",
+        files: ["tests/__init__.py", "tests/test_kb.py", "tests/test_parser_generator.py", "tests/test_pipeline.py"],
+        io: "Fixture project → kiểm tra tự động các contract."
+      },
+      {
+        id: "generator", label: "GENERATOR", sub: "BFS · 1.000 câu", kind: "tool",
+        d: [550, 680], m: [10, 1090, 130, 76],
+        purpose: "Khai triển CFG theo BFS, giới hạn state và phân bổ mẫu theo từng Q_*.",
+        files: ["src/.../app/generator.py"],
+        io: "Grammar → 1.000 câu; parse round-trip kiểm tra tính hợp lệ."
+      },
+      {
+        id: "evaluator", label: "EVALUATOR", sub: "42/42 · 6/6", kind: "tool",
+        d: [850, 680], m: [380, 960, 130, 76],
+        purpose: "Chạy các bộ có nhãn, chấm intent, entity, query-status, answer fact, end-to-end và hội thoại.",
+        files: ["src/.../app/evaluate.py"],
+        io: "Labeled data + pipeline → metric, dialogue trace, error analysis."
+      },
+      {
+        id: "outputs", label: "9 OUTPUTS", sub: "trace · report · samples", kind: "output",
+        d: [1366, 680], m: [165, 1510, 190, 86],
+        purpose: "Artifact cuối giữ cả kết quả lẫn dấu vết để chấm, debug và tái kiểm tra.",
+        files: ["output/grammar.txt", "output/samples.txt", "output/parse-results.txt", "output/semantic.txt", "output/intent-entity.txt", "output/query.txt", "output/answer.txt", "output/evaluation.txt", "output/dialogue.txt"],
+        io: "Pipeline, generator, evaluator → chín file UTF-8 ổn định."
+      }
+    ];
+
+    const architectureEdges = [
+      ["input", "launcher"], ["config", "launcher"], ["package", "launcher"],
+      ["launcher", "pipeline"], ["pipeline", "tokenizer"], ["tokenizer", "parser"],
+      ["grammar", "parser"], ["lexicon", "semantic"], ["parser", "semantic"],
+      ["semantic", "context"], ["context", "query"], ["query", "kb"],
+      ["kb", "answer"], ["answer", "outputs"], ["grammar", "generator"],
+      ["generator", "parser"], ["generator", "outputs"], ["testdata", "evaluator"],
+      ["tests", "evaluator"], ["evaluator", "pipeline"], ["evaluator", "outputs"]
+    ];
+
+    const simulationScenarios = {
+      happy: {
+        label: "CÓ DỮ LIỆU",
+        frames: [
+          ["input", "INPUT", "“Tuần 3 học gì?”"],
+          ["launcher", "CLI", "command=all · đọc một dòng UTF-8"],
+          ["pipeline", "PIPELINE", "CourseAssistant.process(question)"],
+          ["tokenizer", "TOKENIZER", "[tuần, 3, học, gì, ?]"],
+          ["parser", "EARLEY · ACCEPT", "Q_SCHEDULE_WEEK → cây cú pháp phủ toàn câu"],
+          ["semantic", "SEMANTIC", "GET_SCHEDULE(week=WEEK_03)"],
+          ["context", "CONTEXT", "Câu đã đủ entity · không cần resolve"],
+          ["query", "QUERY", "dispatch GET_SCHEDULE → KB.weeks[WEEK_03]"],
+          ["kb", "KB · FOUND", "schedule.txt · record tuần 3"],
+          ["answer", "ANSWER", "template + topics từ đúng record KB"],
+          ["outputs", "DONE", "answer.txt · query.txt · semantic.txt"]
+        ]
+      },
+      context: {
+        label: "DÙNG NGỮ CẢNH",
+        frames: [
+          ["input", "INPUT", "“Còn chương sau?” · trước đó đã hỏi CH11"],
+          ["launcher", "CLI", "interactive/dialogue giữ cùng một context"],
+          ["pipeline", "PIPELINE", "process(question, history-list)"],
+          ["tokenizer", "TOKENIZER", "[còn, chương, sau, ?]"],
+          ["parser", "EARLEY · ACCEPT", "Q_CONTEXT_NEXT_CHAPTER"],
+          ["semantic", "SEMANTIC", "CONTEXT_DEPENDENT(action=NEXT_CHAPTER)"],
+          ["context", "CONTEXT · RESOLVE", "last_chapter=CH11 → GET_TOPIC(CH12)"],
+          ["query", "QUERY", "dispatch GET_TOPIC → KB.topics[CH12]"],
+          ["kb", "KB · FOUND", "topics.txt · record CH12"],
+          ["answer", "ANSWER", "“Chương 12 tập trung vào discourse context…”"],
+          ["outputs", "DONE", "dialogue.txt lưu cả lượt trước và lượt này"]
+        ]
+      },
+      missing: {
+        label: "KB THIẾU DỮ LIỆU",
+        danger: true,
+        frames: [
+          ["input", "INPUT", "“Tuần 99 học gì?”"],
+          ["launcher", "CLI", "Câu vẫn được đưa vào pipeline bình thường"],
+          ["pipeline", "PIPELINE", "CourseAssistant.process(question)"],
+          ["tokenizer", "TOKENIZER", "[tuần, 99, học, gì, ?]"],
+          ["parser", "EARLEY · ACCEPT", "Ngữ pháp cho phép WEEK_NUMBER=99"],
+          ["semantic", "SEMANTIC", "GET_SCHEDULE(week=WEEK_99)"],
+          ["context", "CONTEXT", "Không cần resolve"],
+          ["query", "QUERY", "KB.weeks[WEEK_99]"],
+          ["kb", "KB · NOT_FOUND", "Index không có record; tuyệt đối không đoán"],
+          ["answer", "SAFE FALLBACK", "“Tôi không tìm thấy thông tin này trong dữ liệu…”"],
+          ["outputs", "DONE · TRACE FAILURE", "query.txt ghi NOT_FOUND · source=-"]
+        ]
+      },
+      unknown: {
+        label: "NGOÀI VĂN PHẠM",
+        danger: true,
+        frames: [
+          ["input", "INPUT", "“Hôm nay ở TP.HCM có mưa không?”"],
+          ["launcher", "CLI", "Câu ngoài miền vẫn đi qua cùng entry"],
+          ["pipeline", "PIPELINE", "CourseAssistant.process(question)"],
+          ["tokenizer", "TOKENIZER", "[hôm, nay, ở, tp.hcm, có, mưa, không, ?]"],
+          ["parser", "EARLEY · REJECT", "Không có start state phủ toàn câu → ()"],
+          ["semantic", "SEMANTIC · UNKNOWN", "UNKNOWN(entity=OUT_OF_SCOPE)"],
+          ["context", "CONTEXT · NO UPDATE", "Không ghi câu lỗi vào history-list"],
+          ["query", "QUERY · SKIPPED", "NO_QUERY · không chạm knowledge base"],
+          ["answer", "SAFE FALLBACK", "“Câu hỏi không thuộc văn phạm hoặc ngoài phạm vi…”"],
+          ["outputs", "DONE · TRACE FAILURE", "parse-results.txt ghi () · source=-"]
+        ]
+      }
+    };
+
+    function createArchitectureSimulation() {
+      const canvas = document.getElementById("architecture-canvas");
+      if (!canvas || !canvas.getContext) return;
+      const ctx = canvas.getContext("2d");
+      const nodeById = Object.fromEntries(architectureNodes.map((node) => [node.id, node]));
+      const scenarioBox = document.getElementById("scenario-controls");
+      const playButton = document.getElementById("sim-play");
+      const stepButton = document.getElementById("sim-step");
+      const resetButton = document.getElementById("sim-reset");
+      const stageLabel = document.getElementById("sim-stage-label");
+      const payload = document.getElementById("sim-payload");
+      const progress = document.getElementById("sim-progress");
+      const progressFill = document.getElementById("sim-progress-fill");
+      const progressText = document.getElementById("sim-progress-text");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const state = {
+        scenario: "happy",
+        index: 0,
+        selected: "pipeline",
+        playing: false,
+        segmentStart: 0,
+        raf: 0,
+        hitAreas: [],
+        width: 0,
+        height: 0,
+        transform: null
+      };
+
+      canvas.tabIndex = 0;
+
+      function cssVar(name, fallback) {
+        const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+        return value || fallback;
+      }
+
+      function palette() {
+        return {
+          runtime: cssVar("--cyan", "#54d7d1"),
+          data: cssVar("--violet", "#a98cff"),
+          tool: cssVar("--amber", "#f4b95f"),
+          output: cssVar("--green", "#67d391"),
+          danger: cssVar("--red", "#ff7285"),
+          text: cssVar("--text", "#edf6fb"),
+          muted: cssVar("--muted", "#8ca5b7"),
+          line: cssVar("--line-strong", "#27415c"),
+          panel: "#0b1b2b",
+          background: "#06101c"
+        };
+      }
+
+      function roundedRectPath(x, y, width, height, radius) {
+        const r = Math.min(radius, width / 2, height / 2);
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + width, y, x + width, y + height, r);
+        ctx.arcTo(x + width, y + height, x, y + height, r);
+        ctx.arcTo(x, y + height, x, y, r);
+        ctx.arcTo(x, y, x + width, y, r);
+        ctx.closePath();
+      }
+
+      function getLayout() {
+        const narrow = state.width < 700;
+        const view = narrow ? { width: 520, height: 1650 } : { width: 1540, height: 870 };
+        const scale = Math.min(state.width / view.width, state.height / view.height);
+        const offsetX = (state.width - view.width * scale) / 2;
+        const offsetY = (state.height - view.height * scale) / 2;
+        return { narrow: narrow, view: view, scale: scale, offsetX: offsetX, offsetY: offsetY };
+      }
+
+      function boxFor(node, layout) {
+        const source = layout.narrow ? node.m : node.d;
+        const width = (layout.narrow ? source[2] : 142) * layout.scale;
+        const height = (layout.narrow ? source[3] : 84) * layout.scale;
+        return {
+          id: node.id,
+          x: layout.offsetX + source[0] * layout.scale,
+          y: layout.offsetY + source[1] * layout.scale,
+          width: width,
+          height: height
+        };
+      }
+
+      function center(box) {
+        return { x: box.x + box.width / 2, y: box.y + box.height / 2 };
+      }
+
+      function drawGrid(colors) {
+        ctx.fillStyle = colors.background;
+        ctx.fillRect(0, 0, state.width, state.height);
+        ctx.strokeStyle = "rgba(84, 215, 209, 0.055)";
+        ctx.lineWidth = 1;
+        const step = 28;
+        for (let x = 0; x < state.width; x += step) {
+          ctx.beginPath();
+          ctx.moveTo(x + .5, 0);
+          ctx.lineTo(x + .5, state.height);
+          ctx.stroke();
+        }
+        for (let y = 0; y < state.height; y += step) {
+          ctx.beginPath();
+          ctx.moveTo(0, y + .5);
+          ctx.lineTo(state.width, y + .5);
+          ctx.stroke();
+        }
+        const glow = ctx.createRadialGradient(state.width * .52, state.height * .5, 10, state.width * .52, state.height * .5, state.width * .55);
+        glow.addColorStop(0, "rgba(30, 154, 187, .08)");
+        glow.addColorStop(1, "rgba(6, 16, 28, 0)");
+        ctx.fillStyle = glow;
+        ctx.fillRect(0, 0, state.width, state.height);
+      }
+
+      function drawGroupLabels(layout, colors) {
+        ctx.save();
+        ctx.fillStyle = colors.muted;
+        ctx.font = "700 10px ui-monospace, SFMono-Regular, Consolas, monospace";
+        ctx.textBaseline = "middle";
+        ctx.globalAlpha = .8;
+        if (layout.narrow) {
+          ctx.fillText("RUNTIME FLOW ↓", 12, 18);
+          ctx.fillText("SUPPORT NODES", Math.max(12, state.width - 116), 18);
+        } else {
+          ctx.fillText("INPUTS / RULES / KNOWLEDGE", layout.offsetX + 30 * layout.scale, layout.offsetY + 48 * layout.scale);
+          ctx.fillText("RUNTIME PIPELINE →", layout.offsetX + 22 * layout.scale, layout.offsetY + 360 * layout.scale);
+          ctx.fillText("GENERATION / TEST / ARTIFACTS", layout.offsetX + 30 * layout.scale, layout.offsetY + 650 * layout.scale);
+        }
+        ctx.restore();
+      }
+
+      function drawArrow(fromBox, toBox, color, width, alpha, dashed) {
+        const a = center(fromBox);
+        const b = center(toBox);
+        const angle = Math.atan2(b.y - a.y, b.x - a.x);
+        const padA = Math.min(fromBox.width, fromBox.height) * .48;
+        const padB = Math.min(toBox.width, toBox.height) * .5;
+        const start = { x: a.x + Math.cos(angle) * padA, y: a.y + Math.sin(angle) * padA };
+        const end = { x: b.x - Math.cos(angle) * padB, y: b.y - Math.sin(angle) * padB };
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.strokeStyle = color;
+        ctx.fillStyle = color;
+        ctx.lineWidth = width;
+        ctx.setLineDash(dashed ? [5, 7] : []);
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        const horizontal = Math.abs(end.x - start.x) > Math.abs(end.y - start.y);
+        if (horizontal && Math.abs(end.y - start.y) > 16) {
+          const midX = (start.x + end.x) / 2;
+          ctx.bezierCurveTo(midX, start.y, midX, end.y, end.x, end.y);
+        } else if (!horizontal && Math.abs(end.x - start.x) > 16) {
+          const midY = (start.y + end.y) / 2;
+          ctx.bezierCurveTo(start.x, midY, end.x, midY, end.x, end.y);
+        } else {
+          ctx.lineTo(end.x, end.y);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+        const head = Math.max(5, width * 2.7);
+        ctx.beginPath();
+        ctx.moveTo(end.x, end.y);
+        ctx.lineTo(end.x - Math.cos(angle - .5) * head, end.y - Math.sin(angle - .5) * head);
+        ctx.lineTo(end.x - Math.cos(angle + .5) * head, end.y - Math.sin(angle + .5) * head);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function fitLabel(text, maxWidth, startSize) {
+        let size = startSize;
+        while (size > 9) {
+          ctx.font = "800 " + size + "px Inter, Segoe UI, sans-serif";
+          if (ctx.measureText(text).width <= maxWidth) break;
+          size -= .5;
+        }
+        return size;
+      }
+
+      function drawNode(node, box, colors, route, currentId) {
+        const visitedIndex = route.indexOf(node.id);
+        const currentIndex = route.indexOf(currentId);
+        const visited = visitedIndex !== -1 && visitedIndex <= currentIndex;
+        const active = node.id === currentId;
+        const selected = node.id === state.selected;
+        const danger = simulationScenarios[state.scenario].danger && visited &&
+          ((state.scenario === "unknown" && ["parser", "semantic", "query", "answer", "outputs"].includes(node.id)) ||
+           (state.scenario === "missing" && ["kb", "answer", "outputs"].includes(node.id)));
+        const accent = danger ? colors.danger : colors[node.kind];
+
+        ctx.save();
+        if (active) {
+          ctx.shadowColor = accent;
+          ctx.shadowBlur = 22;
+        }
+        roundedRectPath(box.x, box.y, box.width, box.height, Math.min(10, box.height * .14));
+        ctx.fillStyle = active ? "rgba(18, 45, 61, .98)" : colors.panel;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.lineWidth = selected ? 3 : active ? 2.5 : 1;
+        ctx.strokeStyle = selected || active || visited ? accent : colors.line;
+        ctx.globalAlpha = visited || selected ? 1 : .78;
+        ctx.stroke();
+
+        const rail = Math.max(4, box.width * .035);
+        roundedRectPath(box.x, box.y, rail, box.height, Math.min(6, rail));
+        ctx.fillStyle = accent;
+        ctx.globalAlpha = visited || active ? 1 : .55;
+        ctx.fill();
+
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = active || visited ? colors.text : "#c2d2dd";
+        const labelSize = fitLabel(node.label, Math.max(42, box.width - 20), box.width < 90 ? 10.5 : 12.5);
+        ctx.font = "800 " + labelSize + "px Inter, Segoe UI, sans-serif";
+        ctx.textBaseline = "top";
+        ctx.fillText(node.label, box.x + 12, box.y + Math.max(10, box.height * .22));
+
+        if (box.width >= 88 && box.height >= 48) {
+          ctx.fillStyle = colors.muted;
+          ctx.font = "500 " + (box.width < 105 ? 9.5 : 10.5) + "px ui-monospace, SFMono-Regular, Consolas, monospace";
+          const max = box.width - 20;
+          let text = node.sub;
+          while (ctx.measureText(text).width > max && text.length > 8) text = text.slice(0, -2);
+          if (text !== node.sub) text += "…";
+          ctx.fillText(text, box.x + 12, box.y + Math.max(29, box.height * .58));
+        }
+
+        if (active) {
+          ctx.fillStyle = accent;
+          ctx.beginPath();
+          ctx.arc(box.x + box.width - 11, box.y + 11, 4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      function drawPacket(fromId, toId, amount, colors) {
+        const from = state.hitAreas.find((item) => item.id === fromId);
+        const to = state.hitAreas.find((item) => item.id === toId);
+        if (!from || !to) return;
+        const a = center(from);
+        const b = center(to);
+        const eased = amount < .5 ? 2 * amount * amount : 1 - Math.pow(-2 * amount + 2, 2) / 2;
+        const x = a.x + (b.x - a.x) * eased;
+        const y = a.y + (b.y - a.y) * eased;
+        const danger = simulationScenarios[state.scenario].danger;
+        const color = danger && state.index >= 7 ? colors.danger : colors.runtime;
+        ctx.save();
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 20;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(x, y, 7, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function draw(packetProgress) {
+        if (!state.width || !state.height) return;
+        const colors = palette();
+        const layout = getLayout();
+        const scenario = simulationScenarios[state.scenario];
+        const route = scenario.frames.map((frame) => frame[0]);
+        const currentId = scenario.frames[state.index][0];
+        drawGrid(colors);
+        drawGroupLabels(layout, colors);
+        state.hitAreas = architectureNodes.map((node) => boxFor(node, layout));
+
+        architectureEdges.forEach((edge) => {
+          const a = state.hitAreas.find((item) => item.id === edge[0]);
+          const b = state.hitAreas.find((item) => item.id === edge[1]);
+          if (a && b) drawArrow(a, b, colors.line, 1.15, .45, true);
+        });
+
+        for (let i = 0; i < state.index; i += 1) {
+          const a = state.hitAreas.find((item) => item.id === route[i]);
+          const b = state.hitAreas.find((item) => item.id === route[i + 1]);
+          const isDanger = scenario.danger && i >= (state.scenario === "unknown" ? 3 : 7);
+          if (a && b) drawArrow(a, b, isDanger ? colors.danger : colors.runtime, 3, .88, false);
+        }
+
+        architectureNodes.forEach((node) => {
+          const box = state.hitAreas.find((item) => item.id === node.id);
+          drawNode(node, box, colors, route, currentId);
+        });
+
+        if (state.playing && state.index < route.length - 1) {
+          drawPacket(route[state.index], route[state.index + 1], packetProgress || 0, colors);
+        } else {
+          const here = state.hitAreas.find((item) => item.id === currentId);
+          if (here) drawPacket(currentId, currentId, 0, colors);
+        }
+      }
+
+      function updateDetail(id) {
+        const node = nodeById[id];
+        if (!node) return;
+        state.selected = id;
+        const kindText = {
+          runtime: "RUNTIME MODULE",
+          data: "DATA / RULE SOURCE",
+          tool: "BUILD / QUALITY TOOL",
+          output: "GENERATED ARTIFACTS"
+        };
+        document.getElementById("node-kind").textContent = kindText[node.kind] + " · " + node.files.length + " FILE";
+        document.getElementById("node-title").textContent = node.label;
+        document.getElementById("node-purpose").textContent = node.purpose;
+        document.getElementById("node-files").textContent = node.files.join(" · ");
+        document.getElementById("node-io").textContent = node.io;
+        draw(0);
+      }
+
+      function updateStatus() {
+        const scenario = simulationScenarios[state.scenario];
+        const frame = scenario.frames[state.index];
+        const percent = Math.round((state.index / (scenario.frames.length - 1)) * 100);
+        stageLabel.textContent = frame[1] + " · " + scenario.label;
+        payload.textContent = frame[2];
+        progress.setAttribute("aria-valuenow", String(percent));
+        progressFill.style.width = percent + "%";
+        progressText.textContent = percent + "%";
+        stepButton.disabled = state.index >= scenario.frames.length - 1;
+        if (!state.playing) playButton.textContent = state.index >= scenario.frames.length - 1 ? "Chạy lại" : "Chạy mô phỏng";
+      }
+
+      function stopPlaying() {
+        state.playing = false;
+        if (state.raf) cancelAnimationFrame(state.raf);
+        state.raf = 0;
+        updateStatus();
+      }
+
+      function resetSimulation() {
+        stopPlaying();
+        state.index = 0;
+        state.segmentStart = 0;
+        updateStatus();
+        draw(0);
+      }
+
+      function stepSimulation() {
+        stopPlaying();
+        const frames = simulationScenarios[state.scenario].frames;
+        if (state.index < frames.length - 1) state.index += 1;
+        updateStatus();
+        draw(0);
+      }
+
+      function animationFrame(time) {
+        if (!state.playing) return;
+        const frames = simulationScenarios[state.scenario].frames;
+        if (!state.segmentStart) state.segmentStart = time;
+        const duration = reducedMotion.matches ? 420 : 900;
+        const amount = Math.max(0, Math.min(1, (time - state.segmentStart) / duration));
+        draw(reducedMotion.matches ? 0 : amount);
+        if (amount >= 1) {
+          state.index += 1;
+          updateStatus();
+          if (state.index >= frames.length - 1) {
+            stopPlaying();
+            draw(0);
+            return;
+          }
+          state.segmentStart = time + (reducedMotion.matches ? 80 : 220);
+        }
+        state.raf = requestAnimationFrame(animationFrame);
+      }
+
+      function togglePlay() {
+        if (state.playing) {
+          stopPlaying();
+          draw(0);
+          return;
+        }
+        const frames = simulationScenarios[state.scenario].frames;
+        if (state.index >= frames.length - 1) state.index = 0;
+        state.playing = true;
+        state.segmentStart = 0;
+        playButton.textContent = "Tạm dừng";
+        updateStatus();
+        state.raf = requestAnimationFrame(animationFrame);
+      }
+
+      function chooseScenario(button) {
+        scenarioBox.querySelectorAll("button[data-scenario]").forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        state.scenario = button.dataset.scenario;
+        resetSimulation();
+      }
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        state.width = Math.max(1, rect.width);
+        state.height = Math.max(1, rect.height);
+        canvas.width = Math.round(state.width * dpr);
+        canvas.height = Math.round(state.height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        draw(0);
+      }
+
+      function hitTest(event) {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        return state.hitAreas.find((box) =>
+          x >= box.x && x <= box.x + box.width && y >= box.y && y <= box.y + box.height
+        );
+      }
+
+      scenarioBox.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-scenario]");
+        if (button) chooseScenario(button);
+      });
+      playButton.addEventListener("click", togglePlay);
+      stepButton.addEventListener("click", stepSimulation);
+      resetButton.addEventListener("click", resetSimulation);
+      canvas.addEventListener("click", (event) => {
+        const hit = hitTest(event);
+        if (hit) updateDetail(hit.id);
+      });
+      canvas.addEventListener("pointermove", (event) => {
+        canvas.style.cursor = hitTest(event) ? "pointer" : "crosshair";
+      });
+      canvas.addEventListener("keydown", (event) => {
+        if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Enter", " "].includes(event.key)) return;
+        event.preventDefault();
+        if (event.key === "Enter" || event.key === " ") {
+          updateDetail(state.selected);
+          return;
+        }
+        const current = architectureNodes.findIndex((node) => node.id === state.selected);
+        const direction = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+        const next = (current + direction + architectureNodes.length) % architectureNodes.length;
+        updateDetail(architectureNodes[next].id);
+      });
+
+      if (typeof ResizeObserver === "function") {
+        new ResizeObserver(resizeCanvas).observe(canvas);
+      } else {
+        window.addEventListener("resize", resizeCanvas);
+      }
+      updateDetail("pipeline");
+      updateStatus();
+      resizeCanvas();
+    }
+
+    function setActiveButtons(container, activeButton) {
+      container.querySelectorAll("button").forEach((button) => {
+        const active = button === activeButton;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    function renderStage(key) {
+      const data = stageData[key];
+      document.getElementById("stage-title").textContent = data.title;
+      document.getElementById("stage-purpose").textContent = data.purpose;
+      document.getElementById("stage-file").textContent = data.file;
+      document.getElementById("stage-input").textContent = data.input;
+      document.getElementById("stage-output").textContent = data.output;
+    }
+
+    function renderTrace(key) {
+      const data = traces[key];
+      document.getElementById("trace-question").textContent = data.question;
+      const tokenBox = document.getElementById("trace-tokens");
+      tokenBox.replaceChildren(...data.tokens.map((token) => {
+        const span = document.createElement("span");
+        span.className = "token";
+        span.textContent = token;
+        return span;
+      }));
+      ["parse", "semantic", "context", "query", "answer", "intent", "entity", "source", "result"].forEach((field) => {
+        document.getElementById(`trace-${field}`).textContent = data[field];
+      });
+      const found = document.getElementById("trace-found");
+      found.textContent = data.found;
+      found.className = data.ok ? "status-ok" : "status-stop";
+    }
+
+    function renderEarley(key) {
+      const data = earleyData[key];
+      document.getElementById("earley-title").textContent = data.title;
+      document.getElementById("earley-copy").textContent = data.copy;
+      document.getElementById("earley-code").textContent = data.code;
+      document.querySelectorAll(".chart-cell").forEach((cell) => {
+        cell.classList.toggle("active", Number(cell.dataset.chart) === data.chart);
+      });
+    }
+
+    const kindLabels = {
+      entry: "ENTRY / CONFIG",
+      source: "SOURCE NLP",
+      data: "DATA",
+      output: "OUTPUT",
+      test: "TEST"
+    };
+
+    let activeFileFilter = "all";
+
+    function buildFileCards() {
+      const grid = document.getElementById("file-grid");
+      const fragment = document.createDocumentFragment();
+      files.forEach(([kind, path, description]) => {
+        const article = document.createElement("article");
+        article.className = "file-card";
+        article.dataset.kind = kind;
+        article.dataset.search = `${path} ${description}`.toLocaleLowerCase("vi");
+        const badge = document.createElement("span");
+        badge.className = "file-kind";
+        badge.textContent = kindLabels[kind];
+        const copy = document.createElement("div");
+        const code = document.createElement("code");
+        code.textContent = path;
+        const paragraph = document.createElement("p");
+        paragraph.textContent = description;
+        copy.append(code, paragraph);
+        article.append(badge, copy);
+        fragment.append(article);
+      });
+      grid.append(fragment);
+      filterFiles();
+    }
+
+    function filterFiles() {
+      const term = document.getElementById("file-search").value.trim().toLocaleLowerCase("vi");
+      let visible = 0;
+      document.querySelectorAll(".file-card").forEach((card) => {
+        const matchesKind = activeFileFilter === "all" || card.dataset.kind === activeFileFilter;
+        const matchesTerm = !term || card.dataset.search.includes(term);
+        const show = matchesKind && matchesTerm;
+        card.classList.toggle("hidden", !show);
+        if (show) visible += 1;
+      });
+      document.getElementById("file-count").textContent = `${visible} / ${files.length} file`;
+      document.getElementById("empty-files").classList.toggle("show", visible === 0);
+    }
+
+    document.getElementById("pipeline").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-stage]");
+      if (!button) return;
+      setActiveButtons(event.currentTarget, button);
+      renderStage(button.dataset.stage);
+    });
+
+    document.getElementById("trace-switcher").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-trace]");
+      if (!button) return;
+      setActiveButtons(event.currentTarget, button);
+      renderTrace(button.dataset.trace);
+    });
+
+    document.getElementById("earley-controls").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-earley]");
+      if (!button) return;
+      setActiveButtons(event.currentTarget, button);
+      renderEarley(button.dataset.earley);
+    });
+
+    document.getElementById("file-filters").addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-filter]");
+      if (!button) return;
+      activeFileFilter = button.dataset.filter;
+      setActiveButtons(event.currentTarget, button);
+      filterFiles();
+    });
+    document.getElementById("file-search").addEventListener("input", filterFiles);
+
+    const sections = [...document.querySelectorAll("main section[id]")];
+    const navLinks = [...document.querySelectorAll(".side-nav a")];
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`));
+    }, { rootMargin: "-20% 0px -65% 0px", threshold: [0, .25, .5] });
+    sections.forEach((section) => observer.observe(section));
+
+    window.addEventListener("scroll", () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = height > 0 ? window.scrollY / height : 0;
+      document.getElementById("reading-progress").style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+    }, { passive: true });
+
+    createArchitectureSimulation();
+    renderStage("input");
+    renderTrace("week");
+    renderEarley("predict");
+    buildFileCards();
+  </script>
+</body>
+</html>
