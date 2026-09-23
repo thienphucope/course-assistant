@@ -20,9 +20,9 @@ REQUIREMENTS = [
 
 
 setup(
-    name="co3085-course-assistant-template",
+    name="co3085-course-assistant",
     version="0.1.0",
-    description="Extensible classical-NLP Course Assistant template",
+    description="Classical NLP Course Assistant with CFG and Earley parsing",
     long_description=(ROOT / "README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",
     packages=find_packages(),

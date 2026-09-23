@@ -1,1 +1,29 @@
-# GENERATED FILE TEMPLATE: ID<TAB>query<TAB>status<TAB>source.
+{"line": 1, "question": "Môn NLP có bao nhiêu tín chỉ?", "query": "KB.course[credits]", "status": "FOUND", "kind": "COURSE_FIELD", "sources": ["course_info.txt:credits"], "reason": null}
+{"line": 2, "question": "CO3085 có mấy tín chỉ?", "query": "KB.course[credits]", "status": "FOUND", "kind": "COURSE_FIELD", "sources": ["course_info.txt:credits"], "reason": null}
+{"line": 3, "question": "Môn học gồm những phần nào?", "query": "KB.course[parts]", "status": "FOUND", "kind": "COURSE_FIELD", "sources": ["course_info.txt:main_parts"], "reason": null}
+{"line": 4, "question": "Tuần 3 học gì?", "query": "KB.weeks[WEEK_03]", "status": "FOUND", "kind": "SCHEDULE_WEEK", "sources": ["schedule.txt:WEEK 03"], "reason": null}
+{"line": 5, "question": "Chương 4 học vào tuần nào?", "query": "KB.chapter_weeks[CH04]", "status": "FOUND", "kind": "SCHEDULE_CHAPTER", "sources": ["schedule.txt:WEEK 04", "schedule.txt:WEEK 05"], "reason": null}
+{"line": 6, "question": "Chương nào nói về CFG?", "query": "KB.topics[topic=CFG]", "status": "FOUND", "kind": "TOPIC_CHAPTERS", "sources": ["topics.txt:CH03"], "reason": null}
+{"line": 7, "question": "PCFG được học ở đâu?", "query": "KB.topics[topic=PCFG]", "status": "FOUND", "kind": "TOPIC_LOCATION", "sources": ["topics.txt:CH03", "topics.txt:CH06", "schedule.txt:WEEK 03", "schedule.txt:WEEK 07"], "reason": null}
+{"line": 8, "question": "Chương nào nói về semantic grammar?", "query": "KB.topics[topic=SEMANTIC_GRAMMAR]", "status": "FOUND", "kind": "TOPIC_CHAPTERS", "sources": ["topics.txt:CH10"], "reason": null}
+{"line": 9, "question": "L.O.2.5 là gì?", "query": "KB.course.learning_outcomes[LO2.5]", "status": "FOUND", "kind": "LO", "sources": ["course_info.txt:LO2.5"], "reason": null}
+{"line": 10, "question": "L.O.4.2 liên quan đến nội dung nào?", "query": "KB.course.learning_outcomes[LO4.2]", "status": "FOUND", "kind": "LO", "sources": ["course_info.txt:LO4.2"], "reason": null}
+{"line": 11, "question": "Bài tập lớn yêu cầu xây dựng những gì?", "query": "KB.assignment[BTL01]", "status": "FOUND", "kind": "ASSIGNMENT_OVERVIEW", "sources": ["assignments.txt:goal", "assignments.txt:PART I–IV"], "reason": null}
+{"line": 12, "question": "Phần I của bài tập lớn là gì?", "query": "KB.assignment[BTL01].parts[PART_I]", "status": "FOUND", "kind": "ASSIGNMENT_PART", "sources": ["assignments.txt:PART_I"], "reason": null}
+{"line": 13, "question": "Bài tập lớn có phần hỏi đáp không?", "query": "KB.assignment[BTL01].parts[PART_II]", "status": "FOUND", "kind": "ASSIGNMENT_FEATURE", "sources": ["assignments.txt:PART_II"], "reason": null}
+{"line": 14, "question": "Có được dùng LLM/RAG không?", "query": "KB.regulations[LLM_RAG]", "status": "FOUND", "kind": "RULE_PERMISSION", "sources": ["regulations.txt:LLM_RAG", "assignments.txt:LLM/RAG EXTENSION"], "reason": null}
+{"line": 15, "question": "Quy định về sử dụng AI là gì?", "query": "KB.regulations[AI_USAGE]", "status": "FOUND", "kind": "RULE_POLICY", "sources": ["regulations.txt:AI_USAGE"], "reason": null}
+{"line": 16, "question": "Midterm bao nhiêu phút?", "query": "KB.course.exam_format[MIDTERM]", "status": "FOUND", "kind": "EXAM_DURATION", "sources": ["course_info.txt:exam_format"], "reason": null}
+{"line": 17, "question": "Final bao nhiêu phút?", "query": "KB.course.exam_format[FINAL]", "status": "FOUND", "kind": "EXAM_DURATION", "sources": ["course_info.txt:exam_format"], "reason": null}
+{"line": 18, "question": "Tài liệu tham khảo về statistical NLP là gì?", "query": "KB.resources[topic=STATISTICAL_NLP]", "status": "FOUND", "kind": "RESOURCE", "sources": ["resources.txt:TEXTBOOK_2", "resources.txt:REFERENCE_1"], "reason": null}
+{"line": 19, "question": "Tài liệu nào liên quan đến Python NLP?", "query": "KB.resources[topic=PYTHON_NLP]", "status": "FOUND", "kind": "RESOURCE", "sources": ["resources.txt:REFERENCE_2"], "reason": null}
+{"line": 20, "question": "Chương 12 nói về gì?", "query": "KB.topics[CH12]", "status": "FOUND", "kind": "TOPIC_OVERVIEW", "sources": ["topics.txt:CH12"], "reason": null}
+{"line": 21, "question": "Chương nào học về reference?", "query": "KB.topics[topic=REFERENCE]", "status": "FOUND", "kind": "TOPIC_CHAPTERS", "sources": ["topics.txt:CH12"], "reason": null}
+{"line": 22, "question": "Chương nào học về question answering?", "query": "KB.topics[topic=QUESTION_ANSWERING]", "status": "FOUND", "kind": "TOPIC_CHAPTERS", "sources": ["topics.txt:CH11"], "reason": null}
+{"line": 23, "question": "Chương nào học về selectional restriction?", "query": "KB.topics[topic=SELECTIONAL_RESTRICTION]", "status": "FOUND", "kind": "TOPIC_CHAPTERS", "sources": ["topics.txt:CH09"], "reason": null}
+{"line": 24, "question": "Chương 10 có những phương pháp gì?", "query": "KB.topics[CH10]", "status": "FOUND", "kind": "TOPIC_METHODS", "sources": ["topics.txt:CH10"], "reason": null}
+{"line": 25, "question": "Chương 11 có liên quan đến hỏi đáp không?", "query": "KB.topics[CH11].contains[QUESTION_ANSWERING]", "status": "FOUND", "kind": "TOPIC_RELATION", "sources": ["topics.txt:CH11"], "reason": null}
+{"line": 26, "question": "Hôm nay ở TP.HCM có mưa không?", "query": "NONE", "status": "OUT_OF_SCOPE", "kind": "OUT_OF_SCOPE", "sources": [], "reason": "The sentence was not recognized by the course grammar."}
+{"line": 27, "question": "Ai là tổng thống của Pháp?", "query": "NONE", "status": "OUT_OF_SCOPE", "kind": "OUT_OF_SCOPE", "sources": [], "reason": "The sentence was not recognized by the course grammar."}
+{"line": 28, "question": "Hãy giải bài tập xác suất này giúp tôi.", "query": "NONE", "status": "OUT_OF_SCOPE", "kind": "OUT_OF_SCOPE", "sources": [], "reason": "The sentence was not recognized by the course grammar."}
+{"line": 29, "question": "Deadline của bài tập lớn là khi nào?", "query": "KB.assignment[BTL01].deadline", "status": "NOT_FOUND", "kind": "DEADLINE", "sources": [], "reason": "No specific deadline in assignments.txt."}

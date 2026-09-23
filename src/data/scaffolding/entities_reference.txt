@@ -1,0 +1,69 @@
+COURSE ASSISTANT ENTITY LEXICON
+================================
+
+COURSE
+CO3085 = Xử lý Ngôn ngữ Tự nhiên
+NLP = Xử lý Ngôn ngữ Tự nhiên
+Natural Language Processing = Xử lý Ngôn ngữ Tự nhiên
+
+PART
+Part I = Xử lý cú pháp
+Syntactic Processing = Xử lý cú pháp
+Part II = Diễn dịch ngữ nghĩa
+Semantic Interpretation = Diễn dịch ngữ nghĩa
+Part III = Ngữ cảnh và tri thức thế giới
+Context and World Knowledge = Ngữ cảnh và tri thức thế giới
+
+CHAPTERS
+Chương 1 = CH01
+Chương 2 = CH02
+Chương 3 = CH03
+Chương 4 = CH04
+Chương 5 = CH05
+Chương 6 = CH06
+Chương 7 = CH07
+Chương 8 = CH08
+Chương 9 = CH09
+Chương 10 = CH10
+Chương 11 = CH11
+Chương 12 = CH12
+
+TOPICS
+CFG = context-free grammar
+PCFG = probabilistic context-free grammar
+Dependency Grammar = văn phạm phụ thuộc
+Features = nét
+Augmented Grammar = văn phạm gia tố
+Unification = hợp nhất
+POS Tagging = gán nhãn từ loại
+Logical Form = dạng luận lý
+Thematic Roles = vai trò chủ đề
+Selectional Restriction = giới hạn lựa chọn
+Semantic Network = mạng ngữ nghĩa
+WSD = word sense disambiguation
+Semantic Grammar = văn phạm ngữ nghĩa
+Knowledge Representation = biểu diễn tri thức
+Question Answering = hỏi đáp
+Local Discourse Context = ngữ cảnh diễn ngôn cục bộ
+Reference = tham chiếu
+Anaphora = đồng tham chiếu / quan hệ quy chiếu
+Centering = xác định tâm
+
+ASSIGNMENT
+BTL01 = Intelligent Course Assistant
+Part I = Grammar and Parser
+Part II = Semantic Interpretation and QA
+Part III = Local Discourse Context
+Part IV = Evaluation
+
+INTENTS
+GET_COURSE_INFO
+GET_SCHEDULE
+GET_TOPIC
+GET_ASSIGNMENT
+GET_DEADLINE
+GET_RESOURCE
+GET_RULE
+GET_INSTRUCTOR
+GET_LO
+UNKNOWN

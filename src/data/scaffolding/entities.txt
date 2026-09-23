@@ -1,45 +1,144 @@
-COURSE ASSISTANT ENTITY LEXICON - TEMPLATE
-==========================================
-
-# Format: surface alias = canonical ID or canonical display value.
-# Add every alias accepted by grammar.cfg and keep IDs stable across all files.
+# COURSE ASSISTANT CANONICAL ENTITY ALIASES
+# Format: section name, then surface form = canonical ID.
+# Match aliases case-insensitively after Unicode/whitespace normalization.
+# Resolve within the family chosen by the parse-tree branch: "Phần I" has
+# different meanings in COURSE_PART and ASSIGNMENT_PART.
+# The supplied descriptive lexicon is preserved as entities_reference.txt.
 
 COURSE
-TODO_COURSE_CODE = COURSE_01
-TODO_COURSE_ALIAS = COURSE_01
+CO3085 = CO3085
+NLP = CO3085
+môn NLP = CO3085
+môn học = CO3085
+Xử lý Ngôn ngữ Tự nhiên = CO3085
+Natural Language Processing = CO3085
 
-PART
-Part I = PART_I
-Part II = PART_II
-Part III = PART_III
-Part IV = PART_IV
+COURSE_PART
+Part I = COURSE_PART_I
+Phần I = COURSE_PART_I
+Syntactic Processing = COURSE_PART_I
+Xử lý cú pháp = COURSE_PART_I
+Part II = COURSE_PART_II
+Phần II = COURSE_PART_II
+Semantic Interpretation = COURSE_PART_II
+Diễn dịch ngữ nghĩa = COURSE_PART_II
+Part III = COURSE_PART_III
+Phần III = COURSE_PART_III
+Context and World Knowledge = COURSE_PART_III
+Ngữ cảnh và tri thức thế giới = COURSE_PART_III
 
-CHAPTERS
+WEEK
+Tuần 1 = WEEK_01
+Tuần 2 = WEEK_02
+Tuần 3 = WEEK_03
+Tuần 4 = WEEK_04
+Tuần 5 = WEEK_05
+Tuần 6 = WEEK_06
+Tuần 7 = WEEK_07
+Tuần 8 = WEEK_08
+Tuần 9 = WEEK_09
+Tuần 10 = WEEK_10
+Tuần 11 = WEEK_11
+Tuần 12 = WEEK_12
+Tuần 13 = WEEK_13
+Tuần 14 = WEEK_14
+Tuần 15 = WEEK_15
+
+CHAPTER
 Chương 1 = CH01
 Chương 2 = CH02
-# TODO: add all chapters.
+Chương 3 = CH03
+Chương 4 = CH04
+Chương 5 = CH05
+Chương 6 = CH06
+Chương 7 = CH07
+Chương 8 = CH08
+Chương 9 = CH09
+Chương 10 = CH10
+Chương 11 = CH11
+Chương 12 = CH12
 
-TOPICS
+TOPIC
 CFG = CFG
+context-free grammar = CFG
+PCFG = PCFG
+probabilistic context-free grammar = PCFG
 Parsing = PARSING
-# TODO: add canonical topic aliases used by grammar and KB keywords.
+Dependency Grammar = DEPENDENCY_GRAMMAR
+Features = FEATURES
+Augmented Grammar = AUGMENTED_GRAMMAR
+Unification = UNIFICATION
+POS Tagging = POS_TAGGING
+Logical Form = LOGICAL_FORM
+Thematic Roles = THEMATIC_ROLES
+Selectional Restriction = SELECTIONAL_RESTRICTION
+Semantic Network = SEMANTIC_NETWORK
+WSD = WSD
+Semantic Grammar = SEMANTIC_GRAMMAR
+Knowledge Representation = KNOWLEDGE_REPRESENTATION
+Question Answering = QUESTION_ANSWERING
+hỏi đáp = QUESTION_ANSWERING
+Local Discourse Context = LOCAL_DISCOURSE_CONTEXT
+Reference = REFERENCE
+Anaphora = ANAPHORA
+Centering = CENTERING
+
+LO
+L.O.1 = LO1
+L.O.2 = LO2
+L.O.3 = LO3
+L.O.4 = LO4
+L.O.1.1 = LO1.1
+L.O.2.1 = LO2.1
+L.O.2.2 = LO2.2
+L.O.2.3 = LO2.3
+L.O.2.4 = LO2.4
+L.O.2.5 = LO2.5
+L.O.3.1 = LO3.1
+L.O.3.2 = LO3.2
+L.O.3.3 = LO3.3
+L.O.3.4 = LO3.4
+L.O.4.1 = LO4.1
+L.O.4.2 = LO4.2
+LO2.5 = LO2.5
+LO4.2 = LO4.2
 
 ASSIGNMENT
-BTL = ASSIGNMENT_01
+BTL = BTL01
+BTL01 = BTL01
+bài tập lớn = BTL01
+
+ASSIGNMENT_PART
+Part I = PART_I
 Phần I = PART_I
+Part II = PART_II
 Phần II = PART_II
+Part III = PART_III
 Phần III = PART_III
+Part IV = PART_IV
 Phần IV = PART_IV
 
-INTENTS
-GET_COURSE_INFO
-GET_SCHEDULE
-GET_TOPIC
-GET_ASSIGNMENT
-GET_DEADLINE
-GET_RESOURCE
-GET_RULE
-GET_INSTRUCTOR
-GET_LO
-CONTEXT_DEPENDENT
-UNKNOWN
+ASSIGNMENT_FEATURE
+parser = PART_I
+grammar = PART_I
+semantic = PART_II
+hỏi đáp = PART_II
+ngữ cảnh = PART_III
+đánh giá = PART_IV
+
+EXAM
+Midterm = MIDTERM
+Final = FINAL
+
+RESOURCE_TOPIC
+statistical NLP = STATISTICAL_NLP
+Python NLP = PYTHON_NLP
+CFG = CFG
+
+RULE
+AI = AI_USAGE
+sử dụng AI = AI_USAGE
+LLM/RAG = LLM_RAG
+mã nguồn = SOURCE_CODE
+liêm chính học thuật = ACADEMIC_INTEGRITY
+thư viện ngoài = EXTERNAL_LIBRARIES

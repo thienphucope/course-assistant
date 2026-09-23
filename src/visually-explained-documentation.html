@@ -1,14 +1,13 @@
 <!doctype html>
 <!--
-  Interactive documentation template for the implementation branch.
-  Keep STAGES synchronized with pipeline.py and replace TODO descriptions as
-  stages are implemented. The complete worked simulation lives on branch sample.
+  Interactive documentation for the implemented pipeline.
+  Keep STAGES synchronized with pipeline.py when the architecture changes.
 -->
 <html lang="vi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Course Assistant — Pipeline Template</title>
+  <title>Course Assistant — Pipeline Visualization</title>
   <style>
     :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
     * { box-sizing: border-box; }
@@ -34,18 +33,18 @@
     <h1>Course Assistant · implementation map</h1>
     <p>Mỗi hộp là một contract trong <code>hcmut/iaslab/nlp/app</code>. Nhấn
       vào hộp để xem trách nhiệm; chấm sáng mô phỏng một câu hỏi đi qua pipeline.</p>
-    <p id="detail">Chọn một stage để điền mô tả triển khai và invariant.</p>
+    <p id="detail">Chọn một stage để xem trách nhiệm và file triển khai.</p>
     <button id="replay" type="button">Chạy lại mô phỏng</button>
   </section>
   <script>
-    // TODO: keep this list synchronized with pipeline.py as architecture evolves.
+    // Keep this list synchronized with pipeline.py as architecture evolves.
     const STAGES = [
       { id: "input", label: "Input", file: "input/sentences.txt", note: "Một câu UTF-8 mỗi dòng." },
       { id: "token", label: "Tokenizer", file: "tokenizer.py", note: "Chuẩn hóa câu thành terminal của CFG." },
       { id: "grammar", label: "Grammar", file: "data/grammar.cfg", note: "Nguồn cú pháp dùng chung cho parse và generate." },
       { id: "parse", label: "Parser", file: "parser.py", note: "Nhận/reject toàn câu và tạo Tree." },
       { id: "semantic", label: "Semantics", file: "semantic.py", note: "Tree → intent + entity + slots." },
-      { id: "context", label: "Context", file: "dialogue.py", note: "Phân giải tham chiếu bằng state có kiểu." },
+      { id: "context", label: "Context", file: "dialogue.py", note: "Phần mở rộng hội thoại, chưa dùng trong đánh giá chính." },
       { id: "query", label: "Query", file: "query.py", note: "Frame → truy vấn KB có provenance." },
       { id: "kb", label: "Knowledge Base", file: "data/kb/", note: "Fact chuẩn hóa; không chứa logic ngôn ngữ." },
       { id: "answer", label: "Answer", file: "answer.py", note: "Kết quả có căn cứ → câu trả lời template." },

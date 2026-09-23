@@ -1,6 +1,29 @@
-# One UTF-8 question per line. Replace these placeholders with real smoke cases.
-TODO_VALID_COURSE_QUESTION
-TODO_VALID_SCHEDULE_QUESTION
-TODO_VALID_TOPIC_QUESTION
-TODO_VALID_ASSIGNMENT_QUESTION
-TODO_OUT_OF_DOMAIN_QUESTION
+Môn NLP có bao nhiêu tín chỉ?
+CO3085 có mấy tín chỉ?
+Môn học gồm những phần nào?
+Tuần 3 học gì?
+Chương 4 học vào tuần nào?
+Chương nào nói về CFG?
+PCFG được học ở đâu?
+Chương nào nói về semantic grammar?
+L.O.2.5 là gì?
+L.O.4.2 liên quan đến nội dung nào?
+Bài tập lớn yêu cầu xây dựng những gì?
+Phần I của bài tập lớn là gì?
+Bài tập lớn có phần hỏi đáp không?
+Có được dùng LLM/RAG không?
+Quy định về sử dụng AI là gì?
+Midterm bao nhiêu phút?
+Final bao nhiêu phút?
+Tài liệu tham khảo về statistical NLP là gì?
+Tài liệu nào liên quan đến Python NLP?
+Chương 12 nói về gì?
+Chương nào học về reference?
+Chương nào học về question answering?
+Chương nào học về selectional restriction?
+Chương 10 có những phương pháp gì?
+Chương 11 có liên quan đến hỏi đáp không?
+Hôm nay ở TP.HCM có mưa không?
+Ai là tổng thống của Pháp?
+Hãy giải bài tập xác suất này giúp tôi.
+Deadline của bài tập lớn là khi nào?

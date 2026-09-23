@@ -1,1 +1,29 @@
-# GENERATED FILE TEMPLATE: one JSON object with intent/entity fields per line.
+{"intent": "GET_COURSE_INFO", "entity": "CO3085", "slots": {"course": "CO3085", "field": "credits"}, "source_branch": "Q_COURSE_CREDITS"}
+{"intent": "GET_COURSE_INFO", "entity": "CO3085", "slots": {"course": "CO3085", "field": "credits"}, "source_branch": "Q_COURSE_CREDITS"}
+{"intent": "GET_COURSE_INFO", "entity": "CO3085", "slots": {"course": "CO3085", "field": "parts"}, "source_branch": "Q_COURSE_PARTS"}
+{"intent": "GET_SCHEDULE", "entity": "WEEK_03", "slots": {"week": "WEEK_03"}, "source_branch": "Q_SCHEDULE_WEEK"}
+{"intent": "GET_SCHEDULE", "entity": "CH04", "slots": {"chapter": "CH04"}, "source_branch": "Q_SCHEDULE_CHAPTER"}
+{"intent": "GET_TOPIC", "entity": "CFG", "slots": {"topic": "CFG", "field": "chapter"}, "source_branch": "Q_TOPIC_BY_NAME"}
+{"intent": "GET_TOPIC", "entity": "PCFG", "slots": {"topic": "PCFG", "field": "location"}, "source_branch": "Q_TOPIC_LOCATION"}
+{"intent": "GET_TOPIC", "entity": "SEMANTIC_GRAMMAR", "slots": {"topic": "SEMANTIC_GRAMMAR", "field": "chapter"}, "source_branch": "Q_TOPIC_BY_NAME"}
+{"intent": "GET_LO", "entity": "LO2.5", "slots": {"lo": "LO2.5", "field": "description"}, "source_branch": "Q_LO"}
+{"intent": "GET_LO", "entity": "LO4.2", "slots": {"lo": "LO4.2", "field": "content"}, "source_branch": "Q_LO_CONTENT"}
+{"intent": "GET_ASSIGNMENT", "entity": "BTL01", "slots": {"assignment": "BTL01", "field": "overview"}, "source_branch": "Q_ASSIGNMENT_OVERVIEW"}
+{"intent": "GET_ASSIGNMENT", "entity": "PART_I", "slots": {"assignment": "BTL01", "part": "PART_I", "field": "description"}, "source_branch": "Q_ASSIGNMENT_PART"}
+{"intent": "GET_ASSIGNMENT", "entity": "PART_II", "slots": {"assignment": "BTL01", "part": "PART_II", "feature": "hỏi đáp", "field": "feature"}, "source_branch": "Q_ASSIGNMENT_FEATURE"}
+{"intent": "GET_RULE", "entity": "LLM_RAG", "slots": {"rule": "LLM_RAG", "field": "permission"}, "source_branch": "Q_RULE_PERMISSION"}
+{"intent": "GET_RULE", "entity": "AI_USAGE", "slots": {"rule": "AI_USAGE", "field": "policy"}, "source_branch": "Q_RULE"}
+{"intent": "GET_COURSE_INFO", "entity": "MIDTERM", "slots": {"exam": "MIDTERM", "field": "duration"}, "source_branch": "Q_COURSE_EXAM_DURATION"}
+{"intent": "GET_COURSE_INFO", "entity": "FINAL", "slots": {"exam": "FINAL", "field": "duration"}, "source_branch": "Q_COURSE_EXAM_DURATION"}
+{"intent": "GET_RESOURCE", "entity": "STATISTICAL_NLP", "slots": {"topic": "STATISTICAL_NLP"}, "source_branch": "Q_RESOURCE"}
+{"intent": "GET_RESOURCE", "entity": "PYTHON_NLP", "slots": {"topic": "PYTHON_NLP"}, "source_branch": "Q_RESOURCE"}
+{"intent": "GET_TOPIC", "entity": "CH12", "slots": {"chapter": "CH12", "field": "overview"}, "source_branch": "Q_TOPIC_BY_CHAPTER"}
+{"intent": "GET_TOPIC", "entity": "REFERENCE", "slots": {"topic": "REFERENCE", "field": "chapter"}, "source_branch": "Q_TOPIC_BY_NAME"}
+{"intent": "GET_TOPIC", "entity": "QUESTION_ANSWERING", "slots": {"topic": "QUESTION_ANSWERING", "field": "chapter"}, "source_branch": "Q_TOPIC_BY_NAME"}
+{"intent": "GET_TOPIC", "entity": "SELECTIONAL_RESTRICTION", "slots": {"topic": "SELECTIONAL_RESTRICTION", "field": "chapter"}, "source_branch": "Q_TOPIC_BY_NAME"}
+{"intent": "GET_TOPIC", "entity": "CH10", "slots": {"chapter": "CH10", "field": "methods"}, "source_branch": "Q_TOPIC_METHODS"}
+{"intent": "GET_TOPIC", "entity": "CH11", "slots": {"chapter": "CH11", "topic": "QUESTION_ANSWERING", "field": "relation"}, "source_branch": "Q_TOPIC_RELATION"}
+{"intent": "UNKNOWN", "entity": null, "slots": {}, "source_branch": null}
+{"intent": "UNKNOWN", "entity": null, "slots": {}, "source_branch": null}
+{"intent": "UNKNOWN", "entity": null, "slots": {}, "source_branch": null}
+{"intent": "GET_DEADLINE", "entity": "BTL01", "slots": {"assignment": "BTL01", "field": "deadline"}, "source_branch": "Q_DEADLINE"}

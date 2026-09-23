@@ -28,8 +28,15 @@ class ProjectPaths:
 
     @classmethod
     def discover(cls) -> "ProjectPaths":
-        """Search parent directories for the project markers, independent of cwd."""
-        raise NotImplementedError("Implement robust project-root discovery")
+        """Find src/ from the current directory or the installed module path."""
+        for starting_point in (Path.cwd().resolve(), Path(__file__).resolve()):
+            for ancestor in (starting_point, *starting_point.parents):
+                for candidate in (ancestor, ancestor / "src"):
+                    if ((candidate / "data" / "grammar.cfg").is_file()
+                            and (candidate / "input" / "sentences.txt").is_file()
+                            and (candidate / "run.py").is_file()):
+                        return cls.from_root(candidate)
+        raise FileNotFoundError("Cannot find src/ with data/grammar.cfg and input/sentences.txt")
 
     @classmethod
     def from_root(cls, root: str | Path) -> "ProjectPaths":

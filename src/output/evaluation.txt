@@ -1,1 +1,51 @@
-# GENERATED FILE TEMPLATE: per-stage pass/fail records and aggregate metrics.
+COURSE ASSISTANT EVALUATION — CLASSICAL NLP
+
+Method: each case is processed independently (dialogue context disabled).
+Parse expects a complete tree for in-domain questions and () for UNKNOWN.
+Intent/entity compare canonical labels; query compares declared status and
+requires at least one source when FOUND; answer checks declared text fragments.
+Missing query/answer labels are excluded from those stage denominators.
+Answer fragments are evidence checks, not a full human judgment of wording.
+
+Combined declared-label pass: 39/41 (95.1%).
+
+## Sample core + out-of-scope (gold_queries.txt)
+Cases: 28
+Cases passing all declared labels: 28/28 (100.0%)
+Stage results (correct/labeled):
+- Parse: 28/28 (100.0%)
+- Intent: 28/28 (100.0%)
+- Entity: 28/28 (100.0%)
+- Query: 28/28 (100.0%)
+- Answer evidence: 28/28 (100.0%)
+Failures:
+- None on the declared labels.
+
+## Team challenge (challenge_queries.txt)
+Cases: 13
+Cases passing all declared labels: 11/13 (84.6%)
+Stage results (correct/labeled):
+- Parse: 11/13 (84.6%)
+- Intent: 11/13 (84.6%)
+- Entity: 11/13 (84.6%)
+- Query: 11/13 (84.6%)
+- Answer evidence: 11/13 (84.6%)
+Failures:
+- C012: Tuan 3 hoc gi?
+  Expected: GET_SCHEDULE / WEEK_03 / FOUND
+  Actual: UNKNOWN / - / OUT_OF_SCOPE
+  First failed stage: tokenizer/grammar/parser (no expected full parse).
+  Answer: Xin lỗi, câu hỏi nằm ngoài văn phạm hoặc phạm vi Course Assistant.
+- C013: Số tín chỉ của môn NLP là bao nhiêu?
+  Expected: GET_COURSE_INFO / CO3085 / FOUND
+  Actual: UNKNOWN / - / OUT_OF_SCOPE
+  First failed stage: tokenizer/grammar/parser (no expected full parse).
+  Answer: Xin lỗi, câu hỏi nằm ngoài văn phạm hoặc phạm vi Course Assistant.
+
+Strengths: traceable KB sources; separate OUT_OF_SCOPE and NOT_FOUND;
+all seven required groups have grounded core examples.
+Limits: rule-based grammar misses unlisted wording and missing diacritics;
+the KB is sample course data, not an official administrative schedule.
+Dialogue Q029–Q034 is optional and excluded from independent-question scores.
+The sample-core suite helped development; do not present its accuracy as
+accuracy on unseen real-world questions.

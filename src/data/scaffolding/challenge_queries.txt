@@ -1,8 +1,19 @@
-# CHALLENGE EVALUATION QUERIES - TEMPLATE
-# These cases are authored by the team and must be reported separately from the
-# supplied/official set.
-# Format: ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY | STATUS | TERMS
+# Team-authored evaluation cases. The first four columns are required.
+# Optional columns: EXPECTED_QUERY_STATUS | REQUIRED_ANSWER_TERMS.
+# Team-written regression and challenge cases separate from Q001-Q034.
+# C003 and C011 motivated grammar paraphrase fixes in Milestone 6.
+# C012-C013 intentionally retain currently unsupported human paraphrases.
 
-C001 | TODO_POLITE_PARAPHRASE | TODO_INTENT | TODO_ENTITY | FOUND | TODO_TERM
-C002 | TODO_GRAMMAR_VALID_BUT_MISSING_FACT | TODO_INTENT | TODO_ENTITY | NOT_FOUND | không tìm thấy
-C003 | TODO_NEAR_MISS_OR_UNKNOWN | UNKNOWN | OUT_OF_SCOPE | SKIPPED | ngoài phạm vi
+C001 | Deadline của bài tập lớn là khi nào? | GET_DEADLINE | BTL01 | NOT_FOUND | không tìm thấy
+C002 | Cho mình hỏi môn NLP có mấy tín chỉ nhé? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ
+C003 | Chương 4 học vào những tuần nào? | GET_SCHEDULE | CH04 | FOUND | tuần 4;;tuần 5
+C004 | Midterm thi khi nào? | GET_COURSE_INFO | MIDTERM | NOT_FOUND | không tìm thấy
+C005 | Tuần 3 học gì ở Hà Nội? | UNKNOWN | OUT_OF_SCOPE | OUT_OF_SCOPE | ngoài văn phạm
+C006 | PCFG được học ở đâu! | GET_TOPIC | PCFG | FOUND | Chương 3;;Chương 6;;tuần 3;;tuần 7
+C007 | Bài tập lớn có phần parser không? | GET_ASSIGNMENT | PART_I | FOUND | Có.;;parser
+C008 | Tài liệu nào liên quan đến CFG? | GET_RESOURCE | CFG | NOT_FOUND | không tìm thấy
+C009 | Có được dùng thư viện ngoài không? | GET_RULE | EXTERNAL_LIBRARIES | FOUND | Được phép
+C010 | L.O.3.2 là gì? | GET_LO | LO3.2 | FOUND | diễn dịch ngữ nghĩa
+C011 | Môn NLP gồm mấy phần? | GET_COURSE_INFO | CO3085 | FOUND | Part I;;Part II;;Part III
+C012 | Tuan 3 hoc gi? | GET_SCHEDULE | WEEK_03 | FOUND | Tuần 3
+C013 | Số tín chỉ của môn NLP là bao nhiêu? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ

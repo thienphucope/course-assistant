@@ -15,6 +15,9 @@ from pathlib import Path
 
 from .answer import AnswerGenerator
 from .dialogue import DialogueContext
+from .entities import EntityLexicon
+from .grammar import Grammar
+from .kb import KnowledgeBase
 from .parser import EarleyParser, ParseResult
 from .paths import ProjectPaths
 from .query import QueryEngine, QueryResult
@@ -62,7 +65,21 @@ class CourseAssistant:
     @classmethod
     def from_paths(cls, paths: ProjectPaths) -> "CourseAssistant":
         """Load files, validate them, construct stages, and wire dependencies."""
-        raise NotImplementedError("Implement the production composition root")
+        grammar = Grammar.from_file(paths.grammar)
+        lexicon = EntityLexicon.from_file(paths.scaffolding / "entities.txt")
+        kb = KnowledgeBase.load(paths.kb)
+        problems = kb.validate()
+        if problems:
+            raise ValueError("Invalid course knowledge base:\n- " + "\n- ".join(problems))
+        return cls(
+            PipelineComponents(
+                parser=EarleyParser(grammar),
+                interpreter=SemanticInterpreter(lexicon),
+                query_engine=QueryEngine(kb, lexicon),
+                answer_generator=AnswerGenerator(),
+                context=DialogueContext(),
+            )
+        )
 
     @classmethod
     def from_root(cls, root: str | Path) -> "CourseAssistant":

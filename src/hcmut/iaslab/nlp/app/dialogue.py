@@ -36,9 +36,9 @@ class DialogueContext:
         self.history.clear()
 
     def resolve(self, frame: SemanticFrame) -> tuple[SemanticFrame, str | None]:
-        """Resolve a context-dependent frame and return an explanatory trace."""
-        raise NotImplementedError("Implement typed reference resolution and safe fallbacks")
+        """Pass independent questions through until optional context is built."""
+        return frame, None
 
     def update(self, frame: SemanticFrame, result: QueryResult) -> None:
-        """Commit only useful entities from a successful grounded result."""
-        raise NotImplementedError("Implement bounded, type-aware context updates")
+        """Reserve the context update hook for the optional dialogue milestone."""
+        return None

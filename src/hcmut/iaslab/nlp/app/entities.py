@@ -10,6 +10,14 @@ all exchange them.  New entity families can be added without changing parsing.
 from __future__ import annotations
 
 from pathlib import Path
+import re
+
+from .tokenizer import normalized_phrase
+
+
+def _normalize(value: str) -> str:
+    """Compare aliases using the same token spelling as parser tree leaves."""
+    return normalized_phrase(value)
 
 
 class EntityLexicon:
@@ -22,29 +30,54 @@ class EntityLexicon:
     @classmethod
     def from_file(cls, path: str | Path) -> "EntityLexicon":
         """Load and validate a UTF-8 entity-alias file."""
-        raise NotImplementedError("Implement entity lexicon loading")
+        lexicon = cls(path)
+        family: str | None = None
+        for line_number, raw_line in enumerate(lexicon.path.read_text(encoding="utf-8-sig").splitlines(), 1):
+            line = raw_line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                if not re.fullmatch(r"[A-Z][A-Z0-9_]*", line):
+                    raise ValueError(f"Invalid entity section on line {line_number}: {line}")
+                family = line
+                lexicon.sections.setdefault(family, {})
+                continue
+            if family is None:
+                raise ValueError(f"Entity alias precedes its section on line {line_number}")
+            alias, canonical = (part.strip() for part in line.split("=", 1))
+            if not alias or not canonical:
+                raise ValueError(f"Incomplete entity alias on line {line_number}")
+            table = lexicon.sections[family]
+            key = _normalize(alias)
+            if key in table and table[key] != canonical:
+                raise ValueError(f"Conflicting entity alias on line {line_number}: {alias}")
+            table[key] = canonical
+            # A canonical ID can always be used directly, even if the file only
+            # lists natural-language surface forms for it.
+            table.setdefault(_normalize(canonical), canonical)
+        return lexicon
 
     def resolve(self, family: str, phrase: str) -> str | None:
         """Resolve ``phrase`` within an entity family to a canonical ID."""
-        raise NotImplementedError("Implement generic alias resolution")
+        return self.sections.get(family.upper(), {}).get(_normalize(phrase))
 
     def resolve_week(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize week mentions to WEEK_NN")
+        return self.resolve("WEEK", phrase)
 
     def resolve_chapter(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize chapter mentions to CHNN")
+        return self.resolve("CHAPTER", phrase)
 
     def resolve_topic(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize topic aliases")
+        return self.resolve("TOPIC", phrase)
 
     def resolve_lo(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize learning outcomes to LOx.y")
+        return self.resolve("LO", phrase)
 
     def resolve_assignment_part(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize assignment sections to PART_I..PART_IV")
+        return self.resolve("ASSIGNMENT_PART", phrase)
 
     def resolve_resource_topic(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize requested resource topics")
+        return self.resolve("RESOURCE_TOPIC", phrase)
 
     def resolve_rule(self, phrase: str) -> str | None:
-        raise NotImplementedError("Normalize regulation and policy topics")
+        return self.resolve("RULE", phrase)
