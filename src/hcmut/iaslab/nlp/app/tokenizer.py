@@ -9,7 +9,7 @@ import unicodedata
 _SPECIAL = re.compile(r"(?i)\bl\.o\.(\d+(?:\.\d+)*)\b")
 _TOKEN_RE = re.compile(r"""(?ix)
     lo\d+(?:\.\d+)* |
-    [\wÀ-ỹ]+(?:[-/][\wÀ-ỹ]+)* |
+    [\wÀ-ỹ]+(?:[-/.][\wÀ-ỹ]+)* |
     \d+(?:\.\d+)* |
     [?!.,:;]
     """)
