@@ -29,7 +29,10 @@ class ProjectPaths:
     @classmethod
     def discover(cls) -> "ProjectPaths":
         """Search parent directories for the project markers, independent of cwd."""
-        raise NotImplementedError("Implement robust project-root discovery")
+        for parent in Path(__file__).resolve().parents:
+            if (parent / "pyproject.toml").is_file() and (parent / "data").is_dir():
+                return cls.from_root(parent)
+        raise RuntimeError("Không tìm thấy thư mục gốc của project")
 
     @classmethod
     def from_root(cls, root: str | Path) -> "ProjectPaths":
@@ -45,3 +48,6 @@ class ProjectPaths:
             input=resolved / "input",
             output=resolved / "output",
         )
+
+
+PATHS = ProjectPaths.discover()

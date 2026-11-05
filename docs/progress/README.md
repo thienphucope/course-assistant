@@ -35,12 +35,12 @@ Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm ·
 | T09 | ⚙️ Grammar loader + Parser | `grammar.py`, `parser.py` · §2 | `test_contract_parser` | undone |
 | T10 | ⚙️ Generator | `generator.py` | parse lại 100% | undone |
 | T11 | 🔥 Semantic + entity lexicon | `semantic.py`, `entities.py` · §3 | `test_contract_semantic` | undone |
-| T12 | 🔧 KB loader | `kb.py` · §4 | `test_contract_kb` | undone |
-| T13 | 🔧 Query | `query.py` · §5 | `test_contract_query` | undone |
+| T12 | 🔧 KB loader | `kb.py` · §4 | `test_contract_kb` | done (chờ review) |
+| T13 | 🔧 Query | `query.py` · §5 | `test_contract_query` | done (chờ review) |
 | T14 | 🔧 Answer + not-found | `answer.py` · §6 | `test_contract_answer` | undone |
 | T15 | ✨ Dialogue (Phần III) | `dialogue.py` · §7 | `test_contract_dialogue` | undone |
-| T16 | 🔧 Pipeline + CLI + 9 file output | `pipeline.py`, `cli.py`, `output.py`, `paths.py`, `run.py` · §8–9 | `test_contract_pipeline` + `run.py all` | undone |
-| T17 | 🔧 Evaluation + mở rộng bộ test | `evaluate.py` · §8 | `evaluation.txt` đúng §9 | undone |
+| T16 | 🔧 Pipeline + CLI + 9 file output | `pipeline.py`, `cli.py`, `output.py`, `paths.py`, `run.py` · §8–9 | `test_contract_pipeline` + `run.py all` | done |
+| T17 | 🔧 Evaluation + mở rộng bộ test | `evaluate.py` · §8 | `evaluation.txt` đúng §9 | done |
 | T18 | 🔥 Grammar mở rộng sau phase 1 | `src/data/grammar.cfg` | 42/42 · 0 mơ hồ | undone |
 | T19 | 🔧 Script kiểm tra grammar | `tools/` | — | undone |
 | T20 | 🔧 README nộp bài | `README.md` | đủ mục đề 7.5 | undone |
