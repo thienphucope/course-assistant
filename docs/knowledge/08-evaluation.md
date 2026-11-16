@@ -5,12 +5,12 @@
 ## Dữ liệu có sẵn
 `src/data/scaffolding/sample_queries.txt`, mỗi dòng
 `ID | QUERY | EXPECTED_INTENT | EXPECTED_ENTITY | EXPECTED_QUERY_STATUS | REQUIRED_ANSWER_TERMS`:
-- **Q001–Q034 = của thầy** (bản gốc trong `data/` ở gốc repo chỉ có 4 cột đầu).
+- **Q001–Q034 = của thầy** (bản gốc trong `docs/materials/NLP_Course_Assistant_Sample_Data.zip` chỉ có 4 cột đầu).
 - **S001–S008** = câu ví dụ nguyên văn trong đề.
 - Cột status (`FOUND` / `NOT_FOUND` / `SKIPPED`) và dữ kiện bắt buộc (`;;` = tất cả phải có)
   được bổ sung để chấm được cả bước query và câu trả lời.
 
-Thêm: `challenge_queries.txt` (C001–C008, nhóm tự viết để phân tích lỗi — **ghi rõ nguồn**, đề
+Thêm: `challenge_queries.txt` (C001–C022, nhóm tự viết để phân tích lỗi — **ghi rõ nguồn**, đề
 7.2) và `dialogues.txt` (6 hội thoại, cho Phần III).
 
 ## Chạy gì

@@ -261,7 +261,7 @@ tin thành viên và có thể quay/thuyết minh theo kịch bản trước khi
 
 ## 10. Tài liệu tham khảo và khai báo AI
 
-1. Đề BTL CO3085 “Trợ lý hỗ trợ học tập”, bản đọc tại `materials/spec.md`;
+1. Đề BTL CO3085 “Trợ lý hỗ trợ học tập”, bản đọc tại `docs/materials/spec.md`;
    KB và scaffolding do giảng viên cung cấp.
 2. Mã khung, thuật toán và output tham khảo ở nhánh `sample`, `docs/sample-src/`.
    Nhóm tham khảo cấu trúc và kiểm bằng hợp đồng; không sửa nhánh tham khảo.

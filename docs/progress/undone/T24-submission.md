@@ -17,7 +17,7 @@
       `src/`** → khi đóng gói phải sắp lại cho đúng cấu trúc trên, và kiểm tra code vẫn tìm được
       data (`ProjectPaths`).
 - [x] Không đưa vào zip: `tests/golden/` (2,2 MB, chỉ dùng nội bộ), `docs/` nội bộ, `tools/`,
-      `__pycache__/`, `data/` gốc cũ ở gốc repo.
+      `__pycache__/`.
 - [x] `output/` trong zip là kết quả chạy thật của code nhóm (`python run.py all`), không chép từ
       sample.
 - [ ] Giải nén zip ra thư mục mới, build Docker và chạy thử trước khi nộp.

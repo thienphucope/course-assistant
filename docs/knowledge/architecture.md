@@ -1,6 +1,6 @@
 # Architecture — Course Assistant (bản đồ kiến trúc)
 
-> Đề: `materials/spec.md` → **cái BẮT BUỘC** vs **cái nhóm ĐÃ CHỌN**.
+> Đề: `docs/materials/spec.md` → **cái BẮT BUỘC** vs **cái nhóm ĐÃ CHỌN**.
 > Cơ chế từng bước: các bài `00`→`09` + `kb-loader` trong thư mục này. Hợp đồng giữa các
 > tầng: `docs/contracts.md`. Việc cần làm: `docs/progress/`.
 > Quy ước: 🔥 tốn công/ăn điểm · ⚙️ chuẩn làm-1-lần · 🔀 chỗ rẽ · 🔧 plumbing · ✨ optional.
@@ -63,11 +63,11 @@ run.py → cli.py ────────────────────�
 Repo:
 ```
 src/        code (hcmut/…) + data/ input/ output/ models/ tests/ + README.md Dockerfile run.py
-docs/       knowledge/ (bài giảng + kiến trúc) · progress/ (tiến độ) · contracts.md
+docs/       knowledge/ (bài giảng + kiến trúc) · progress/ (tiến độ) · contracts.md · materials/ (đề, data gốc)
 tools/      make_golden.py (sinh golden test) · visualizer/
-materials/  đề bài, bộ data gốc
-data/       bản data gốc cũ của thầy — code dùng src/data/
 ```
+Dữ liệu đang dùng nằm ở `src/data/`; bản gốc để khôi phục nằm trong
+`docs/materials/NLP_Course_Assistant_Sample_Data.zip`.
 Nộp (§7.4) bắt buộc y khuôn `project/{src, data, models, input, output, README.md,
 Dockerfile}` → khi đóng gói phải sắp lại; `docs/`, `tools/`, `tests/golden/` gỡ khỏi zip cho gọn
 <10MB. Chi tiết: `docs/progress/undone/T24-submission.md`.
