@@ -5,8 +5,8 @@ from __future__ import annotations
 from collections import deque
 from dataclasses import dataclass
 
-from .grammar import Grammar
-from .tokenizer import detokenize
+from .grammar import Grammar, Rule
+from .tokenizer import detokenize, tokenize
 
 
 @dataclass(frozen=True)
@@ -32,8 +32,31 @@ class SentenceGenerator:
         if requested == 0:
             return [], GeneratorStats(int(limit), 0, 0, int(limit) > 0)
 
+        # The course grammar permits both bare and polite question endings.
+        # Canonicalize their surface form without inventing tokens for generic CFGs.
+        question_style = (
+            all(rule.rhs and rule.rhs[-1] == "SUFFIX"
+                for rule in self.grammar.rules_for(self.grammar.start))
+            and Rule("SUFFIX", ("END_MARK",)) in self.grammar.rules
+            and Rule("SUFFIX", ("POLITE", "END_MARK")) in self.grammar.rules
+            and Rule("END_MARK", ("?",)) in self.grammar.rules
+        )
+
+        def render(form, branch=None):
+            tokens = list(form)
+            if question_style:
+                if tokens and tokens[-1] in {"?", "!", "."}:
+                    tokens.pop()
+                tokens.append("?")
+                acronyms = {"nlp", "btl", "btl01", "cfg", "pcfg", "kb", "llm", "rag", "llm/rag"}
+                tokens = [token.upper() if token in acronyms or
+                          (token == "ai" and branch == "Q_RULE") else token for token in tokens]
+            sentence = detokenize(tokens)
+            return sentence[:1].upper() + sentence[1:]
+
         # Discover intent branches and seed one derivation queue per Q_* branch.
-        branches = sorted(nt for nt in self.grammar.nonterminals if nt.startswith("Q_"))
+        branches = sorted({rule.rhs[0] for rule in self.grammar.rules_for("QUESTION")
+                           if len(rule.rhs) == 1 and rule.rhs[0].startswith("Q_")})
         start_rules = self.grammar.rules_for(self.grammar.start)
         seeds: list[tuple[str, tuple[str, ...]]] = []
         for branch in branches:
@@ -49,22 +72,21 @@ class SentenceGenerator:
         explored = 0
         truncated = int(limit) > 10_000
         # Round-robin one branch at a time to prevent early branches monopolizing output.
-        per_branch_target = max(
-            1, (requested + max(1, len(seeds)) - 1) // max(1, len(seeds))
-        )
+        per_branch, extra = divmod(requested, len(seeds))
         global_state_cap = 250_000
         queues = []
-        for branch, seed in seeds:
-            queues.append((branch, deque([seed]), set([seed]), 0))
+        for index, (branch, seed) in enumerate(seeds):
+            target = per_branch + int(index < extra)
+            queues.append((branch, deque([seed]), set([seed]), 0, target))
 
         while queues and len(results) < requested and explored < global_state_cap:
             progressed = False
             next_queues = []
-            for branch, queue, seen_forms, produced_here in queues:
+            for branch, queue, seen_forms, produced_here, target in queues:
                 if len(results) >= requested:
-                    next_queues.append((branch, queue, seen_forms, produced_here))
+                    next_queues.append((branch, queue, seen_forms, produced_here, target))
                     continue
-                if not queue or produced_here >= per_branch_target:
+                if not queue or produced_here >= target:
                     if queue:
                         truncated = True
                     continue
@@ -82,12 +104,12 @@ class SentenceGenerator:
                     None,
                 )
                 if index is None:
-                    sentence = detokenize(list(form))
-                    if sentence and sentence not in unique:
+                    sentence = render(form, branch)
+                    if sentence and sentence not in unique and len(tokenize(sentence)) <= max_tokens:
                         unique.add(sentence)
                         results.append(sentence)
                         produced_here += 1
-                    next_queues.append((branch, queue, seen_forms, produced_here))
+                    next_queues.append((branch, queue, seen_forms, produced_here, target))
                     continue
 
                 symbol = form[index]
@@ -102,7 +124,7 @@ class SentenceGenerator:
                     if expanded not in seen_forms:
                         seen_forms.add(expanded)
                         queue.append(expanded)
-                next_queues.append((branch, queue, seen_forms, produced_here))
+                next_queues.append((branch, queue, seen_forms, produced_here, target))
             queues = next_queues
             if not progressed:
                 break
@@ -121,7 +143,7 @@ class SentenceGenerator:
                     None,
                 )
                 if index is None:
-                    sentence = detokenize(list(form))
+                    sentence = render(form)
                     if sentence and sentence not in unique:
                         unique.add(sentence)
                         results.append(sentence)

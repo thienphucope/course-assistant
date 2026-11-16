@@ -43,7 +43,7 @@ python tools/make_golden.py
 
 ## 1. Tokenizer — `tokenizer.tokenize(text) -> list[str]`
 
-Golden: `tokenizer.jsonl` (2050 câu: câu test, câu hội thoại, câu sinh từ grammar, ca biên).
+Golden: `tokenizer.jsonl` (2077 câu: câu test, câu hội thoại, câu sinh từ grammar, ca biên).
 
 - Chữ thường, Unicode NFC, giữ dấu tiếng Việt; bỏ khoảng trắng thừa.
 - `context-free`, `llm/rag`, `lo2.5` là **một** token (nối bằng `-` `/` `.`).
@@ -52,7 +52,7 @@ Golden: `tokenizer.jsonl` (2050 câu: câu test, câu hội thoại, câu sinh t
 
 ## 2. Grammar + Parser — `EarleyParser(grammar).parse(sentence) -> ParseResult`
 
-Golden: `parser.jsonl` (2050 câu). File grammar: `src/data/grammar.cfg`, đúng **26 nhánh** `Q_*`.
+Golden: `parser.jsonl` (2077 câu). File grammar: `src/data/grammar.cfg`, đúng **26 nhánh** `Q_*`.
 
 - Câu thuộc văn phạm → `ParseResult.tree` là `Tree` gốc `S`; nhãn node = tên non-terminal; lá =
   token; non-terminal sinh ε là node **không có con** (`(PREFIX ε)` khi in).
@@ -98,6 +98,19 @@ Golden: `semantic.jsonl` (cây → frame). Nhánh `Q_*` con của `QUESTION` quy
   resource topic ID như `STATISTICAL_NLP`, `PYTHON_NLP`; rule ID như `AI_USAGE`, `LLM_RAG`. Giá trị
   không có trong lexicon → `null` (không đoán).
 - Bước semantic **không đọc KB**.
+
+### Mở rộng T18 (2026-11-16)
+
+`ASSIGNMENT_FEATURE` chứa một node nhóm: `FEAT_PARSING` → `PART_I`,
+`FEAT_SEMANTIC` → `PART_II`, `FEAT_CONTEXT` → `PART_III`, `FEAT_EVAL` → `PART_IV`.
+Handler đọc nhãn nhóm; slot `feature` giữ cụm từ gốc. Các cách gọi mới gồm
+`grammar`, `parse tree`, `intent`, `entity`, `kb`, `hội thoại`, `test set`, `metric`.
+Alias resource `dịch máy` → `MACHINE_TRANSLATION`; rule `thư viện có sẵn` →
+`EXTERNAL_LIBRARIES`. Intent và schema query không đổi.
+
+`tools/make_golden.py` áp dụng riêng các mở rộng này lên oracle nhánh `sample`
+trước khi sinh golden; không sửa nhánh `sample` và không dùng code nhóm làm oracle.
+Các câu mở rộng nằm trong `EDGE_SENTENCES` để bảo đảm kiểm tra dù generator đổi thứ tự.
 
 ## 4. KB loader — `KnowledgeBase.load(kb_dir) -> KnowledgeBase`
 
@@ -183,7 +196,7 @@ Golden: `dialogue.jsonl` (6 hội thoại, từng lượt: frame thô → frame 
 
 ## 8. End-to-end — `CourseAssistant.from_root(src).process(...)`
 
-Golden: `cases.jsonl` (42 câu mẫu + 8 câu thách thức, có cờ `reference_pass`).
+Golden: `cases.jsonl` (42 câu mẫu + 22 câu thách thức, có cờ `reference_pass`).
 
 - Mỗi bộ (official, challenge) reset ngữ cảnh **một lần** rồi chạy theo thứ tự file — giống cách
   chấm, vì có câu tham chiếu câu ngay trước.

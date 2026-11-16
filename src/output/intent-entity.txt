@@ -1,1 +1,73 @@
-# GENERATED FILE TEMPLATE: one JSON object with intent/entity fields per line.
+{"entity": "CO3085", "id": 1, "intent": "GET_COURSE_INFO", "question": "Môn NLP có bao nhiêu tín chỉ?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "CO3085", "id": 2, "intent": "GET_COURSE_INFO", "question": "CO3085 có mấy tín chỉ?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "CO3085", "id": 3, "intent": "GET_COURSE_INFO", "question": "Môn học gồm những phần nào?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "WEEK_03", "id": 4, "intent": "GET_SCHEDULE", "question": "Tuần 3 học gì?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "CH04", "id": 5, "intent": "GET_SCHEDULE", "question": "Chương 4 học vào tuần nào?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "CFG", "id": 6, "intent": "GET_TOPIC", "question": "Chương nào nói về CFG?", "resolved_intent": "GET_TOPIC"}
+{"entity": "PCFG", "id": 7, "intent": "GET_TOPIC", "question": "PCFG được học ở đâu?", "resolved_intent": "GET_TOPIC"}
+{"entity": "SEMANTIC_GRAMMAR", "id": 8, "intent": "GET_TOPIC", "question": "Chương nào nói về semantic grammar?", "resolved_intent": "GET_TOPIC"}
+{"entity": "LO2.5", "id": 9, "intent": "GET_LO", "question": "L.O.2.5 là gì?", "resolved_intent": "GET_LO"}
+{"entity": "LO4.2", "id": 10, "intent": "GET_LO", "question": "L.O.4.2 liên quan đến nội dung nào?", "resolved_intent": "GET_LO"}
+{"entity": "BTL01", "id": 11, "intent": "GET_ASSIGNMENT", "question": "Bài tập lớn yêu cầu xây dựng những gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_I", "id": 12, "intent": "GET_ASSIGNMENT", "question": "Phần I của bài tập lớn là gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_II", "id": 13, "intent": "GET_ASSIGNMENT", "question": "Bài tập lớn có phần hỏi đáp không?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "LLM_RAG", "id": 14, "intent": "GET_RULE", "question": "Có được dùng LLM/RAG không?", "resolved_intent": "GET_RULE"}
+{"entity": "AI_USAGE", "id": 15, "intent": "GET_RULE", "question": "Quy định về sử dụng AI là gì?", "resolved_intent": "GET_RULE"}
+{"entity": "MIDTERM", "id": 16, "intent": "GET_COURSE_INFO", "question": "Midterm bao nhiêu phút?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "FINAL", "id": 17, "intent": "GET_COURSE_INFO", "question": "Final bao nhiêu phút?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "STATISTICAL_NLP", "id": 18, "intent": "GET_RESOURCE", "question": "Tài liệu tham khảo về statistical NLP là gì?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "PYTHON_NLP", "id": 19, "intent": "GET_RESOURCE", "question": "Tài liệu nào liên quan đến Python NLP?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "CH12", "id": 20, "intent": "GET_TOPIC", "question": "Chương 12 nói về gì?", "resolved_intent": "GET_TOPIC"}
+{"entity": "REFERENCE", "id": 21, "intent": "GET_TOPIC", "question": "Chương nào học về reference?", "resolved_intent": "GET_TOPIC"}
+{"entity": "QUESTION_ANSWERING", "id": 22, "intent": "GET_TOPIC", "question": "Chương nào học về question answering?", "resolved_intent": "GET_TOPIC"}
+{"entity": "SELECTIONAL_RESTRICTION", "id": 23, "intent": "GET_TOPIC", "question": "Chương nào học về selectional restriction?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH10", "id": 24, "intent": "GET_TOPIC", "question": "Chương 10 có những phương pháp gì?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH11", "id": 25, "intent": "GET_TOPIC", "question": "Chương 11 có liên quan đến hỏi đáp không?", "resolved_intent": "GET_TOPIC"}
+{"entity": null, "id": 26, "intent": "UNKNOWN", "question": "Hôm nay ở TP.HCM có mưa không?", "resolved_intent": "UNKNOWN"}
+{"entity": null, "id": 27, "intent": "UNKNOWN", "question": "Ai là tổng thống của Pháp?", "resolved_intent": "UNKNOWN"}
+{"entity": null, "id": 28, "intent": "UNKNOWN", "question": "Hãy giải bài tập xác suất này giúp tôi.", "resolved_intent": "UNKNOWN"}
+{"entity": "CH04", "id": 29, "intent": "GET_TOPIC", "question": "Chương 4 nói về gì?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH04", "id": 30, "intent": "CONTEXT_DEPENDENT", "question": "Nó có liên quan đến parsing không?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH11", "id": 31, "intent": "GET_TOPIC", "question": "Chương 11 có hỏi đáp không?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH12", "id": 32, "intent": "CONTEXT_DEPENDENT", "question": "Còn chương sau?", "resolved_intent": "GET_TOPIC"}
+{"entity": "PART_I", "id": 33, "intent": "GET_ASSIGNMENT", "question": "Bài tập lớn có phần parser không?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_I", "id": 34, "intent": "CONTEXT_DEPENDENT", "question": "Phần này cần xuất file gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "WEEK_05", "id": 35, "intent": "GET_SCHEDULE", "question": "Tuần 5 học những nội dung gì?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "CFG", "id": 36, "intent": "GET_SCHEDULE", "question": "Phần CFG và Parsing nằm ở tuần nào?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "BTL01", "id": 37, "intent": "GET_ASSIGNMENT", "question": "Bài tập lớn có những yêu cầu gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "BTL01", "id": 38, "intent": "GET_DEADLINE", "question": "Deadline của bài tập lớn là khi nào?", "resolved_intent": "GET_DEADLINE"}
+{"entity": "CFG", "id": 39, "intent": "GET_RESOURCE", "question": "Tài liệu nào nói về CFG?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "AI_USAGE", "id": 40, "intent": "GET_RULE", "question": "Bài tập lớn có được sử dụng công cụ AI không?", "resolved_intent": "GET_RULE"}
+{"entity": "BTL01", "id": 41, "intent": "GET_ASSIGNMENT", "question": "Tôi cần hoàn thành những bài tập nào?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "CO3085", "id": 42, "intent": "GET_COURSE_INFO", "question": "NLP mấy tín chỉ?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "CO3085", "id": 43, "intent": "GET_COURSE_INFO", "question": "NLP chia thành mấy phần?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "CO3085", "id": 44, "intent": "GET_COURSE_INFO", "question": "Tổng quan về NLP?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "MIDTERM", "id": 45, "intent": "GET_COURSE_INFO", "question": "Midterm thi trong bao lâu?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "MIDTERM", "id": 46, "intent": "GET_COURSE_INFO", "question": "Midterm thi vào tuần mấy?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "CO3085", "id": 47, "intent": "GET_COURSE_INFO", "question": "Thang điểm của NLP?", "resolved_intent": "GET_COURSE_INFO"}
+{"entity": "CO3085", "id": 48, "intent": "GET_INSTRUCTOR", "question": "Ai phụ trách NLP?", "resolved_intent": "GET_INSTRUCTOR"}
+{"entity": "WEEK_05", "id": 49, "intent": "GET_SCHEDULE", "question": "Nội dung của tuần 5?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "CH06", "id": 50, "intent": "GET_SCHEDULE", "question": "Tuần nào học chương 6?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "CFG", "id": 51, "intent": "GET_SCHEDULE", "question": "CFG và parsing nằm ở tuần nào?", "resolved_intent": "GET_SCHEDULE"}
+{"entity": "PCFG", "id": 52, "intent": "GET_TOPIC", "question": "Cho biết chương nào nói về PCFG?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH09", "id": 53, "intent": "GET_TOPIC", "question": "Cho biết chương 9 nói về gì?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH03", "id": 54, "intent": "GET_TOPIC", "question": "Chương 3 có CFG hay không?", "resolved_intent": "GET_TOPIC"}
+{"entity": "LO3.1", "id": 55, "intent": "GET_LO", "question": "Cho mình xem L.O.3.1 là gì?", "resolved_intent": "GET_LO"}
+{"entity": "BTL01", "id": 56, "intent": "GET_ASSIGNMENT", "question": "BTL bao gồm những gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_II", "id": 57, "intent": "GET_ASSIGNMENT", "question": "Phần II cần làm những gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_I", "id": 58, "intent": "GET_ASSIGNMENT", "question": "Phần parser có trong BTL không?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_I", "id": 59, "intent": "GET_ASSIGNMENT", "question": "Part I đầu ra là gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "BTL01", "id": 60, "intent": "GET_DEADLINE", "question": "Bao giờ phải nộp bài tập lớn?", "resolved_intent": "GET_DEADLINE"}
+{"entity": "BTL01", "id": 61, "intent": "GET_DEADLINE", "question": "Hạn chót của BTL là bao giờ?", "resolved_intent": "GET_DEADLINE"}
+{"entity": "CFG", "id": 62, "intent": "GET_RESOURCE", "question": "Có giáo trình nào về CFG không?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "PYTHON_NLP", "id": 63, "intent": "GET_RESOURCE", "question": "Tài liệu tham khảo liên quan đến Python NLP?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "AI_USAGE", "id": 64, "intent": "GET_RULE", "question": "Có được phép dùng AI không?", "resolved_intent": "GET_RULE"}
+{"entity": "LLM_RAG", "id": 65, "intent": "GET_RULE", "question": "Chính sách về LLM ra sao?", "resolved_intent": "GET_RULE"}
+{"entity": "CH03", "id": 66, "intent": "GET_TOPIC", "question": "Chương 3 nói về gì?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH03", "id": 67, "intent": "CONTEXT_DEPENDENT", "question": "Chương đó có liên quan đến parsing không?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH04", "id": 68, "intent": "CONTEXT_DEPENDENT", "question": "Còn chương sau thì sao?", "resolved_intent": "GET_TOPIC"}
+{"entity": "CH04", "id": 69, "intent": "CONTEXT_DEPENDENT", "question": "Giáo trình của chương đó là gì?", "resolved_intent": "GET_RESOURCE"}
+{"entity": "PART_I", "id": 70, "intent": "GET_ASSIGNMENT", "question": "Phần I của bài tập lớn là gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "PART_I", "id": 71, "intent": "CONTEXT_DEPENDENT", "question": "Phần đó cần nộp những gì?", "resolved_intent": "GET_ASSIGNMENT"}
+{"entity": "LO2.5", "id": 72, "intent": "GET_LO", "question": "L.O.2.5 là gì?", "resolved_intent": "GET_LO"}
+{"entity": "LO2.5", "id": 73, "intent": "CONTEXT_DEPENDENT", "question": "Nó nằm ở chương nào?", "resolved_intent": "GET_TOPIC"}

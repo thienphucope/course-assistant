@@ -16,13 +16,13 @@ def ensure_output_dir(path: str | Path) -> Path:
 
 
 def write_grammar(path: Path, source: str) -> None:
-    path.write_text(source.rstrip() + "\n", encoding="utf-8")
+    path.write_text(source.rstrip() + "\n", encoding="utf-8", newline="\n")
 
 
 def write_samples(path: Path, sentences: list[str], stats: GeneratorStats) -> None:
     if len(sentences) > 10_000:
         raise ValueError("samples.txt không được vượt quá 10.000 dòng")
-    path.write_text("\n".join(sentences) + ("\n" if sentences else ""), encoding="utf-8")
+    path.write_text("\n".join(sentences) + ("\n" if sentences else ""), encoding="utf-8", newline="\n")
 
 
 def write_pipeline_outputs(output_dir: Path, results: list[PipelineResult]) -> None:
@@ -63,5 +63,5 @@ def write_pipeline_outputs(output_dir: Path, results: list[PipelineResult]) -> N
 
 
 def _write_lines(path: Path, lines: list[str]) -> None:
-    path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    path.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8", newline="\n")
 

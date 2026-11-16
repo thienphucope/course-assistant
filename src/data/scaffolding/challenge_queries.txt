@@ -10,3 +10,17 @@ C005 | Khi nào tụi mình thi giữa kỳ? | GET_COURSE_INFO | MIDTERM | NOT_F
 C006 | Giáo viên môn NLP là ai? | GET_INSTRUCTOR | CO3085 | NOT_FOUND | không tìm thấy thông tin này
 C007 | Môn NLP học mấy buổi mỗi tuần? | GET_COURSE_INFO | CO3085 | NOT_FOUND | không tìm thấy thông tin này
 C008 | Tuần thứ ba tụi mình học bài gì vậy? | GET_SCHEDULE | WEEK_03 | FOUND | Tuần 3;;Chương 3
+C009 | BTL có phần parse tree không? | GET_ASSIGNMENT | PART_I | FOUND | Phần I
+C010 | BTL có chức năng kb không? | GET_ASSIGNMENT | PART_II | FOUND | Phần II
+C011 | BTL có phần hội thoại không? | GET_ASSIGNMENT | PART_III | FOUND | Phần III
+C012 | BTL có phần metric không? | GET_ASSIGNMENT | PART_IV | FOUND | Phần IV
+C013 | Tài liệu nào về dịch máy? | GET_RESOURCE | MACHINE_TRANSLATION | FOUND | An Introduction to Machine Translation
+C014 | Có được dùng thư viện có sẵn không? | GET_RULE | EXTERNAL_LIBRARIES | FOUND |
+C015 | Tuần 99 học gì? | GET_SCHEDULE | WEEK_99 | NOT_FOUND | không tìm thấy thông tin này
+C016 | Chương 13 nói về gì? | GET_TOPIC | CH13 | NOT_FOUND | không tìm thấy thông tin này
+C017 | LO9.9 là gì? | GET_LO | LO9.9 | NOT_FOUND | không tìm thấy thông tin này
+C018 | Phần II có output gì? | GET_ASSIGNMENT | PART_II | NOT_FOUND | không tìm thấy thông tin này
+C019 | Tuần 3 học gì? xyz | UNKNOWN | OUT_OF_SCOPE | SKIPPED |
+C020 | Tuần 3 học gì? Tuần 4 học gì? | UNKNOWN | OUT_OF_SCOPE | SKIPPED |
+C021 | Cho mình hỏi NLP có bao nhiêu tín chỉ ạ? | GET_COURSE_INFO | CO3085 | FOUND | 3 tín chỉ
+C022 | Hôm nay trời có mưa không? | UNKNOWN | OUT_OF_SCOPE | SKIPPED |

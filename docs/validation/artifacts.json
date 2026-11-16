@@ -1,0 +1,16 @@
+{
+  "archive": "course-assistant-review.zip",
+  "bytes": 527857,
+  "sha256": "4519ac05666d42aafab92adf8c7c8c6e199c01d0938f710af5788423a52d9040",
+  "extracted_run": "passed; all nine outputs match source byte-for-byte",
+  "docker": "not checked",
+  "final_student_filename": false,
+  "video": {
+    "file": "course-assistant-demo.mp4",
+    "seconds": 128,
+    "resolution": "1280x720",
+    "codec": "h264",
+    "audio": false,
+    "sha256": "9c33f5e091b86f48d17df11c15cb3e9515ae15d5b00839faabc2dd7474e3c418"
+  }
+}

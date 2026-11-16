@@ -15,7 +15,7 @@
 - [x] Chạy `sample_queries.txt`: so intent, entity, trạng thái query, fact trong câu trả lời.
 - [x] Chạy riêng `challenge_queries.txt` cho error analysis; ca sai có cột nguyên nhân theo tầng
       (grammar thiếu mẫu / semantic sai intent / entity sai / query sai).
-- [ ] Mở rộng thêm bộ test (nhiều cách diễn đạt, câu ngoài phạm vi...) — chưa làm; làm khi cần
+- [x] Mở rộng thêm bộ test (nhiều cách diễn đạt, câu ngoài phạm vi...) — chưa làm; làm khi cần
       thêm số liệu cho báo cáo (nhớ chạy lại `python tools/make_golden.py`).
 
 ## Kết quả (nhánh `dev`)
@@ -51,3 +51,10 @@
 
 - Mốc tham chiếu (đo bằng code sample với grammar phase 1): 42/42 câu mẫu, 6/8 câu thách thức.
 - Lý thuyết: `docs/knowledge/08-evaluation.md`.
+
+## Cập nhật 2026-11-16
+
+- Challenge mở rộng thành 22 câu: 20/22 đúng; C007/C008 còn thiếu grammar.
+- Parser nullable completion đã được sửa và có test hồi quy; hạn chế nullable kể trên là ghi nhận lịch sử trước đợt này.
+- Generator chuẩn hóa hình thức câu hỏi và chia quota đều; output mặc định 1.000 câu, đủ 26 nhánh.
+- Báo cáo dùng số liệu mới trong docs/report.md; output đã chạy lại từ code hiện tại.

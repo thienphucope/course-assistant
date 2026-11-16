@@ -46,7 +46,39 @@ EDGE_SENTENCES = [
     "“NLP” có mấy tín chỉ?",
     "Hôm nay trời có mưa không?",
     "Cho mình hỏi deadline BTL là khi nào ạ?",
+    # T18 extensions: explicit coverage independent of generator ordering.
+    *[f"BTL có phần {feature} không?" for feature in (
+        "parser", "grammar", "parse tree", "văn phạm", "phân tích cú pháp",
+        "hỏi đáp", "semantic", "intent", "entity", "kb", "ngữ nghĩa",
+        "ngữ cảnh", "hội thoại", "tham chiếu", "đánh giá", "test set", "metric", "kiểm thử",
+    )],
+    "Tài liệu nào về dịch máy?",
+    "Có được dùng thư viện có sẵn không?",
 ]
+
+
+def extend_reference() -> None:
+    """Apply the documented T18 contract extensions to the frozen oracle only.
+
+    Do not import the team's implementation here. The mapping follows §3:
+    labeled feature groups determine the assignment section, preserving the
+    surface feature string. Existing reference handlers remain unchanged.
+    """
+    from hcmut.iaslab.nlp.app import entities, semantic
+
+    entities.RESOURCE_IDS["dịch máy"] = "MACHINE_TRANSLATION"
+    entities.RULE_IDS["thư viện có sẵn"] = "EXTERNAL_LIBRARIES"
+
+    def assignment_feature(self, branch):
+        node = branch.first("ASSIGNMENT_FEATURE")
+        phrase = self._phrase(node)
+        labels = {"FEAT_PARSING": "PART_I", "FEAT_SEMANTIC": "PART_II",
+                  "FEAT_CONTEXT": "PART_III", "FEAT_EVAL": "PART_IV"}
+        part = next((labels[child.label] for child in node.walk() if child.label in labels), None)
+        return semantic.SemanticFrame("GET_ASSIGNMENT", part,
+                                      {"assignment": "BTL01", "section": part, "feature": phrase})
+
+    semantic.SemanticInterpreter._handle_q_assignment_feature = assignment_feature
 
 
 def extract_reference(target: Path) -> Path:
@@ -109,6 +141,7 @@ def write_jsonl(name: str, records: list[dict[str, Any]]) -> None:
 def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         sys.path.insert(0, str(extract_reference(Path(tmp))))
+        extend_reference()
         from hcmut.iaslab.nlp.app import answer as ref_answer
         from hcmut.iaslab.nlp.app.dialogue import DialogueContext
         from hcmut.iaslab.nlp.app.evaluate import (

@@ -10,6 +10,26 @@
 {"text": "“NLP” có mấy tín chỉ?", "tokens": ["nlp", "có", "mấy", "tín", "chỉ", "?"]}
 {"text": "Hôm nay trời có mưa không?", "tokens": ["hôm", "nay", "trời", "có", "mưa", "không", "?"]}
 {"text": "Cho mình hỏi deadline BTL là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "deadline", "btl", "là", "khi", "nào", "ạ", "?"]}
+{"text": "BTL có phần parser không?", "tokens": ["btl", "có", "phần", "parser", "không", "?"]}
+{"text": "BTL có phần grammar không?", "tokens": ["btl", "có", "phần", "grammar", "không", "?"]}
+{"text": "BTL có phần parse tree không?", "tokens": ["btl", "có", "phần", "parse", "tree", "không", "?"]}
+{"text": "BTL có phần văn phạm không?", "tokens": ["btl", "có", "phần", "văn", "phạm", "không", "?"]}
+{"text": "BTL có phần phân tích cú pháp không?", "tokens": ["btl", "có", "phần", "phân", "tích", "cú", "pháp", "không", "?"]}
+{"text": "BTL có phần hỏi đáp không?", "tokens": ["btl", "có", "phần", "hỏi", "đáp", "không", "?"]}
+{"text": "BTL có phần semantic không?", "tokens": ["btl", "có", "phần", "semantic", "không", "?"]}
+{"text": "BTL có phần intent không?", "tokens": ["btl", "có", "phần", "intent", "không", "?"]}
+{"text": "BTL có phần entity không?", "tokens": ["btl", "có", "phần", "entity", "không", "?"]}
+{"text": "BTL có phần kb không?", "tokens": ["btl", "có", "phần", "kb", "không", "?"]}
+{"text": "BTL có phần ngữ nghĩa không?", "tokens": ["btl", "có", "phần", "ngữ", "nghĩa", "không", "?"]}
+{"text": "BTL có phần ngữ cảnh không?", "tokens": ["btl", "có", "phần", "ngữ", "cảnh", "không", "?"]}
+{"text": "BTL có phần hội thoại không?", "tokens": ["btl", "có", "phần", "hội", "thoại", "không", "?"]}
+{"text": "BTL có phần tham chiếu không?", "tokens": ["btl", "có", "phần", "tham", "chiếu", "không", "?"]}
+{"text": "BTL có phần đánh giá không?", "tokens": ["btl", "có", "phần", "đánh", "giá", "không", "?"]}
+{"text": "BTL có phần test set không?", "tokens": ["btl", "có", "phần", "test", "set", "không", "?"]}
+{"text": "BTL có phần metric không?", "tokens": ["btl", "có", "phần", "metric", "không", "?"]}
+{"text": "BTL có phần kiểm thử không?", "tokens": ["btl", "có", "phần", "kiểm", "thử", "không", "?"]}
+{"text": "Tài liệu nào về dịch máy?", "tokens": ["tài", "liệu", "nào", "về", "dịch", "máy", "?"]}
+{"text": "Có được dùng thư viện có sẵn không?", "tokens": ["có", "được", "dùng", "thư", "viện", "có", "sẵn", "không", "?"]}
 {"text": "Môn NLP có bao nhiêu tín chỉ?", "tokens": ["môn", "nlp", "có", "bao", "nhiêu", "tín", "chỉ", "?"]}
 {"text": "CO3085 có mấy tín chỉ?", "tokens": ["co3085", "có", "mấy", "tín", "chỉ", "?"]}
 {"text": "Môn học gồm những phần nào?", "tokens": ["môn", "học", "gồm", "những", "phần", "nào", "?"]}
@@ -57,6 +77,14 @@
 {"text": "Giáo viên môn NLP là ai?", "tokens": ["giáo", "viên", "môn", "nlp", "là", "ai", "?"]}
 {"text": "Môn NLP học mấy buổi mỗi tuần?", "tokens": ["môn", "nlp", "học", "mấy", "buổi", "mỗi", "tuần", "?"]}
 {"text": "Tuần thứ ba tụi mình học bài gì vậy?", "tokens": ["tuần", "thứ", "ba", "tụi", "mình", "học", "bài", "gì", "vậy", "?"]}
+{"text": "BTL có chức năng kb không?", "tokens": ["btl", "có", "chức", "năng", "kb", "không", "?"]}
+{"text": "Tuần 99 học gì?", "tokens": ["tuần", "99", "học", "gì", "?"]}
+{"text": "Chương 13 nói về gì?", "tokens": ["chương", "13", "nói", "về", "gì", "?"]}
+{"text": "LO9.9 là gì?", "tokens": ["lo9.9", "là", "gì", "?"]}
+{"text": "Phần II có output gì?", "tokens": ["phần", "ii", "có", "output", "gì", "?"]}
+{"text": "Tuần 3 học gì? xyz", "tokens": ["tuần", "3", "học", "gì", "?", "xyz"]}
+{"text": "Tuần 3 học gì? Tuần 4 học gì?", "tokens": ["tuần", "3", "học", "gì", "?", "tuần", "4", "học", "gì", "?"]}
+{"text": "Cho mình hỏi NLP có bao nhiêu tín chỉ ạ?", "tokens": ["cho", "mình", "hỏi", "nlp", "có", "bao", "nhiêu", "tín", "chỉ", "ạ", "?"]}
 {"text": "Tài liệu của chương này là gì?", "tokens": ["tài", "liệu", "của", "chương", "này", "là", "gì", "?"]}
 {"text": "L.O.2.5 học về gì?", "tokens": ["lo2.5", "học", "về", "gì", "?"]}
 {"text": "Nội dung này nằm ở chương nào?", "tokens": ["nội", "dung", "này", "nằm", "ở", "chương", "nào", "?"]}
@@ -92,8 +120,8 @@
 {"text": "Cho mình hỏi tôi cần hoàn thành những bài tập nào ạ?", "tokens": ["cho", "mình", "hỏi", "tôi", "cần", "hoàn", "thành", "những", "bài", "tập", "nào", "ạ", "?"]}
 {"text": "Phần i của btl là gì?", "tokens": ["phần", "i", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần hỏi đáp không?", "tokens": ["btl", "có", "phần", "hỏi", "đáp", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần hỏi đáp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "hỏi", "đáp", "không", "ạ", "?"]}
+{"text": "Btl có phần parser không?", "tokens": ["btl", "có", "phần", "parser", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần parser không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "parser", "không", "ạ", "?"]}
 {"text": "Phần i cần xuất file gì?", "tokens": ["phần", "i", "cần", "xuất", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần i cần xuất file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "cần", "xuất", "file", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl khi nào?", "tokens": ["hạn", "nộp", "btl", "khi", "nào", "?"]}
@@ -140,8 +168,8 @@
 {"text": "Cho mình hỏi btl yêu cầu xây dựng những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "yêu", "cầu", "xây", "dựng", "những", "gì", "ạ", "?"]}
 {"text": "Phần i của btl01 là gì?", "tokens": ["phần", "i", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần hỏi đáp hay không?", "tokens": ["btl", "có", "phần", "hỏi", "đáp", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần hỏi đáp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "hỏi", "đáp", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần parser hay không?", "tokens": ["btl", "có", "phần", "parser", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần parser hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "parser", "hay", "không", "ạ", "?"]}
 {"text": "Phần i có output gì?", "tokens": ["phần", "i", "có", "output", "gì", "?"]}
 {"text": "Cho mình hỏi phần i có output gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "có", "output", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl là khi nào?", "tokens": ["hạn", "nộp", "btl", "là", "khi", "nào", "?"]}
@@ -191,8 +219,8 @@
 {"text": "Cho mình hỏi btl yêu cầu những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "yêu", "cầu", "những", "gì", "ạ", "?"]}
 {"text": "Phần i của bài tập lớn là gì?", "tokens": ["phần", "i", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần semantic không?", "tokens": ["btl", "có", "phần", "semantic", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần semantic không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "semantic", "không", "ạ", "?"]}
+{"text": "Btl có phần grammar không?", "tokens": ["btl", "có", "phần", "grammar", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần grammar không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "grammar", "không", "ạ", "?"]}
 {"text": "Phần i xuất những file nào?", "tokens": ["phần", "i", "xuất", "những", "file", "nào", "?"]}
 {"text": "Cho mình hỏi phần i xuất những file nào ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "xuất", "những", "file", "nào", "ạ", "?"]}
 {"text": "Hạn nộp btl vào tuần nào?", "tokens": ["hạn", "nộp", "btl", "vào", "tuần", "nào", "?"]}
@@ -241,8 +269,8 @@
 {"text": "Cho mình hỏi btl có những yêu cầu gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "những", "yêu", "cầu", "gì", "ạ", "?"]}
 {"text": "Phần i của đồ án là gì?", "tokens": ["phần", "i", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần semantic hay không?", "tokens": ["btl", "có", "phần", "semantic", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần semantic hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "semantic", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần grammar hay không?", "tokens": ["btl", "có", "phần", "grammar", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần grammar hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "grammar", "hay", "không", "ạ", "?"]}
 {"text": "Phần i cần nộp những gì?", "tokens": ["phần", "i", "cần", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần i cần nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "cần", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl bao giờ?", "tokens": ["hạn", "nộp", "btl", "bao", "giờ", "?"]}
@@ -291,8 +319,8 @@
 {"text": "Cho mình hỏi btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "là", "gì", "ạ", "?"]}
 {"text": "Phần i của assignment là gì?", "tokens": ["phần", "i", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần parser không?", "tokens": ["btl", "có", "phần", "parser", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần parser không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "parser", "không", "ạ", "?"]}
+{"text": "Btl có phần parse tree không?", "tokens": ["btl", "có", "phần", "parse", "tree", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần parse tree không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "parse", "tree", "không", "ạ", "?"]}
 {"text": "Phần i phải nộp những gì?", "tokens": ["phần", "i", "phải", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần i phải nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "phải", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl01 khi nào?", "tokens": ["hạn", "nộp", "btl01", "khi", "nào", "?"]}
@@ -339,8 +367,8 @@
 {"text": "Cho mình hỏi btl có nội dung gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "nội", "dung", "gì", "ạ", "?"]}
 {"text": "Phần i của project là gì?", "tokens": ["phần", "i", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần parser hay không?", "tokens": ["btl", "có", "phần", "parser", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần parser hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "parser", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần parse tree hay không?", "tokens": ["btl", "có", "phần", "parse", "tree", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần parse tree hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "parse", "tree", "hay", "không", "ạ", "?"]}
 {"text": "Phần i cần nộp file gì?", "tokens": ["phần", "i", "cần", "nộp", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần i cần nộp file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "cần", "nộp", "file", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl01 là khi nào?", "tokens": ["hạn", "nộp", "btl01", "là", "khi", "nào", "?"]}
@@ -387,8 +415,8 @@
 {"text": "Cho mình hỏi btl gồm những phần nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "gồm", "những", "phần", "nào", "ạ", "?"]}
 {"text": "Phần ii của btl là gì?", "tokens": ["phần", "ii", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần ngữ cảnh không?", "tokens": ["btl", "có", "phần", "ngữ", "cảnh", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần ngữ cảnh không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "ngữ", "cảnh", "không", "ạ", "?"]}
+{"text": "Btl có phần văn phạm không?", "tokens": ["btl", "có", "phần", "văn", "phạm", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần văn phạm không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "văn", "phạm", "không", "ạ", "?"]}
 {"text": "Phần i trả về kết quả gì?", "tokens": ["phần", "i", "trả", "về", "kết", "quả", "gì", "?"]}
 {"text": "Cho mình hỏi phần i trả về kết quả gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "trả", "về", "kết", "quả", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl01 vào tuần nào?", "tokens": ["hạn", "nộp", "btl01", "vào", "tuần", "nào", "?"]}
@@ -435,8 +463,8 @@
 {"text": "Cho mình hỏi btl bao gồm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "bao", "gồm", "những", "gì", "ạ", "?"]}
 {"text": "Phần ii của btl01 là gì?", "tokens": ["phần", "ii", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần ngữ cảnh hay không?", "tokens": ["btl", "có", "phần", "ngữ", "cảnh", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần ngữ cảnh hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "ngữ", "cảnh", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần văn phạm hay không?", "tokens": ["btl", "có", "phần", "văn", "phạm", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần văn phạm hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "văn", "phạm", "hay", "không", "ạ", "?"]}
 {"text": "Phần i đầu ra là gì?", "tokens": ["phần", "i", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Hạn nộp btl01 bao giờ?", "tokens": ["hạn", "nộp", "btl01", "bao", "giờ", "?"]}
@@ -482,8 +510,8 @@
 {"text": "Cho mình hỏi btl có những chức năng gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "những", "chức", "năng", "gì", "ạ", "?"]}
 {"text": "Phần ii của bài tập lớn là gì?", "tokens": ["phần", "ii", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần đánh giá không?", "tokens": ["btl", "có", "phần", "đánh", "giá", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần đánh giá không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "đánh", "giá", "không", "ạ", "?"]}
+{"text": "Btl có phần phân tích cú pháp không?", "tokens": ["btl", "có", "phần", "phân", "tích", "cú", "pháp", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần phân tích cú pháp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "phân", "tích", "cú", "pháp", "không", "ạ", "?"]}
 {"text": "Phần i định dạng đầu ra là gì?", "tokens": ["phần", "i", "định", "dạng", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần i định dạng đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "i", "định", "dạng", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Hạn nộp bài tập lớn khi nào?", "tokens": ["hạn", "nộp", "bài", "tập", "lớn", "khi", "nào", "?"]}
@@ -530,8 +558,8 @@
 {"text": "Cho mình hỏi btl cần làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "cần", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Phần ii của đồ án là gì?", "tokens": ["phần", "ii", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có phần đánh giá hay không?", "tokens": ["btl", "có", "phần", "đánh", "giá", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có phần đánh giá hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "đánh", "giá", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần phân tích cú pháp hay không?", "tokens": ["btl", "có", "phần", "phân", "tích", "cú", "pháp", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần phân tích cú pháp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "phân", "tích", "cú", "pháp", "hay", "không", "ạ", "?"]}
 {"text": "Phần ii cần xuất file gì?", "tokens": ["phần", "ii", "cần", "xuất", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii cần xuất file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "cần", "xuất", "file", "gì", "ạ", "?"]}
 {"text": "Hạn nộp bài tập lớn là khi nào?", "tokens": ["hạn", "nộp", "bài", "tập", "lớn", "là", "khi", "nào", "?"]}
@@ -578,8 +606,8 @@
 {"text": "Cho mình hỏi btl phải làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "phải", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Phần ii của assignment là gì?", "tokens": ["phần", "ii", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng hỏi đáp không?", "tokens": ["btl", "có", "chức", "năng", "hỏi", "đáp", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng hỏi đáp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "hỏi", "đáp", "không", "ạ", "?"]}
+{"text": "Btl có phần hỏi đáp không?", "tokens": ["btl", "có", "phần", "hỏi", "đáp", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần hỏi đáp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "hỏi", "đáp", "không", "ạ", "?"]}
 {"text": "Phần ii có output gì?", "tokens": ["phần", "ii", "có", "output", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii có output gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "có", "output", "gì", "ạ", "?"]}
 {"text": "Cho mình hỏi hạn nộp bài tập lớn vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "bài", "tập", "lớn", "vào", "tuần", "nào", "ạ", "?"]}
@@ -625,14 +653,14 @@
 {"text": "Cho mình hỏi btl cần thực hiện những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "cần", "thực", "hiện", "những", "gì", "ạ", "?"]}
 {"text": "Phần ii của project là gì?", "tokens": ["phần", "ii", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng hỏi đáp hay không?", "tokens": ["btl", "có", "chức", "năng", "hỏi", "đáp", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng hỏi đáp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "hỏi", "đáp", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần hỏi đáp hay không?", "tokens": ["btl", "có", "phần", "hỏi", "đáp", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần hỏi đáp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "hỏi", "đáp", "hay", "không", "ạ", "?"]}
 {"text": "Phần ii xuất những file nào?", "tokens": ["phần", "ii", "xuất", "những", "file", "nào", "?"]}
 {"text": "Cho mình hỏi phần ii xuất những file nào ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "xuất", "những", "file", "nào", "ạ", "?"]}
 {"text": "Hạn nộp bài tập lớn bao giờ?", "tokens": ["hạn", "nộp", "bài", "tập", "lớn", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi hạn nộp bài tập lớn bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "bài", "tập", "lớn", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến statistical nlp?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "statistical", "nlp", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến statistical nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "statistical", "nlp", "ạ", "?"]}
+{"text": "Tài liệu nào nói về dịch máy?", "tokens": ["tài", "liệu", "nào", "nói", "về", "dịch", "máy", "?"]}
+{"text": "Cho mình hỏi tài liệu nào nói về dịch máy ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "nói", "về", "dịch", "máy", "ạ", "?"]}
 {"text": "Rag là gì?", "tokens": ["rag", "là", "gì", "?"]}
 {"text": "Cho mình hỏi rag là gì ạ?", "tokens": ["cho", "mình", "hỏi", "rag", "là", "gì", "ạ", "?"]}
 {"text": "Nó có dependency grammar hay không?", "tokens": ["nó", "có", "dependency", "grammar", "hay", "không", "?"]}
@@ -673,14 +701,14 @@
 {"text": "Cho mình hỏi btl01 yêu cầu xây dựng những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "yêu", "cầu", "xây", "dựng", "những", "gì", "ạ", "?"]}
 {"text": "Phần iii của btl là gì?", "tokens": ["phần", "iii", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng semantic không?", "tokens": ["btl", "có", "chức", "năng", "semantic", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng semantic không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "semantic", "không", "ạ", "?"]}
+{"text": "Btl có phần semantic không?", "tokens": ["btl", "có", "phần", "semantic", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần semantic không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "semantic", "không", "ạ", "?"]}
 {"text": "Phần ii cần nộp những gì?", "tokens": ["phần", "ii", "cần", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii cần nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "cần", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Hạn nộp đồ án khi nào?", "tokens": ["hạn", "nộp", "đồ", "án", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp đồ án khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "đồ", "án", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến nlp thống kê?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "thống", "kê", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến nlp thống kê ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "thống", "kê", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến statistical nlp?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "statistical", "nlp", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến statistical nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "statistical", "nlp", "ạ", "?"]}
 {"text": "Rag có được phép không?", "tokens": ["rag", "có", "được", "phép", "không", "?"]}
 {"text": "Cho mình hỏi rag có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "rag", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có văn phạm phụ thuộc không?", "tokens": ["nó", "có", "văn", "phạm", "phụ", "thuộc", "không", "?"]}
@@ -721,14 +749,14 @@
 {"text": "Cho mình hỏi btl01 yêu cầu những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "yêu", "cầu", "những", "gì", "ạ", "?"]}
 {"text": "Phần iii của btl01 là gì?", "tokens": ["phần", "iii", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng semantic hay không?", "tokens": ["btl", "có", "chức", "năng", "semantic", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng semantic hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "semantic", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần semantic hay không?", "tokens": ["btl", "có", "phần", "semantic", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần semantic hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "semantic", "hay", "không", "ạ", "?"]}
 {"text": "Phần ii phải nộp những gì?", "tokens": ["phần", "ii", "phải", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii phải nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "phải", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Hạn nộp đồ án là khi nào?", "tokens": ["hạn", "nộp", "đồ", "án", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp đồ án là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "đồ", "án", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến python nlp?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "python", "nlp", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến python nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "python", "nlp", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến nlp thống kê?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "thống", "kê", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến nlp thống kê ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "thống", "kê", "ạ", "?"]}
 {"text": "Công cụ ai được quy định như thế nào?", "tokens": ["công", "cụ", "ai", "được", "quy", "định", "như", "thế", "nào", "?"]}
 {"text": "Cho mình hỏi công cụ ai được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "công", "cụ", "ai", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có văn phạm phụ thuộc hay không?", "tokens": ["nó", "có", "văn", "phạm", "phụ", "thuộc", "hay", "không", "?"]}
@@ -769,14 +797,14 @@
 {"text": "Cho mình hỏi btl01 có những yêu cầu gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "những", "yêu", "cầu", "gì", "ạ", "?"]}
 {"text": "Phần iii của bài tập lớn là gì?", "tokens": ["phần", "iii", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng parser không?", "tokens": ["btl", "có", "chức", "năng", "parser", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng parser không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "parser", "không", "ạ", "?"]}
+{"text": "Btl có phần intent không?", "tokens": ["btl", "có", "phần", "intent", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần intent không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "intent", "không", "ạ", "?"]}
 {"text": "Phần ii cần nộp file gì?", "tokens": ["phần", "ii", "cần", "nộp", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii cần nộp file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "cần", "nộp", "file", "gì", "ạ", "?"]}
 {"text": "Hạn nộp đồ án vào tuần nào?", "tokens": ["hạn", "nộp", "đồ", "án", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp đồ án vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "đồ", "án", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến nlp với python?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "với", "python", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến nlp với python ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "với", "python", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến python nlp?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "python", "nlp", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến python nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "python", "nlp", "ạ", "?"]}
 {"text": "Công cụ ai là gì?", "tokens": ["công", "cụ", "ai", "là", "gì", "?"]}
 {"text": "Cho mình hỏi công cụ ai là gì ạ?", "tokens": ["cho", "mình", "hỏi", "công", "cụ", "ai", "là", "gì", "ạ", "?"]}
 {"text": "Nó có features không?", "tokens": ["nó", "có", "features", "không", "?"]}
@@ -817,14 +845,14 @@
 {"text": "Cho mình hỏi btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "là", "gì", "ạ", "?"]}
 {"text": "Phần iii của đồ án là gì?", "tokens": ["phần", "iii", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng parser hay không?", "tokens": ["btl", "có", "chức", "năng", "parser", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng parser hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "parser", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần intent hay không?", "tokens": ["btl", "có", "phần", "intent", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần intent hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "intent", "hay", "không", "ạ", "?"]}
 {"text": "Phần ii trả về kết quả gì?", "tokens": ["phần", "ii", "trả", "về", "kết", "quả", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii trả về kết quả gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "trả", "về", "kết", "quả", "gì", "ạ", "?"]}
 {"text": "Hạn nộp đồ án bao giờ?", "tokens": ["hạn", "nộp", "đồ", "án", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi hạn nộp đồ án bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "đồ", "án", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến cfg?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "cfg", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến cfg ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "cfg", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến nlp với python?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "với", "python", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến nlp với python ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "nlp", "với", "python", "ạ", "?"]}
 {"text": "Công cụ ai có được phép không?", "tokens": ["công", "cụ", "ai", "có", "được", "phép", "không", "?"]}
 {"text": "Cho mình hỏi công cụ ai có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "công", "cụ", "ai", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có features hay không?", "tokens": ["nó", "có", "features", "hay", "không", "?"]}
@@ -863,14 +891,14 @@
 {"text": "Cho mình hỏi btl01 có nội dung gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "nội", "dung", "gì", "ạ", "?"]}
 {"text": "Phần iii của assignment là gì?", "tokens": ["phần", "iii", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng ngữ cảnh không?", "tokens": ["btl", "có", "chức", "năng", "ngữ", "cảnh", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng ngữ cảnh không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "ngữ", "cảnh", "không", "ạ", "?"]}
+{"text": "Btl có phần entity không?", "tokens": ["btl", "có", "phần", "entity", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần entity không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "entity", "không", "ạ", "?"]}
 {"text": "Phần ii đầu ra là gì?", "tokens": ["phần", "ii", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Hạn nộp assignment khi nào?", "tokens": ["hạn", "nộp", "assignment", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp assignment khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "assignment", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến parsing?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "parsing", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến parsing ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "parsing", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến cfg?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "cfg", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến cfg ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "cfg", "ạ", "?"]}
 {"text": "Ai được quy định như thế nào?", "tokens": ["ai", "được", "quy", "định", "như", "thế", "nào", "?"]}
 {"text": "Cho mình hỏi ai được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "ai", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có nét không?", "tokens": ["nó", "có", "nét", "không", "?"]}
@@ -911,14 +939,14 @@
 {"text": "Cho mình hỏi btl01 gồm những phần nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "gồm", "những", "phần", "nào", "ạ", "?"]}
 {"text": "Phần iii của project là gì?", "tokens": ["phần", "iii", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng ngữ cảnh hay không?", "tokens": ["btl", "có", "chức", "năng", "ngữ", "cảnh", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng ngữ cảnh hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "ngữ", "cảnh", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần entity hay không?", "tokens": ["btl", "có", "phần", "entity", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần entity hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "entity", "hay", "không", "ạ", "?"]}
 {"text": "Phần ii định dạng đầu ra là gì?", "tokens": ["phần", "ii", "định", "dạng", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần ii định dạng đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "ii", "định", "dạng", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Hạn nộp assignment là khi nào?", "tokens": ["hạn", "nộp", "assignment", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp assignment là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "assignment", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến ngữ nghĩa?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "ngữ", "nghĩa", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến ngữ nghĩa ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "ngữ", "nghĩa", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến parsing?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "parsing", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến parsing ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "parsing", "ạ", "?"]}
 {"text": "Ai là gì?", "tokens": ["ai", "là", "gì", "?"]}
 {"text": "Cho mình hỏi ai là gì ạ?", "tokens": ["cho", "mình", "hỏi", "ai", "là", "gì", "ạ", "?"]}
 {"text": "Nó có nét hay không?", "tokens": ["nó", "có", "nét", "hay", "không", "?"]}
@@ -959,14 +987,14 @@
 {"text": "Cho mình hỏi btl01 bao gồm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "bao", "gồm", "những", "gì", "ạ", "?"]}
 {"text": "Phần iv của btl là gì?", "tokens": ["phần", "iv", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng đánh giá không?", "tokens": ["btl", "có", "chức", "năng", "đánh", "giá", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng đánh giá không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "đánh", "giá", "không", "ạ", "?"]}
+{"text": "Btl có phần kb không?", "tokens": ["btl", "có", "phần", "kb", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần kb không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "kb", "không", "ạ", "?"]}
 {"text": "Phần iii cần xuất file gì?", "tokens": ["phần", "iii", "cần", "xuất", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii cần xuất file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "cần", "xuất", "file", "gì", "ạ", "?"]}
 {"text": "Hạn nộp assignment vào tuần nào?", "tokens": ["hạn", "nộp", "assignment", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp assignment vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "assignment", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến semantic?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "semantic", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến semantic ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "semantic", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến ngữ nghĩa?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "ngữ", "nghĩa", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến ngữ nghĩa ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "ngữ", "nghĩa", "ạ", "?"]}
 {"text": "Ai có được phép không?", "tokens": ["ai", "có", "được", "phép", "không", "?"]}
 {"text": "Cho mình hỏi ai có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "ai", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có augmented grammar không?", "tokens": ["nó", "có", "augmented", "grammar", "không", "?"]}
@@ -1005,14 +1033,14 @@
 {"text": "Cho mình hỏi btl01 có những chức năng gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "những", "chức", "năng", "gì", "ạ", "?"]}
 {"text": "Phần iv của btl01 là gì?", "tokens": ["phần", "iv", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có chức năng đánh giá hay không?", "tokens": ["btl", "có", "chức", "năng", "đánh", "giá", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có chức năng đánh giá hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "đánh", "giá", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần kb hay không?", "tokens": ["btl", "có", "phần", "kb", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần kb hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "kb", "hay", "không", "ạ", "?"]}
 {"text": "Phần iii có output gì?", "tokens": ["phần", "iii", "có", "output", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii có output gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "có", "output", "gì", "ạ", "?"]}
 {"text": "Hạn nộp assignment bao giờ?", "tokens": ["hạn", "nộp", "assignment", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi hạn nộp assignment bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "assignment", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến tri thức thế giới?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "tri", "thức", "thế", "giới", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến tri thức thế giới ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "tri", "thức", "thế", "giới", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến semantic?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "semantic", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến semantic ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "semantic", "ạ", "?"]}
 {"text": "Sử dụng ai được quy định như thế nào?", "tokens": ["sử", "dụng", "ai", "được", "quy", "định", "như", "thế", "nào", "?"]}
 {"text": "Cho mình hỏi sử dụng ai được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "sử", "dụng", "ai", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có augmented grammar hay không?", "tokens": ["nó", "có", "augmented", "grammar", "hay", "không", "?"]}
@@ -1051,14 +1079,14 @@
 {"text": "Cho mình hỏi btl01 cần làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "cần", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Phần iv của bài tập lớn là gì?", "tokens": ["phần", "iv", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu hỏi đáp không?", "tokens": ["btl", "có", "yêu", "cầu", "hỏi", "đáp", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu hỏi đáp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "hỏi", "đáp", "không", "ạ", "?"]}
+{"text": "Btl có phần ngữ nghĩa không?", "tokens": ["btl", "có", "phần", "ngữ", "nghĩa", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần ngữ nghĩa không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "ngữ", "nghĩa", "không", "ạ", "?"]}
 {"text": "Phần iii xuất những file nào?", "tokens": ["phần", "iii", "xuất", "những", "file", "nào", "?"]}
 {"text": "Cho mình hỏi phần iii xuất những file nào ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "xuất", "những", "file", "nào", "ạ", "?"]}
 {"text": "Hạn nộp project khi nào?", "tokens": ["hạn", "nộp", "project", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp project khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "project", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến world knowledge?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "world", "knowledge", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến world knowledge ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "world", "knowledge", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến tri thức thế giới?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "tri", "thức", "thế", "giới", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến tri thức thế giới ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "tri", "thức", "thế", "giới", "ạ", "?"]}
 {"text": "Sử dụng ai là gì?", "tokens": ["sử", "dụng", "ai", "là", "gì", "?"]}
 {"text": "Cho mình hỏi sử dụng ai là gì ạ?", "tokens": ["cho", "mình", "hỏi", "sử", "dụng", "ai", "là", "gì", "ạ", "?"]}
 {"text": "Nó có văn phạm gia tố không?", "tokens": ["nó", "có", "văn", "phạm", "gia", "tố", "không", "?"]}
@@ -1097,14 +1125,14 @@
 {"text": "Cho mình hỏi btl01 phải làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "phải", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Phần iv của đồ án là gì?", "tokens": ["phần", "iv", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu hỏi đáp hay không?", "tokens": ["btl", "có", "yêu", "cầu", "hỏi", "đáp", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu hỏi đáp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "hỏi", "đáp", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần ngữ nghĩa hay không?", "tokens": ["btl", "có", "phần", "ngữ", "nghĩa", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần ngữ nghĩa hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "ngữ", "nghĩa", "hay", "không", "ạ", "?"]}
 {"text": "Phần iii cần nộp những gì?", "tokens": ["phần", "iii", "cần", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii cần nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "cần", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Hạn nộp project là khi nào?", "tokens": ["hạn", "nộp", "project", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp project là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "project", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào liên quan đến machine translation?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "machine", "translation", "?"]}
-{"text": "Cho mình hỏi tài liệu nào liên quan đến machine translation ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "machine", "translation", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến world knowledge?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "world", "knowledge", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến world knowledge ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "world", "knowledge", "ạ", "?"]}
 {"text": "Sử dụng ai có được phép không?", "tokens": ["sử", "dụng", "ai", "có", "được", "phép", "không", "?"]}
 {"text": "Cho mình hỏi sử dụng ai có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "sử", "dụng", "ai", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có văn phạm gia tố hay không?", "tokens": ["nó", "có", "văn", "phạm", "gia", "tố", "hay", "không", "?"]}
@@ -1143,14 +1171,14 @@
 {"text": "Cho mình hỏi btl01 cần thực hiện những gì ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "cần", "thực", "hiện", "những", "gì", "ạ", "?"]}
 {"text": "Phần iv của assignment là gì?", "tokens": ["phần", "iv", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu semantic không?", "tokens": ["btl", "có", "yêu", "cầu", "semantic", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu semantic không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "semantic", "không", "ạ", "?"]}
+{"text": "Btl có phần ngữ cảnh không?", "tokens": ["btl", "có", "phần", "ngữ", "cảnh", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần ngữ cảnh không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "ngữ", "cảnh", "không", "ạ", "?"]}
 {"text": "Phần iii phải nộp những gì?", "tokens": ["phần", "iii", "phải", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii phải nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "phải", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Hạn nộp project vào tuần nào?", "tokens": ["hạn", "nộp", "project", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi hạn nộp project vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "project", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về statistical nlp?", "tokens": ["tài", "liệu", "gì", "về", "statistical", "nlp", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về statistical nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "statistical", "nlp", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến machine translation?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "machine", "translation", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến machine translation ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "machine", "translation", "ạ", "?"]}
 {"text": "Thư viện ngoài được quy định như thế nào?", "tokens": ["thư", "viện", "ngoài", "được", "quy", "định", "như", "thế", "nào", "?"]}
 {"text": "Cho mình hỏi thư viện ngoài được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "thư", "viện", "ngoài", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có unification không?", "tokens": ["nó", "có", "unification", "không", "?"]}
@@ -1187,14 +1215,14 @@
 {"text": "Cho mình hỏi bài tập lớn yêu cầu xây dựng những gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "yêu", "cầu", "xây", "dựng", "những", "gì", "ạ", "?"]}
 {"text": "Phần iv của project là gì?", "tokens": ["phần", "iv", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu semantic hay không?", "tokens": ["btl", "có", "yêu", "cầu", "semantic", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu semantic hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "semantic", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần ngữ cảnh hay không?", "tokens": ["btl", "có", "phần", "ngữ", "cảnh", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần ngữ cảnh hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "ngữ", "cảnh", "hay", "không", "ạ", "?"]}
 {"text": "Phần iii cần nộp file gì?", "tokens": ["phần", "iii", "cần", "nộp", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii cần nộp file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "cần", "nộp", "file", "gì", "ạ", "?"]}
 {"text": "Hạn nộp project bao giờ?", "tokens": ["hạn", "nộp", "project", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi hạn nộp project bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "hạn", "nộp", "project", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu gì về nlp thống kê?", "tokens": ["tài", "liệu", "gì", "về", "nlp", "thống", "kê", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về nlp thống kê ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "nlp", "thống", "kê", "ạ", "?"]}
+{"text": "Tài liệu nào liên quan đến dịch máy?", "tokens": ["tài", "liệu", "nào", "liên", "quan", "đến", "dịch", "máy", "?"]}
+{"text": "Cho mình hỏi tài liệu nào liên quan đến dịch máy ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "liên", "quan", "đến", "dịch", "máy", "ạ", "?"]}
 {"text": "Thư viện ngoài là gì?", "tokens": ["thư", "viện", "ngoài", "là", "gì", "?"]}
 {"text": "Cho mình hỏi thư viện ngoài là gì ạ?", "tokens": ["cho", "mình", "hỏi", "thư", "viện", "ngoài", "là", "gì", "ạ", "?"]}
 {"text": "Nó có unification hay không?", "tokens": ["nó", "có", "unification", "hay", "không", "?"]}
@@ -1229,14 +1257,14 @@
 {"text": "Cho mình hỏi bài tập lớn yêu cầu những gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "yêu", "cầu", "những", "gì", "ạ", "?"]}
 {"text": "Part i của btl là gì?", "tokens": ["part", "i", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu parser không?", "tokens": ["btl", "có", "yêu", "cầu", "parser", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu parser không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "parser", "không", "ạ", "?"]}
+{"text": "Btl có phần hội thoại không?", "tokens": ["btl", "có", "phần", "hội", "thoại", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần hội thoại không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "hội", "thoại", "không", "ạ", "?"]}
 {"text": "Phần iii trả về kết quả gì?", "tokens": ["phần", "iii", "trả", "về", "kết", "quả", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii trả về kết quả gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "trả", "về", "kết", "quả", "gì", "ạ", "?"]}
 {"text": "Btl khi nào?", "tokens": ["btl", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi btl khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về python nlp?", "tokens": ["tài", "liệu", "gì", "về", "python", "nlp", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về python nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "python", "nlp", "ạ", "?"]}
+{"text": "Tài liệu gì về statistical nlp?", "tokens": ["tài", "liệu", "gì", "về", "statistical", "nlp", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về statistical nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "statistical", "nlp", "ạ", "?"]}
 {"text": "Thư viện ngoài có được phép không?", "tokens": ["thư", "viện", "ngoài", "có", "được", "phép", "không", "?"]}
 {"text": "Cho mình hỏi thư viện ngoài có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "thư", "viện", "ngoài", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có hợp nhất không?", "tokens": ["nó", "có", "hợp", "nhất", "không", "?"]}
@@ -1270,16 +1298,16 @@
 {"text": "Cho mình hỏi bài tập lớn có những yêu cầu gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "có", "những", "yêu", "cầu", "gì", "ạ", "?"]}
 {"text": "Part i của btl01 là gì?", "tokens": ["part", "i", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu parser hay không?", "tokens": ["btl", "có", "yêu", "cầu", "parser", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu parser hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "parser", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần hội thoại hay không?", "tokens": ["btl", "có", "phần", "hội", "thoại", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần hội thoại hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "hội", "thoại", "hay", "không", "ạ", "?"]}
 {"text": "Phần iii đầu ra là gì?", "tokens": ["phần", "iii", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Btl là khi nào?", "tokens": ["btl", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi btl là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về nlp với python?", "tokens": ["tài", "liệu", "gì", "về", "nlp", "với", "python", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về nlp với python ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "nlp", "với", "python", "ạ", "?"]}
-{"text": "Mã nguồn được quy định như thế nào?", "tokens": ["mã", "nguồn", "được", "quy", "định", "như", "thế", "nào", "?"]}
-{"text": "Cho mình hỏi mã nguồn được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "mã", "nguồn", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
+{"text": "Tài liệu gì về nlp thống kê?", "tokens": ["tài", "liệu", "gì", "về", "nlp", "thống", "kê", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về nlp thống kê ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "nlp", "thống", "kê", "ạ", "?"]}
+{"text": "Thư viện có sẵn được quy định như thế nào?", "tokens": ["thư", "viện", "có", "sẵn", "được", "quy", "định", "như", "thế", "nào", "?"]}
+{"text": "Cho mình hỏi thư viện có sẵn được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "thư", "viện", "có", "sẵn", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có hợp nhất hay không?", "tokens": ["nó", "có", "hợp", "nhất", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có hợp nhất hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "hợp", "nhất", "hay", "không", "ạ", "?"]}
 {"text": "Tài liệu của nội dung này ở đâu?", "tokens": ["tài", "liệu", "của", "nội", "dung", "này", "ở", "đâu", "?"]}
@@ -1312,16 +1340,16 @@
 {"text": "Cho mình hỏi bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
 {"text": "Part i của bài tập lớn là gì?", "tokens": ["part", "i", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu ngữ cảnh không?", "tokens": ["btl", "có", "yêu", "cầu", "ngữ", "cảnh", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu ngữ cảnh không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "ngữ", "cảnh", "không", "ạ", "?"]}
+{"text": "Btl có phần tham chiếu không?", "tokens": ["btl", "có", "phần", "tham", "chiếu", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần tham chiếu không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "tham", "chiếu", "không", "ạ", "?"]}
 {"text": "Phần iii định dạng đầu ra là gì?", "tokens": ["phần", "iii", "định", "dạng", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iii định dạng đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iii", "định", "dạng", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Btl vào tuần nào?", "tokens": ["btl", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi btl vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về cfg?", "tokens": ["tài", "liệu", "gì", "về", "cfg", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về cfg ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "cfg", "ạ", "?"]}
-{"text": "Mã nguồn là gì?", "tokens": ["mã", "nguồn", "là", "gì", "?"]}
-{"text": "Cho mình hỏi mã nguồn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "mã", "nguồn", "là", "gì", "ạ", "?"]}
+{"text": "Tài liệu gì về python nlp?", "tokens": ["tài", "liệu", "gì", "về", "python", "nlp", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về python nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "python", "nlp", "ạ", "?"]}
+{"text": "Thư viện có sẵn là gì?", "tokens": ["thư", "viện", "có", "sẵn", "là", "gì", "?"]}
+{"text": "Cho mình hỏi thư viện có sẵn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "thư", "viện", "có", "sẵn", "là", "gì", "ạ", "?"]}
 {"text": "Nó có pos tagging không?", "tokens": ["nó", "có", "pos", "tagging", "không", "?"]}
 {"text": "Cho mình hỏi nó có pos tagging không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "pos", "tagging", "không", "ạ", "?"]}
 {"text": "Tài liệu của nội dung này gồm những gì?", "tokens": ["tài", "liệu", "của", "nội", "dung", "này", "gồm", "những", "gì", "?"]}
@@ -1354,16 +1382,16 @@
 {"text": "Cho mình hỏi bài tập lớn có nội dung gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "có", "nội", "dung", "gì", "ạ", "?"]}
 {"text": "Part i của đồ án là gì?", "tokens": ["part", "i", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu ngữ cảnh hay không?", "tokens": ["btl", "có", "yêu", "cầu", "ngữ", "cảnh", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu ngữ cảnh hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "ngữ", "cảnh", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần tham chiếu hay không?", "tokens": ["btl", "có", "phần", "tham", "chiếu", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần tham chiếu hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "tham", "chiếu", "hay", "không", "ạ", "?"]}
 {"text": "Phần iv cần xuất file gì?", "tokens": ["phần", "iv", "cần", "xuất", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv cần xuất file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "cần", "xuất", "file", "gì", "ạ", "?"]}
 {"text": "Btl bao giờ?", "tokens": ["btl", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi btl bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu gì về parsing?", "tokens": ["tài", "liệu", "gì", "về", "parsing", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về parsing ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "parsing", "ạ", "?"]}
-{"text": "Mã nguồn có được phép không?", "tokens": ["mã", "nguồn", "có", "được", "phép", "không", "?"]}
-{"text": "Cho mình hỏi mã nguồn có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "mã", "nguồn", "có", "được", "phép", "không", "ạ", "?"]}
+{"text": "Tài liệu gì về nlp với python?", "tokens": ["tài", "liệu", "gì", "về", "nlp", "với", "python", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về nlp với python ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "nlp", "với", "python", "ạ", "?"]}
+{"text": "Thư viện có sẵn có được phép không?", "tokens": ["thư", "viện", "có", "sẵn", "có", "được", "phép", "không", "?"]}
+{"text": "Cho mình hỏi thư viện có sẵn có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "thư", "viện", "có", "sẵn", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có pos tagging hay không?", "tokens": ["nó", "có", "pos", "tagging", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có pos tagging hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "pos", "tagging", "hay", "không", "ạ", "?"]}
 {"text": "Tài liệu của nó là gì?", "tokens": ["tài", "liệu", "của", "nó", "là", "gì", "?"]}
@@ -1396,16 +1424,16 @@
 {"text": "Cho mình hỏi bài tập lớn gồm những phần nào ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "gồm", "những", "phần", "nào", "ạ", "?"]}
 {"text": "Part i của assignment là gì?", "tokens": ["part", "i", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu đánh giá không?", "tokens": ["btl", "có", "yêu", "cầu", "đánh", "giá", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu đánh giá không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "đánh", "giá", "không", "ạ", "?"]}
+{"text": "Btl có phần đánh giá không?", "tokens": ["btl", "có", "phần", "đánh", "giá", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần đánh giá không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "đánh", "giá", "không", "ạ", "?"]}
 {"text": "Phần iv có output gì?", "tokens": ["phần", "iv", "có", "output", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv có output gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "có", "output", "gì", "ạ", "?"]}
 {"text": "Btl01 khi nào?", "tokens": ["btl01", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi btl01 khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về ngữ nghĩa?", "tokens": ["tài", "liệu", "gì", "về", "ngữ", "nghĩa", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về ngữ nghĩa ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "ngữ", "nghĩa", "ạ", "?"]}
-{"text": "Source code được quy định như thế nào?", "tokens": ["source", "code", "được", "quy", "định", "như", "thế", "nào", "?"]}
-{"text": "Cho mình hỏi source code được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "source", "code", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
+{"text": "Tài liệu gì về cfg?", "tokens": ["tài", "liệu", "gì", "về", "cfg", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về cfg ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "cfg", "ạ", "?"]}
+{"text": "Mã nguồn được quy định như thế nào?", "tokens": ["mã", "nguồn", "được", "quy", "định", "như", "thế", "nào", "?"]}
+{"text": "Cho mình hỏi mã nguồn được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "mã", "nguồn", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có gán nhãn từ loại không?", "tokens": ["nó", "có", "gán", "nhãn", "từ", "loại", "không", "?"]}
 {"text": "Cho mình hỏi nó có gán nhãn từ loại không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "gán", "nhãn", "từ", "loại", "không", "ạ", "?"]}
 {"text": "Tài liệu của nó ở đâu?", "tokens": ["tài", "liệu", "của", "nó", "ở", "đâu", "?"]}
@@ -1438,16 +1466,16 @@
 {"text": "Cho mình hỏi bài tập lớn bao gồm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "bao", "gồm", "những", "gì", "ạ", "?"]}
 {"text": "Part i của project là gì?", "tokens": ["part", "i", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl có yêu cầu đánh giá hay không?", "tokens": ["btl", "có", "yêu", "cầu", "đánh", "giá", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có yêu cầu đánh giá hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "yêu", "cầu", "đánh", "giá", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần đánh giá hay không?", "tokens": ["btl", "có", "phần", "đánh", "giá", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần đánh giá hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "đánh", "giá", "hay", "không", "ạ", "?"]}
 {"text": "Phần iv xuất những file nào?", "tokens": ["phần", "iv", "xuất", "những", "file", "nào", "?"]}
 {"text": "Cho mình hỏi phần iv xuất những file nào ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "xuất", "những", "file", "nào", "ạ", "?"]}
 {"text": "Btl01 là khi nào?", "tokens": ["btl01", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi btl01 là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về semantic?", "tokens": ["tài", "liệu", "gì", "về", "semantic", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về semantic ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "semantic", "ạ", "?"]}
-{"text": "Source code là gì?", "tokens": ["source", "code", "là", "gì", "?"]}
-{"text": "Cho mình hỏi source code là gì ạ?", "tokens": ["cho", "mình", "hỏi", "source", "code", "là", "gì", "ạ", "?"]}
+{"text": "Tài liệu gì về parsing?", "tokens": ["tài", "liệu", "gì", "về", "parsing", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về parsing ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "parsing", "ạ", "?"]}
+{"text": "Mã nguồn là gì?", "tokens": ["mã", "nguồn", "là", "gì", "?"]}
+{"text": "Cho mình hỏi mã nguồn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "mã", "nguồn", "là", "gì", "ạ", "?"]}
 {"text": "Nó có gán nhãn từ loại hay không?", "tokens": ["nó", "có", "gán", "nhãn", "từ", "loại", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có gán nhãn từ loại hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "gán", "nhãn", "từ", "loại", "hay", "không", "ạ", "?"]}
 {"text": "Tài liệu của nó gồm những gì?", "tokens": ["tài", "liệu", "của", "nó", "gồm", "những", "gì", "?"]}
@@ -1479,16 +1507,16 @@
 {"text": "Cho mình hỏi bài tập lớn có những chức năng gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "có", "những", "chức", "năng", "gì", "ạ", "?"]}
 {"text": "Part ii của btl là gì?", "tokens": ["part", "ii", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part ii của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "ii", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có hỏi đáp không?", "tokens": ["btl", "có", "hỏi", "đáp", "không", "?"]}
-{"text": "Cho mình hỏi btl có hỏi đáp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "hỏi", "đáp", "không", "ạ", "?"]}
+{"text": "Btl có phần test set không?", "tokens": ["btl", "có", "phần", "test", "set", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần test set không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "test", "set", "không", "ạ", "?"]}
 {"text": "Phần iv cần nộp những gì?", "tokens": ["phần", "iv", "cần", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv cần nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "cần", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Btl01 vào tuần nào?", "tokens": ["btl01", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi btl01 vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về tri thức thế giới?", "tokens": ["tài", "liệu", "gì", "về", "tri", "thức", "thế", "giới", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về tri thức thế giới ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "tri", "thức", "thế", "giới", "ạ", "?"]}
-{"text": "Source code có được phép không?", "tokens": ["source", "code", "có", "được", "phép", "không", "?"]}
-{"text": "Cho mình hỏi source code có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "source", "code", "có", "được", "phép", "không", "ạ", "?"]}
+{"text": "Tài liệu gì về ngữ nghĩa?", "tokens": ["tài", "liệu", "gì", "về", "ngữ", "nghĩa", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về ngữ nghĩa ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "ngữ", "nghĩa", "ạ", "?"]}
+{"text": "Mã nguồn có được phép không?", "tokens": ["mã", "nguồn", "có", "được", "phép", "không", "?"]}
+{"text": "Cho mình hỏi mã nguồn có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "mã", "nguồn", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có logical form không?", "tokens": ["nó", "có", "logical", "form", "không", "?"]}
 {"text": "Cho mình hỏi nó có logical form không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "logical", "form", "không", "ạ", "?"]}
 {"text": "Giáo trình chương này là gì?", "tokens": ["giáo", "trình", "chương", "này", "là", "gì", "?"]}
@@ -1521,16 +1549,16 @@
 {"text": "Cho mình hỏi bài tập lớn cần làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "cần", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Part ii của btl01 là gì?", "tokens": ["part", "ii", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part ii của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "ii", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có hỏi đáp hay không?", "tokens": ["btl", "có", "hỏi", "đáp", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có hỏi đáp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "hỏi", "đáp", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần test set hay không?", "tokens": ["btl", "có", "phần", "test", "set", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần test set hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "test", "set", "hay", "không", "ạ", "?"]}
 {"text": "Phần iv phải nộp những gì?", "tokens": ["phần", "iv", "phải", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv phải nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "phải", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Btl01 bao giờ?", "tokens": ["btl01", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi btl01 bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu gì về world knowledge?", "tokens": ["tài", "liệu", "gì", "về", "world", "knowledge", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về world knowledge ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "world", "knowledge", "ạ", "?"]}
-{"text": "Liêm chính học thuật được quy định như thế nào?", "tokens": ["liêm", "chính", "học", "thuật", "được", "quy", "định", "như", "thế", "nào", "?"]}
-{"text": "Cho mình hỏi liêm chính học thuật được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "liêm", "chính", "học", "thuật", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
+{"text": "Tài liệu gì về semantic?", "tokens": ["tài", "liệu", "gì", "về", "semantic", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về semantic ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "semantic", "ạ", "?"]}
+{"text": "Source code được quy định như thế nào?", "tokens": ["source", "code", "được", "quy", "định", "như", "thế", "nào", "?"]}
+{"text": "Cho mình hỏi source code được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "source", "code", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có logical form hay không?", "tokens": ["nó", "có", "logical", "form", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có logical form hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "logical", "form", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình chương này ở đâu?", "tokens": ["giáo", "trình", "chương", "này", "ở", "đâu", "?"]}
@@ -1563,16 +1591,16 @@
 {"text": "Cho mình hỏi bài tập lớn phải làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "phải", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Part ii của bài tập lớn là gì?", "tokens": ["part", "ii", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part ii của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "ii", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có semantic không?", "tokens": ["btl", "có", "semantic", "không", "?"]}
-{"text": "Cho mình hỏi btl có semantic không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "semantic", "không", "ạ", "?"]}
+{"text": "Btl có phần metric không?", "tokens": ["btl", "có", "phần", "metric", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần metric không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "metric", "không", "ạ", "?"]}
 {"text": "Phần iv cần nộp file gì?", "tokens": ["phần", "iv", "cần", "nộp", "file", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv cần nộp file gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "cần", "nộp", "file", "gì", "ạ", "?"]}
 {"text": "Bài tập lớn khi nào?", "tokens": ["bài", "tập", "lớn", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi bài tập lớn khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu gì về machine translation?", "tokens": ["tài", "liệu", "gì", "về", "machine", "translation", "?"]}
-{"text": "Cho mình hỏi tài liệu gì về machine translation ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "machine", "translation", "ạ", "?"]}
-{"text": "Liêm chính học thuật là gì?", "tokens": ["liêm", "chính", "học", "thuật", "là", "gì", "?"]}
-{"text": "Cho mình hỏi liêm chính học thuật là gì ạ?", "tokens": ["cho", "mình", "hỏi", "liêm", "chính", "học", "thuật", "là", "gì", "ạ", "?"]}
+{"text": "Tài liệu gì về tri thức thế giới?", "tokens": ["tài", "liệu", "gì", "về", "tri", "thức", "thế", "giới", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về tri thức thế giới ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "tri", "thức", "thế", "giới", "ạ", "?"]}
+{"text": "Source code là gì?", "tokens": ["source", "code", "là", "gì", "?"]}
+{"text": "Cho mình hỏi source code là gì ạ?", "tokens": ["cho", "mình", "hỏi", "source", "code", "là", "gì", "ạ", "?"]}
 {"text": "Nó có dạng luận lý không?", "tokens": ["nó", "có", "dạng", "luận", "lý", "không", "?"]}
 {"text": "Cho mình hỏi nó có dạng luận lý không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "dạng", "luận", "lý", "không", "ạ", "?"]}
 {"text": "Giáo trình chương này gồm những gì?", "tokens": ["giáo", "trình", "chương", "này", "gồm", "những", "gì", "?"]}
@@ -1605,16 +1633,16 @@
 {"text": "Cho mình hỏi bài tập lớn cần thực hiện những gì ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "cần", "thực", "hiện", "những", "gì", "ạ", "?"]}
 {"text": "Part ii của đồ án là gì?", "tokens": ["part", "ii", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part ii của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "ii", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có semantic hay không?", "tokens": ["btl", "có", "semantic", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có semantic hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "semantic", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần metric hay không?", "tokens": ["btl", "có", "phần", "metric", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần metric hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "metric", "hay", "không", "ạ", "?"]}
 {"text": "Phần iv trả về kết quả gì?", "tokens": ["phần", "iv", "trả", "về", "kết", "quả", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv trả về kết quả gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "trả", "về", "kết", "quả", "gì", "ạ", "?"]}
 {"text": "Bài tập lớn là khi nào?", "tokens": ["bài", "tập", "lớn", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi bài tập lớn là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về statistical nlp?", "tokens": ["tài", "liệu", "nào", "về", "statistical", "nlp", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về statistical nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "statistical", "nlp", "ạ", "?"]}
-{"text": "Liêm chính học thuật có được phép không?", "tokens": ["liêm", "chính", "học", "thuật", "có", "được", "phép", "không", "?"]}
-{"text": "Cho mình hỏi liêm chính học thuật có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "liêm", "chính", "học", "thuật", "có", "được", "phép", "không", "ạ", "?"]}
+{"text": "Tài liệu gì về world knowledge?", "tokens": ["tài", "liệu", "gì", "về", "world", "knowledge", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về world knowledge ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "world", "knowledge", "ạ", "?"]}
+{"text": "Source code có được phép không?", "tokens": ["source", "code", "có", "được", "phép", "không", "?"]}
+{"text": "Cho mình hỏi source code có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "source", "code", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có dạng luận lý hay không?", "tokens": ["nó", "có", "dạng", "luận", "lý", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có dạng luận lý hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "dạng", "luận", "lý", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình chương đó là gì?", "tokens": ["giáo", "trình", "chương", "đó", "là", "gì", "?"]}
@@ -1647,16 +1675,16 @@
 {"text": "Cho mình hỏi đồ án yêu cầu xây dựng những gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "yêu", "cầu", "xây", "dựng", "những", "gì", "ạ", "?"]}
 {"text": "Part ii của assignment là gì?", "tokens": ["part", "ii", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part ii của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "ii", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl có parser không?", "tokens": ["btl", "có", "parser", "không", "?"]}
-{"text": "Cho mình hỏi btl có parser không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "parser", "không", "ạ", "?"]}
+{"text": "Btl có phần kiểm thử không?", "tokens": ["btl", "có", "phần", "kiểm", "thử", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần kiểm thử không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "kiểm", "thử", "không", "ạ", "?"]}
 {"text": "Phần iv đầu ra là gì?", "tokens": ["phần", "iv", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Bài tập lớn vào tuần nào?", "tokens": ["bài", "tập", "lớn", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi bài tập lớn vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về nlp thống kê?", "tokens": ["tài", "liệu", "nào", "về", "nlp", "thống", "kê", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về nlp thống kê ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "nlp", "thống", "kê", "ạ", "?"]}
-{"text": "Có được dùng llm/rag không?", "tokens": ["có", "được", "dùng", "llm/rag", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng llm/rag không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm/rag", "không", "ạ", "?"]}
+{"text": "Tài liệu gì về machine translation?", "tokens": ["tài", "liệu", "gì", "về", "machine", "translation", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về machine translation ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "machine", "translation", "ạ", "?"]}
+{"text": "Liêm chính học thuật được quy định như thế nào?", "tokens": ["liêm", "chính", "học", "thuật", "được", "quy", "định", "như", "thế", "nào", "?"]}
+{"text": "Cho mình hỏi liêm chính học thuật được quy định như thế nào ạ?", "tokens": ["cho", "mình", "hỏi", "liêm", "chính", "học", "thuật", "được", "quy", "định", "như", "thế", "nào", "ạ", "?"]}
 {"text": "Nó có thematic roles không?", "tokens": ["nó", "có", "thematic", "roles", "không", "?"]}
 {"text": "Cho mình hỏi nó có thematic roles không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "thematic", "roles", "không", "ạ", "?"]}
 {"text": "Giáo trình chương đó ở đâu?", "tokens": ["giáo", "trình", "chương", "đó", "ở", "đâu", "?"]}
@@ -1689,16 +1717,16 @@
 {"text": "Cho mình hỏi đồ án yêu cầu những gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "yêu", "cầu", "những", "gì", "ạ", "?"]}
 {"text": "Part ii của project là gì?", "tokens": ["part", "ii", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part ii của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "ii", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl có parser hay không?", "tokens": ["btl", "có", "parser", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có parser hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "parser", "hay", "không", "ạ", "?"]}
+{"text": "Btl có phần kiểm thử hay không?", "tokens": ["btl", "có", "phần", "kiểm", "thử", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có phần kiểm thử hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "phần", "kiểm", "thử", "hay", "không", "ạ", "?"]}
 {"text": "Phần iv định dạng đầu ra là gì?", "tokens": ["phần", "iv", "định", "dạng", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi phần iv định dạng đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "phần", "iv", "định", "dạng", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Bài tập lớn bao giờ?", "tokens": ["bài", "tập", "lớn", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi bài tập lớn bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "bài", "tập", "lớn", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu nào về python nlp?", "tokens": ["tài", "liệu", "nào", "về", "python", "nlp", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về python nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "python", "nlp", "ạ", "?"]}
-{"text": "Có được dùng llm/rag hay không?", "tokens": ["có", "được", "dùng", "llm/rag", "hay", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng llm/rag hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm/rag", "hay", "không", "ạ", "?"]}
+{"text": "Tài liệu gì về dịch máy?", "tokens": ["tài", "liệu", "gì", "về", "dịch", "máy", "?"]}
+{"text": "Cho mình hỏi tài liệu gì về dịch máy ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "gì", "về", "dịch", "máy", "ạ", "?"]}
+{"text": "Liêm chính học thuật là gì?", "tokens": ["liêm", "chính", "học", "thuật", "là", "gì", "?"]}
+{"text": "Cho mình hỏi liêm chính học thuật là gì ạ?", "tokens": ["cho", "mình", "hỏi", "liêm", "chính", "học", "thuật", "là", "gì", "ạ", "?"]}
 {"text": "Nó có thematic roles hay không?", "tokens": ["nó", "có", "thematic", "roles", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có thematic roles hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "thematic", "roles", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình chương đó gồm những gì?", "tokens": ["giáo", "trình", "chương", "đó", "gồm", "những", "gì", "?"]}
@@ -1729,16 +1757,16 @@
 {"text": "Cho mình hỏi đồ án có những yêu cầu gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "có", "những", "yêu", "cầu", "gì", "ạ", "?"]}
 {"text": "Part iii của btl là gì?", "tokens": ["part", "iii", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iii của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iii", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl có ngữ cảnh không?", "tokens": ["btl", "có", "ngữ", "cảnh", "không", "?"]}
-{"text": "Cho mình hỏi btl có ngữ cảnh không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "ngữ", "cảnh", "không", "ạ", "?"]}
+{"text": "Btl có chức năng parser không?", "tokens": ["btl", "có", "chức", "năng", "parser", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng parser không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "parser", "không", "ạ", "?"]}
 {"text": "Part i cần xuất file gì?", "tokens": ["part", "i", "cần", "xuất", "file", "gì", "?"]}
 {"text": "Cho mình hỏi part i cần xuất file gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "cần", "xuất", "file", "gì", "ạ", "?"]}
 {"text": "Đồ án khi nào?", "tokens": ["đồ", "án", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi đồ án khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về nlp với python?", "tokens": ["tài", "liệu", "nào", "về", "nlp", "với", "python", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về nlp với python ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "nlp", "với", "python", "ạ", "?"]}
-{"text": "Có được dùng llm không?", "tokens": ["có", "được", "dùng", "llm", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng llm không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về statistical nlp?", "tokens": ["tài", "liệu", "nào", "về", "statistical", "nlp", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về statistical nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "statistical", "nlp", "ạ", "?"]}
+{"text": "Liêm chính học thuật có được phép không?", "tokens": ["liêm", "chính", "học", "thuật", "có", "được", "phép", "không", "?"]}
+{"text": "Cho mình hỏi liêm chính học thuật có được phép không ạ?", "tokens": ["cho", "mình", "hỏi", "liêm", "chính", "học", "thuật", "có", "được", "phép", "không", "ạ", "?"]}
 {"text": "Nó có vai trò chủ đề không?", "tokens": ["nó", "có", "vai", "trò", "chủ", "đề", "không", "?"]}
 {"text": "Cho mình hỏi nó có vai trò chủ đề không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "vai", "trò", "chủ", "đề", "không", "ạ", "?"]}
 {"text": "Giáo trình phần này là gì?", "tokens": ["giáo", "trình", "phần", "này", "là", "gì", "?"]}
@@ -1769,16 +1797,16 @@
 {"text": "Cho mình hỏi đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "là", "gì", "ạ", "?"]}
 {"text": "Part iii của btl01 là gì?", "tokens": ["part", "iii", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iii của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iii", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl có ngữ cảnh hay không?", "tokens": ["btl", "có", "ngữ", "cảnh", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có ngữ cảnh hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "ngữ", "cảnh", "hay", "không", "ạ", "?"]}
+{"text": "Btl có chức năng parser hay không?", "tokens": ["btl", "có", "chức", "năng", "parser", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng parser hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "parser", "hay", "không", "ạ", "?"]}
 {"text": "Part i có output gì?", "tokens": ["part", "i", "có", "output", "gì", "?"]}
 {"text": "Cho mình hỏi part i có output gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "có", "output", "gì", "ạ", "?"]}
 {"text": "Đồ án là khi nào?", "tokens": ["đồ", "án", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi đồ án là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về cfg?", "tokens": ["tài", "liệu", "nào", "về", "cfg", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về cfg ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "cfg", "ạ", "?"]}
-{"text": "Có được dùng llm hay không?", "tokens": ["có", "được", "dùng", "llm", "hay", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng llm hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm", "hay", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về nlp thống kê?", "tokens": ["tài", "liệu", "nào", "về", "nlp", "thống", "kê", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về nlp thống kê ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "nlp", "thống", "kê", "ạ", "?"]}
+{"text": "Có được dùng llm/rag không?", "tokens": ["có", "được", "dùng", "llm/rag", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng llm/rag không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm/rag", "không", "ạ", "?"]}
 {"text": "Nó có vai trò chủ đề hay không?", "tokens": ["nó", "có", "vai", "trò", "chủ", "đề", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có vai trò chủ đề hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "vai", "trò", "chủ", "đề", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình phần này ở đâu?", "tokens": ["giáo", "trình", "phần", "này", "ở", "đâu", "?"]}
@@ -1809,16 +1837,16 @@
 {"text": "Cho mình hỏi đồ án có nội dung gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "có", "nội", "dung", "gì", "ạ", "?"]}
 {"text": "Part iii của bài tập lớn là gì?", "tokens": ["part", "iii", "của", "bài", "tập", "lớn", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iii của bài tập lớn là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iii", "của", "bài", "tập", "lớn", "là", "gì", "ạ", "?"]}
-{"text": "Btl có đánh giá không?", "tokens": ["btl", "có", "đánh", "giá", "không", "?"]}
-{"text": "Cho mình hỏi btl có đánh giá không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "đánh", "giá", "không", "ạ", "?"]}
+{"text": "Btl có chức năng grammar không?", "tokens": ["btl", "có", "chức", "năng", "grammar", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng grammar không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "grammar", "không", "ạ", "?"]}
 {"text": "Part i xuất những file nào?", "tokens": ["part", "i", "xuất", "những", "file", "nào", "?"]}
 {"text": "Cho mình hỏi part i xuất những file nào ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "xuất", "những", "file", "nào", "ạ", "?"]}
 {"text": "Đồ án vào tuần nào?", "tokens": ["đồ", "án", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi đồ án vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về parsing?", "tokens": ["tài", "liệu", "nào", "về", "parsing", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về parsing ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "parsing", "ạ", "?"]}
-{"text": "Có được dùng rag không?", "tokens": ["có", "được", "dùng", "rag", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng rag không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "rag", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về python nlp?", "tokens": ["tài", "liệu", "nào", "về", "python", "nlp", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về python nlp ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "python", "nlp", "ạ", "?"]}
+{"text": "Có được dùng llm/rag hay không?", "tokens": ["có", "được", "dùng", "llm/rag", "hay", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng llm/rag hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm/rag", "hay", "không", "ạ", "?"]}
 {"text": "Nó có selectional restriction không?", "tokens": ["nó", "có", "selectional", "restriction", "không", "?"]}
 {"text": "Cho mình hỏi nó có selectional restriction không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "selectional", "restriction", "không", "ạ", "?"]}
 {"text": "Giáo trình phần này gồm những gì?", "tokens": ["giáo", "trình", "phần", "này", "gồm", "những", "gì", "?"]}
@@ -1849,16 +1877,16 @@
 {"text": "Cho mình hỏi đồ án gồm những phần nào ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "gồm", "những", "phần", "nào", "ạ", "?"]}
 {"text": "Part iii của đồ án là gì?", "tokens": ["part", "iii", "của", "đồ", "án", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iii của đồ án là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iii", "của", "đồ", "án", "là", "gì", "ạ", "?"]}
-{"text": "Btl có đánh giá hay không?", "tokens": ["btl", "có", "đánh", "giá", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl có đánh giá hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "đánh", "giá", "hay", "không", "ạ", "?"]}
+{"text": "Btl có chức năng grammar hay không?", "tokens": ["btl", "có", "chức", "năng", "grammar", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng grammar hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "grammar", "hay", "không", "ạ", "?"]}
 {"text": "Part i cần nộp những gì?", "tokens": ["part", "i", "cần", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi part i cần nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "cần", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Đồ án bao giờ?", "tokens": ["đồ", "án", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi đồ án bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu nào về ngữ nghĩa?", "tokens": ["tài", "liệu", "nào", "về", "ngữ", "nghĩa", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về ngữ nghĩa ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "ngữ", "nghĩa", "ạ", "?"]}
-{"text": "Có được dùng rag hay không?", "tokens": ["có", "được", "dùng", "rag", "hay", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng rag hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "rag", "hay", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về nlp với python?", "tokens": ["tài", "liệu", "nào", "về", "nlp", "với", "python", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về nlp với python ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "nlp", "với", "python", "ạ", "?"]}
+{"text": "Có được dùng llm không?", "tokens": ["có", "được", "dùng", "llm", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng llm không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm", "không", "ạ", "?"]}
 {"text": "Nó có selectional restriction hay không?", "tokens": ["nó", "có", "selectional", "restriction", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có selectional restriction hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "selectional", "restriction", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình nội dung này là gì?", "tokens": ["giáo", "trình", "nội", "dung", "này", "là", "gì", "?"]}
@@ -1889,16 +1917,16 @@
 {"text": "Cho mình hỏi đồ án bao gồm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "bao", "gồm", "những", "gì", "ạ", "?"]}
 {"text": "Part iii của assignment là gì?", "tokens": ["part", "iii", "của", "assignment", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iii của assignment là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iii", "của", "assignment", "là", "gì", "ạ", "?"]}
-{"text": "Btl01 có phần hỏi đáp không?", "tokens": ["btl01", "có", "phần", "hỏi", "đáp", "không", "?"]}
-{"text": "Cho mình hỏi btl01 có phần hỏi đáp không ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "phần", "hỏi", "đáp", "không", "ạ", "?"]}
+{"text": "Btl có chức năng parse tree không?", "tokens": ["btl", "có", "chức", "năng", "parse", "tree", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng parse tree không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "parse", "tree", "không", "ạ", "?"]}
 {"text": "Part i phải nộp những gì?", "tokens": ["part", "i", "phải", "nộp", "những", "gì", "?"]}
 {"text": "Cho mình hỏi part i phải nộp những gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "phải", "nộp", "những", "gì", "ạ", "?"]}
 {"text": "Assignment khi nào?", "tokens": ["assignment", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi assignment khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "assignment", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về semantic?", "tokens": ["tài", "liệu", "nào", "về", "semantic", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về semantic ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "semantic", "ạ", "?"]}
-{"text": "Có được dùng công cụ ai không?", "tokens": ["có", "được", "dùng", "công", "cụ", "ai", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng công cụ ai không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "công", "cụ", "ai", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về cfg?", "tokens": ["tài", "liệu", "nào", "về", "cfg", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về cfg ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "cfg", "ạ", "?"]}
+{"text": "Có được dùng llm hay không?", "tokens": ["có", "được", "dùng", "llm", "hay", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng llm hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "llm", "hay", "không", "ạ", "?"]}
 {"text": "Nó có giới hạn lựa chọn không?", "tokens": ["nó", "có", "giới", "hạn", "lựa", "chọn", "không", "?"]}
 {"text": "Cho mình hỏi nó có giới hạn lựa chọn không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "giới", "hạn", "lựa", "chọn", "không", "ạ", "?"]}
 {"text": "Giáo trình nội dung này ở đâu?", "tokens": ["giáo", "trình", "nội", "dung", "này", "ở", "đâu", "?"]}
@@ -1929,16 +1957,16 @@
 {"text": "Cho mình hỏi đồ án có những chức năng gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "có", "những", "chức", "năng", "gì", "ạ", "?"]}
 {"text": "Part iii của project là gì?", "tokens": ["part", "iii", "của", "project", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iii của project là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iii", "của", "project", "là", "gì", "ạ", "?"]}
-{"text": "Btl01 có phần hỏi đáp hay không?", "tokens": ["btl01", "có", "phần", "hỏi", "đáp", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl01 có phần hỏi đáp hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "phần", "hỏi", "đáp", "hay", "không", "ạ", "?"]}
+{"text": "Btl có chức năng parse tree hay không?", "tokens": ["btl", "có", "chức", "năng", "parse", "tree", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng parse tree hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "parse", "tree", "hay", "không", "ạ", "?"]}
 {"text": "Part i cần nộp file gì?", "tokens": ["part", "i", "cần", "nộp", "file", "gì", "?"]}
 {"text": "Cho mình hỏi part i cần nộp file gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "cần", "nộp", "file", "gì", "ạ", "?"]}
 {"text": "Assignment là khi nào?", "tokens": ["assignment", "là", "khi", "nào", "?"]}
 {"text": "Cho mình hỏi assignment là khi nào ạ?", "tokens": ["cho", "mình", "hỏi", "assignment", "là", "khi", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về tri thức thế giới?", "tokens": ["tài", "liệu", "nào", "về", "tri", "thức", "thế", "giới", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về tri thức thế giới ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "tri", "thức", "thế", "giới", "ạ", "?"]}
-{"text": "Có được dùng công cụ ai hay không?", "tokens": ["có", "được", "dùng", "công", "cụ", "ai", "hay", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng công cụ ai hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "công", "cụ", "ai", "hay", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về parsing?", "tokens": ["tài", "liệu", "nào", "về", "parsing", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về parsing ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "parsing", "ạ", "?"]}
+{"text": "Có được dùng rag không?", "tokens": ["có", "được", "dùng", "rag", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng rag không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "rag", "không", "ạ", "?"]}
 {"text": "Nó có giới hạn lựa chọn hay không?", "tokens": ["nó", "có", "giới", "hạn", "lựa", "chọn", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có giới hạn lựa chọn hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "giới", "hạn", "lựa", "chọn", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình nội dung này gồm những gì?", "tokens": ["giáo", "trình", "nội", "dung", "này", "gồm", "những", "gì", "?"]}
@@ -1969,16 +1997,16 @@
 {"text": "Cho mình hỏi đồ án cần làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "cần", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Part iv của btl là gì?", "tokens": ["part", "iv", "của", "btl", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iv của btl là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iv", "của", "btl", "là", "gì", "ạ", "?"]}
-{"text": "Btl01 có phần semantic không?", "tokens": ["btl01", "có", "phần", "semantic", "không", "?"]}
-{"text": "Cho mình hỏi btl01 có phần semantic không ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "phần", "semantic", "không", "ạ", "?"]}
+{"text": "Btl có chức năng văn phạm không?", "tokens": ["btl", "có", "chức", "năng", "văn", "phạm", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng văn phạm không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "văn", "phạm", "không", "ạ", "?"]}
 {"text": "Part i trả về kết quả gì?", "tokens": ["part", "i", "trả", "về", "kết", "quả", "gì", "?"]}
 {"text": "Cho mình hỏi part i trả về kết quả gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "trả", "về", "kết", "quả", "gì", "ạ", "?"]}
 {"text": "Assignment vào tuần nào?", "tokens": ["assignment", "vào", "tuần", "nào", "?"]}
 {"text": "Cho mình hỏi assignment vào tuần nào ạ?", "tokens": ["cho", "mình", "hỏi", "assignment", "vào", "tuần", "nào", "ạ", "?"]}
-{"text": "Tài liệu nào về world knowledge?", "tokens": ["tài", "liệu", "nào", "về", "world", "knowledge", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về world knowledge ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "world", "knowledge", "ạ", "?"]}
-{"text": "Có được dùng ai không?", "tokens": ["có", "được", "dùng", "ai", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng ai không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "ai", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về ngữ nghĩa?", "tokens": ["tài", "liệu", "nào", "về", "ngữ", "nghĩa", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về ngữ nghĩa ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "ngữ", "nghĩa", "ạ", "?"]}
+{"text": "Có được dùng rag hay không?", "tokens": ["có", "được", "dùng", "rag", "hay", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng rag hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "rag", "hay", "không", "ạ", "?"]}
 {"text": "Nó có semantic network không?", "tokens": ["nó", "có", "semantic", "network", "không", "?"]}
 {"text": "Cho mình hỏi nó có semantic network không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "semantic", "network", "không", "ạ", "?"]}
 {"text": "Giáo trình nó là gì?", "tokens": ["giáo", "trình", "nó", "là", "gì", "?"]}
@@ -2009,16 +2037,16 @@
 {"text": "Cho mình hỏi đồ án phải làm những gì ạ?", "tokens": ["cho", "mình", "hỏi", "đồ", "án", "phải", "làm", "những", "gì", "ạ", "?"]}
 {"text": "Part iv của btl01 là gì?", "tokens": ["part", "iv", "của", "btl01", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part iv của btl01 là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "iv", "của", "btl01", "là", "gì", "ạ", "?"]}
-{"text": "Btl01 có phần semantic hay không?", "tokens": ["btl01", "có", "phần", "semantic", "hay", "không", "?"]}
-{"text": "Cho mình hỏi btl01 có phần semantic hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl01", "có", "phần", "semantic", "hay", "không", "ạ", "?"]}
+{"text": "Btl có chức năng văn phạm hay không?", "tokens": ["btl", "có", "chức", "năng", "văn", "phạm", "hay", "không", "?"]}
+{"text": "Cho mình hỏi btl có chức năng văn phạm hay không ạ?", "tokens": ["cho", "mình", "hỏi", "btl", "có", "chức", "năng", "văn", "phạm", "hay", "không", "ạ", "?"]}
 {"text": "Part i đầu ra là gì?", "tokens": ["part", "i", "đầu", "ra", "là", "gì", "?"]}
 {"text": "Cho mình hỏi part i đầu ra là gì ạ?", "tokens": ["cho", "mình", "hỏi", "part", "i", "đầu", "ra", "là", "gì", "ạ", "?"]}
 {"text": "Assignment bao giờ?", "tokens": ["assignment", "bao", "giờ", "?"]}
 {"text": "Cho mình hỏi assignment bao giờ ạ?", "tokens": ["cho", "mình", "hỏi", "assignment", "bao", "giờ", "ạ", "?"]}
-{"text": "Tài liệu nào về machine translation?", "tokens": ["tài", "liệu", "nào", "về", "machine", "translation", "?"]}
-{"text": "Cho mình hỏi tài liệu nào về machine translation ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "machine", "translation", "ạ", "?"]}
-{"text": "Có được dùng ai hay không?", "tokens": ["có", "được", "dùng", "ai", "hay", "không", "?"]}
-{"text": "Cho mình hỏi có được dùng ai hay không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "ai", "hay", "không", "ạ", "?"]}
+{"text": "Tài liệu nào về semantic?", "tokens": ["tài", "liệu", "nào", "về", "semantic", "?"]}
+{"text": "Cho mình hỏi tài liệu nào về semantic ạ?", "tokens": ["cho", "mình", "hỏi", "tài", "liệu", "nào", "về", "semantic", "ạ", "?"]}
+{"text": "Có được dùng công cụ ai không?", "tokens": ["có", "được", "dùng", "công", "cụ", "ai", "không", "?"]}
+{"text": "Cho mình hỏi có được dùng công cụ ai không ạ?", "tokens": ["cho", "mình", "hỏi", "có", "được", "dùng", "công", "cụ", "ai", "không", "ạ", "?"]}
 {"text": "Nó có semantic network hay không?", "tokens": ["nó", "có", "semantic", "network", "hay", "không", "?"]}
 {"text": "Cho mình hỏi nó có semantic network hay không ạ?", "tokens": ["cho", "mình", "hỏi", "nó", "có", "semantic", "network", "hay", "không", "ạ", "?"]}
 {"text": "Giáo trình nó ở đâu?", "tokens": ["giáo", "trình", "nó", "ở", "đâu", "?"]}

@@ -1,6 +1,10 @@
 __pycache__/
+**/__pycache__/
 *.py[cod]
-.pytest_cache/
+tests/
+.git/
 .venv/
-build/
+output/
 dist/
+build/
+*.mp4

@@ -71,11 +71,10 @@ BRANCH_INTENTS: dict[str, str] = {
 
 
 FEATURE_TO_PART: dict[str, str] = {
-    "parser": "PART_I",
-    "semantic": "PART_II",
-    "hỏi đáp": "PART_II",
-    "ngữ cảnh": "PART_III",
-    "đánh giá": "PART_IV",
+    "FEAT_PARSING": "PART_I",
+    "FEAT_SEMANTIC": "PART_II",
+    "FEAT_CONTEXT": "PART_III",
+    "FEAT_EVAL": "PART_IV",
 }
 
 
@@ -266,7 +265,9 @@ class SemanticInterpreter:
 
     def _handle_q_assignment_feature(self, branch: Tree) -> SemanticFrame:
         phrase = self._phrase(branch.first("ASSIGNMENT_FEATURE"))
-        part = FEATURE_TO_PART.get(phrase)
+        feature_node = branch.first("ASSIGNMENT_FEATURE")
+        part = next((FEATURE_TO_PART[node.label] for node in feature_node.walk()
+                     if node.label in FEATURE_TO_PART), None) if feature_node else None
         return SemanticFrame(
             intent="GET_ASSIGNMENT",
             entity=part,

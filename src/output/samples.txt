@@ -1,1 +1,1000 @@
-# GENERATED FILE TEMPLATE: one CFG-generated sentence per line; maximum 10,000.
+Nội dung này nằm ở chương nào?
+Chương tiếp theo thì sao?
+Nó nằm ở chương nào?
+Tôi cần hoàn thành những bài tập nào?
+Còn chương sau?
+Nội dung này nằm ở chương nào ạ?
+Còn chương sau thì sao?
+Nội dung này nằm ở chương nào vậy?
+Nội dung này nằm ở chương nào nhé?
+Còn chương sau như thế nào?
+Nó nằm ở chương nào ạ?
+Nó nằm ở chương nào vậy?
+Nó nằm ở chương nào nhé?
+Chương tiếp theo thì sao ạ?
+Chương tiếp theo thì sao vậy?
+Chương tiếp theo thì sao nhé?
+Phần này cần xuất file gì?
+Môn này nặng mấy tín?
+Cho mình hỏi nội dung này nằm ở chương nào?
+Tổng quan về môn học?
+Các phần học của môn học?
+Phần này có output gì?
+Cho mình hỏi nó nằm ở chương nào?
+Cho mình hỏi chương tiếp theo thì sao?
+Phần này xuất những file nào?
+Cho em hỏi nội dung này nằm ở chương nào?
+Thời gian làm bài midterm?
+Phần này cần nộp những gì?
+Số tín chỉ của môn học là bao nhiêu?
+Cho em hỏi nó nằm ở chương nào?
+Cho em hỏi chương tiếp theo thì sao?
+Thời gian làm bài giữa kỳ?
+Ai dạy môn học?
+Phần này phải nộp những gì?
+Xin hỏi nội dung này nằm ở chương nào?
+Thang điểm của môn học?
+Thời gian làm bài final?
+Phần này cần nộp file gì?
+Xin hỏi chương tiếp theo thì sao?
+Xin hỏi nó nằm ở chương nào?
+Thời gian làm bài cuối kỳ?
+Phần này trả về kết quả gì?
+Hãy cho biết nội dung này nằm ở chương nào?
+Thời lượng thi midterm là bao nhiêu?
+Ai phụ trách môn học?
+Hãy cho biết chương tiếp theo thì sao?
+Khi nào tụi mình thi midterm?
+Phần này đầu ra là gì?
+Hãy cho biết nó nằm ở chương nào?
+Trọng số điểm môn học như thế nào?
+Thời lượng thi giữa kỳ là bao nhiêu?
+Khi nào tụi mình thi giữa kỳ?
+Phần này định dạng đầu ra là gì?
+Cho biết nội dung này nằm ở chương nào?
+Cho biết chương tiếp theo thì sao?
+Thời lượng thi final là bao nhiêu?
+Khi nào tụi mình thi final?
+Phần đó cần xuất file gì?
+Cho biết nó nằm ở chương nào?
+Thời lượng thi cuối kỳ là bao nhiêu?
+Thầy cô nào phụ trách môn học?
+Khi nào tụi mình thi cuối kỳ?
+Phần đó có output gì?
+Cho mình xem nội dung này nằm ở chương nào?
+Cho mình xem chương tiếp theo thì sao?
+Cách đánh giá môn học?
+Khi nào thi midterm?
+Phần đó xuất những file nào?
+Cho mình xem nó nằm ở chương nào?
+Khi nào thi giữa kỳ?
+Phần đó cần nộp những gì?
+Còn chương sau ạ?
+Còn chương sau vậy?
+Còn chương sau nhé?
+Khi nào thi final?
+Phần đó phải nộp những gì?
+Khi nào thi cuối kỳ?
+Phần đó cần nộp file gì?
+Còn chương sau thì sao ạ?
+Còn chương sau thì sao vậy?
+Còn chương sau thì sao nhé?
+Midterm thi khi nào?
+Phần đó trả về kết quả gì?
+Giữa kỳ thi khi nào?
+Tôi cần hoàn thành những bài tập nào ạ?
+Phần đó đầu ra là gì?
+Tôi cần hoàn thành những bài tập nào vậy?
+Tôi cần hoàn thành những bài tập nào nhé?
+Còn chương sau như thế nào ạ?
+Còn chương sau như thế nào vậy?
+Final thi khi nào?
+Phần đó định dạng đầu ra là gì?
+Còn chương sau như thế nào nhé?
+Cho mình hỏi nội dung này nằm ở chương nào ạ?
+Cho mình hỏi nội dung này nằm ở chương nào vậy?
+Cuối kỳ thi khi nào?
+Cho mình hỏi nội dung này nằm ở chương nào nhé?
+Midterm thi vào tuần mấy?
+Cho mình hỏi nó nằm ở chương nào ạ?
+Giữa kỳ thi vào tuần mấy?
+Cho mình hỏi nó nằm ở chương nào vậy?
+Cho mình hỏi nó nằm ở chương nào nhé?
+Cho mình hỏi còn chương sau?
+Môn học học về gì?
+Môn học gồm những phần nào?
+Final thi vào tuần mấy?
+Cho mình hỏi còn chương sau thì sao?
+Môn học có nội dung gì?
+Môn học có những phần nào?
+Cuối kỳ thi vào tuần mấy?
+Cho em hỏi nội dung này nằm ở chương nào ạ?
+Cho em hỏi nội dung này nằm ở chương nào vậy?
+Cho mình hỏi còn chương sau như thế nào?
+Cho em hỏi nội dung này nằm ở chương nào nhé?
+Môn học mô tả như thế nào?
+Môn học gồm mấy phần?
+Lịch thi midterm là ngày nào?
+Cho mình hỏi tôi cần hoàn thành những bài tập nào?
+Môn học giới thiệu nội dung gì?
+Môn học có mấy phần?
+Lịch thi giữa kỳ là ngày nào?
+Cho mình hỏi chương tiếp theo thì sao ạ?
+Cho em hỏi nó nằm ở chương nào ạ?
+Cho mình hỏi chương tiếp theo thì sao vậy?
+Môn này nặng mấy tín ạ?
+Cho em hỏi nó nằm ở chương nào vậy?
+Cho mình hỏi chương tiếp theo thì sao nhé?
+Môn này nặng mấy tín vậy?
+Môn học nghiên cứu vấn đề gì?
+Môn học chia thành mấy phần?
+Cho em hỏi nó nằm ở chương nào nhé?
+Môn này nặng mấy tín nhé?
+Lịch thi final là ngày nào?
+Cho em hỏi còn chương sau?
+Tổng quan về môn NLP?
+Các phần học của môn NLP?
+Số tín chỉ của môn NLP là bao nhiêu?
+Lịch thi cuối kỳ là ngày nào?
+Xin hỏi nội dung này nằm ở chương nào ạ?
+Cho em hỏi còn chương sau thì sao?
+Tổng quan về môn co3085?
+Các phần học của môn co3085?
+Cho em hỏi tôi cần hoàn thành những bài tập nào?
+Xin hỏi nội dung này nằm ở chương nào vậy?
+Số tín chỉ của môn co3085 là bao nhiêu?
+Ngày thi midterm là khi nào?
+Xin hỏi nội dung này nằm ở chương nào nhé?
+Phần i cần xuất file gì?
+Cho em hỏi còn chương sau như thế nào?
+Tổng quan về môn xử lý ngôn ngữ tự nhiên?
+Các phần học của môn xử lý ngôn ngữ tự nhiên?
+Số tín chỉ của môn xử lý ngôn ngữ tự nhiên là bao nhiêu?
+Ngày thi giữa kỳ là khi nào?
+Phần i có output gì?
+Tổng quan về môn natural language processing?
+Midterm bao nhiêu phút?
+Các phần học của môn natural language processing?
+Xin hỏi nó nằm ở chương nào ạ?
+Số tín chỉ của môn natural language processing là bao nhiêu?
+Ngày thi final là khi nào?
+Xin hỏi nó nằm ở chương nào vậy?
+Xin hỏi nó nằm ở chương nào nhé?
+Cho em hỏi chương tiếp theo thì sao ạ?
+Phần i xuất những file nào?
+Cho em hỏi chương tiếp theo thì sao vậy?
+Điểm được tính như thế nào?
+Tổng quan về NLP?
+Midterm kéo dài bao lâu?
+Các phần học của NLP?
+Cho em hỏi chương tiếp theo thì sao nhé?
+Số tín chỉ của NLP là bao nhiêu?
+Ngày thi cuối kỳ là khi nào?
+Xin hỏi tôi cần hoàn thành những bài tập nào?
+Phần i cần nộp những gì?
+Điểm gồm những thành phần nào?
+Tổng quan về co3085?
+Midterm có thời lượng bao nhiêu phút?
+Các phần học của co3085?
+Xin hỏi còn chương sau?
+Số tín chỉ của co3085 là bao nhiêu?
+Hãy cho biết nội dung này nằm ở chương nào ạ?
+Phần i phải nộp những gì?
+Điểm là gì?
+Tổng quan về xử lý ngôn ngữ tự nhiên?
+Midterm thi trong bao lâu?
+Các phần học của xử lý ngôn ngữ tự nhiên?
+Xin hỏi còn chương sau thì sao?
+Số tín chỉ của xử lý ngôn ngữ tự nhiên là bao nhiêu?
+Ai dạy môn NLP?
+Phần i cần nộp file gì?
+Đánh giá được tính như thế nào?
+Tổng quan về natural language processing?
+Giữa kỳ bao nhiêu phút?
+Các phần học của natural language processing?
+Xin hỏi còn chương sau như thế nào?
+Số tín chỉ của natural language processing là bao nhiêu?
+Ai dạy môn co3085?
+Hãy cho biết tôi cần hoàn thành những bài tập nào?
+Phần i trả về kết quả gì?
+Đánh giá gồm những thành phần nào?
+Giữa kỳ kéo dài bao lâu?
+Ai dạy môn xử lý ngôn ngữ tự nhiên?
+Tổng quan về môn học ạ?
+Các phần học của môn học ạ?
+Phần i đầu ra là gì?
+Xin hỏi chương tiếp theo thì sao ạ?
+Đánh giá là gì?
+Số tín chỉ của môn học là bao nhiêu ạ?
+Tổng quan về môn học vậy?
+Giữa kỳ có thời lượng bao nhiêu phút?
+Các phần học của môn học vậy?
+Xin hỏi chương tiếp theo thì sao vậy?
+Số tín chỉ của môn học là bao nhiêu vậy?
+Tổng quan về môn học nhé?
+Các phần học của môn học nhé?
+Số tín chỉ của môn học là bao nhiêu nhé?
+Ai dạy môn natural language processing?
+Phần i định dạng đầu ra là gì?
+Cách tính điểm được tính như thế nào?
+Giữa kỳ thi trong bao lâu?
+Ai dạy NLP?
+Phần ii cần xuất file gì?
+Cho biết tôi cần hoàn thành những bài tập nào?
+Cách tính điểm gồm những thành phần nào?
+Final bao nhiêu phút?
+Ai dạy co3085?
+Phần ii có output gì?
+Cách tính điểm là gì?
+Final kéo dài bao lâu?
+Ai dạy xử lý ngôn ngữ tự nhiên?
+Phần ii xuất những file nào?
+Thang điểm của môn NLP?
+Final có thời lượng bao nhiêu phút?
+Cho mình hỏi môn này nặng mấy tín?
+Lo1 là gì?
+Ai dạy natural language processing?
+Phần ii cần nộp những gì?
+Thang điểm của môn co3085?
+Final thi trong bao lâu?
+Cho mình xem tôi cần hoàn thành những bài tập nào?
+Lo1 học về gì?
+Phần ii phải nộp những gì?
+Thang điểm của môn xử lý ngôn ngữ tự nhiên?
+Cuối kỳ bao nhiêu phút?
+Ai dạy môn học ạ?
+Lo1 liên quan đến nội dung nào?
+Cho mình hỏi tổng quan về môn học?
+Cho mình hỏi các phần học của môn học?
+Ai dạy môn học vậy?
+Ai dạy môn học nhé?
+Phần ii cần nộp file gì?
+BTL yêu cầu xây dựng những gì?
+Thang điểm của môn natural language processing?
+Cuối kỳ kéo dài bao lâu?
+Cho mình hỏi số tín chỉ của môn học là bao nhiêu?
+Lo1 liên quan đến gì?
+Ai phụ trách môn NLP?
+Phần ii trả về kết quả gì?
+BTL yêu cầu những gì?
+Thang điểm của NLP?
+Cuối kỳ có thời lượng bao nhiêu phút?
+Lo2 là gì?
+Ai phụ trách môn co3085?
+Tuần nào học chương 1?
+Phần ii đầu ra là gì?
+BTL có những yêu cầu gì?
+Thang điểm của co3085?
+Cuối kỳ thi trong bao lâu?
+Lo2 học về gì?
+Ai phụ trách môn xử lý ngôn ngữ tự nhiên?
+Tuần nào học chương 01?
+Phần ii định dạng đầu ra là gì?
+BTL là gì?
+Thang điểm của xử lý ngôn ngữ tự nhiên?
+Lo2 liên quan đến nội dung nào?
+Thời gian làm bài midterm ạ?
+Ai phụ trách môn natural language processing?
+Tuần nào học chương 2?
+Phần iii cần xuất file gì?
+BTL có nội dung gì?
+Thang điểm của natural language processing?
+Cho em hỏi môn này nặng mấy tín?
+Thời gian làm bài midterm vậy?
+Phần này cần xuất file gì ạ?
+Thời gian làm bài midterm nhé?
+Lo2 liên quan đến gì?
+Phần này cần xuất file gì vậy?
+Phần này cần xuất file gì nhé?
+Ai phụ trách NLP?
+Tuần nào học chương 02?
+Phần iii có output gì?
+BTL gồm những phần nào?
+Lo3 là gì?
+Thang điểm của môn học ạ?
+Cho em hỏi tổng quan về môn học?
+Cho em hỏi các phần học của môn học?
+Ai phụ trách co3085?
+Tuần nào học chương 3?
+Phần iii xuất những file nào?
+BTL bao gồm những gì?
+Thang điểm của môn học vậy?
+Thời gian làm bài giữa kỳ ạ?
+Thang điểm của môn học nhé?
+Thời gian làm bài giữa kỳ vậy?
+Lo3 học về gì?
+Phần này có output gì ạ?
+Thời gian làm bài giữa kỳ nhé?
+Phần này có output gì vậy?
+Ai phụ trách xử lý ngôn ngữ tự nhiên?
+Tuần nào học chương 03?
+Phần iii cần nộp những gì?
+BTL có những chức năng gì?
+Phần này có output gì nhé?
+Cho em hỏi số tín chỉ của môn học là bao nhiêu?
+Trọng số điểm môn NLP như thế nào?
+Lo3 liên quan đến nội dung nào?
+Ai phụ trách natural language processing?
+Tuần nào học chương 4?
+Phần iii phải nộp những gì?
+BTL cần làm những gì?
+Trọng số điểm môn co3085 như thế nào?
+Thời gian làm bài final ạ?
+Lo3 liên quan đến gì?
+Thời gian làm bài final vậy?
+Phần này xuất những file nào ạ?
+Thời gian làm bài final nhé?
+Tuần nào học chương 04?
+Phần iii cần nộp file gì?
+BTL phải làm những gì?
+Phần này xuất những file nào vậy?
+Phần này xuất những file nào nhé?
+Trọng số điểm môn xử lý ngôn ngữ tự nhiên như thế nào?
+Lo4 là gì?
+Ai phụ trách môn học ạ?
+Ai phụ trách môn học vậy?
+Tuần nào học chương 5?
+Phần iii trả về kết quả gì?
+BTL cần thực hiện những gì?
+Ai phụ trách môn học nhé?
+Trọng số điểm môn natural language processing như thế nào?
+Lo4 học về gì?
+Thời gian làm bài cuối kỳ ạ?
+Xin hỏi môn này nặng mấy tín?
+Thời gian làm bài cuối kỳ vậy?
+Tuần nào học chương 05?
+Phần iii đầu ra là gì?
+BTL01 yêu cầu xây dựng những gì?
+Phần này cần nộp những gì ạ?
+Thời gian làm bài cuối kỳ nhé?
+Thầy cô nào phụ trách môn NLP?
+Phần này cần nộp những gì vậy?
+Trọng số điểm NLP như thế nào?
+Lo4 liên quan đến nội dung nào?
+Phần này cần nộp những gì nhé?
+Tuần nào học chương 6?
+Phần iii định dạng đầu ra là gì?
+BTL01 yêu cầu những gì?
+Xin hỏi tổng quan về môn học?
+Xin hỏi các phần học của môn học?
+Thầy cô nào phụ trách môn co3085?
+Trọng số điểm co3085 như thế nào?
+Lo4 liên quan đến gì?
+Thời lượng thi midterm là bao nhiêu ạ?
+Tuần nào học chương 06?
+Phần iv cần xuất file gì?
+BTL01 có những yêu cầu gì?
+Thời lượng thi midterm là bao nhiêu vậy?
+Thầy cô nào phụ trách môn xử lý ngôn ngữ tự nhiên?
+Phần này phải nộp những gì ạ?
+Trọng số điểm xử lý ngôn ngữ tự nhiên như thế nào?
+Lo1.1 là gì?
+Phần này phải nộp những gì vậy?
+Phần này phải nộp những gì nhé?
+Xin hỏi số tín chỉ của môn học là bao nhiêu?
+Tuần nào học chương 7?
+Phần iv có output gì?
+BTL01 là gì?
+Thầy cô nào phụ trách môn natural language processing?
+Trọng số điểm natural language processing như thế nào?
+Lo1.1 học về gì?
+Tuần nào học chương 07?
+Phần iv xuất những file nào?
+BTL01 có nội dung gì?
+Thầy cô nào phụ trách NLP?
+Lo1.1 liên quan đến nội dung nào?
+Phần này cần nộp file gì ạ?
+Phần này cần nộp file gì vậy?
+Tuần nào học chương 8?
+Phần iv cần nộp những gì?
+BTL01 gồm những phần nào?
+Phần này cần nộp file gì nhé?
+Trọng số điểm môn học như thế nào ạ?
+Thầy cô nào phụ trách co3085?
+Trọng số điểm môn học như thế nào vậy?
+Lo1.1 liên quan đến gì?
+Trọng số điểm môn học như thế nào nhé?
+Tuần nào học chương 08?
+Phần iv phải nộp những gì?
+BTL01 bao gồm những gì?
+Thầy cô nào phụ trách xử lý ngôn ngữ tự nhiên?
+Lo2.1 là gì?
+Cách đánh giá môn NLP?
+Hãy cho biết môn này nặng mấy tín?
+Phần này trả về kết quả gì ạ?
+Tuần nào học chương 9?
+Phần iv cần nộp file gì?
+BTL01 có những chức năng gì?
+Phần này trả về kết quả gì vậy?
+Thầy cô nào phụ trách natural language processing?
+Phần này trả về kết quả gì nhé?
+Hãy cho biết tổng quan về môn học?
+Hãy cho biết các phần học của môn học?
+Lo2.1 học về gì?
+Cách đánh giá môn co3085?
+Tuần nào học chương 09?
+Phần iv trả về kết quả gì?
+BTL01 cần làm những gì?
+Lo2.1 liên quan đến nội dung nào?
+Cách đánh giá môn xử lý ngôn ngữ tự nhiên?
+Thầy cô nào phụ trách môn học ạ?
+Tuần nào học chương 10?
+Phần iv đầu ra là gì?
+BTL01 phải làm những gì?
+Thầy cô nào phụ trách môn học vậy?
+Thầy cô nào phụ trách môn học nhé?
+Lo2.1 liên quan đến gì?
+Cách đánh giá môn natural language processing?
+Hãy cho biết số tín chỉ của môn học là bao nhiêu?
+Tuần nào học chương 11?
+Phần iv định dạng đầu ra là gì?
+BTL01 cần thực hiện những gì?
+Lo2.2 là gì?
+Chương 1 nói về gì?
+Cách đánh giá NLP?
+Tuần nào học chương 12?
+Part i cần xuất file gì?
+Bài tập lớn yêu cầu xây dựng những gì?
+Lo2.2 học về gì?
+Chương 1 học về gì?
+Tuần nào học chương 13?
+Part i có output gì?
+Bài tập lớn yêu cầu những gì?
+Lo2.2 liên quan đến nội dung nào?
+Chương 1 có nội dung gì?
+Tuần nào học chương 99?
+Part i xuất những file nào?
+Bài tập lớn có những yêu cầu gì?
+Cho biết môn này nặng mấy tín?
+Lo2.2 liên quan đến gì?
+Chương 1 có những phương pháp gì?
+Cho biết tổng quan về môn học?
+Cho biết các phần học của môn học?
+Cho mình hỏi ai dạy môn học?
+Bài tập lớn là gì?
+Lo2.3 là gì?
+Chương 1 trình bày gì?
+Bài tập lớn có nội dung gì?
+Khi nào tụi mình thi midterm ạ?
+Khi nào tụi mình thi midterm vậy?
+Lo2.3 học về gì?
+Chương 01 nói về gì?
+Khi nào tụi mình thi midterm nhé?
+Bài tập lớn gồm những phần nào?
+Cho biết số tín chỉ của môn học là bao nhiêu?
+Lo2.3 liên quan đến nội dung nào?
+Chương 01 học về gì?
+Cho mình hỏi ai phụ trách môn học?
+Bài tập lớn bao gồm những gì?
+Khi nào tụi mình thi giữa kỳ ạ?
+Lo2.3 liên quan đến gì?
+Chương 01 có nội dung gì?
+Khi nào tụi mình thi giữa kỳ vậy?
+Khi nào tụi mình thi giữa kỳ nhé?
+Lo2.4 là gì?
+Chương 01 có những phương pháp gì?
+Lo2.4 học về gì?
+Chương 01 trình bày gì?
+Khi nào tụi mình thi final ạ?
+Cho mình xem tổng quan về môn học?
+Khi nào tụi mình thi final vậy?
+Cho mình xem các phần học của môn học?
+Cho mình xem môn này nặng mấy tín?
+Khi nào tụi mình thi final nhé?
+Lo2.4 liên quan đến nội dung nào?
+Chương 2 nói về gì?
+Môn NLP học về gì?
+Môn NLP gồm những phần nào?
+Lo2.4 liên quan đến gì?
+Chương 2 học về gì?
+Môn NLP có nội dung gì?
+Khi nào tụi mình thi cuối kỳ ạ?
+Môn NLP có những phần nào?
+Khi nào tụi mình thi cuối kỳ vậy?
+Khi nào tụi mình thi cuối kỳ nhé?
+Lo2.5 là gì?
+Chương 2 có nội dung gì?
+Môn NLP mô tả như thế nào?
+Môn NLP gồm mấy phần?
+Cho mình xem số tín chỉ của môn học là bao nhiêu?
+Lo2.5 học về gì?
+Chương 2 có những phương pháp gì?
+Môn NLP giới thiệu nội dung gì?
+Môn NLP có mấy phần?
+Khi nào thi midterm ạ?
+Khi nào thi midterm vậy?
+Chương 2 trình bày gì?
+Môn NLP nghiên cứu vấn đề gì?
+Môn NLP chia thành mấy phần?
+Chương 02 nói về gì?
+Môn co3085 học về gì?
+Môn co3085 gồm những phần nào?
+Chương 02 học về gì?
+Môn co3085 có nội dung gì?
+Môn co3085 có những phần nào?
+Có được chia sẻ bài làm không?
+Chương 02 có nội dung gì?
+Môn co3085 mô tả như thế nào?
+Môn co3085 gồm mấy phần?
+Có được chia sẻ bài làm hay không?
+Chương 02 có những phương pháp gì?
+Môn co3085 giới thiệu nội dung gì?
+Môn co3085 có mấy phần?
+Chương 02 trình bày gì?
+Môn co3085 nghiên cứu vấn đề gì?
+Môn co3085 chia thành mấy phần?
+Tài liệu chương này là gì?
+Chương 3 nói về gì?
+Môn xử lý ngôn ngữ tự nhiên học về gì?
+Môn xử lý ngôn ngữ tự nhiên gồm những phần nào?
+Tài liệu chương này ở đâu?
+Chương 3 học về gì?
+Môn xử lý ngôn ngữ tự nhiên có nội dung gì?
+Môn xử lý ngôn ngữ tự nhiên có những phần nào?
+Tài liệu chương này gồm những gì?
+Chương 3 có nội dung gì?
+Môn xử lý ngôn ngữ tự nhiên mô tả như thế nào?
+Môn xử lý ngôn ngữ tự nhiên gồm mấy phần?
+Tài liệu chương đó là gì?
+Chương 3 có những phương pháp gì?
+Môn xử lý ngôn ngữ tự nhiên giới thiệu nội dung gì?
+Môn xử lý ngôn ngữ tự nhiên có mấy phần?
+Tài liệu chương đó ở đâu?
+Chương 3 trình bày gì?
+Môn xử lý ngôn ngữ tự nhiên nghiên cứu vấn đề gì?
+Môn xử lý ngôn ngữ tự nhiên chia thành mấy phần?
+Tài liệu chương đó gồm những gì?
+Chương 03 nói về gì?
+Môn natural language processing học về gì?
+Tài liệu phần này là gì?
+Chương 03 học về gì?
+Tài liệu phần này ở đâu?
+Chương 03 có nội dung gì?
+Tài liệu phần này gồm những gì?
+Chương 03 có những phương pháp gì?
+Tài liệu nội dung này là gì?
+Chương 03 trình bày gì?
+Có được phép chia sẻ bài làm không?
+Tài liệu nội dung này ở đâu?
+Chương 4 nói về gì?
+Có được phép chia sẻ bài làm hay không?
+Tài liệu nội dung này gồm những gì?
+Chương 4 học về gì?
+Tài liệu nó là gì?
+Chương 4 có nội dung gì?
+Tài liệu nó ở đâu?
+Chương 4 có những phương pháp gì?
+Tài liệu nó gồm những gì?
+Chương 4 trình bày gì?
+Tài liệu của chương này là gì?
+Chương 04 nói về gì?
+Tài liệu của chương này ở đâu?
+Chương 04 học về gì?
+Tài liệu của chương này gồm những gì?
+Chương 04 có nội dung gì?
+Môn học bao nhiêu tín chỉ?
+Tài liệu của chương đó là gì?
+Môn học mấy tín chỉ?
+Tài liệu của chương đó ở đâu?
+Môn học số tín chỉ là bao nhiêu?
+Tài liệu của chương đó gồm những gì?
+Môn học bao nhiêu tín?
+Tài liệu của phần này là gì?
+Môn học có bao nhiêu tín chỉ?
+Tài liệu của phần này ở đâu?
+Môn học có mấy tín chỉ?
+Hạn nộp BTL khi nào?
+Tài liệu của phần này gồm những gì?
+Môn học có số tín chỉ là bao nhiêu?
+Hạn nộp BTL là khi nào?
+Tài liệu của nội dung này là gì?
+Môn học có bao nhiêu tín?
+Hạn nộp BTL vào tuần nào?
+Tài liệu của nội dung này ở đâu?
+Môn học được bao nhiêu tín chỉ?
+Hạn nộp BTL bao giờ?
+Tài liệu của nội dung này gồm những gì?
+Môn học được mấy tín chỉ?
+Tài liệu của nó là gì?
+Hạn nộp BTL01 khi nào?
+Môn học được số tín chỉ là bao nhiêu?
+Tài liệu của nó ở đâu?
+Hạn nộp BTL01 là khi nào?
+Tài liệu của nó gồm những gì?
+Hạn nộp BTL01 vào tuần nào?
+Giáo trình chương này là gì?
+Hạn nộp BTL01 bao giờ?
+Giáo trình chương này ở đâu?
+Hạn nộp bài tập lớn khi nào?
+Giáo trình chương này gồm những gì?
+Hạn nộp bài tập lớn là khi nào?
+Nội dung của tuần 1?
+Giáo trình chương đó là gì?
+Hạn nộp bài tập lớn vào tuần nào?
+Nội dung của tuần 01?
+Giáo trình chương đó ở đâu?
+Hạn nộp bài tập lớn bao giờ?
+Nội dung của tuần 2?
+Giáo trình chương đó gồm những gì?
+Nội dung của tuần 02?
+Giáo trình phần này là gì?
+Hạn nộp đồ án khi nào?
+Nội dung của tuần 3?
+Giáo trình phần này ở đâu?
+Hạn nộp đồ án là khi nào?
+Nội dung của tuần 03?
+Giáo trình phần này gồm những gì?
+Hạn nộp đồ án vào tuần nào?
+Nội dung của tuần 4?
+Hạn nộp đồ án bao giờ?
+Nội dung của tuần 04?
+Hạn nộp assignment khi nào?
+Nội dung của tuần 5?
+Hạn nộp assignment là khi nào?
+Nội dung của tuần 05?
+Hạn nộp assignment vào tuần nào?
+Nội dung của tuần 6?
+Hạn nộp assignment bao giờ?
+Nội dung của tuần 06?
+Nội dung của tuần 7?
+Hạn nộp project khi nào?
+Nội dung của tuần 07?
+Hạn nộp project là khi nào?
+Nội dung của tuần 8?
+Hạn nộp project vào tuần nào?
+Nội dung của tuần 08?
+Hạn nộp project bao giờ?
+Nội dung của tuần 9?
+BTL khi nào?
+Nội dung của tuần 09?
+Phần i của BTL là gì?
+BTL là khi nào?
+Nội dung của tuần 10?
+Phần i của BTL01 là gì?
+BTL vào tuần nào?
+Nội dung của tuần 11?
+Phần i của bài tập lớn là gì?
+Chương 1 học vào tuần nào?
+BTL bao giờ?
+Nội dung của tuần 12?
+Phần i của đồ án là gì?
+Chương 1 được học ở tuần nào?
+Nội dung của tuần 13?
+CFG được học ở đâu?
+BTL01 khi nào?
+Phần i của assignment là gì?
+Chương 1 nằm ở tuần nào?
+Nội dung của tuần 14?
+CFG nằm ở chương nào?
+BTL01 là khi nào?
+Phần i của project là gì?
+Chương 1 học vào những tuần nào?
+Nội dung của tuần 15?
+CFG thuộc chương nào?
+BTL01 vào tuần nào?
+Phần ii của BTL là gì?
+Chương 1 được dạy tuần nào?
+Nội dung của tuần 16?
+Context-free grammar được học ở đâu?
+BTL01 bao giờ?
+Phần ii của BTL01 là gì?
+Chương 1 ở tuần mấy?
+Nội dung của tuần 20?
+Context-free grammar nằm ở chương nào?
+Phần ii của bài tập lớn là gì?
+Chương 01 học vào tuần nào?
+Bài tập lớn khi nào?
+LLM/RAG được quy định như thế nào?
+Nội dung của tuần 99?
+Context-free grammar thuộc chương nào?
+Phần ii của đồ án là gì?
+Chương 01 được học ở tuần nào?
+Bài tập lớn là khi nào?
+LLM/RAG là gì?
+Văn phạm phi ngữ cảnh được học ở đâu?
+Phần ii của assignment là gì?
+Chương 01 nằm ở tuần nào?
+Bài tập lớn vào tuần nào?
+LLM/RAG có được phép không?
+Văn phạm phi ngữ cảnh nằm ở chương nào?
+Phần ii của project là gì?
+Chương 01 học vào những tuần nào?
+Bài tập lớn bao giờ?
+LLM được quy định như thế nào?
+Văn phạm phi ngữ cảnh thuộc chương nào?
+Phần iii của BTL là gì?
+Chương 01 được dạy tuần nào?
+LLM là gì?
+PCFG được học ở đâu?
+Đồ án khi nào?
+Phần iii của BTL01 là gì?
+Chương 01 ở tuần mấy?
+LLM có được phép không?
+PCFG nằm ở chương nào?
+Đồ án là khi nào?
+Phần iii của bài tập lớn là gì?
+Chương 2 học vào tuần nào?
+RAG được quy định như thế nào?
+PCFG thuộc chương nào?
+Phần iii của đồ án là gì?
+Chương 2 được học ở tuần nào?
+RAG là gì?
+Probabilistic context-free grammar được học ở đâu?
+Phần iii của assignment là gì?
+Chương 2 nằm ở tuần nào?
+RAG có được phép không?
+Probabilistic context-free grammar nằm ở chương nào?
+Phần iii của project là gì?
+Công cụ AI được quy định như thế nào?
+Probabilistic context-free grammar thuộc chương nào?
+Phần iv của BTL là gì?
+Công cụ AI là gì?
+Dependency grammar được học ở đâu?
+Phần iv của BTL01 là gì?
+Công cụ AI có được phép không?
+Dependency grammar nằm ở chương nào?
+Phần iv của bài tập lớn là gì?
+AI được quy định như thế nào?
+Dependency grammar thuộc chương nào?
+Phần iv của đồ án là gì?
+AI là gì?
+Văn phạm phụ thuộc được học ở đâu?
+Phần iv của assignment là gì?
+AI có được phép không?
+Văn phạm phụ thuộc nằm ở chương nào?
+Phần iv của project là gì?
+Sử dụng AI được quy định như thế nào?
+Văn phạm phụ thuộc thuộc chương nào?
+Part i của BTL là gì?
+Sử dụng AI là gì?
+Features được học ở đâu?
+Part i của BTL01 là gì?
+Sử dụng AI có được phép không?
+Features nằm ở chương nào?
+Part i của bài tập lớn là gì?
+Thư viện ngoài được quy định như thế nào?
+Features thuộc chương nào?
+Part i của đồ án là gì?
+Thư viện ngoài là gì?
+Nét được học ở đâu?
+Part i của assignment là gì?
+Thư viện ngoài có được phép không?
+Nét nằm ở chương nào?
+Part i của project là gì?
+Thư viện có sẵn được quy định như thế nào?
+Nét thuộc chương nào?
+Part ii của BTL là gì?
+Thư viện có sẵn là gì?
+Augmented grammar được học ở đâu?
+Part ii của BTL01 là gì?
+Thư viện có sẵn có được phép không?
+Augmented grammar nằm ở chương nào?
+Part ii của bài tập lớn là gì?
+Mã nguồn được quy định như thế nào?
+Augmented grammar thuộc chương nào?
+Part ii của đồ án là gì?
+Mã nguồn là gì?
+Văn phạm gia tố được học ở đâu?
+Part ii của assignment là gì?
+Mã nguồn có được phép không?
+Văn phạm gia tố nằm ở chương nào?
+Part ii của project là gì?
+Source code được quy định như thế nào?
+Văn phạm gia tố thuộc chương nào?
+Part iii của BTL là gì?
+Source code là gì?
+Unification được học ở đâu?
+Part iii của BTL01 là gì?
+Source code có được phép không?
+Unification nằm ở chương nào?
+Part iii của bài tập lớn là gì?
+Liêm chính học thuật được quy định như thế nào?
+Unification thuộc chương nào?
+Liêm chính học thuật là gì?
+Hợp nhất được học ở đâu?
+Liêm chính học thuật có được phép không?
+Hợp nhất nằm ở chương nào?
+Tài liệu nào nói về statistical NLP?
+Tài liệu nào nói về NLP thống kê?
+Tài liệu nào nói về python NLP?
+Tài liệu nào nói về NLP với python?
+Tài liệu nào nói về CFG?
+Tài liệu nào nói về parsing?
+Tuần 1 học gì?
+Tài liệu nào nói về ngữ nghĩa?
+Tuần 1 học những gì?
+Tài liệu nào nói về semantic?
+Tuần 1 học nội dung gì?
+Tài liệu nào nói về tri thức thế giới?
+Tuần 1 học những nội dung gì?
+Tài liệu nào nói về world knowledge?
+Tuần 1 có nội dung gì?
+Tài liệu nào nói về machine translation?
+Tuần 1 học chương nào?
+Tài liệu nào nói về dịch máy?
+Tuần 1 giảng chủ đề gì?
+Tài liệu nào liên quan đến statistical NLP?
+Tuần 01 học gì?
+Tài liệu nào liên quan đến NLP thống kê?
+Tuần 01 học những gì?
+Tài liệu nào liên quan đến python NLP?
+Tuần 01 học nội dung gì?
+Tài liệu nào liên quan đến NLP với python?
+Tuần 01 học những nội dung gì?
+Tài liệu nào liên quan đến CFG?
+Tài liệu nào liên quan đến parsing?
+Tài liệu nào liên quan đến ngữ nghĩa?
+Tài liệu nào liên quan đến semantic?
+Tài liệu nào liên quan đến tri thức thế giới?
+Tài liệu nào liên quan đến world knowledge?
+Tài liệu nào liên quan đến machine translation?
+Tài liệu nào liên quan đến dịch máy?
+Tài liệu gì về statistical NLP?
+Tài liệu gì về NLP thống kê?
+Tài liệu gì về python NLP?
+Tài liệu gì về NLP với python?
+Tài liệu gì về CFG?
+Tài liệu gì về parsing?
+Tài liệu gì về ngữ nghĩa?
+Tài liệu gì về semantic?
+Tài liệu gì về tri thức thế giới?
+Tài liệu gì về world knowledge?
+Tài liệu gì về machine translation?
+Tài liệu gì về dịch máy?
+Tài liệu nào về statistical NLP?
+Tài liệu nào về NLP thống kê?
+Có được dùng LLM/RAG không?
+Nó có CFG không?
+Nó có CFG hay không?
+Nó có context-free grammar không?
+Nó có context-free grammar hay không?
+Nó có văn phạm phi ngữ cảnh không?
+Nó có văn phạm phi ngữ cảnh hay không?
+Nó có PCFG không?
+Nó có PCFG hay không?
+Nó có probabilistic context-free grammar không?
+Nó có probabilistic context-free grammar hay không?
+Nó có dependency grammar không?
+Nó có dependency grammar hay không?
+Nó có văn phạm phụ thuộc không?
+Nó có văn phạm phụ thuộc hay không?
+Nó có features không?
+Nó có features hay không?
+Nó có nét không?
+Nó có nét hay không?
+Nó có augmented grammar không?
+Nó có augmented grammar hay không?
+Nó có văn phạm gia tố không?
+Nó có văn phạm gia tố hay không?
+Nó có unification không?
+Nó có unification hay không?
+Nó có hợp nhất không?
+BTL có phần parser không?
+Nó có hợp nhất hay không?
+BTL có phần parser hay không?
+Nó có pos tagging không?
+BTL có phần grammar không?
+Nó có pos tagging hay không?
+BTL có phần grammar hay không?
+Nó có gán nhãn từ loại không?
+BTL có phần parse tree không?
+Nó có gán nhãn từ loại hay không?
+BTL có phần parse tree hay không?
+Nó có logical form không?
+BTL có phần văn phạm không?
+Nó có logical form hay không?
+BTL có phần văn phạm hay không?
+Nó có dạng luận lý không?
+BTL có phần phân tích cú pháp không?
+Nó có dạng luận lý hay không?
+BTL có phần phân tích cú pháp hay không?
+Nó có thematic roles không?
+BTL có phần hỏi đáp không?
+Nó có thematic roles hay không?
+BTL có phần hỏi đáp hay không?
+Nó có vai trò chủ đề không?
+BTL có phần semantic không?
+Nó có vai trò chủ đề hay không?
+BTL có phần semantic hay không?
+Nó có selectional restriction không?
+BTL có phần intent không?
+BTL có phần intent hay không?
+BTL có phần entity không?
+BTL có phần entity hay không?
+BTL có phần KB không?
+BTL có phần KB hay không?
+BTL có phần ngữ nghĩa không?
+BTL có phần ngữ nghĩa hay không?
+BTL có phần ngữ cảnh không?
+BTL có phần ngữ cảnh hay không?
+BTL có phần hội thoại không?
+BTL có phần hội thoại hay không?
+BTL có phần tham chiếu không?
+BTL có phần tham chiếu hay không?
+BTL có phần đánh giá không?
+BTL có phần đánh giá hay không?
+BTL có phần test set không?
+BTL có phần test set hay không?
+BTL có phần metric không?
+BTL có phần metric hay không?
+BTL có phần kiểm thử không?
+BTL có phần kiểm thử hay không?
+BTL có chức năng parser không?
+BTL có chức năng parser hay không?
+BTL có chức năng grammar không?
+Chương 1 có CFG không?
+Chương 1 có CFG hay không?
+Chương 1 có context-free grammar không?
+Chương 1 có context-free grammar hay không?
+Chương 1 có văn phạm phi ngữ cảnh không?
+Chương 1 có văn phạm phi ngữ cảnh hay không?
+Chương 1 có PCFG không?
+Chương 1 có PCFG hay không?
+Chương 1 có probabilistic context-free grammar không?
+Chương 1 có probabilistic context-free grammar hay không?
+Chương 1 có dependency grammar không?
+Chương 1 có dependency grammar hay không?
+Chương 1 có văn phạm phụ thuộc không?
+Chương 1 có văn phạm phụ thuộc hay không?
+Chương 1 có features không?
+Chương 1 có features hay không?
+Chương 1 có nét không?
+Chương 1 có nét hay không?
+Chương 1 có augmented grammar không?
+Chương 1 có augmented grammar hay không?
+Chương 1 có văn phạm gia tố không?
+Chương 1 có văn phạm gia tố hay không?
+Chương 1 có unification không?
+Chương 1 có unification hay không?
+Chương 1 có hợp nhất không?
+Chương 1 có hợp nhất hay không?
+Chương 1 có pos tagging không?
+Chương 1 có pos tagging hay không?
+Chương 1 có gán nhãn từ loại không?
+Chương 1 có gán nhãn từ loại hay không?
+Chương 1 có logical form không?
+Chương 1 có logical form hay không?
+Chương 1 có dạng luận lý không?
+Chương 1 có dạng luận lý hay không?
+Chương 1 có thematic roles không?
+Chương 1 có thematic roles hay không?
+Chương 1 có vai trò chủ đề không?
+Chương 1 có vai trò chủ đề hay không?
+Phần CFG và CFG nằm ở tuần nào?
+Phần CFG và CFG học ở tuần nào?
+Phần CFG và CFG được học vào tuần nào?
+Phần CFG và context-free grammar nằm ở tuần nào?
+Phần CFG và context-free grammar học ở tuần nào?
+Phần CFG và context-free grammar được học vào tuần nào?
+Phần CFG và văn phạm phi ngữ cảnh nằm ở tuần nào?
+Phần CFG và văn phạm phi ngữ cảnh học ở tuần nào?
+Phần CFG và văn phạm phi ngữ cảnh được học vào tuần nào?
+Phần CFG và PCFG nằm ở tuần nào?
+Phần CFG và PCFG học ở tuần nào?
+Phần CFG và PCFG được học vào tuần nào?
+Phần CFG và probabilistic context-free grammar nằm ở tuần nào?
+Phần CFG và probabilistic context-free grammar học ở tuần nào?
+Phần CFG và probabilistic context-free grammar được học vào tuần nào?
+Phần CFG và dependency grammar nằm ở tuần nào?
+Phần CFG và dependency grammar học ở tuần nào?
+Phần CFG và dependency grammar được học vào tuần nào?
+Phần CFG và văn phạm phụ thuộc nằm ở tuần nào?
+Phần CFG và văn phạm phụ thuộc học ở tuần nào?
+Phần CFG và văn phạm phụ thuộc được học vào tuần nào?
+Phần CFG và features nằm ở tuần nào?
+Phần CFG và features học ở tuần nào?
+Phần CFG và features được học vào tuần nào?
+Phần CFG và nét nằm ở tuần nào?
+Phần CFG và nét học ở tuần nào?
+Phần CFG và nét được học vào tuần nào?
+Phần CFG và augmented grammar nằm ở tuần nào?
+Phần CFG và augmented grammar học ở tuần nào?
+Phần CFG và augmented grammar được học vào tuần nào?
+Phần CFG và văn phạm gia tố nằm ở tuần nào?
+Phần CFG và văn phạm gia tố học ở tuần nào?
+Phần CFG và văn phạm gia tố được học vào tuần nào?
+Phần CFG và unification nằm ở tuần nào?
+Phần CFG và unification học ở tuần nào?
+Phần CFG và unification được học vào tuần nào?
+Phần CFG và hợp nhất nằm ở tuần nào?
+Phần CFG và hợp nhất học ở tuần nào?

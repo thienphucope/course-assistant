@@ -134,11 +134,11 @@ def _write_evaluations(assistant: CourseAssistant, paths: ProjectPaths, output: 
     challenge_cases = load_evaluation_cases(paths.scaffolding / "challenge_queries.txt")
     official = evaluate_cases(assistant, official_cases, reset_context=True)
     challenge = evaluate_cases(assistant, challenge_cases, reset_context=True)
-    (output / "evaluation.txt").write_text(render_evaluation(official, challenge), encoding="utf-8")
+    (output / "evaluation.txt").write_text(render_evaluation(official, challenge), encoding="utf-8", newline="\n")
 
     dialogues = load_dialogue_cases(paths.scaffolding / "dialogues.txt")
     dialogue_report = render_dialogue_evaluation(assistant, dialogues)
-    (output / "dialogue.txt").write_text(dialogue_report, encoding="utf-8")
+    (output / "dialogue.txt").write_text(dialogue_report, encoding="utf-8", newline="\n")
 
 
 def _questions(arguments: list[str], input_name: str | None, paths: ProjectPaths) -> list[str]:

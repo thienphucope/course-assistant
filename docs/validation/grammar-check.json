@@ -1,0 +1,2002 @@
+{
+  "rules": 463,
+  "branches": 26,
+  "suites": {
+    "official": {
+      "passed": 42,
+      "total": 42,
+      "failures": []
+    },
+    "challenge": {
+      "passed": 20,
+      "total": 22,
+      "failures": [
+        {
+          "id": "C007",
+          "question": "Môn NLP học mấy buổi mỗi tuần?",
+          "branch": null,
+          "reason": "Grammar thiếu mẫu hoặc từ đồng nghĩa; parser trả ()."
+        },
+        {
+          "id": "C008",
+          "question": "Tuần thứ ba tụi mình học bài gì vậy?",
+          "branch": null,
+          "reason": "Grammar thiếu mẫu hoặc từ đồng nghĩa; parser trả ()."
+        }
+      ]
+    }
+  },
+  "dialogues": {
+    "passed": 6,
+    "total": 6
+  },
+  "generated": {
+    "requested": 1000,
+    "produced": 1000,
+    "explored_forms": 138916,
+    "truncated": true
+  },
+  "coverage": {
+    "Q_ASSIGNMENT_FEATURE": 39,
+    "Q_ASSIGNMENT_OUTPUT": 39,
+    "Q_ASSIGNMENT_OVERVIEW": 39,
+    "Q_ASSIGNMENT_PART": 39,
+    "Q_CONTEXT_ASSIGNMENT_OUTPUT": 39,
+    "Q_CONTEXT_LO_CHAPTER": 39,
+    "Q_CONTEXT_NEXT_CHAPTER": 39,
+    "Q_CONTEXT_RESOURCE": 39,
+    "Q_CONTEXT_TOPIC_RELATION": 39,
+    "Q_COURSE_ASSESSMENT": 39,
+    "Q_COURSE_CREDITS": 39,
+    "Q_COURSE_DESCRIPTION": 39,
+    "Q_COURSE_EXAM_DURATION": 38,
+    "Q_COURSE_EXAM_TIME": 38,
+    "Q_COURSE_PARTS": 38,
+    "Q_DEADLINE": 38,
+    "Q_INSTRUCTOR": 38,
+    "Q_LO": 38,
+    "Q_RESOURCE": 38,
+    "Q_RULE": 38,
+    "Q_SCHEDULE_CHAPTER": 38,
+    "Q_SCHEDULE_TOPICS": 38,
+    "Q_SCHEDULE_WEEK": 38,
+    "Q_TOPIC_BY_CHAPTER": 38,
+    "Q_TOPIC_BY_NAME": 38,
+    "Q_TOPIC_RELATION": 38
+  },
+  "query_statuses": {
+    "UNRESOLVED_CONTEXT": 195,
+    "FOUND": 680,
+    "INSTRUCTOR": 38,
+    "EXAM_TIME": 38,
+    "ASSIGNMENT_SECTION": 27,
+    "SCHEDULE_CHAPTER": 2,
+    "SCHEDULE_WEEK": 3,
+    "SCHEDULE_TOPICS": 17
+  },
+  "missing_facts_or_context": [
+    {
+      "question": "Nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nội dung này nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nội dung này nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nội dung này nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau như thế nào?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Chương tiếp theo thì sao ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Chương tiếp theo thì sao vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Chương tiếp theo thì sao nhé?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần xuất file gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này có output gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này xuất những file nào?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần nộp những gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai dạy môn học?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần này phải nộp những gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần nộp file gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này trả về kết quả gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Hãy cho biết nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai phụ trách môn học?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Hãy cho biết chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào tụi mình thi midterm?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần này đầu ra là gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Hãy cho biết nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào tụi mình thi giữa kỳ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần này định dạng đầu ra là gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho biết nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho biết chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào tụi mình thi final?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó cần xuất file gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho biết nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn học?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Khi nào tụi mình thi cuối kỳ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó có output gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình xem nội dung này nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình xem chương tiếp theo thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào thi midterm?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó xuất những file nào?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình xem nó nằm ở chương nào?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào thi giữa kỳ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó cần nộp những gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau nhé?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào thi final?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó phải nộp những gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Khi nào thi cuối kỳ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó cần nộp file gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau thì sao ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau thì sao vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau thì sao nhé?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Midterm thi khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó trả về kết quả gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giữa kỳ thi khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó đầu ra là gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau như thế nào ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau như thế nào vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Final thi khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Phần đó định dạng đầu ra là gì?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Còn chương sau như thế nào nhé?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi nội dung này nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi nội dung này nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cuối kỳ thi khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho mình hỏi nội dung này nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Midterm thi vào tuần mấy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho mình hỏi nó nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giữa kỳ thi vào tuần mấy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho mình hỏi nó nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi nó nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi còn chương sau?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Final thi vào tuần mấy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho mình hỏi còn chương sau thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cuối kỳ thi vào tuần mấy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho em hỏi nội dung này nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nội dung này nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi còn chương sau như thế nào?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nội dung này nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Lịch thi midterm là ngày nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Lịch thi giữa kỳ là ngày nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho mình hỏi chương tiếp theo thì sao ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nó nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi chương tiếp theo thì sao vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nó nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho mình hỏi chương tiếp theo thì sao nhé?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi nó nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Lịch thi final là ngày nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho em hỏi còn chương sau?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Lịch thi cuối kỳ là ngày nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Xin hỏi nội dung này nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi còn chương sau thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi nội dung này nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ngày thi midterm là khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Xin hỏi nội dung này nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi còn chương sau như thế nào?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ngày thi giữa kỳ là khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Xin hỏi nó nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ngày thi final là khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Xin hỏi nó nằm ở chương nào vậy?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi nó nằm ở chương nào nhé?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi chương tiếp theo thì sao ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi chương tiếp theo thì sao vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Cho em hỏi chương tiếp theo thì sao nhé?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ngày thi cuối kỳ là khi nào?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Xin hỏi còn chương sau?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Hãy cho biết nội dung này nằm ở chương nào ạ?",
+      "branch": "Q_CONTEXT_LO_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi còn chương sau thì sao?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai dạy môn NLP?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Xin hỏi còn chương sau như thế nào?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai dạy môn co3085?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Ai dạy môn xử lý ngôn ngữ tự nhiên?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Xin hỏi chương tiếp theo thì sao ạ?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Xin hỏi chương tiếp theo thì sao vậy?",
+      "branch": "Q_CONTEXT_NEXT_CHAPTER",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai dạy môn natural language processing?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Ai dạy NLP?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii cần xuất file gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai dạy co3085?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii có output gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai dạy xử lý ngôn ngữ tự nhiên?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii xuất những file nào?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai dạy natural language processing?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii cần nộp những gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần ii phải nộp những gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai dạy môn học ạ?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Ai dạy môn học vậy?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Ai dạy môn học nhé?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii cần nộp file gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai phụ trách môn NLP?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii trả về kết quả gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai phụ trách môn co3085?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii đầu ra là gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai phụ trách môn xử lý ngôn ngữ tự nhiên?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần ii định dạng đầu ra là gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai phụ trách môn natural language processing?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii cần xuất file gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này cần xuất file gì ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần xuất file gì vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần xuất file gì nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai phụ trách NLP?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii có output gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai phụ trách co3085?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii xuất những file nào?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này có output gì ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này có output gì vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai phụ trách xử lý ngôn ngữ tự nhiên?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii cần nộp những gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này có output gì nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai phụ trách natural language processing?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii phải nộp những gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này xuất những file nào ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần iii cần nộp file gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này xuất những file nào vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này xuất những file nào nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Ai phụ trách môn học ạ?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Ai phụ trách môn học vậy?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii trả về kết quả gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Ai phụ trách môn học nhé?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iii đầu ra là gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này cần nộp những gì ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn NLP?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần này cần nộp những gì vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần nộp những gì nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần iii định dạng đầu ra là gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn co3085?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iv cần xuất file gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn xử lý ngôn ngữ tự nhiên?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần này phải nộp những gì ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này phải nộp những gì vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này phải nộp những gì nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần iv có output gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn natural language processing?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iv xuất những file nào?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách NLP?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần này cần nộp file gì ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần này cần nộp file gì vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần iv cần nộp những gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này cần nộp file gì nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Thầy cô nào phụ trách co3085?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iv phải nộp những gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách xử lý ngôn ngữ tự nhiên?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần này trả về kết quả gì ạ?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần iv cần nộp file gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Phần này trả về kết quả gì vậy?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Thầy cô nào phụ trách natural language processing?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần này trả về kết quả gì nhé?",
+      "branch": "Q_CONTEXT_ASSIGNMENT_OUTPUT",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần iv trả về kết quả gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn học ạ?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iv đầu ra là gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn học vậy?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Thầy cô nào phụ trách môn học nhé?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Phần iv định dạng đầu ra là gì?",
+      "branch": "Q_ASSIGNMENT_OUTPUT",
+      "kind": "ASSIGNMENT_SECTION",
+      "reason": "phần BTL không có danh sách output trong KB"
+    },
+    {
+      "question": "Tuần nào học chương 13?",
+      "branch": "Q_SCHEDULE_CHAPTER",
+      "kind": "SCHEDULE_CHAPTER",
+      "reason": "chương không có trong lịch"
+    },
+    {
+      "question": "Tuần nào học chương 99?",
+      "branch": "Q_SCHEDULE_CHAPTER",
+      "kind": "SCHEDULE_CHAPTER",
+      "reason": "chương không có trong lịch"
+    },
+    {
+      "question": "Cho mình hỏi ai dạy môn học?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Khi nào tụi mình thi midterm ạ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi midterm vậy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi midterm nhé?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Cho mình hỏi ai phụ trách môn học?",
+      "branch": "Q_INSTRUCTOR",
+      "kind": "INSTRUCTOR",
+      "reason": "KB không cung cấp thông tin giảng viên"
+    },
+    {
+      "question": "Khi nào tụi mình thi giữa kỳ ạ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi giữa kỳ vậy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi giữa kỳ nhé?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi final ạ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi final vậy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi final nhé?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi cuối kỳ ạ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi cuối kỳ vậy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào tụi mình thi cuối kỳ nhé?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào thi midterm ạ?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Khi nào thi midterm vậy?",
+      "branch": "Q_COURSE_EXAM_TIME",
+      "kind": "EXAM_TIME",
+      "reason": "KB chỉ có thời lượng, không có ngày hoặc tuần thi"
+    },
+    {
+      "question": "Tài liệu chương này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu chương này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu chương này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu chương đó là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu chương đó ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu chương đó gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu phần này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu phần này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu phần này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu nội dung này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu nội dung này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu nội dung này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu nó là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu nó ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu nó gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của chương này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của chương này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của chương này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của chương đó là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của chương đó ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của chương đó gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của phần này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của phần này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của phần này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của nội dung này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của nội dung này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của nội dung này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của nó là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của nó ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Tài liệu của nó gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình chương này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình chương này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình chương này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình chương đó là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình chương đó ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình chương đó gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình phần này là gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình phần này ở đâu?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Giáo trình phần này gồm những gì?",
+      "branch": "Q_CONTEXT_RESOURCE",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nội dung của tuần 16?",
+      "branch": "Q_SCHEDULE_WEEK",
+      "kind": "SCHEDULE_WEEK",
+      "reason": "tuần không có trong lịch"
+    },
+    {
+      "question": "Nội dung của tuần 20?",
+      "branch": "Q_SCHEDULE_WEEK",
+      "kind": "SCHEDULE_WEEK",
+      "reason": "tuần không có trong lịch"
+    },
+    {
+      "question": "Nội dung của tuần 99?",
+      "branch": "Q_SCHEDULE_WEEK",
+      "kind": "SCHEDULE_WEEK",
+      "reason": "tuần không có trong lịch"
+    },
+    {
+      "question": "Nó có CFG không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có CFG hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có context-free grammar không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có context-free grammar hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có văn phạm phi ngữ cảnh không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có văn phạm phi ngữ cảnh hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có PCFG không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có PCFG hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có probabilistic context-free grammar không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có probabilistic context-free grammar hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có dependency grammar không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có dependency grammar hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có văn phạm phụ thuộc không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có văn phạm phụ thuộc hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có features không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có features hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có nét không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có nét hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có augmented grammar không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có augmented grammar hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có văn phạm gia tố không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có văn phạm gia tố hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có unification không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có unification hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có hợp nhất không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có hợp nhất hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có pos tagging không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có pos tagging hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có gán nhãn từ loại không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có gán nhãn từ loại hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có logical form không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có logical form hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có dạng luận lý không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có dạng luận lý hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có thematic roles không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có thematic roles hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có vai trò chủ đề không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có vai trò chủ đề hay không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Nó có selectional restriction không?",
+      "branch": "Q_CONTEXT_TOPIC_RELATION",
+      "kind": "UNRESOLVED_CONTEXT",
+      "reason": "không đủ ngữ cảnh để phân giải tham chiếu"
+    },
+    {
+      "question": "Phần CFG và features nằm ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và features học ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và features được học vào tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và nét nằm ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và nét học ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và nét được học vào tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và augmented grammar nằm ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và augmented grammar học ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và augmented grammar được học vào tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và văn phạm gia tố nằm ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và văn phạm gia tố học ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và văn phạm gia tố được học vào tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và unification nằm ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và unification học ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và unification được học vào tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và hợp nhất nằm ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    },
+    {
+      "question": "Phần CFG và hợp nhất học ở tuần nào?",
+      "branch": "Q_SCHEDULE_TOPICS",
+      "kind": "SCHEDULE_TOPICS",
+      "reason": "không tìm thấy tuần chứa đồng thời các chủ đề"
+    }
+  ],
+  "ambiguity_checked": 1047,
+  "ambiguous": [],
+  "errors": []
+}

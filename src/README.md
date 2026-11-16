@@ -1,94 +1,185 @@
-# Course Assistant implementation template
+# CO3085 · Course Assistant
 
-This directory is a self-contained implementation skeleton derived from the
-complete reference project on branch `sample` at `docs/sample-src/`. It mirrors
-the reference project's code, data, input, output, tests, packaging, Docker, and
-visual-documentation files. Assignment algorithms remain explicit
-`NotImplementedError` tasks. `data/kb/` and `data/scaffolding/` hold the complete
-supplied dataset copied from the reference project, and `data/grammar.cfg` is the
-phase 1 grammar: the reference grammar plus the team's accepted alternatives.
-Progress is tracked in `../docs/progress/`.
+Trợ lý hỏi đáp môn Xử lý Ngôn ngữ Tự nhiên theo **Phần II, lựa chọn 1: Classical NLP**.
+Nhóm dùng CFG, parser Earley và luật diễn giải cây để truy vấn KB. Chương trình chạy
+offline bằng thư viện chuẩn Python. Phần III có bộ nhớ ngữ cảnh cục bộ theo loại thực thể.
 
-## Call flow
+## Thành viên
 
-```text
-question
-  -> tokenizer.py
-  -> grammar.py + parser.py
-  -> tree.py
-  -> entities.py + semantic.py
-  -> dialogue.py (optional)
-  -> query.py -> kb.py
-  -> answer.py
-  -> PipelineResult -> output.py / evaluate.py
+Tên và MSSV: **chờ nhóm bổ sung trước khi nộp**. Cần điền 3–4 thành viên, thứ tự MSSV
+trong tên zip và người trình bày từng phần trong kịch bản demo.
+
+## Cài đặt và chạy
+
+Dùng Python 3.11 trở lên (Docker dùng 3.12). Không cần tải model hay cài thư viện NLP bên ngoài.
+Chạy các lệnh tại thư mục chứa README này: `src/` trong repo phát triển,
+hoặc `project/` sau khi giải nén gói nộp. File văn bản dùng UTF-8.
+
+```bash
+python run.py --help
+python run.py answer "Môn NLP có bao nhiêu tín chỉ?" --trace
+python run.py parse "Tuần 3 học gì?" "Hôm nay trời có mưa không?"
+python run.py answer "Tuần 3 học gì?" "Nó có liên quan đến parsing không?" --trace
+python run.py interactive
+python run.py all
 ```
 
-## File map
+`interactive` giữ ngữ cảnh trong phiên; `/reset` xóa ngữ cảnh, `/quit` thoát.
+`answer` nhận nhiều câu hoặc `--input input/sentences.txt`; mỗi lần gọi tạo phiên mới.
+`all` đọc input, sinh tối đa 1.000 câu mặc định và ghi đủ 9 file trong `output/`.
+Chạy từ vị trí khác bằng đường dẫn tới `run.py`; có thể đặt data root bằng `--root PATH`
+**trước** tên lệnh.
 
-| File | Responsibility |
+```bash
+python run.py generate --limit 1000 --output output/samples.txt
+python run.py evaluate
+python run.py all --samples 1000 --input input/sentences.txt --output output
+```
+
+## Docker
+
+```bash
+docker build -t course-assistant .
+docker run --rm course-assistant
+docker run --rm course-assistant answer "Môn NLP có bao nhiêu tín chỉ?" --trace
+docker run --rm -it course-assistant interactive
+```
+
+Container mặc định chạy `all`. Muốn giữ output trên máy, tạo thư mục `output` rồi gắn volume:
+
+```bash
+# Linux/macOS
+docker run --rm -v "$(pwd)/output:/app/output" course-assistant
+```
+
+```powershell
+# PowerShell
+docker run --rm --mount "type=bind,source=$((Get-Location).Path)/output,target=/app/output" course-assistant
+```
+
+Image nền: `python:3.12-slim`. Lần build đầu cần kết nối để tải image nền;
+pipeline trong container chạy offline. Môi trường triển khai hiện tại chưa có Docker,
+nên nhóm cần chạy build/run trên máy có Docker trước khi nộp.
+
+## Kiến trúc
+
+```text
+Input → Tokenizer → CFG + Earley → Tree → SemanticFrame
+  → DialogueContext → QueryEngine + KnowledgeBase → AnswerGenerator
+  → parse / semantic / intent-entity / query / answer
+```
+
+| Thành phần | Cách xử lý |
 | --- | --- |
-| `tokenizer.py` | Normalize input into terminals shared by CFG and generator. |
-| `grammar.py` | Load and validate the single CFG source of truth. |
-| `parser.py` | Recognize complete sentences and build constituency trees. |
-| `tree.py` | Stable parse-tree data contract. |
-| `generator.py` | Safely generate bounded, diverse sentences from the CFG. |
-| `entities.py` | Map aliases to canonical entity IDs. |
-| `semantic.py` | Compose intent/entity/slots from labeled parse branches. |
-| `dialogue.py` | Resolve typed local references between turns. |
-| `kb.py` | Load, normalize, index, and validate supplied course facts. |
-| `query.py` | Execute semantic frames without re-reading the raw question. |
-| `answer.py` | Render grounded Vietnamese answer templates. |
-| `pipeline.py` | Wire stages and expose every intermediate artifact. |
-| `output.py` | Serialize assignment deliverables deterministically. |
-| `evaluate.py` | Score official, challenge, and dialogue behavior by stage. |
-| `paths.py` | Resolve all project locations independently of current cwd. |
-| `cli.py` | Provide scriptable `ask`, `generate`, and `evaluate` commands. |
-| `utils.py` | Preserve the original JSON-launcher compatibility hook. |
+| Tokenizer | Unicode NFC, chữ thường, tách dấu câu, giữ `context-free`, `llm/rag`, `lo2.5`, `TP.HCM`; chuẩn hóa `L.O.2.5`. |
+| Grammar | `data/grammar.cfg`: `%start S`, luật `->`, lựa chọn `\|`, terminal trong ngoặc kép, alternative rỗng là ε. `QUESTION` có 26 nhánh `Q_*`. |
+| Parser | Earley dùng predictor/scanner/completer, nhận khi tiêu thụ hết token; dựng cây nhãn có node ε. Câu bị từ chối xuất `()`. |
+| Generator | Mở rộng non-terminal trái nhất, duyệt theo vòng giữa các nhánh, loại câu trùng; giới hạn token, trạng thái và tối đa 10.000 câu. CLI parse lại từng câu trước khi ghi. |
+| Semantic | Handler theo `Q_*`, đọc node entity có tên rồi tạo `intent`, `entity`, `slots`, `source_branch`; không truy cập KB. |
+| Entity | Lexicon `data/scaffolding/entities.txt` và bảng alias; ID như `WEEK_03`, `CH03`, `LO2.5`, `PART_II`. Nhóm `FEAT_*` xác định phần BTL. |
+| KB | Đọc 6 file `.txt` vào collection có kiểu, kiểm tra dữ liệu và lập chỉ mục tuần/chương. Giữ dữ kiện được cấp. |
+| Query | Lookup theo intent/slot với tuần, chương, LO, quy định; so khớp từ khóa tìm chủ đề/tài liệu. Trả `found`, `kind`, `data`, `sources`, `reason`. |
+| Answer | Template tiếng Việt theo `kind`, dùng dữ kiện query. Phân biệt không hiểu câu, thiếu ngữ cảnh và thiếu dữ kiện. |
 
-## Complete project tree
+Ví dụ: `Tuần 3 học gì?` → `Q_SCHEDULE_WEEK` →
+`GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)` → `KB.weeks[WEEK_03]` →
+câu trả lời về Chương 3, nguồn `kb/schedule.txt`.
 
-```text
-src/
-├── data/
-│   ├── grammar.cfg              # phase 1 CFG with the 26 semantic Q_* branches
-│   ├── kb/                      # six authoritative course-data files
-│   └── scaffolding/             # entities, tests, challenges, dialogues, FAQ
-├── hcmut/iaslab/nlp/app/        # replaceable pipeline stages
-├── input/sentences.txt          # batch-input template
-├── models/README.md             # optional model policy
-├── output/                      # all nine required deliverable placeholders
-├── tests/                       # KB, parser/generator, and pipeline test skeletons
-├── Dockerfile
-├── pyproject.toml
-├── setup.py
-├── requirements.txt
-└── run.py
+`ASSIGNMENT_FEATURE` gồm `FEAT_PARSING`, `FEAT_SEMANTIC`, `FEAT_CONTEXT`,
+`FEAT_EVAL`, tương ứng Phần I–IV. Thêm cách gọi trong nhóm giúp semantic dùng nhãn
+cây thay cho danh sách từ khóa riêng. Grammar nhận `parse tree`, `intent`,
+`kb`, `hội thoại`, `metric`, alias `dịch máy` và `thư viện có sẵn`.
+
+## Ngữ cảnh và dữ kiện thiếu
+
+Resolver giữ chương, phần BTL, LO gần nhất theo từng loại. Chỉ kết quả `found=True`
+mới cập nhật bộ nhớ. Hỗ trợ: quan hệ với chương vừa nhắc, chương kế tiếp, output
+phần BTL, tài liệu chương vừa nhắc, chương của LO. Lịch sử tối đa 20 entity.
+
+KB không cung cấp giảng viên hoặc ngày thi cụ thể. `Ai dạy NLP?` vẫn có cây và
+semantic `GET_INSTRUCTOR`, nhưng query không tìm thấy nên trả:
+
+> Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học.
+
+Danh sách output riêng của Phần II/III/IV cũng chưa có trong KB.
+Tài liệu chương qua ngữ cảnh là tài liệu nền NLP trong KB; KB chưa có quan hệ
+tài liệu–chương chi tiết.
+
+## Dữ liệu và output
+
+`data/kb/` chứa `course_info.txt`, `schedule.txt`, `topics.txt`, `assignments.txt`,
+`resources.txt`, `regulations.txt`. `data/scaffolding/` chứa alias và bộ đánh giá.
+`input/sentences.txt` chứa câu mẫu và cách hỏi bổ sung; bỏ dòng trống, dòng `#`.
+
+| File trong `output/` | Nội dung |
+| --- | --- |
+| `grammar.txt` | Grammar dùng cho lần chạy. |
+| `samples.txt` | Một câu sinh hợp lệ mỗi dòng, không quá 10.000 dòng. |
+| `parse-results.txt` | Một cây hoặc `()` cho mỗi câu đầu vào. |
+| `semantic.txt` | ID và predicate, kèm frame đã phân giải nếu có ngữ cảnh. |
+| `intent-entity.txt` | JSONL gồm câu hỏi, intent gốc/đã giải và entity. |
+| `query.txt` | Query, FOUND/NOT_FOUND và nguồn. |
+| `answer.txt` | Câu hỏi và câu trả lời. |
+| `dialogue.txt` | Trace và kết quả 6 hội thoại. |
+| `evaluation.txt` | Chỉ số từng tầng, end-to-end và phân tích lỗi. |
+
+Gói nộp có mã nguồn ở `project/src/hcmut/`; data/input/output/models, README,
+Dockerfile và `run.py` ở `project/`. `ProjectPaths` hỗ trợ cả hai layout.
+Không có model hoặc file lớn cần link ngoài.
+
+## Đánh giá và kiểm thử
+
+Chấm theo thứ tự câu, reset ngữ cảnh trước mỗi bộ. Một câu đúng end-to-end phải
+đồng thời đúng intent, entity, trạng thái query và fact bắt buộc trong đáp án.
+Intent ngữ cảnh chấm trước phân giải, entity chấm sau phân giải.
+
+- Bộ đề: **42/42** câu đúng end-to-end.
+- Bộ bổ sung: 22 câu, gồm C007/C008, alias mới, thiếu KB, đuôi lạ và nhiều câu hỏi
+  trong một lượt. Kết quả chi tiết ở `evaluation.txt`.
+- Hội thoại: **6/6** theo dữ liệu được cấp.
+- Các bộ đã dùng trong phát triển; chỉ số chưa phản ánh tập kiểm thử độc lập.
+
+Trong repo phát triển:
+
+```bash
+cd src
+python -m unittest discover -s tests -t .
+cd ..
+python tools/check_grammar.py --samples 1000 --json docs/validation/grammar-check.json
+python tools/package_submission.py
+# Khi có MSSV và Docker, thay các MSSV bên dưới bằng số thật:
+python tools/package_submission.py --student-ids MSSV1 MSSV2 MSSV3 --verify-docker
 ```
 
-The `input/` and `output/` placeholders are intentional: they show the required
-schema and output format without copying the completed results from the `sample`
-branch. The data under `data/kb/` and `data/scaffolding/` is the full reference
-dataset, and `data/grammar.cfg` is the merged phase 1 grammar.
+Golden chạy code tham khảo nhánh `sample` với grammar hiện tại; adapter tường minh
+cho extension và lỗi sample nằm trong `tools/make_golden.py`. Golden KB so khớp
+tuyệt đối. Golden và tools chỉ dùng trong repo phát triển, không nằm trong gói nộp.
 
-Stage boundaries are fixed by `../docs/contracts.md` and checked by
-`tests/test_contract_*.py` against golden records in `tests/golden/`
-(regenerate with `python tools/make_golden.py` from the repository root). Run
-`python -m unittest discover -s tests -t .` from this directory; a stage that
-still raises `NotImplementedError` is skipped rather than failed.
+## Hạn chế và hướng mở rộng
 
-Every Python file starts with a module docstring describing its boundary,
-invariants, and intended extension points. Read those docstrings before filling
-in a TODO.
+Grammar chưa nhận C007 hỏi số buổi mỗi tuần, C008 dùng `tuần thứ ba`. KB cũng chưa
+có số buổi mỗi tuần. Mỗi lượt chỉ nhận một intent; lỗi gõ và câu ghép có thể bị
+từ chối. Resolver chọn chương đầu tiên khi có nhiều kết quả và chỉ hỗ trợ các
+quan hệ định trước. So khớp tài liệu/chủ đề phụ thuộc từ khóa. Kiểm tra không có
+mơ hồ chỉ áp dụng cho các câu đã chạy, chưa chứng minh toàn bộ ngôn ngữ CFG.
 
-## Recommended implementation order
+Nhóm có thể mở rộng alias/luật kèm hồi quy, bổ sung dữ liệu có nguồn cho thuộc tính
+còn thiếu, rồi đánh giá trên câu mới tách khỏi tập phát triển.
 
-1. Implement `paths`, `tokenizer`, and the CFG loader.
-2. Implement and test the parser/tree output against accepted and rejected text.
-3. Implement entity canonicalization and semantic frames for every CFG branch.
-4. Implement KB loading/validation, then query handlers and answer templates.
-5. Assemble `CourseAssistant.from_paths`, then implement output and evaluation.
-6. Add bounded generation and finally optional dialogue context.
+## Nguồn và sử dụng AI
 
-Run a syntax/import check with `./util.sh check` (or the equivalent Python
-commands on Windows). The CLI will intentionally fail at the first unimplemented
-stage until that stage is completed.
+- Đề, KB/scaffolding: giảng viên cung cấp cho CO3085.
+- Mã khung và cách triển khai tham khảo: nhánh `sample`, `docs/sample-src/`;
+  grammar phase 1 tổng hợp đóng góp nhóm.
+- Bộ challenge và cách diễn đạt bổ sung trong input: nhóm biên soạn;
+  C009–C022 bổ sung trong đợt hoàn thiện với hỗ trợ Codex.
+- Codex hỗ trợ rà task, sửa parser/semantic, mở rộng grammar, xây công cụ kiểm tra,
+  đóng gói và soạn tài liệu. Kiểm chứng qua test hợp đồng, hồi quy, round-trip,
+  trace query có nguồn và chạy gói giải nén. Nhóm cần tự review, hiểu thuật toán
+  và bổ sung khai báo AI cho các phần trước đợt này.
+
+Báo cáo và kịch bản demo: `report.md`, `demo-script.md` trong gói kiểm tra;
+bản repo ở `docs/`. Gói có `demo.mp4`, video tự động từ trace thật, 2 phút 8 giây,
+có phụ đề và không có tiếng. Tạo lại video bằng `python tools/render_demo.py`
+trong repo (cần Pillow/ffmpeg cho công cụ phát triển). Thông tin thành viên và
+kiểm chứng Docker còn chờ nhóm hoàn tất.

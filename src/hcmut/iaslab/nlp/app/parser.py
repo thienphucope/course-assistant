@@ -44,15 +44,37 @@ class EarleyParser:
         self.grammar = grammar
 
     def parse(self, sentence: str) -> ParseResult:
+        trees = self.parse_trees(sentence, limit=1)
+        return ParseResult(sentence, tuple(tokenize(sentence)), trees[0] if trees else None)
+
+    def parse_trees(self, sentence: str, limit: int = 2) -> tuple[Tree, ...]:
+        """Return up to ``limit`` distinct trees (two suffice to detect ambiguity).
+
+        Bound derivations per chart item so nullable/recursive cycles terminate.
+        A predictor also consumes already-completed nullable items: their agenda
+        entries may have run before the new waiting item was discovered.
+        """
+        if limit < 1:
+            raise ValueError("limit must be positive")
         tokens = tuple(tokenize(sentence))
         n = len(tokens)
         chart: list[list[_State]] = [[] for _ in range(n + 1)]
         seen: list[set[_State]] = [set() for _ in range(n + 1)]
+        counts: list[dict[tuple[Rule, int, int], int]] = [{} for _ in range(n + 1)]
+        nullable: list[dict[str, list[_State]]] = [{} for _ in range(n + 1)]
+
+        def add(position: int, state: _State) -> None:
+            key = (state.rule, state.dot, state.origin)
+            if state not in seen[position] and counts[position].get(key, 0) < limit:
+                seen[position].add(state)
+                counts[position][key] = counts[position].get(key, 0) + 1
+                chart[position].append(state)
+                if state.complete and state.origin == position:
+                    nullable[position].setdefault(state.rule.lhs, []).append(state)
 
         # Synthetic start production avoids special cases for the grammar start.
         augmented = Rule("@START", (self.grammar.start,))
-        chart[0].append(_State(augmented, 0, 0))
-        seen[0].add(chart[0][0])
+        add(0, _State(augmented, 0, 0))
 
         for i in range(n + 1):
             cursor = 0
@@ -65,9 +87,10 @@ class EarleyParser:
                     # Predictor
                     for rule in self.grammar.rules_for(symbol):
                         candidate = _State(rule, 0, i)
-                        if candidate not in seen[i]:
-                            seen[i].add(candidate)
-                            chart[i].append(candidate)
+                        add(i, candidate)
+                    for completed in list(nullable[i].get(symbol, ())):
+                        add(i, _State(state.rule, state.dot + 1, state.origin,
+                                      state.children + (Tree(symbol, completed.children),)))
 
                 elif state.complete:
                     # Completer. Keep rule-order/agenda order deterministic.
@@ -80,9 +103,7 @@ class EarleyParser:
                                 waiting.origin,
                                 waiting.children + (node,),
                             )
-                            if candidate not in seen[i]:
-                                seen[i].add(candidate)
-                                chart[i].append(candidate)
+                            add(i, candidate)
 
                 elif i < n and symbol == tokens[i]:
                     # Scanner
@@ -92,14 +113,14 @@ class EarleyParser:
                         state.origin,
                         state.children + (tokens[i],),
                     )
-                    if candidate not in seen[i + 1]:
-                        seen[i + 1].add(candidate)
-                        chart[i + 1].append(candidate)
+                    add(i + 1, candidate)
 
         # Require a completed augmented item at the final input position.
+        trees = []
         for state in chart[n]:
             if state.rule == augmented and state.complete and state.origin == 0:
                 child = state.children[0]
                 if isinstance(child, Tree) and child.leaves() == list(tokens):
-                    return ParseResult(sentence, tokens, child)
-        return ParseResult(sentence, tokens, None)
+                    if child not in trees:
+                        trees.append(child)
+        return tuple(trees[:limit])

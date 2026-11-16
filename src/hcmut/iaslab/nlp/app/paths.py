@@ -30,7 +30,7 @@ class ProjectPaths:
     def discover(cls) -> "ProjectPaths":
         """Search parent directories for the project markers, independent of cwd."""
         for parent in Path(__file__).resolve().parents:
-            if (parent / "pyproject.toml").is_file() and (parent / "data").is_dir():
+            if (parent / "data" / "grammar.cfg").is_file() and (parent / "run.py").is_file():
                 return cls.from_root(parent)
         raise RuntimeError("Không tìm thấy thư mục gốc của project")
 
@@ -40,7 +40,7 @@ class ProjectPaths:
         resolved = Path(root).expanduser().resolve()
         return cls(
             root=resolved,
-            source=resolved,
+            source=resolved / "src" if (resolved / "src" / "hcmut").is_dir() else resolved,
             data=resolved / "data",
             grammar=resolved / "data" / "grammar.cfg",
             kb=resolved / "data" / "kb",

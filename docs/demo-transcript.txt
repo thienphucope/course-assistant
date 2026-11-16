@@ -1,0 +1,66 @@
+COURSE ASSISTANT | DEMO THỰC THI
+
+[1] INPUT: Môn NLP có bao nhiêu tín chỉ?
+TOKENS: môn / nlp / có / bao / nhiêu / tín / chỉ / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_COURSE_CREDITS (COURSE_SUBJECT môn (COURSE_ENTITY nlp)) (CREDIT_VERB có) (CREDIT_QUESTION bao nhiêu tín chỉ))) (SUFFIX (END_MARK ?)))
+SEMANTIC: GET_COURSE_INFO(entity=CO3085, course=CO3085, field=CREDITS)
+QUERY: KB.course[CREDITS]
+STATUS: FOUND
+SOURCE: kb/course_info.txt
+ANSWER: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+
+[2] INPUT: Tuần 3 học gì?
+TOKENS: tuần / 3 / học / gì / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_SCHEDULE_WEEK (WEEK_ENTITY tuần (WEEK_NUMBER 3)) (WEEK_CONTENT_QUESTION học gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC: GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)
+QUERY: KB.weeks[WEEK_03]
+STATUS: FOUND
+SOURCE: kb/schedule.txt
+ANSWER: Tuần 3 học Chương 3, gồm context-free grammar, grammar and sentence structure, top-down parsing, bottom-up chart parsing, top-down chart parsing, probabilistic context-free grammar, dependency grammar, Stanford dependencies.
+
+[3] INPUT: Nó có liên quan đến parsing không?
+TOKENS: nó / có / liên / quan / đến / parsing / không / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_CONTEXT_TOPIC_RELATION (CONTEXT_PRONOUN nó) (RELATION_PHRASE có liên quan đến) (TOPIC_ENTITY parsing) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC: CONTEXT_DEPENDENT(action=TOPIC_RELATION, relation=PARSING)
+CONTEXT: tham chiếu gần nhất → CH03
+RESOLVED: GET_TOPIC(entity=CH03, chapter=CH03, relation=PARSING)
+QUERY: KB.topics[CH03].contains(PARSING)
+STATUS: FOUND
+SOURCE: kb/topics.txt
+ANSWER: Có. Chương 3 có nội dung liên quan đến parsing.
+
+[4] INPUT: BTL có phần parse tree không?
+TOKENS: btl / có / phần / parse / tree / không / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_ASSIGNMENT_FEATURE (ASSIGNMENT_ENTITY btl) có (FEATURE_KEYWORD phần) (ASSIGNMENT_FEATURE (FEAT_PARSING parse tree)) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC: GET_ASSIGNMENT(entity=PART_I, assignment=BTL01, section=PART_I, feature=parse tree)
+QUERY: KB.assignment.sections[PART_I]
+STATUS: FOUND
+SOURCE: kb/assignments.txt
+ANSWER: Có. Phần I — Grammar and Parser: xây dựng grammar cho miền Course Assistant, sinh câu hợp lệ từ grammar, xây dựng parser, xuất parse tree, xử lý câu không hợp lệ.
+
+[5] INPUT: Có được dùng thư viện có sẵn không?
+TOKENS: có / được / dùng / thư / viện / có / sẵn / không / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_RULE có được (RULE_ACTION dùng (RULE_TOPIC thư viện có sẵn)) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC: GET_RULE(entity=EXTERNAL_LIBRARIES, rule=EXTERNAL_LIBRARIES)
+QUERY: KB.regulations[external_libraries]
+STATUS: FOUND
+SOURCE: kb/regulations.txt
+ANSWER: Được phép sử dụng thư viện công khai nếu tuân thủ yêu cầu của bài tập.
+
+[6] INPUT: Ai dạy NLP?
+TOKENS: ai / dạy / nlp / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_INSTRUCTOR ai dạy (COURSE_SUBJECT (COURSE_ENTITY nlp)))) (SUFFIX (END_MARK ?)))
+SEMANTIC: GET_INSTRUCTOR(entity=CO3085, course=CO3085)
+QUERY: KB.course[instructor]
+STATUS: NOT_FOUND
+SOURCE: -
+ANSWER: Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học.
+
+[7] INPUT: Hôm nay trời có mưa không?
+TOKENS: hôm / nay / trời / có / mưa / không / ?
+PARSE: ()
+SEMANTIC: UNKNOWN()
+QUERY: NO_QUERY
+STATUS: NOT_FOUND
+SOURCE: -
+ANSWER: Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.

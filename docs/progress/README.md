@@ -30,24 +30,24 @@ Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm ·
 | T04 | 🔧 Kết thúc PR phase 1 (merge tay) | GitHub PR #1–#3 | — | done |
 | T05 | 🔧 Codebase chuẩn: skeleton, không dùng pipeline PR #2 | — | — | done |
 | T06 | 🔧 Hợp đồng giữa các tầng + golden test | `docs/contracts.md`, `tools/make_golden.py`, `src/tests/` | — | done |
-| T07 | 🔧 Quyết định của nhóm | — | — | undone |
-| T08 | ⚙️ Tokenizer | `tokenizer.py` · §1 | `test_contract_tokenizer` | undone |
-| T09 | ⚙️ Grammar loader + Parser | `grammar.py`, `parser.py` · §2 | `test_contract_parser` | undone |
-| T10 | ⚙️ Generator | `generator.py` | parse lại 100% | undone |
-| T11 | 🔥 Semantic + entity lexicon | `semantic.py`, `entities.py` · §3 | `test_contract_semantic` | undone |
+| T07 | 🔧 Quyết định của nhóm | — | — | done |
+| T08 | ⚙️ Tokenizer | `tokenizer.py` · §1 | `test_contract_tokenizer` | done |
+| T09 | ⚙️ Grammar loader + Parser | `grammar.py`, `parser.py` · §2 | `test_contract_parser` | done |
+| T10 | ⚙️ Generator | `generator.py` | parse lại 100% | done |
+| T11 | 🔥 Semantic + entity lexicon | `semantic.py`, `entities.py` · §3 | `test_contract_semantic` | done |
 | T12 | 🔧 KB loader | `kb.py` · §4 | `test_contract_kb` | done (chờ review) |
 | T13 | 🔧 Query | `query.py` · §5 | `test_contract_query` | done (chờ review) |
-| T14 | 🔧 Answer + not-found | `answer.py` · §6 | `test_contract_answer` | undone |
-| T15 | ✨ Dialogue (Phần III) | `dialogue.py` · §7 | `test_contract_dialogue` | undone |
+| T14 | 🔧 Answer + not-found | `answer.py` · §6 | `test_contract_answer` | done |
+| T15 | ✨ Dialogue (Phần III) | `dialogue.py` · §7 | `test_contract_dialogue` | done |
 | T16 | 🔧 Pipeline + CLI + 9 file output | `pipeline.py`, `cli.py`, `output.py`, `paths.py`, `run.py` · §8–9 | `test_contract_pipeline` + `run.py all` | done |
 | T17 | 🔧 Evaluation + mở rộng bộ test | `evaluate.py` · §8 | `evaluation.txt` đúng §9 | done |
-| T18 | 🔥 Grammar mở rộng sau phase 1 | `src/data/grammar.cfg` | 42/42 · 0 mơ hồ | undone |
-| T19 | 🔧 Script kiểm tra grammar | `tools/` | — | undone |
-| T20 | 🔧 README nộp bài | `README.md` | đủ mục đề 7.5 | undone |
-| T21 | 🔧 Dockerfile | `Dockerfile` | build + chạy được | undone |
-| T22 | 🔥 Báo cáo (+ ghi nguồn, khai báo AI) | — | đủ mục đề 6, 7.6 | undone |
-| T23 | 🔧 Video demo + thuyết trình | — | đủ cảnh đề 7.6 | undone |
-| T24 | 🔧 Đóng gói zip nộp bài | `project/` | đúng đề 7.4, < 10MB | undone |
+| T18 | 🔥 Grammar mở rộng sau phase 1 | `src/data/grammar.cfg` | 42/42 · 0 mơ hồ | done |
+| T19 | 🔧 Script kiểm tra grammar | `tools/` | — | done |
+| T20 | 🔧 README nộp bài | `README.md` | đủ mục đề 7.5 | nội dung kỹ thuật xong; chờ tên/MSSV |
+| T21 | 🔧 Dockerfile | `Dockerfile` | build + chạy được | đã chuẩn bị; chờ kiểm chứng Docker |
+| T22 | 🔥 Báo cáo (+ ghi nguồn, khai báo AI) | — | đủ mục đề 6, 7.6 | nội dung xong; chờ nhóm duyệt/định dạng |
+| T23 | 🔧 Video demo + thuyết trình | — | đủ cảnh đề 7.6 | nội dung/video tự động xong; chờ nhóm/phân vai |
+| T24 | 🔧 Đóng gói zip nộp bài | `project/` | đúng đề 7.4, < 10MB | gói kiểm tra xong; chờ MSSV và Docker |
 
 Đợt code (thứ tự gợi ý): **T08, T09, T12, T10** song song → **T11, T13** → **T14, T16** → **T17,
 T15** → **T20–T24**. Test hợp đồng dùng đầu vào golden nên T11, T13, T14 nghiệm thu được trước

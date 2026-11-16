@@ -1,1 +1,146 @@
-# GENERATED FILE TEMPLATE: paired Q/A blocks grounded in query results.
+001	Q: Môn NLP có bao nhiêu tín chỉ?
+	A: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+002	Q: CO3085 có mấy tín chỉ?
+	A: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+003	Q: Môn học gồm những phần nào?
+	A: Môn học gồm ba phần chính: Syntactic Processing; Semantic Interpretation; Context and World Knowledge.
+004	Q: Tuần 3 học gì?
+	A: Tuần 3 học Chương 3, gồm context-free grammar, grammar and sentence structure, top-down parsing, bottom-up chart parsing, top-down chart parsing, probabilistic context-free grammar, dependency grammar, Stanford dependencies.
+005	Q: Chương 4 học vào tuần nào?
+	A: Chương 4 được học ở tuần 4, 5.
+006	Q: Chương nào nói về CFG?
+	A: CFG được trình bày trong Chương 3 (GRAMMAR AND PARSING).
+007	Q: PCFG được học ở đâu?
+	A: PCFG được trình bày trong Chương 3 (GRAMMAR AND PARSING), Chương 6 (AMBIGUITY RESOLUTION - STATISTICAL METHODS).
+008	Q: Chương nào nói về semantic grammar?
+	A: semantic grammar được trình bày trong Chương 10 (OTHER STRATEGIES FOR SEMANTIC INTERPRETATION).
+009	Q: L.O.2.5 là gì?
+	A: LO2.5: Kiến thức xác suất để giải quyết nhập nhằng từ ở mức câu.
+010	Q: L.O.4.2 liên quan đến nội dung nào?
+	A: LO4.2: Ngữ cảnh diễn ngôn cục bộ và sự tham chiếu.
+011	Q: Bài tập lớn yêu cầu xây dựng những gì?
+	A: BTL Intelligent Course Assistant có mục tiêu: Xây dựng hệ thống xử lý câu hỏi tự nhiên trong miền thông tin của một môn học. Hệ thống phải thể hiện pipeline NLP từ parsing đến semantic interpretation và question answering. Các phần gồm Phần I, Phần II, Phần III, Phần IV.
+012	Q: Phần I của bài tập lớn là gì?
+	A: Phần I — Grammar and Parser: xây dựng grammar cho miền Course Assistant, sinh câu hợp lệ từ grammar, xây dựng parser, xuất parse tree, xử lý câu không hợp lệ.
+013	Q: Bài tập lớn có phần hỏi đáp không?
+	A: Có. Phần II — Semantic Interpretation and QA: semantic representation, intent identification, entity extraction, query to knowledge base, answer generation, xử lý câu hỏi ngoài miền, xử lý trường hợp không tìm thấy thông tin.
+014	Q: Có được dùng LLM/RAG không?
+	A: LLM/RAG nếu được sử dụng chỉ nên đóng vai trò mở rộng. Sinh viên phải mô tả rõ mô hình, dữ liệu, retrieval và cách đánh giá.
+015	Q: Quy định về sử dụng AI là gì?
+	A: Sinh viên phải khai báo việc sử dụng AI trong báo cáo, nghiên cứu và quá trình thực hiện theo quy định của môn học.
+016	Q: Midterm bao nhiêu phút?
+	A: Midterm có thời lượng 60 phút.
+017	Q: Final bao nhiêu phút?
+	A: Final có thời lượng 90 phút.
+018	Q: Tài liệu tham khảo về statistical NLP là gì?
+	A: Tài liệu phù hợp: Foundation of Statistical Natural Language Processing.
+019	Q: Tài liệu nào liên quan đến Python NLP?
+	A: Tài liệu phù hợp: Natural Language Processing with Python.
+020	Q: Chương 12 nói về gì?
+	A: Chương 12 — DISCOURSE CONTEXT AND REFERENCE: The chapter introduces local discourse context and discourse entities, with emphasis on reference expressions, pronouns, centering, definite descriptions, sets, ellipsis and surface anaphora.
+021	Q: Chương nào học về reference?
+	A: reference được trình bày trong Chương 12 (DISCOURSE CONTEXT AND REFERENCE).
+022	Q: Chương nào học về question answering?
+	A: question answering được trình bày trong Chương 11 (KNOWLEDGE REPRESENTATION AND REASONING).
+023	Q: Chương nào học về selectional restriction?
+	A: selectional restriction được trình bày trong Chương 9 (AMBIGUITY RESOLUTION).
+024	Q: Chương 10 có những phương pháp gì?
+	A: Chương 10 — OTHER STRATEGIES FOR SEMANTIC INTERPRETATION: Alternative approaches to semantic interpretation include grammatical relations, semantic grammars, template matching and semantically driven parsing.
+025	Q: Chương 11 có liên quan đến hỏi đáp không?
+	A: Có. Chương 11 có nội dung liên quan đến question answering.
+026	Q: Hôm nay ở TP.HCM có mưa không?
+	A: Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.
+027	Q: Ai là tổng thống của Pháp?
+	A: Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.
+028	Q: Hãy giải bài tập xác suất này giúp tôi.
+	A: Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.
+029	Q: Chương 4 nói về gì?
+	A: Chương 4 — FEATURES AND AUGMENTED GRAMMAR: The chapter extends formal grammar with feature systems and augmented grammar. It covers lexicon, parsing with features, augmented transition networks, generalized feature systems and unification grammar.
+030	Q: Nó có liên quan đến parsing không?
+	A: Có. Chương 4 có nội dung liên quan đến parsing.
+031	Q: Chương 11 có hỏi đáp không?
+	A: Có. Chương 11 có nội dung liên quan đến question answering.
+032	Q: Còn chương sau?
+	A: Chương 12 — DISCOURSE CONTEXT AND REFERENCE: The chapter introduces local discourse context and discourse entities, with emphasis on reference expressions, pronouns, centering, definite descriptions, sets, ellipsis and surface anaphora.
+033	Q: Bài tập lớn có phần parser không?
+	A: Có. Phần I — Grammar and Parser: xây dựng grammar cho miền Course Assistant, sinh câu hợp lệ từ grammar, xây dựng parser, xuất parse tree, xử lý câu không hợp lệ.
+034	Q: Phần này cần xuất file gì?
+	A: Phần I có các output: output/grammar.txt, output/samples.txt, output/parse-results.txt.
+035	Q: Tuần 5 học những nội dung gì?
+	A: Tuần 5 học Chương 4, gồm augmented transition networks, generalized feature systems, unification grammar; hoạt động: feature-based parsing exercises.
+036	Q: Phần CFG và Parsing nằm ở tuần nào?
+	A: CFG và parsing cùng xuất hiện trong nội dung tuần 3.
+037	Q: Bài tập lớn có những yêu cầu gì?
+	A: BTL Intelligent Course Assistant có mục tiêu: Xây dựng hệ thống xử lý câu hỏi tự nhiên trong miền thông tin của một môn học. Hệ thống phải thể hiện pipeline NLP từ parsing đến semantic interpretation và question answering. Các phần gồm Phần I, Phần II, Phần III, Phần IV.
+038	Q: Deadline của bài tập lớn là khi nào?
+	A: Các mốc BTL trong dữ liệu mẫu là tuần 8: BTL checkpoint 1 - grammar and parser; tuần 12: BTL checkpoint 2 - semantic interpretation and QA; tuần 15: BTL final submission and demo.
+039	Q: Tài liệu nào nói về CFG?
+	A: Tài liệu phù hợp: Speech and Language Processing.
+040	Q: Bài tập lớn có được sử dụng công cụ AI không?
+	A: Sinh viên phải khai báo việc sử dụng AI trong báo cáo, nghiên cứu và quá trình thực hiện theo quy định của môn học.
+041	Q: Tôi cần hoàn thành những bài tập nào?
+	A: BTL Intelligent Course Assistant có mục tiêu: Xây dựng hệ thống xử lý câu hỏi tự nhiên trong miền thông tin của một môn học. Hệ thống phải thể hiện pipeline NLP từ parsing đến semantic interpretation và question answering. Các phần gồm Phần I, Phần II, Phần III, Phần IV.
+042	Q: NLP mấy tín chỉ?
+	A: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+043	Q: NLP chia thành mấy phần?
+	A: Môn học gồm ba phần chính: Syntactic Processing; Semantic Interpretation; Context and World Knowledge.
+044	Q: Tổng quan về NLP?
+	A: Môn học cung cấp các khái niệm, lý thuyết và kỹ thuật nền tảng của xử lý ngôn ngữ tự nhiên. Nội dung được tổ chức thành ba phần chính: (1) Xử lý cú pháp, (2) Diễn dịch ngữ nghĩa, và (3) Ngữ cảnh và tri thức thế giới.
+045	Q: Midterm thi trong bao lâu?
+	A: Midterm có thời lượng 60 phút.
+046	Q: Midterm thi vào tuần mấy?
+	A: Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học.
+047	Q: Thang điểm của NLP?
+	A: Cách tính điểm gồm chuyên cần và bài tập: 15 percent; bài tập lớn: 15 percent; giữa kỳ: 30 percent; cuối kỳ: 40 percent.
+048	Q: Ai phụ trách NLP?
+	A: Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học.
+049	Q: Nội dung của tuần 5?
+	A: Tuần 5 học Chương 4, gồm augmented transition networks, generalized feature systems, unification grammar; hoạt động: feature-based parsing exercises.
+050	Q: Tuần nào học chương 6?
+	A: Chương 6 được học ở tuần 7, 8.
+051	Q: CFG và parsing nằm ở tuần nào?
+	A: CFG và parsing cùng xuất hiện trong nội dung tuần 3.
+052	Q: Cho biết chương nào nói về PCFG?
+	A: PCFG được trình bày trong Chương 3 (GRAMMAR AND PARSING), Chương 6 (AMBIGUITY RESOLUTION - STATISTICAL METHODS).
+053	Q: Cho biết chương 9 nói về gì?
+	A: Chương 9 — AMBIGUITY RESOLUTION: The chapter covers knowledge-based and statistical methods for semantic ambiguity resolution.
+054	Q: Chương 3 có CFG hay không?
+	A: Có. Chương 3 có nội dung liên quan đến CFG.
+055	Q: Cho mình xem L.O.3.1 là gì?
+	A: LO3.1: Kiến thức về ngôn ngữ dạng luận lý và tạo dạng luận lý đơn giản.
+056	Q: BTL bao gồm những gì?
+	A: BTL Intelligent Course Assistant có mục tiêu: Xây dựng hệ thống xử lý câu hỏi tự nhiên trong miền thông tin của một môn học. Hệ thống phải thể hiện pipeline NLP từ parsing đến semantic interpretation và question answering. Các phần gồm Phần I, Phần II, Phần III, Phần IV.
+057	Q: Phần II cần làm những gì?
+	A: Phần II — Semantic Interpretation and QA: semantic representation, intent identification, entity extraction, query to knowledge base, answer generation, xử lý câu hỏi ngoài miền, xử lý trường hợp không tìm thấy thông tin.
+058	Q: Phần parser có trong BTL không?
+	A: Có. Phần I — Grammar and Parser: xây dựng grammar cho miền Course Assistant, sinh câu hợp lệ từ grammar, xây dựng parser, xuất parse tree, xử lý câu không hợp lệ.
+059	Q: Part I đầu ra là gì?
+	A: Phần I có các output: output/grammar.txt, output/samples.txt, output/parse-results.txt.
+060	Q: Bao giờ phải nộp bài tập lớn?
+	A: Các mốc BTL trong dữ liệu mẫu là tuần 8: BTL checkpoint 1 - grammar and parser; tuần 12: BTL checkpoint 2 - semantic interpretation and QA; tuần 15: BTL final submission and demo.
+061	Q: Hạn chót của BTL là bao giờ?
+	A: Các mốc BTL trong dữ liệu mẫu là tuần 8: BTL checkpoint 1 - grammar and parser; tuần 12: BTL checkpoint 2 - semantic interpretation and QA; tuần 15: BTL final submission and demo.
+062	Q: Có giáo trình nào về CFG không?
+	A: Tài liệu phù hợp: Speech and Language Processing.
+063	Q: Tài liệu tham khảo liên quan đến Python NLP?
+	A: Tài liệu phù hợp: Natural Language Processing with Python.
+064	Q: Có được phép dùng AI không?
+	A: Sinh viên phải khai báo việc sử dụng AI trong báo cáo, nghiên cứu và quá trình thực hiện theo quy định của môn học.
+065	Q: Chính sách về LLM ra sao?
+	A: LLM/RAG nếu được sử dụng chỉ nên đóng vai trò mở rộng. Sinh viên phải mô tả rõ mô hình, dữ liệu, retrieval và cách đánh giá.
+066	Q: Chương 3 nói về gì?
+	A: Chương 3 — GRAMMAR AND PARSING: The chapter introduces context-free grammar, sentence structure and parsing methods. It also introduces probabilistic CFG and dependency grammar.
+067	Q: Chương đó có liên quan đến parsing không?
+	A: Có. Chương 3 có nội dung liên quan đến parsing.
+068	Q: Còn chương sau thì sao?
+	A: Chương 4 — FEATURES AND AUGMENTED GRAMMAR: The chapter extends formal grammar with feature systems and augmented grammar. It covers lexicon, parsing with features, augmented transition networks, generalized feature systems and unification grammar.
+069	Q: Giáo trình của chương đó là gì?
+	A: Tài liệu phù hợp: Lecture Slides from the Stanford Coursera course by Dan Jurafsky and Christopher Manning; Introduction to Natural Language Processing; Foundation of Statistical Natural Language Processing.
+070	Q: Phần I của bài tập lớn là gì?
+	A: Phần I — Grammar and Parser: xây dựng grammar cho miền Course Assistant, sinh câu hợp lệ từ grammar, xây dựng parser, xuất parse tree, xử lý câu không hợp lệ.
+071	Q: Phần đó cần nộp những gì?
+	A: Phần I có các output: output/grammar.txt, output/samples.txt, output/parse-results.txt.
+072	Q: L.O.2.5 là gì?
+	A: LO2.5: Kiến thức xác suất để giải quyết nhập nhằng từ ở mức câu.
+073	Q: Nó nằm ở chương nào?
+	A: LO2.5 tương ứng với Chương 6 — AMBIGUITY RESOLUTION - STATISTICAL METHODS.
