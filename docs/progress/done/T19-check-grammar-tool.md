@@ -38,7 +38,7 @@ Grammar loader kiểm cú pháp/start/tham chiếu; structural_errors kiểm m�
 ### Kiểm hành vi
 Khởi tạo CourseAssistant với CFG đã nạp bằng from_paths(..., grammar=grammar), không nạp default CFG trước rồi thay parser. Đây là sửa lỗi --grammar: bản CFG sửa đúng vẫn phải được kiểm khi root/data/grammar.cfg đang hỏng. KB/scaffolding lấy từ root được chọn.
 
-Official/challenge chạy theo thứ tự và reset trước mỗi bộ; dialogue reset mỗi phiên. Official thất bại làm exit 1. Challenge chỉ chấp nhận hai giới hạn đã ghi C007/C008; ca khác rớt là regression và phải exit 1. Trước đợt audit, script chỉ in challenge fail rồi vẫn PASS; test thay alias dịch máy chứng minh C013 mất hỗ trợ phải bị chặn.
+Official/challenge chạy theo thứ tự và reset trước mỗi bộ; dialogue reset mỗi phiên. Official thất bại làm exit 1. Challenge chỉ chấp nhận các giới hạn đã ghi trong hằng `KNOWN_CHALLENGE_GAPS` (C007/C008); ca khác rớt là regression và phải exit 1. Khi một ca trong danh sách đã pass, checker in `NOTE: known challenge gaps now pass` để nhắc gỡ ID khỏi danh sách; nếu không gỡ, ca đó hỏng lại sẽ không bị phát hiện. Trước đợt audit, script chỉ in challenge fail rồi vẫn PASS; test thay alias dịch máy chứng minh C013 mất hỗ trợ phải bị chặn.
 
 Với câu sinh, reset state mỗi câu, kiểm parse, intent, entity (cho phép None với CONTEXT_DEPENDENT), found/fallback không mâu thuẫn và đủ nhánh. Các query thiếu KB/context được ghi kind/reason riêng; không ép chúng thành fact. --strict-kb cố ý có thể fail trên grammar hiện tại vì grammar chứa câu tuần/chương không có trong KB và đại từ cần context.
 

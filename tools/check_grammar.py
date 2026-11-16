@@ -26,6 +26,10 @@ from hcmut.iaslab.nlp.app.pipeline import CourseAssistant
 from hcmut.iaslab.nlp.app.semantic import BRANCH_INTENTS
 from hcmut.iaslab.nlp.app.tokenizer import tokenize
 
+# Documented coverage limits: still reported, but not regressions.
+# Remove an ID once the grammar covers it, so a later relapse fails again.
+KNOWN_CHALLENGE_GAPS = frozenset({"C007", "C008"})
+
 
 def structural_errors(grammar: Grammar) -> list[str]:
     errors = []
@@ -82,6 +86,7 @@ def main(argv=None) -> int:
         return 1
     assistant = CourseAssistant.from_paths(ProjectPaths.from_root(root), grammar=grammar)
     report = {"rules": len(grammar.rules), "branches": 26, "suites": {}}
+    notes = []
     ambiguity = []
     checked = set()
 
@@ -102,13 +107,18 @@ def main(argv=None) -> int:
                                  "branch": record.result.raw_semantic.source_branch,
                                  "reason": record.diagnosis})
         report["suites"][suite] = {"passed": summary.joint_correct, "total": summary.total, "failures": failures}
-        # Two documented coverage limits remain visible; new failures are regressions.
+        # Known coverage limits remain visible; any other failure is a regression.
         if suite == "official" and failures:
             errors.append(f"official regressions: {len(failures)}")
         if suite == "challenge":
-            regressions = [failure["id"] for failure in failures if failure["id"] not in {"C007", "C008"}]
+            regressions = [failure["id"] for failure in failures if failure["id"] not in KNOWN_CHALLENGE_GAPS]
             if regressions:
                 errors.append(f"challenge regressions: {', '.join(regressions)}")
+            fixed = sorted(record.case.case_id for record in summary.records
+                           if record.correct and record.case.case_id in KNOWN_CHALLENGE_GAPS)
+            if fixed:
+                notes.append(f"known challenge gaps now pass: {', '.join(fixed)}; "
+                             "remove them from KNOWN_CHALLENGE_GAPS")
     dialogues = load_dialogue_cases(root / "data/scaffolding/dialogues.txt")
     dialogue_passed = 0
     for case in dialogues:
@@ -165,6 +175,8 @@ def main(argv=None) -> int:
     print(f"ambiguity: {len(ambiguity)}/{len(checked)} checked sentences (bounded at 2 trees)")
     print(f"generated query statuses: {dict(statuses)}")
     print("Missing facts/context remain explicit fallbacks; see --json for individual traces.")
+    for note in notes:
+        print(f"NOTE: {note}")
     for error in errors:
         print(f"FAIL: {error}")
     if args.json:

@@ -33,7 +33,8 @@ class SentenceGenerator:
             return [], GeneratorStats(int(limit), 0, 0, int(limit) > 0)
 
         # Terminal count alone cannot bound S -> S S (especially with epsilon).
-        # Prune nonproductive forms and cap intermediate symbol growth as well.
+        # min_yield prunes forms that cannot finish within max_tokens; a length
+        # cap bounds nullable growth without losing short sentences.
         min_yield = {symbol: float("inf") for symbol in self.grammar.nonterminals}
         changed = True
         while changed:
@@ -43,8 +44,13 @@ class SentenceGenerator:
                 if cost < min_yield[rule.lhs]:
                     min_yield[rule.lhs] = cost
                     changed = True
-        symbol_cap = max_tokens + len(self.grammar.nonterminals) + max(
-            (len(rule.rhs) for rule in self.grammar.rules), default=0)
+        # A smallest derivation tree never repeats a non-terminal while the yield
+        # stays the same, so a path has at most (max_tokens + 1) * |N| non-terminals
+        # (+1 for the branch seed). A leftmost form holds the finished terminals,
+        # the current symbol and at most max_rhs - 1 pending siblings per ancestor.
+        max_rhs = max((len(rule.rhs) for rule in self.grammar.rules), default=1)
+        depth = (max_tokens + 1) * len(self.grammar.nonterminals) + 1
+        symbol_cap = max_tokens + 1 + depth * max(max_rhs - 1, 0)
 
         def feasible(form):
             return len(form) <= symbol_cap and sum(min_yield.get(symbol, 1) for symbol in form) <= max_tokens

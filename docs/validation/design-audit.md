@@ -22,7 +22,7 @@ dialogue. T07 ghi rõ quyết định giữ golden KB so khớp tuyệt đối.
 | Ticket | Trước khi sửa | Sau khi sửa / kiểm chứng |
 | --- | --- | --- |
 | T09 | Bare symbol `missing_symbol` bị coi là terminal dù thiếu ngoặc kép. | GrammarError có số dòng; yêu cầu bare non-terminal chữ hoa. |
-| T10 | Đếm terminal không chặn form tăng mãi với `S -> S S`, kể cả nullable. | Tính min_yield, loại nonproductive, giới hạn chiều dài form; hai ca tăng trưởng kết thúc dưới 100 form. |
+| T10 | Đếm terminal không chặn form tăng mãi với `S -> S S`, kể cả nullable. | Tính min_yield, loại nonproductive, giới hạn chiều dài form theo độ sâu cây dẫn xuất nhỏ nhất; hai ca tăng trưởng kết thúc dưới 100 form và câu ngắn sau nullable lồng nhau vẫn được sinh. |
 | T13 | GET_RESOURCE thiếu topic khớp chuỗi rỗng với mọi title. | found=False và đúng NOT_FOUND. |
 | T13 | CH99 vẫn nhận danh sách tài liệu nền. | Kiểm chương có trong KB trước khi gợi ý. |
 | T13 | Assignment/deadline có ID OTHER vẫn trả dữ kiện BTL01. | Guard đối tượng theo slot assignment; không trả fact của BTL khác. |
@@ -33,16 +33,17 @@ dialogue. T07 ghi rõ quyết định giữ golden KB so khớp tuyệt đối.
 | T17 | Parse nhận câu ngoài miền nhưng semantic UNKNOWN vẫn có thể được chấm đúng. | End-to-end kiểm cả trạng thái parse; diagnosis chỉ ra false acceptance. |
 | T17 | Có required terms thì bỏ qua kiểm category fallback. | Kiểm fallback đúng loại trước, sau đó mới kiểm các fact. |
 | T17 | Case hỏng/trùng ID/status lạ và dialogue thiếu reference có thể biến mất khỏi mẫu số. | Loader báo ValueError; không âm thầm giảm số lượng để chấm. |
-| T19 | Challenge bị hồi quy vẫn in PASS/exit 0. | Chỉ C007/C008 là giới hạn đã biết; các ca khác fail làm exit 1. |
+| T19 | Challenge bị hồi quy vẫn in PASS/exit 0. | Chỉ `KNOWN_CHALLENGE_GAPS` (C007/C008) là giới hạn đã biết; các ca khác fail làm exit 1; ca đã biết mà pass thì in NOTE để gỡ. |
 
-14 test mới trong `src/tests/test_audit_regressions.py` kiểm các phản ví dụ này.
+16 test mới trong `src/tests/test_audit_regressions.py` kiểm các phản ví dụ này
+(2 test sau cùng thêm ở lượt review: ngưỡng chiều dài generator và NOTE của checker).
 Nhóm 10 test đầu đã chạy trên code trước sửa và thất bại; các ca xuất grammar,
 CFG được chọn và tăng trưởng generator có test độc lập bổ sung. Ca generator
 không productive được kiểm sau khi có guard để tránh chạy bản có thể tăng bộ nhớ.
 
 ## Nghiệm thu
 
-- `python -m unittest discover -s src/tests -t src`: **47 test đạt, không skip**.
+- `python -m unittest discover -s src/tests -t src`: **49 test đạt, không skip**.
 - Sinh lại golden bằng `python tools/make_golden.py`: nội dung fixture không đổi;
   vẫn 2.077 tokenizer/parser, 2.034 semantic, 205 query/answer, 64 cases, 6 dialogue.
 - `python tools/check_grammar.py --samples 1000 --json docs/validation/design-audit-grammar.json`:
@@ -51,7 +52,7 @@ không productive được kiểm sau khi có guard để tránh chạy bản c�
 - Đối chiếu sáu file KB với archive gốc, bỏ khác biệt newline/dòng trống cuối:
   giữ nguyên nội dung fact.
 - `python tools/package_submission.py --output dist/design-audit-review.zip`:
-  gói 528.882 byte; giải nén sang thư mục mới, chạy từ cwd khác, cả 9 output
+  gói 529.078 byte; giải nén sang thư mục mới, chạy từ cwd khác, cả 9 output
   khớp source theo byte. Checksum/kết quả lưu ở `design-audit-artifacts.json`.
 
 Kết quả query missing-fact/context trong JSON vẫn có fallback có chủ đích.

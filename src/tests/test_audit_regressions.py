@@ -1,4 +1,7 @@
 """Independent counterexamples found while documenting completed tickets."""
+from contextlib import redirect_stdout
+import importlib.util
+import io
 from pathlib import Path
 import subprocess
 import shutil
@@ -145,6 +148,23 @@ class AuditRegressions(unittest.TestCase):
                 self.assertEqual(sentences, [])
                 self.assertLess(stats.explored_forms, 100)
                 self.assertTrue(stats.truncated)
+
+    def test_length_cap_keeps_short_sentence_behind_nested_nullable(self):
+        grammar = Grammar.from_text('%start S\nS -> A A A A A A A A "x"\nA -> B B B B B B B B B B\nB -> ')
+        sentences, stats = SentenceGenerator(grammar).generate(5, max_tokens=1)
+        self.assertEqual(sentences, ["X"])
+        self.assertFalse(stats.truncated)
+
+    def test_checker_notes_known_gap_that_now_passes(self):
+        spec = importlib.util.spec_from_file_location("check_grammar_under_test", REPO / "tools/check_grammar.py")
+        checker = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(checker)
+        checker.KNOWN_CHALLENGE_GAPS = checker.KNOWN_CHALLENGE_GAPS | {"C001"}
+        output = io.StringIO()
+        with redirect_stdout(output):
+            code = checker.main(["--samples", "26"])
+        self.assertEqual(code, 0, output.getvalue())
+        self.assertIn("NOTE: known challenge gaps now pass: C001", output.getvalue())
 
 
 if __name__ == "__main__":
