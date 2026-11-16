@@ -116,7 +116,10 @@ class DialogueContext:
         if entity:
             self.last_entity = entity
             self.history.append(entity)
-            del self.history[:-self.history_limit]
+            if self.history_limit > 0:
+                del self.history[:-self.history_limit]
+            else:
+                self.history.clear()
 
             if entity.startswith("CH"):
                 self.last_chapter = entity
@@ -136,3 +139,7 @@ class DialogueContext:
                 first_ch = chapters[0].get("chapter_id")
                 if first_ch and isinstance(first_ch, str):
                     self.last_chapter = first_ch
+        elif result.kind == "LO_CHAPTER" and isinstance(result.data, dict):
+            chapter = result.data.get("chapter")
+            if isinstance(chapter, dict) and isinstance(chapter.get("chapter_id"), str):
+                self.last_chapter = chapter["chapter_id"]

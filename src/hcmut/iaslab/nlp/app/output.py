@@ -16,7 +16,7 @@ def ensure_output_dir(path: str | Path) -> Path:
 
 
 def write_grammar(path: Path, source: str) -> None:
-    path.write_text(source.rstrip() + "\n", encoding="utf-8", newline="\n")
+    path.write_text(source, encoding="utf-8", newline="\n")
 
 
 def write_samples(path: Path, sentences: list[str], stats: GeneratorStats) -> None:

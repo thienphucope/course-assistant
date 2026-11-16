@@ -99,7 +99,7 @@ C008: Tuần thứ ba tụi mình học bài gì vậy? | expected=GET_SCHEDULE/
 D. ƯU ĐIỂM VÀ HẠN CHẾ
 ----------------------
 Ưu điểm: kết quả quyết định được, giải thích được bằng cây cú pháp, chạy offline,
-không hallucination và phân biệt rõ lỗi cú pháp với thiếu dữ liệu KB.
+trả lời từ dữ kiện KB và phân biệt lỗi cú pháp với thiếu dữ liệu KB.
 Hạn chế: grammar đóng không hiểu mọi cách diễn đạt; thêm từ đồng nghĩa hoặc mẫu
 câu mới cần cập nhật grammar. Ngữ cảnh chỉ giữ thực thể gần nhất và các quan hệ
 định trước, chưa xử lý tham chiếu xa hay nhập nhằng hội thoại phức tạp.

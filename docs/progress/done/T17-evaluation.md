@@ -10,15 +10,15 @@
 
 ## Đã làm
 
-- [x] `load_evaluation_cases`, `evaluate_cases`, `load_dialogue_cases`, `evaluate_dialogues`,
+- [x] `load_evaluation_cases`, `evaluate_cases`, `load_dialogue_cases`, `render_dialogue_evaluation`,
       `render_evaluation` (code từ nhánh `sample`).
 - [x] Chạy `sample_queries.txt`: so intent, entity, trạng thái query, fact trong câu trả lời.
 - [x] Chạy riêng `challenge_queries.txt` cho error analysis; ca sai có cột nguyên nhân theo tầng
       (grammar thiếu mẫu / semantic sai intent / entity sai / query sai).
-- [x] Mở rộng thêm bộ test (nhiều cách diễn đạt, câu ngoài phạm vi...) — chưa làm; làm khi cần
-      thêm số liệu cho báo cáo (nhớ chạy lại `python tools/make_golden.py`).
+- [x] Bộ challenge đã mở rộng thành C001–C022, có alias mới, dữ kiện thiếu, ngoài miền và
+      nhiều câu trong một lượt; golden đã sinh lại bằng `python tools/make_golden.py`.
 
-## Kết quả (nhánh `dev`)
+## Kết quả ở mốc 05/11/2026 (lịch sử)
 
 | Bộ | Kết quả |
 | --- | --- |
@@ -28,7 +28,7 @@
 
 `evaluation.txt` của `dev` khớp từng dòng với bản của sample khi chạy cùng dữ liệu.
 
-## Điểm yếu đã biết (đưa vào báo cáo T22: hạn chế và hướng mở rộng)
+## Điểm yếu ghi nhận ở mốc 05/11/2026 (lịch sử)
 
 - **Độ phủ cách nói hẹp (bản chất Classical).** Grammar viết tay chỉ nhận câu có luật khớp; câu
   ngoài mẫu bị từ chối thay vì đoán. Chat thử trên `dev` (7 câu): 1 câu trả lời đúng
@@ -58,3 +58,27 @@
 - Parser nullable completion đã được sửa và có test hồi quy; hạn chế nullable kể trên là ghi nhận lịch sử trước đợt này.
 - Generator chuẩn hóa hình thức câu hỏi và chia quota đều; output mặc định 1.000 câu, đủ 26 nhánh.
 - Báo cáo dùng số liệu mới trong docs/report.md; output đã chạy lại từ code hiện tại.
+
+## Thiết kế triển khai hiện tại
+
+### Dữ liệu và định nghĩa chỉ số
+[`evaluate.py`](../../../src/hcmut/iaslab/nlp/app/evaluate.py) có EvaluationCase, EvaluationRecord, EvaluationSummary. Record lưu expected/actual, PipelineResult và bốn cờ intent/entity/query/answer. Summary đếm theo record; percentage xử lý tổng 0 để không chia 0. Chuỗi predicate/query chỉ để trace, không dùng so khớp ngữ nghĩa bằng nguyên văn.
+
+load_evaluation_cases nhận dòng có ID dạng X001, 4 cột đầu bắt buộc và tối đa 6 cột. Cột 5 là FOUND/NOT_FOUND/SKIPPED; cột 6 là các fact ngăn bởi ;;. Dạng legacy bốn cột mặc định UNKNOWN→SKIPPED, GET_INSTRUCTOR→NOT_FOUND, còn lại FOUND. Header/comment không phải record được bỏ. Nay ID/dòng record sai, trùng ID, status không hợp lệ hoặc bộ rỗng phải báo ValueError thay vì làm giảm mẫu số mà không thông báo.
+
+### Chấm một bộ
+Reset context một lần trước bộ, chạy đúng thứ tự, lấy intent trước resolve và entity sau resolve. Entity rỗng biểu diễn OUT_OF_SCOPE nếu UNKNOWN, còn lại NONE. Found=True → FOUND; kind UNKNOWN/UNRESOLVED_CONTEXT → SKIPPED; các thất bại khác → NOT_FOUND.
+
+Answer phải đúng category trước khi so fact chuẩn hóa NFC/lowercase/space: FOUND phải có đáp án và không phải fallback; NOT_FOUND phải đúng hằng của đề; SKIPPED phải đúng NOT_UNDERSTOOD hoặc MISSING_CONTEXT theo kind. Có must_contain không cho phép bỏ qua kiểm tra fallback. End-to-end còn yêu cầu parse hợp lệ cho intent trong miền và tree=None cho UNKNOWN.
+
+Đợt audit sửa hai lỗ hổng: parse đã nhận câu ngoài miền nhưng semantic UNKNOWN vẫn từng được tính đúng; câu chứa fact fallback rồi chèn nội dung tự tạo vẫn từng được tính đúng. Test dùng PipelineResult giả lập để kiểm phép chấm độc lập với pipeline.
+
+### Hội thoại và xuất báo cáo
+load_dialogue_cases đọc heading DIALOGUE, các dòng U theo thứ tự và EXPECTED_REFERENCE; thiếu câu/reference, trùng ID hoặc không có phiên nay báo lỗi. `render_dialogue_evaluation` reset mỗi phiên, in trace các lượt và chấm entity của lượt cuối cùng cùng found=True. Alias PART_I_GRAMMAR_PARSER quy về PART_I cho chấm. API thực tế là render_dialogue_evaluation; không có hàm evaluate_dialogues trong code hiện tại.
+
+Độ đúng dialogue hiện là **phân giải tham chiếu cuối phiên**, không phải so mọi fact ở mọi lượt. Evaluation renderer in A/B bảng chi tiết, C nguyên nhân theo tầng, D ưu/nhược; không khẳng định template bảo đảm không thể trả lời sai.
+
+### Kết quả và bằng chứng
+Hiện có 42/42 official, 20/22 challenge, 6/6 tham chiếu dialogue. C007 hỏi số buổi/tuần còn thiếu mẫu và KB; C008 dùng 'tuần thứ ba' chưa có luật/resolver tương ứng. Các ca thiếu KB đúng như tuần 99, chương 13, output Phần II không tính là sai khi kỳ vọng NOT_FOUND.
+
+Những bảng 6/8, 28 test và lỗi nullable ở phần trên là lịch sử. Đợt này kiểm thêm label hỏng/duplicate, false acceptance, fallback và chuỗi ngữ cảnh LO. Các bộ đã dùng để xây grammar/luật; chưa có held-out set độc lập. Không dùng tỷ lệ hiện tại để suy ra độ chính xác trên mọi câu hỏi tự nhiên.

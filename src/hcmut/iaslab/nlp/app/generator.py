@@ -32,6 +32,23 @@ class SentenceGenerator:
         if requested == 0:
             return [], GeneratorStats(int(limit), 0, 0, int(limit) > 0)
 
+        # Terminal count alone cannot bound S -> S S (especially with epsilon).
+        # Prune nonproductive forms and cap intermediate symbol growth as well.
+        min_yield = {symbol: float("inf") for symbol in self.grammar.nonterminals}
+        changed = True
+        while changed:
+            changed = False
+            for rule in self.grammar.rules:
+                cost = sum(min_yield.get(symbol, 1) for symbol in rule.rhs)
+                if cost < min_yield[rule.lhs]:
+                    min_yield[rule.lhs] = cost
+                    changed = True
+        symbol_cap = max_tokens + len(self.grammar.nonterminals) + max(
+            (len(rule.rhs) for rule in self.grammar.rules), default=0)
+
+        def feasible(form):
+            return len(form) <= symbol_cap and sum(min_yield.get(symbol, 1) for symbol in form) <= max_tokens
+
         # The course grammar permits both bare and polite question endings.
         # Canonicalize their surface form without inventing tokens for generic CFGs.
         question_style = (
@@ -77,7 +94,10 @@ class SentenceGenerator:
         queues = []
         for index, (branch, seed) in enumerate(seeds):
             target = per_branch + int(index < extra)
-            queues.append((branch, deque([seed]), set([seed]), 0, target))
+            if feasible(seed):
+                queues.append((branch, deque([seed]), set([seed]), 0, target))
+            else:
+                truncated = True
 
         while queues and len(results) < requested and explored < global_state_cap:
             progressed = False
@@ -115,10 +135,7 @@ class SentenceGenerator:
                 symbol = form[index]
                 for rule in self.grammar.rules_for(symbol):
                     expanded = form[:index] + rule.rhs + form[index + 1 :]
-                    terminal_count = sum(
-                        not self.grammar.is_nonterminal(x) for x in expanded
-                    )
-                    if terminal_count > max_tokens:
+                    if not feasible(expanded):
                         truncated = True
                         continue
                     if expanded not in seen_forms:
@@ -131,32 +148,6 @@ class SentenceGenerator:
 
         if queues or explored >= global_state_cap or len(results) >= requested:
             truncated = truncated or bool(queues)
-        # A grammar without Q_* branches is handled by a general start-symbol expansion.
-        if not branches and not results:
-            queue = deque([(self.grammar.start,)])
-            seen = {(self.grammar.start,)}
-            while queue and len(results) < requested and explored < global_state_cap:
-                form = queue.popleft()
-                explored += 1
-                index = next(
-                    (i for i, x in enumerate(form) if self.grammar.is_nonterminal(x)),
-                    None,
-                )
-                if index is None:
-                    sentence = render(form)
-                    if sentence and sentence not in unique:
-                        unique.add(sentence)
-                        results.append(sentence)
-                    continue
-                for rule in self.grammar.rules_for(form[index]):
-                    nxt = form[:index] + rule.rhs + form[index + 1 :]
-                    if (
-                        sum(not self.grammar.is_nonterminal(x) for x in nxt)
-                        <= max_tokens
-                        and nxt not in seen
-                    ):
-                        seen.add(nxt)
-                        queue.append(nxt)
         return results[:requested], GeneratorStats(
             int(limit), len(results[:requested]), explored, truncated
         )

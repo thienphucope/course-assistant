@@ -247,6 +247,10 @@ class QueryEngine:
         )
 
     def _query_get_assignment(self, frame: SemanticFrame) -> QueryResult:
+        assignment = frame.slots.get("assignment", "BTL01")
+        if assignment != self.kb.assignment.get("assignment_id"):
+            return QueryResult(f"KB.assignment[{assignment}]", False, "ASSIGNMENT",
+                               reason="không có bài tập này trong KB")
         section_id = frame.slots.get("section")
         if section_id == "OVERVIEW":
             data = {
@@ -270,6 +274,10 @@ class QueryEngine:
         )
 
     def _query_get_deadline(self, frame: SemanticFrame) -> QueryResult:
+        assignment = frame.slots.get("assignment", "BTL01")
+        if assignment != self.kb.assignment.get("assignment_id"):
+            return QueryResult(f"KB.assignment[{assignment}].deadline", False, "DEADLINE",
+                               reason="không có bài tập này trong KB")
         milestones = [
             {"week_id": week_id, "milestone": record["milestone"]}
             for week_id, record in self.kb.weeks.items()
@@ -281,9 +289,15 @@ class QueryEngine:
         )
 
     def _query_get_resource(self, frame: SemanticFrame) -> QueryResult:
-        topic = str(frame.slots.get("topic") or "")
+        topic = str(frame.slots.get("topic") or "").strip()
         chapter = frame.slots.get("chapter")
+        if not topic and not chapter:
+            return QueryResult("KB.resources[missing_topic]", False, "RESOURCE",
+                               reason="thiếu chủ đề hoặc chương cần tìm tài liệu")
         if chapter or topic.startswith("CH"):
+            if str(chapter or topic) not in self.kb.topics:
+                return QueryResult(f"KB.resources.chapter[{chapter or topic}]", False, "RESOURCE",
+                                   reason="chương không tồn tại trong KB")
             records = [
                 resource for resource in self.kb.resources
                 if any(term in _normalize_search_text(" ".join(_flatten_text(resource))) for term in ("foundational", "broad nlp", "natural language processing"))

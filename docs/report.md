@@ -278,3 +278,9 @@ truy vấn có nguồn và chạy gói giải nén. Runtime hỏi đáp không d
 Nhóm cần review từng thay đổi, hiểu và giải thích lại thuật toán trước thuyết
 trình, xác nhận nội dung báo cáo và bổ sung khai báo AI cho các phần làm trước
 đợt này. Tài liệu này không khẳng định nhóm đã hoàn tất các bước xác nhận đó.
+
+**Bổ sung từ đợt rà thiết kế sau mốc `9096375`:** Codex hỗ trợ đối chiếu 19 ticket
+với implementation, viết tài liệu thiết kế và bổ sung test phản ví dụ cho guard
+query, context sau LO, grammar loader/generator, xuất grammar, chọn CFG kiểm tra
+và cách chấm đánh giá. Các lỗi đã sửa và kết quả kiểm chứng lưu tại
+`docs/validation/design-audit.md`; không thêm dữ kiện KB để sửa ca trả lời sai.

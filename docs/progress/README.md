@@ -17,6 +17,11 @@ nghiệm thu (`T11-semantic` ↔ `tests.test_contract_semantic`); một file cod
 Xong một việc: `git mv docs/progress/undone/Txx-<tên>.md docs/progress/done/`, rồi điền
 **Ngày xong**, **Commit** và **Kết quả** trong file.
 
+Các ticket T01–T19 có mục **Thiết kế triển khai hiện tại**: file/API, luồng xử lý,
+schema, quyết định thiết kế, lỗi/giới hạn và cách nghiệm thu. Số liệu giai đoạn cũ
+ghi dưới nhãn lịch sử. Kết quả đối chiếu và sửa bug sau mốc `9096375` nằm tại
+[`design-audit.md`](../validation/design-audit.md).
+
 Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm · ⚙️ chuẩn, làm 1 lần ·
 🔧 plumbing · ✨ optional (điểm cộng).
 
@@ -35,8 +40,8 @@ Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm ·
 | T09 | ⚙️ Grammar loader + Parser | `grammar.py`, `parser.py` · §2 | `test_contract_parser` | done |
 | T10 | ⚙️ Generator | `generator.py` | parse lại 100% | done |
 | T11 | 🔥 Semantic + entity lexicon | `semantic.py`, `entities.py` · §3 | `test_contract_semantic` | done |
-| T12 | 🔧 KB loader | `kb.py` · §4 | `test_contract_kb` | done (chờ review) |
-| T13 | 🔧 Query | `query.py` · §5 | `test_contract_query` | done (chờ review) |
+| T12 | 🔧 KB loader | `kb.py` · §4 | `test_contract_kb` | done |
+| T13 | 🔧 Query | `query.py` · §5 | `test_contract_query` | done |
 | T14 | 🔧 Answer + not-found | `answer.py` · §6 | `test_contract_answer` | done |
 | T15 | ✨ Dialogue (Phần III) | `dialogue.py` · §7 | `test_contract_dialogue` | done |
 | T16 | 🔧 Pipeline + CLI + 9 file output | `pipeline.py`, `cli.py`, `output.py`, `paths.py`, `run.py` · §8–9 | `test_contract_pipeline` + `run.py all` | done |
@@ -56,8 +61,9 @@ khi tầng trước xong.
 ## Ai đọc KB khi nào (đừng lẫn)
 
 - **Design time (bạn):** đọc `entities.txt` (schema + vocab) để viết grammar/intent.
-- **Run time (máy):** bước intent **KHÔNG** đọc KB; chỉ bước **query** mới mở `src/data/kb/` —
-  "có thì bóc, không thì rỗng". Chi tiết: `docs/knowledge/03-grammar-vs-kb.md`.
+- **Khởi tạo:** loader nạp `src/data/kb/` một lần khi dựng `CourseAssistant`.
+- **Xử lý từng câu:** semantic/intent **không đọc KB**; query tra đối tượng KB đã nạp,
+  trả dữ kiện hoặc kết quả rỗng. Chi tiết ranh giới: `docs/knowledge/03-grammar-vs-kb.md`.
 
 ## Mẫu file
 
@@ -72,6 +78,15 @@ khi tầng trước xong.
 
 ## Việc cần làm
 - [ ] ...
+
+## Thiết kế triển khai
+- File/API và kiểu dữ liệu vào/ra.
+- Luồng xử lý, thuật toán và lý do chọn cách làm.
+- Bất biến, ca lỗi và giới hạn còn lại.
+
+## Kiểm chứng
+- Test/lệnh chạy thật, kết quả và phạm vi kết luận.
+- Đối chiếu code với thiết kế; phân biệt số liệu hiện tại và lịch sử.
 
 ## Ghi chú
 ```

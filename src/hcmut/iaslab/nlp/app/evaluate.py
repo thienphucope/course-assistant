@@ -35,7 +35,8 @@ class EvaluationRecord:
 
     @property
     def correct(self) -> bool:
-        return self.intent_correct and self.entity_correct and self.query_correct and self.answer_correct
+        parse_correct = self.result.parse.accepted == (self.case.expected_intent != "UNKNOWN")
+        return parse_correct and self.intent_correct and self.entity_correct and self.query_correct and self.answer_correct
 
     @property
     def diagnosis(self) -> str:
@@ -90,16 +91,28 @@ class EvaluationSummary:
 
 
 def load_evaluation_cases(path: str | Path) -> list[EvaluationCase]:
+    path = Path(path)
     cases: list[EvaluationCase] = []
-    for raw in Path(path).read_text(encoding="utf-8").splitlines():
-        parts = [part.strip() for part in raw.split("|")]
-        if len(parts) < 4 or not re.fullmatch(r"[A-Z]\d{3}", parts[0]):
+    seen: set[str] = set()
+    for line_number, raw in enumerate(path.read_text(encoding="utf-8-sig").splitlines(), 1):
+        if not re.match(r"^[A-Z]\d+(?:\s*\||\s*$)", raw.strip()):
             continue
+        parts = [part.strip() for part in raw.split("|")]
+        if (not 4 <= len(parts) <= 6 or not re.fullmatch(r"[A-Z]\d{3}", parts[0])
+                or any(not part for part in parts[:4])):
+            raise ValueError(f"{path.name}:{line_number}: expected 4 to 6 non-empty case fields")
+        if parts[0] in seen:
+            raise ValueError(f"{path.name}:{line_number}: duplicate case ID {parts[0]}")
         expected_status = parts[4].upper() if len(parts) >= 5 and parts[4] else _default_query_status(parts[2])
+        if expected_status not in {"FOUND", "NOT_FOUND", "SKIPPED"}:
+            raise ValueError(f"{path.name}:{line_number}: invalid query status {expected_status!r}")
         expected_terms = tuple(
             term.strip() for term in parts[5].split(";;") if term.strip()
         ) if len(parts) >= 6 else ()
         cases.append(EvaluationCase(*parts[:4], expected_status, expected_terms))
+        seen.add(parts[0])
+    if not cases:
+        raise ValueError(f"{path.name}: no evaluation cases found")
     return cases
 
 
@@ -150,13 +163,14 @@ def _answer_matches(case: EvaluationCase, result: PipelineResult, actual_status:
     if actual_status != case.expected_query_status:
         return False
     answer = normalize_text(result.answer)
-    if case.expected_answer_terms:
-        return all(normalize_text(term) in answer for term in case.expected_answer_terms)
     if actual_status == "FOUND":
-        return bool(answer) and result.answer not in {NOT_FOUND, NOT_UNDERSTOOD, MISSING_CONTEXT}
-    if actual_status == "NOT_FOUND":
-        return result.answer == NOT_FOUND
-    return result.answer in {NOT_UNDERSTOOD, MISSING_CONTEXT}
+        category_correct = bool(answer) and result.answer not in {NOT_FOUND, NOT_UNDERSTOOD, MISSING_CONTEXT}
+    elif actual_status == "NOT_FOUND":
+        category_correct = result.answer == NOT_FOUND
+    else:
+        fallback = NOT_UNDERSTOOD if result.query.kind == "UNKNOWN" else MISSING_CONTEXT
+        category_correct = result.answer == fallback
+    return category_correct and all(normalize_text(term) in answer for term in case.expected_answer_terms)
 
 
 def render_evaluation(official: EvaluationSummary, challenge: EvaluationSummary) -> str:
@@ -195,7 +209,7 @@ def render_evaluation(official: EvaluationSummary, challenge: EvaluationSummary)
             "D. ƯU ĐIỂM VÀ HẠN CHẾ",
             "----------------------",
             "Ưu điểm: kết quả quyết định được, giải thích được bằng cây cú pháp, chạy offline,",
-            "không hallucination và phân biệt rõ lỗi cú pháp với thiếu dữ liệu KB.",
+            "trả lời từ dữ kiện KB và phân biệt lỗi cú pháp với thiếu dữ liệu KB.",
             "Hạn chế: grammar đóng không hiểu mọi cách diễn đạt; thêm từ đồng nghĩa hoặc mẫu",
             "câu mới cần cập nhật grammar. Ngữ cảnh chỉ giữ thực thể gần nhất và các quan hệ",
             "định trước, chưa xử lý tham chiếu xa hay nhập nhằng hội thoại phức tạp.",
@@ -237,16 +251,25 @@ class DialogueCase:
 
 
 def load_dialogue_cases(path: str | Path) -> list[DialogueCase]:
-    text = Path(path).read_text(encoding="utf-8")
+    path = Path(path)
+    text = path.read_text(encoding="utf-8-sig")
     headers = list(re.finditer(r"(?m)^DIALOGUE\s+(\d+)\s*$", text))
     cases: list[DialogueCase] = []
+    seen: set[str] = set()
     for index, header in enumerate(headers):
         end = headers[index + 1].start() if index + 1 < len(headers) else len(text)
         block = text[header.end() : end]
         questions = tuple(match.group(1).strip() for match in re.finditer(r"(?m)^U\d+:\s*(.+)$", block))
         reference = re.search(r'(?m)^EXPECTED_REFERENCE:.*->\s*([^\s"]+)', block)
-        if questions and reference:
-            cases.append(DialogueCase(f"D{int(header.group(1)):02d}", questions, reference.group(1)))
+        dialogue_id = f"D{int(header.group(1)):02d}"
+        if dialogue_id in seen:
+            raise ValueError(f"{path.name}: duplicate dialogue ID {dialogue_id}")
+        if not questions or not reference:
+            raise ValueError(f"{path.name}: {dialogue_id} missing questions or EXPECTED_REFERENCE")
+        cases.append(DialogueCase(dialogue_id, questions, reference.group(1)))
+        seen.add(dialogue_id)
+    if not cases:
+        raise ValueError(f"{path.name}: no dialogues found")
     return cases
 
 

@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
-from dataclasses import replace
 import json
 from pathlib import Path
 import re
@@ -22,7 +21,7 @@ from hcmut.iaslab.nlp.app.answer import NOT_FOUND, NOT_UNDERSTOOD, MISSING_CONTE
 from hcmut.iaslab.nlp.app.evaluate import evaluate_cases, load_evaluation_cases, load_dialogue_cases
 from hcmut.iaslab.nlp.app.generator import SentenceGenerator
 from hcmut.iaslab.nlp.app.grammar import Grammar, GrammarError
-from hcmut.iaslab.nlp.app.parser import EarleyParser
+from hcmut.iaslab.nlp.app.paths import ProjectPaths
 from hcmut.iaslab.nlp.app.pipeline import CourseAssistant
 from hcmut.iaslab.nlp.app.semantic import BRANCH_INTENTS
 from hcmut.iaslab.nlp.app.tokenizer import tokenize
@@ -81,8 +80,7 @@ def main(argv=None) -> int:
     if errors:
         print("\n".join(f"FAIL: {error}" for error in errors))
         return 1
-    assistant = CourseAssistant.from_root(root)
-    assistant.components = replace(assistant.components, parser=EarleyParser(grammar))
+    assistant = CourseAssistant.from_paths(ProjectPaths.from_root(root), grammar=grammar)
     report = {"rules": len(grammar.rules), "branches": 26, "suites": {}}
     ambiguity = []
     checked = set()
@@ -104,9 +102,13 @@ def main(argv=None) -> int:
                                  "branch": record.result.raw_semantic.source_branch,
                                  "reason": record.diagnosis})
         report["suites"][suite] = {"passed": summary.joint_correct, "total": summary.total, "failures": failures}
-        # Challenges are an error-analysis set, not a promise of grammar coverage.
+        # Two documented coverage limits remain visible; new failures are regressions.
         if suite == "official" and failures:
             errors.append(f"official regressions: {len(failures)}")
+        if suite == "challenge":
+            regressions = [failure["id"] for failure in failures if failure["id"] not in {"C007", "C008"}]
+            if regressions:
+                errors.append(f"challenge regressions: {', '.join(regressions)}")
     dialogues = load_dialogue_cases(root / "data/scaffolding/dialogues.txt")
     dialogue_passed = 0
     for case in dialogues:

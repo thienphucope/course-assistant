@@ -192,7 +192,9 @@ Golden: `dialogue.jsonl` (6 hội thoại, từng lượt: frame thô → frame 
 
 - `source_branch` giữ nguyên khi giải.
 - `update` chỉ ghi nhớ khi `result.found`: entity `CH*` → chương, `PART_*` → phần BTL, `LO*` → LO;
-  `SCHEDULE_WEEK` → `chapter_id` của tuần; `TOPIC_SEARCH` → chương đầu tiên tìm được.
+  `SCHEDULE_WEEK` → `chapter_id` của tuần; `TOPIC_SEARCH` → chương đầu tiên tìm được;
+  `LO_CHAPTER` → `chapter_id` trong kết quả để lượt sau dùng chương vừa trả lời.
+  `history_limit <= 0` tắt lưu danh sách history, vẫn giữ các trường ngữ cảnh theo loại.
 
 ## 8. End-to-end — `CourseAssistant.from_root(src).process(...)`
 

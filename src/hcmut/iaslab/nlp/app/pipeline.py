@@ -63,9 +63,10 @@ class CourseAssistant:
         self.components = components
 
     @classmethod
-    def from_paths(cls, paths: ProjectPaths) -> "CourseAssistant":
-        """Load files, validate them, construct stages, and wire dependencies."""
-        grammar = Grammar.from_file(paths.grammar)
+    def from_paths(cls, paths: ProjectPaths, *, grammar: Grammar | None = None) -> "CourseAssistant":
+        """Load files and wire stages, optionally using an already-loaded CFG."""
+        if grammar is None:
+            grammar = Grammar.from_file(paths.grammar)
         lexicon = EntityLexicon(paths.scaffolding / "entities.txt")
         kb = KnowledgeBase.load(paths.kb)
         errors = kb.validate()

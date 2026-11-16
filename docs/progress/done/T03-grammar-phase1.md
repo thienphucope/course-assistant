@@ -42,12 +42,13 @@ thức (C001–C008), 6 hội thoại.
 3. Chạy `evaluate_cases` trên `sample_queries.txt`, `challenge_queries.txt` và hội thoại trong
    `dialogues.txt`.
 4. Sinh 3000–6000 câu → parse lại; đếm số cây parse của mỗi câu (> 1 = mơ hồ).
-5. Chạy `CourseAssistant.process` trên mọi câu sinh ra không cần ngữ cảnh: intent ≠ UNKNOWN,
-   entity ≠ None, query tìm thấy.
+5. Chạy `CourseAssistant.process` trên câu sinh: intent ≠ UNKNOWN; entity có ID trừ frame
+   context; query tìm thấy hoặc fallback có nguyên nhân do thiếu KB/ngữ cảnh.
 6. Đo đóng góp: thay mọi danh sách entity bằng 1 giá trị cố định, sinh "khung câu" của từng nhánh
    từ grammar của người đóng góp, xem grammar nền có parse được vào đúng nhánh không.
 
-Script mẫu của các bước này sẽ được đưa vào repo ở `undone/T19-check-grammar-tool.md`.
+Công cụ hiện đã có ở `tools/check_grammar.py`; điều kiện nghiệm thu hiện tại (bao gồm
+fallback hợp lệ) ghi tại T19 và mục thiết kế bên dưới.
 
 ---
 
@@ -252,3 +253,21 @@ các gì?`, `Chương này nằm ở chương nào?`, `Phần 10 của project l
   sau review, nên chuyển sang cách gộp có chọn lọc ở trên.
 - Quy trình rút ra (PR nhỏ, không định nghĩa lại biến, chủ sở hữu biến dùng chung, tiêu chí
   nghiệm thu) chuyển thành quy ước trong `docs/progress/README.md`.
+
+## Thiết kế triển khai hiện tại
+
+### Ranh giới thiết kế
+File hiện hành là [`grammar.cfg`](../../../src/data/grammar.cfg), gốc `%start S`, production `S -> PREFIX QUESTION SUFFIX`. Prefix/lịch sự/dấu câu nằm ngoài nội dung yêu cầu; `QUESTION` có đúng 26 alternative, mỗi alternative là một nhánh `Q_*` có handler semantic tương ứng. Mục đích là thêm cách diễn đạt mà giữ nguyên schema semantic.
+
+### Cấu trúc để semantic đọc được
+Nhóm giữ các node `WEEK_ENTITY`, `CHAPTER_ENTITY`, `TOPIC_ENTITY`, `LO_ENTITY`, `ASSIGNMENT_PART`, `RESOURCE_TOPIC`, `RULE_TOPIC`, `EXAM_ENTITY`. Ví dụ `Tuần 3 học gì?` phải đi vào `Q_SCHEDULE_WEEK` và chứa `WEEK_ENTITY`, không nhận qua một nhánh keyword khác. Terminal dùng chữ thường khớp tokenizer; cụm kỹ thuật như `context-free` là một terminal.
+
+Nhóm gộp grammar bằng cách chọn alternative có nghĩa và đặt vào constituent dùng chung. Không merge nguyên pipeline của PR #2, không thêm nhánh Q mới chỉ để nhận một câu mẫu, không nới đại từ nếu resolver chưa hỗ trợ. Các bảng nhận/bỏ phía trên là hồ sơ review phase 1, không phải danh sách các giới hạn hiện tại.
+
+### Phần đã thay đổi sau phase 1
+T18 đã thêm `ASSIGNMENT_FEATURE -> FEAT_PARSING | FEAT_SEMANTIC | FEAT_CONTEXT | FEAT_EVAL` cùng alias `dịch máy`, `thư viện có sẵn`. Vì vậy các dòng lịch sử từng hoãn FEAT/alias sang T11 đã được giải quyết ở `ebe53eb`; vẫn giữ 26 nhánh. C007/C008 còn ngoài grammar và có phân tích tại T17.
+
+### Nghiệm thu và phạm vi kết luận
+`python tools/check_grammar.py --samples 1000` dùng implementation hiện tại, kiểm 42/42 câu đề, 20/22 challenge, 6/6 hội thoại, 1.000 câu sinh phủ 26 nhánh. Không phát hiện mơ hồ trong 1.047 câu phân biệt đã thử; kết quả không chứng minh toàn bộ ngôn ngữ CFG không mơ hồ. Các con số 3.000/6.000 câu ở review cũ là số liệu lịch sử, chưa tái chạy nguyên thí nghiệm của từng PR trong đợt rà soát này.
+
+Câu sinh có thể có query NOT_FOUND đúng vì tuần/chương/LO không tồn tại hoặc KB thiếu fact; câu ngữ cảnh đứng riêng có thể UNRESOLVED_CONTEXT. Điều kiện là parse/semantic đúng và fallback có nguyên nhân, không ép mọi query tìm thấy.

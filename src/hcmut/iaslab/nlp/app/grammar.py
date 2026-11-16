@@ -103,7 +103,12 @@ class Grammar:
                     if match.group(1) is not None:
                         symbols.append(json.loads('"' + match.group(1) + '"'))
                     else:
-                        symbols.append(match.group(2))
+                        symbol = match.group(2)
+                        if not re.fullmatch(r"[A-Z_][A-Z0-9_]*", symbol):
+                            raise GrammarError(
+                                f"Line {line_no}: bare symbol {symbol!r} must be an uppercase non-terminal; quote terminals"
+                            )
+                        symbols.append(symbol)
                     pos = match.end()
                 rules.append(Rule(lhs, tuple(symbols)))
         if not start:
