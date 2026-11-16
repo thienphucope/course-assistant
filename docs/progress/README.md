@@ -58,6 +58,34 @@ Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm ·
 T15** → **T20–T24**. Test hợp đồng dùng đầu vào golden nên T11, T13, T14 nghiệm thu được trước
 khi tầng trước xong.
 
+## Cân nhắc sau — rà theo đề (17/11/2026)
+
+Đối chiếu đề PDF với output, README, gói nộp tại `620b673`: Phần I, II (Classical), III, IV đạt;
+8/8 câu ví dụ của đề đúng theo KB; chạy kiểu `ENTRYPOINT` (`run.py --root`, gói giải nén, cwd khác)
+ra 9 output khớp repo. Còn lại:
+
+**Chặn nộp bài**
+
+- [ ] Tên/MSSV trong README, báo cáo, tên zip (T20, T22, T24).
+- [ ] `docker build` + `run` thật trên máy có Docker: `python tools/package_submission.py
+      --student-ids ... --verify-docker` (T21) — bài chấm bằng Docker.
+- [ ] Khai báo AI (đề mục 8, `AI_usage`): báo cáo/README mới ghi Codex; lịch sử git còn commit đồng
+      tác giả Claude (`git log --grep='Co-Authored-By: Claude'`) → bổ sung Claude Code (T22, T20).
+- [ ] Phân vai thuyết trình; cân nhắc quay video có thuyết minh thay bản tự động không tiếng (T23).
+
+**Chất lượng — nên chuẩn bị giải thích hoặc sửa**
+
+- [ ] Tài liệu theo chương ("Tài liệu của phần này ở đâu?"): KB không có quan hệ tài liệu–chương nên
+      trả tài liệu NLP nền, nhưng câu trả lời ghi "Tài liệu phù hợp:" như thể riêng cho chương →
+      đổi câu chữ (T14) hoặc nói rõ khi bị hỏi.
+- [ ] "Tài liệu nào nói về CFG?" → Speech and Language Processing đến từ bảng `RESOURCE_TERMS` nhóm tự
+      viết trong `query.py`, không phải dữ kiện KB (T13).
+- [ ] `evaluation.txt` mục C: C007/C008 chỉ có một câu lý do chung; nguyên nhân cụ thể (thiếu mẫu
+      "buổi mỗi tuần", không nhận số thứ tự "thứ ba", KB cũng không có số buổi) mới nằm ở README (T17).
+- [ ] 42/42 đo trên tập dùng khi phát triển; 32 câu phase 1 + ngữ cảnh trong `input/sentences.txt`
+      chưa gắn nhãn chấm → gắn nhãn để tăng mẫu "các cách diễn đạt khác nhau" (T17).
+- [ ] `samples.txt` có 38 câu viết `Lo1`, `Lo2.5` thay vì `LO1`, `LO2.5` — chỉ là hiển thị (T10).
+
 ## Ai đọc KB khi nào (đừng lẫn)
 
 - **Design time (bạn):** đọc `entities.txt` (schema + vocab) để viết grammar/intent.
