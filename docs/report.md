@@ -249,8 +249,9 @@ Python/Docker. Gói kiểm tra có đúng cấu trúc `project/src`, `data`, `mo
 
 `tools/package_submission.py` chạy source, đóng zip, giải nén sang thư mục mới,
 chạy lại từ cwd khác và đối chiếu cả 9 output theo byte. `--verify-docker` thêm
-build/run container và đối chiếu output. Máy thực hiện đợt này chưa có Docker;
-nhóm phải hoàn tất bước đó trước nộp. Tên/MSSV và định dạng bản báo cáo chờ bổ sung.
+build/run container và đối chiếu output. Bước này đã pass ngày 17/11/2026 với Docker
+Engine 29.6.1 trong WSL2 (Ubuntu): cả 9 output của container khớp byte với lần chạy
+source. Tên/MSSV và định dạng bản báo cáo chờ bổ sung.
 
 Kịch bản video và lời trình bày: `docs/demo-script.md`. `tools/demo.py` tạo trace
 thực thi 7 câu, có trường hợp không có KB và ngoài miền; bản lưu là
@@ -269,18 +270,30 @@ tin thành viên và có thể quay/thuyết minh theo kịch bản trước khi
    trong PR #4/#5/#7. Chi tiết quyết định chấp nhận tại `docs/progress/done/T03-grammar-phase1.md`.
 4. Bộ challenge và các cách diễn đạt bổ sung trong input do nhóm biên soạn.
 
-**Khai báo AI cho đợt 2026-11-16:** Codex hỗ trợ đọc task/spec, sửa nullable và
-kiểm mơ hồ của parser, mở rộng grammar/semantic FEAT, bổ sung ca kiểm thử, công cụ
-kiểm grammar/đóng gói, sửa layout launcher, soạn README/báo cáo/kịch bản demo.
-Codex chạy test hợp đồng và hồi quy, sinh lại golden từ baseline, kiểm câu sinh,
-truy vấn có nguồn và chạy gói giải nén. Runtime hỏi đáp không dùng LLM.
+**Khai báo sử dụng AI** (quy định `AI_usage` trong `kb/regulations.txt`). Runtime hỏi
+đáp không dùng LLM; AI chỉ hỗ trợ quá trình phát triển.
 
-Nhóm cần review từng thay đổi, hiểu và giải thích lại thuật toán trước thuyết
-trình, xác nhận nội dung báo cáo và bổ sung khai báo AI cho các phần làm trước
-đợt này. Tài liệu này không khẳng định nhóm đã hoàn tất các bước xác nhận đó.
+- **Claude Code** (Claude Opus 5.5, Claude Sonnet 5.5), 22/10–17/11/2026, các commit có
+  dòng `Co-Authored-By: Claude`:
+  - gộp grammar phase 1 từ PR #1–#3, lập bảng theo dõi task `docs/progress/`;
+  - soạn hợp đồng giữa các tầng và golden test (`docs/contracts.md`,
+    `tools/make_golden.py`, `tests/test_contract_*`);
+  - điền `input/sentences.txt` từ câu của giảng viên và câu phase 1;
+  - nối pipeline, CLI, xuất output và đánh giá (T16, T17) theo nhánh `sample`; sửa
+    tokenizer giữ viết tắt `TP.HCM`; chặn độ dài câu sinh của generator;
+  - công cụ minh hoạ `tools/visualizer/`; rà đề so với output; kiểm chứng Docker
+    trong WSL2.
+- **Codex**, 16–17/11/2026:
+  - đọc task/spec, sửa nullable và kiểm mơ hồ của parser, mở rộng grammar/semantic
+    FEAT, bổ sung ca kiểm thử C009–C022, công cụ kiểm grammar/đóng gói, sửa layout
+    launcher, soạn README/báo cáo/kịch bản demo;
+  - đối chiếu 19 ticket với implementation, viết tài liệu thiết kế và bổ sung test
+    phản ví dụ cho guard query, context sau LO, grammar loader/generator, xuất
+    grammar, chọn CFG kiểm tra và cách chấm đánh giá. Lỗi đã sửa và kết quả kiểm
+    chứng lưu tại `docs/validation/design-audit.md`.
 
-**Bổ sung từ đợt rà thiết kế sau mốc `9096375`:** Codex hỗ trợ đối chiếu 19 ticket
-với implementation, viết tài liệu thiết kế và bổ sung test phản ví dụ cho guard
-query, context sau LO, grammar loader/generator, xuất grammar, chọn CFG kiểm tra
-và cách chấm đánh giá. Các lỗi đã sửa và kết quả kiểm chứng lưu tại
-`docs/validation/design-audit.md`; không thêm dữ kiện KB để sửa ca trả lời sai.
+Cách kiểm tra: thay đổi có hỗ trợ AI được kiểm bằng test hợp đồng và hồi quy, golden
+sinh lại từ baseline, parse lại câu sinh, trace truy vấn có nguồn và chạy gói giải
+nén; không thêm dữ kiện KB để sửa ca trả lời sai. Nhóm review các thay đổi trước khi
+đưa vào bản nộp và chịu trách nhiệm hiểu, giải thích được mã nguồn và thuật toán đã
+nộp.

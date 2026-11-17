@@ -58,8 +58,9 @@ docker run --rm --mount "type=bind,source=$((Get-Location).Path)/output,target=/
 ```
 
 Image nền: `python:3.12-slim`. Lần build đầu cần kết nối để tải image nền;
-pipeline trong container chạy offline. Môi trường triển khai hiện tại chưa có Docker,
-nên nhóm cần chạy build/run trên máy có Docker trước khi nộp.
+pipeline trong container chạy offline. Đã kiểm chứng ngày 17/11/2026 bằng Docker Engine
+29.6.1 trong WSL2 (Ubuntu): build từ gói zip giải nén, chạy mặc định sinh đủ 9 output,
+khớp byte với lần chạy Python trực tiếp.
 
 ## Kiến trúc
 
@@ -147,7 +148,7 @@ python -m unittest discover -s tests -t .
 cd ..
 python tools/check_grammar.py --samples 1000 --json docs/validation/grammar-check.json
 python tools/package_submission.py
-# Khi có MSSV và Docker, thay các MSSV bên dưới bằng số thật:
+# Bản nộp cuối: thay MSSV bằng số thật (cần Docker; trên Windows chạy được trong WSL2):
 python tools/package_submission.py --student-ids MSSV1 MSSV2 MSSV3 --verify-docker
 ```
 
@@ -173,13 +174,19 @@ còn thiếu, rồi đánh giá trên câu mới tách khỏi tập phát triể
   grammar phase 1 tổng hợp đóng góp nhóm.
 - Bộ challenge và cách diễn đạt bổ sung trong input: nhóm biên soạn;
   C009–C022 bổ sung trong đợt hoàn thiện với hỗ trợ Codex.
-- Codex hỗ trợ rà task, sửa parser/semantic, mở rộng grammar, xây công cụ kiểm tra,
-  đóng gói và soạn tài liệu. Kiểm chứng qua test hợp đồng, hồi quy, round-trip,
-  trace query có nguồn và chạy gói giải nén. Nhóm cần tự review, hiểu thuật toán
-  và bổ sung khai báo AI cho các phần trước đợt này.
+- **Claude Code** (Claude Opus 5.5, Claude Sonnet 5.5), 22/10–17/11/2026: gộp grammar
+  phase 1 từ PR #1–#3, soạn hợp đồng giữa các tầng và golden test, điền
+  `input/sentences.txt`, nối pipeline/CLI/output/evaluate (T16, T17), sửa tokenizer
+  giữ viết tắt `TP.HCM`, chặn độ dài generator, công cụ minh hoạ `tools/visualizer/`,
+  rà đề so với output, kiểm chứng Docker trong WSL2 và soạn tài liệu theo dõi task.
+- **Codex**, 16–17/11/2026: rà task, sửa parser/semantic, mở rộng grammar, xây công cụ
+  kiểm tra, đóng gói và soạn README/báo cáo/kịch bản demo.
+- Runtime hỏi đáp không dùng LLM. Thay đổi có hỗ trợ AI được kiểm bằng test hợp đồng,
+  hồi quy, round-trip, trace query có nguồn và chạy gói giải nén; nhóm review trước
+  khi đưa vào bản nộp và chịu trách nhiệm giải thích được mã nguồn đã nộp.
 
 Báo cáo và kịch bản demo: `report.md`, `demo-script.md` trong gói kiểm tra;
 bản repo ở `docs/`. Gói có `demo.mp4`, video tự động từ trace thật, 2 phút 8 giây,
 có phụ đề và không có tiếng. Tạo lại video bằng `python tools/render_demo.py`
-trong repo (cần Pillow/ffmpeg cho công cụ phát triển). Thông tin thành viên và
-kiểm chứng Docker còn chờ nhóm hoàn tất.
+trong repo (cần Pillow/ffmpeg cho công cụ phát triển). Thông tin thành viên còn chờ
+nhóm bổ sung.

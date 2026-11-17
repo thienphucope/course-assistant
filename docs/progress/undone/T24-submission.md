@@ -20,7 +20,8 @@
       `__pycache__/`.
 - [x] `output/` trong zip là kết quả chạy thật của code nhóm (`python run.py all`), không chép từ
       sample.
-- [ ] Giải nén zip ra thư mục mới, build Docker và chạy thử trước khi nộp.
+- [x] Giải nén zip ra thư mục mới, build Docker và chạy thử trước khi nộp (pass 17/11 trong WSL2,
+      gói review; chạy lại với `--student-ids` cho zip cuối).
 
 ## Cập nhật 2026-11-16
 

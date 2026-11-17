@@ -49,10 +49,10 @@ Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm ·
 | T18 | 🔥 Grammar mở rộng sau phase 1 | `src/data/grammar.cfg` | 42/42 · 0 mơ hồ | done |
 | T19 | 🔧 Script kiểm tra grammar | `tools/` | — | done |
 | T20 | 🔧 README nộp bài | `README.md` | đủ mục đề 7.5 | nội dung kỹ thuật xong; chờ tên/MSSV |
-| T21 | 🔧 Dockerfile | `Dockerfile` | build + chạy được | đã chuẩn bị; chờ kiểm chứng Docker |
+| T21 | 🔧 Dockerfile | `Dockerfile` | build + chạy được | done |
 | T22 | 🔥 Báo cáo (+ ghi nguồn, khai báo AI) | — | đủ mục đề 6, 7.6 | nội dung xong; chờ nhóm duyệt/định dạng |
 | T23 | 🔧 Video demo + thuyết trình | — | đủ cảnh đề 7.6 | nội dung/video tự động xong; chờ nhóm/phân vai |
-| T24 | 🔧 Đóng gói zip nộp bài | `project/` | đúng đề 7.4, < 10MB | gói kiểm tra xong; chờ MSSV và Docker |
+| T24 | 🔧 Đóng gói zip nộp bài | `project/` | đúng đề 7.4, < 10MB | gói kiểm tra xong, Docker pass; chờ MSSV |
 
 Đợt code (thứ tự gợi ý): **T08, T09, T12, T10** song song → **T11, T13** → **T14, T16** → **T17,
 T15** → **T20–T24**. Test hợp đồng dùng đầu vào golden nên T11, T13, T14 nghiệm thu được trước
@@ -67,24 +67,23 @@ ra 9 output khớp repo. Còn lại:
 **Chặn nộp bài**
 
 - [ ] Tên/MSSV trong README, báo cáo, tên zip (T20, T22, T24).
-- [ ] `docker build` + `run` thật trên máy có Docker: `python tools/package_submission.py
-      --student-ids ... --verify-docker` (T21) — bài chấm bằng Docker.
-- [ ] Khai báo AI (đề mục 8, `AI_usage`): báo cáo/README mới ghi Codex; lịch sử git còn commit đồng
-      tác giả Claude (`git log --grep='Co-Authored-By: Claude'`) → bổ sung Claude Code (T22, T20).
+- [x] `docker build` + `run` thật: pass trong WSL2 ngày 17/11 (T21). Khi có MSSV chạy lại
+      `python tools/package_submission.py --student-ids ... --verify-docker` cho zip cuối (T24).
+- [x] Khai báo AI (đề mục 8, `AI_usage`): đã bổ sung Claude Code cạnh Codex trong README và báo cáo
+      §10 (17/11) theo lịch sử commit `Co-Authored-By: Claude` (T22, T20).
 - [ ] Phân vai thuyết trình; cân nhắc quay video có thuyết minh thay bản tự động không tiếng (T23).
 
-**Chất lượng — nên chuẩn bị giải thích hoặc sửa**
+**Ghi chú thiết kế — không phải lỗi, giữ nguyên (chốt 17/11)**
 
-- [ ] Tài liệu theo chương ("Tài liệu của phần này ở đâu?"): KB không có quan hệ tài liệu–chương nên
-      trả tài liệu NLP nền, nhưng câu trả lời ghi "Tài liệu phù hợp:" như thể riêng cho chương →
-      đổi câu chữ (T14) hoặc nói rõ khi bị hỏi.
-- [ ] "Tài liệu nào nói về CFG?" → Speech and Language Processing đến từ bảng `RESOURCE_TERMS` nhóm tự
-      viết trong `query.py`, không phải dữ kiện KB (T13).
-- [ ] `evaluation.txt` mục C: C007/C008 chỉ có một câu lý do chung; nguyên nhân cụ thể (thiếu mẫu
-      "buổi mỗi tuần", không nhận số thứ tự "thứ ba", KB cũng không có số buổi) mới nằm ở README (T17).
-- [ ] 42/42 đo trên tập dùng khi phát triển; 32 câu phase 1 + ngữ cảnh trong `input/sentences.txt`
-      chưa gắn nhãn chấm → gắn nhãn để tăng mẫu "các cách diễn đạt khác nhau" (T17).
-- [ ] `samples.txt` có 38 câu viết `Lo1`, `Lo2.5` thay vì `LO1`, `LO2.5` — chỉ là hiển thị (T10).
+- Tài liệu theo chương ("Tài liệu của phần này ở đâu?"): KB không có quan hệ tài liệu–chương nên
+  khuôn "Tài liệu phù hợp:" trả tài liệu NLP nền; README đã ghi (T14).
+- "Tài liệu nào nói về CFG?" → Speech and Language Processing: bảng `RESOURCE_TERMS` trong
+  `query.py` ánh xạ CFG/Parsing/Semantics sang tài liệu theo hiểu biết của nhóm; kết quả đúng (T13).
+- `evaluation.txt` mục C ghi lý do chung cho C007/C008; phân tích riêng từng ca ở báo cáo §7.1 và
+  README (T17).
+- 42/42 đo trên tập dùng khi phát triển; bộ challenge (mục B) và báo cáo §7.1 đã nêu giới hạn (T17).
+- Câu diễn đạt ngoài grammar ra `()`: giới hạn vốn có của Classical, đã ghi ở mục hạn chế.
+- `samples.txt` hiển thị `Lo1`, `Lo2.5` theo token đã chuẩn hoá; chỉ là hiển thị (T10).
 
 ## Ai đọc KB khi nào (đừng lẫn)
 
