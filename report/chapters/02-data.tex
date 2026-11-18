@@ -1,0 +1,62 @@
+% ============================================================
+\section{Dữ liệu và knowledge base}
+\label{sec:data}
+% ============================================================
+
+\subsection{Knowledge base do giảng viên cung cấp}
+
+KB gồm sáu file văn bản trong \code{data/kb/} (\cref{tab:kb}). Đây là nguồn dữ kiện
+duy nhất của câu trả lời; nhóm không bổ sung hay sửa dữ kiện KB.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.4cm}|L|P{3.6cm}|}
+    \hline
+    \textbf{File} & \textbf{Nội dung} & \textbf{Collection sau khi nạp} \\ \hline
+    \code{course_info.txt} & Mã, tên môn, học kỳ, tín chỉ, mô tả, LO, cấu trúc đánh
+      giá, hình thức thi giữa kỳ và cuối kỳ & \code{course} \\ \hline
+    \code{schedule.txt} & Lịch 15 tuần: chương, chủ đề, hoạt động và mốc bài tập lớn
+      của từng tuần & \code{weeks} \\ \hline
+    \code{topics.txt} & 12 chương: phần kiến thức, tóm tắt, chủ đề con, từ khóa &
+      \code{topics}, \code{chapter_weeks} \\ \hline
+    \code{assignments.txt} & Bài tập lớn BTL01: mục tiêu, yêu cầu tối thiểu của Phần
+      I--IV, phần mở rộng, intent và output gợi ý & \code{assignment} \\ \hline
+    \code{resources.txt} & 8 tài liệu tham khảo: tên, tác giả, năm, cách sử dụng &
+      \code{resources} \\ \hline
+    \code{regulations.txt} & Quy định: chuyên cần, liêm chính, sử dụng AI, thư viện
+      ngoài, LLM/RAG, câu hỏi ngoài phạm vi & \code{regulations} \\ \hline
+  \end{tabularx}
+  \caption{Sáu file KB và collection tương ứng}
+  \label{tab:kb}
+\end{table}
+
+Bộ nạp KB (\code{kb.py}) đọc từng file thành collection có kiểu, chuẩn hóa định danh
+(ví dụ chương 3 có ID \code{CH03}, tuần 3 có ID \code{WEEK_03}, \code{chapter_number}
+là số nguyên), lập chỉ mục \code{chapter_weeks} từ chương sang các tuần học, và kiểm
+tra tính nhất quán giữa lịch học với danh sách chương. Nhóm lưu một bản golden của KB
+đã nạp để phát hiện mọi thay đổi về dữ kiện hoặc kiểu dữ liệu khi sửa bộ nạp.
+
+\paragraph{Dữ kiện KB không có.} KB không chứa tên giảng viên, ngày thi cụ thể, số buổi
+học mỗi tuần, danh sách output riêng cho Phần II--IV, cũng như quan hệ chi tiết giữa
+tài liệu và chương. Với các câu hỏi về những trường này, hệ thống vẫn phân tích được
+câu và xác định intent, nhưng truy vấn trả về rỗng và câu trả lời là thông báo không
+tìm thấy. Nhóm không điền các trường này bằng suy đoán.
+
+\subsection{Dữ liệu hỗ trợ và dữ liệu kiểm thử}
+
+Thư mục \code{data/scaffolding/} chứa phần dữ liệu khung của đề và dữ liệu nhóm bổ sung:
+\begin{itemize}
+  \item \code{entities.txt}: lược đồ thực thể và bảng alias (ví dụ ``NLP'', ``môn này''
+        $\rightarrow$ \code{CO3085}; ``BTL'' $\rightarrow$ \code{BTL01}).
+  \item \code{sample_queries.txt}: 42 câu hỏi mẫu của đề, kèm intent, entity, trạng
+        thái truy vấn và các fact bắt buộc trong câu trả lời.
+  \item \code{dialogues.txt}: 6 hội thoại mẫu của đề dùng cho Phần III.
+  \item \code{challenge_queries.txt}: 22 câu thử thách \textbf{do nhóm tự biên soạn}
+        để phân tích lỗi và giới hạn; header của file ghi rõ nguồn này.
+\end{itemize}
+
+File \code{input/sentences.txt} chứa 73 câu đầu vào cho lệnh \code{run.py all}: các câu
+mẫu của đề và các cách diễn đạt khác do nhóm viết trong giai đoạn 1. Dòng trống và
+dòng chú thích bắt đầu bằng \texttt{\#} được bỏ qua. Dữ liệu bổ sung chỉ dùng để kiểm
+thử, không thay đổi bản chất bài toán và không tạo câu trả lời ngoài KB \cite{spec}.

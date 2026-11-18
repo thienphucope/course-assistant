@@ -1,7 +1,8 @@
 # Báo cáo BTL CO3085: Course Assistant
 
 **Phiên bản nội dung:** 2026-11-16. **Hướng thực hiện:** Classical NLP, Phần II lựa chọn 1.
-**Thành viên/MSSV:** nhóm bổ sung trước khi nộp. Phân công và định dạng bản nộp chờ nhóm chốt.
+**Thành viên:** Phan Gia Bảo (2310251), Nguyễn Huy Bách (2310198), Mai Anh Khoa (2311601),
+Hoàng Ngô Thiên Phúc (2212612). Phân công và định dạng bản nộp chờ nhóm chốt.
 
 ## 1. Bài toán và phạm vi
 
@@ -251,14 +252,14 @@ Python/Docker. Gói kiểm tra có đúng cấu trúc `project/src`, `data`, `mo
 chạy lại từ cwd khác và đối chiếu cả 9 output theo byte. `--verify-docker` thêm
 build/run container và đối chiếu output. Bước này đã pass ngày 17/11/2026 với Docker
 Engine 29.6.1 trong WSL2 (Ubuntu): cả 9 output của container khớp byte với lần chạy
-source. Tên/MSSV và định dạng bản báo cáo chờ bổ sung.
+source. Định dạng bản báo cáo chờ nhóm chốt.
 
 Kịch bản video và lời trình bày: `docs/demo-script.md`. `tools/demo.py` tạo trace
 thực thi 7 câu, có trường hợp không có KB và ngoài miền; bản lưu là
 `docs/demo-transcript.txt`. `tools/render_demo.py` tạo video MP4 dài 2 phút 8 giây,
 1280×720, có phụ đề, không có tiếng, từ kết quả thực thi thật. Đây là bản phát lại
-tự động, không phải quay màn hình. Gói kiểm tra có `demo.mp4`. Nhóm bổ sung thông
-tin thành viên và có thể quay/thuyết minh theo kịch bản trước khi nộp.
+tự động, không phải quay màn hình. Gói nộp có `demo.mp4`. Nhóm có thể quay/thuyết
+minh theo kịch bản trước khi nộp.
 
 ## 10. Tài liệu tham khảo và khai báo AI
 

@@ -1,0 +1,117 @@
+% ============================================================
+\section{Kiến trúc hệ thống}
+\label{sec:arch}
+% ============================================================
+
+\subsection{Pipeline tổng thể}
+
+\Cref{fig:pipeline} mô tả đường đi của một câu hỏi. Mỗi tầng là một module Python
+riêng, nhận dữ liệu có kiểu tường minh từ tầng trước và ghi kết quả của mình vào một
+file output.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+      font=\small,
+      stage/.style={draw, rounded corners=2pt, fill=blue!6, minimum width=5.4cm,
+        minimum height=8.5mm, align=center},
+      res/.style={draw, rounded corners=2pt, fill=orange!10, minimum width=3.6cm,
+        minimum height=8.5mm, align=center, font=\footnotesize},
+      io/.style={draw, rounded corners=6pt, fill=green!8, minimum width=5.4cm,
+        minimum height=7mm, align=center},
+      outfile/.style={font=\footnotesize\ttfamily, text=black!70, anchor=west},
+      arr/.style={-{Stealth[length=2mm]}, thick},
+      lab/.style={font=\scriptsize\itshape, text=black!65, right=1mm}
+    ]
+    \node[io] (in) {Câu hỏi tiếng Việt};
+    \node[stage, below=6mm of in] (tok) {Tokenizer \\ \scriptsize chuẩn hóa NFC, chữ thường, tách dấu câu};
+    \node[stage, below=6mm of tok] (parse) {Earley Parser \\ \scriptsize nhận/từ chối, dựng cây có nhãn};
+    \node[stage, below=6mm of parse] (sem) {Semantic Interpreter \\ \scriptsize nhánh \texttt{Q\_*} $\rightarrow$ intent, slot};
+    \node[stage, below=6mm of sem] (ctx) {Dialogue Context \\ \scriptsize giải tham chiếu; ghi nhớ thực thể khi FOUND};
+    \node[stage, below=6mm of ctx] (query) {Query Engine \\ \scriptsize tra cứu theo intent/slot};
+    \node[stage, below=6mm of query] (ans) {Answer Generator \\ \scriptsize template theo loại dữ kiện};
+    \node[io, below=6mm of ans] (outn) {Câu trả lời + trace};
+
+    \node[res, left=9mm of parse] (cfg) {\texttt{grammar.cfg} \\ CFG 26 nhánh};
+    \node[res, left=9mm of sem] (lex) {Entity lexicon \\ \texttt{entities.txt}};
+    \node[res, left=9mm of query] (kb) {Knowledge base \\ 6 file \texttt{data/kb/}};
+
+    \foreach \a/\b/\t in {in/tok/{str}, tok/parse/{tokens}, parse/sem/{Tree hoặc ()},
+        sem/ctx/{SemanticFrame}, ctx/query/{frame đã giải}, query/ans/{QueryResult},
+        ans/outn/{}}
+      {\draw[arr] (\a) -- (\b) node[midway, lab] {\t};}
+    \draw[arr, dashed] (cfg) -- (parse);
+    \draw[arr, dashed] (lex) -- (sem);
+    \draw[arr, dashed] (kb) -- (query);
+    \node[outfile] at ($(parse.east)+(1.2cm,0)$) {parse-results.txt};
+    \node[outfile] at ($(sem.east)+(1.2cm,0.2)$) {semantic.txt};
+    \node[outfile] at ($(sem.east)+(1.2cm,-0.2)$) {intent-entity.txt};
+    \node[outfile] at ($(query.east)+(1.2cm,0)$) {query.txt};
+    \node[outfile] at ($(ans.east)+(1.2cm,0)$) {answer.txt};
+    \foreach \n in {parse, sem, query, ans}
+      {\draw[black!35, densely dotted] (\n.east) -- ++(1.1cm,0);}
+  \end{tikzpicture}
+  \caption{Pipeline xử lý một câu hỏi và file output tương ứng}
+  \label{fig:pipeline}
+\end{figure}
+
+Một lần chạy \code{run.py all} đi qua pipeline với toàn bộ 73 câu đầu vào và sinh đủ
+9 file trong \code{output/}: ngoài 5 file theo từng câu ở \cref{fig:pipeline} còn có
+\code{grammar.txt} (văn phạm dùng cho lần chạy), \code{samples.txt} (câu sinh từ văn
+phạm), \code{dialogue.txt} (6 hội thoại) và \code{evaluation.txt} (kết quả đánh giá).
+
+\subsection{Module và kiểu dữ liệu}
+
+Mã nguồn nằm trong gói \code{hcmut.iaslab.nlp.app} (khoảng 3.000 dòng Python, chỉ dùng
+thư viện chuẩn). \Cref{tab:modules} liệt kê các module chính.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.2cm}|L|P{3.6cm}|}
+    \hline
+    \textbf{Module} & \textbf{Vai trò} & \textbf{Kiểu dữ liệu ra} \\ \hline
+    \code{tokenizer.py} & Chuẩn hóa và tách token & \code{list[str]} \\ \hline
+    \code{grammar.py} & Đọc \code{grammar.cfg}, kiểm tra cú pháp luật & \code{Grammar} \\ \hline
+    \code{parser.py}, \code{tree.py} & Parser Earley, cây cú pháp có nhãn & \code{ParseResult}, \code{Tree} \\ \hline
+    \code{generator.py} & Sinh câu hợp lệ từ văn phạm & \code{list[str]} \\ \hline
+    \code{semantic.py}, \code{entities.py} & Diễn giải cây, chuẩn hóa entity về ID & \code{SemanticFrame} \\ \hline
+    \code{dialogue.py} & Bộ nhớ và giải tham chiếu cục bộ & \code{SemanticFrame} đã giải \\ \hline
+    \code{kb.py} & Nạp và kiểm tra KB & \code{KnowledgeBase} \\ \hline
+    \code{query.py} & Truy vấn KB theo intent/slot & \code{QueryResult} \\ \hline
+    \code{answer.py} & Sinh câu trả lời và fallback & \code{str} \\ \hline
+    \code{pipeline.py} & Ghép các tầng cho một câu & \code{PipelineResult} \\ \hline
+    \code{evaluate.py} & Chấm các bộ kiểm thử & báo cáo đánh giá \\ \hline
+    \code{cli.py}, \code{output.py} & Dòng lệnh, ghi 9 file output & file văn bản \\ \hline
+  \end{tabularx}
+  \caption{Module chính của hệ thống}
+  \label{tab:modules}
+\end{table}
+
+Ba kiểu dữ liệu nối các tầng:
+\begin{itemize}
+  \item \code{SemanticFrame}: \code{intent}, \code{entity}, \code{slots} (từ điển
+        slot--giá trị) và \code{source_branch} (nhánh \texttt{Q\_*} sinh ra frame).
+  \item \code{QueryResult}: \code{found}, \code{kind} (loại dữ kiện, ví dụ
+        \code{SCHEDULE_WEEK}), \code{data}, \code{sources} (file KB đã dùng) và
+        \code{reason} khi không tìm thấy.
+  \item \code{PipelineResult}: câu gốc, token, cây, frame gốc, frame sau khi giải
+        ngữ cảnh, truy vấn, nguồn và câu trả lời; đây là nội dung của chế độ
+        \code{--trace}.
+\end{itemize}
+
+\subsection{Ranh giới giữa các tầng}
+\label{sec:contracts}
+
+Nhóm viết hợp đồng giữa các tầng trước khi chia việc hiện thực. Mỗi hợp đồng quy
+định đầu vào, đầu ra và bất biến của một tầng; các ràng buộc quan trọng:
+\begin{itemize}
+  \item Tầng ngữ nghĩa \textbf{không đọc KB}: intent và entity chỉ được suy ra từ cây
+        cú pháp và entity lexicon.
+  \item Tầng truy vấn không đọc lại câu gốc, chỉ dùng frame ngữ nghĩa.
+  \item Tầng trả lời chỉ dùng \code{QueryResult}; một kết quả \code{found=True} phải
+        sinh câu trả lời chứa dữ kiện, còn \code{found=False} phải đi vào fallback.
+\end{itemize}
+Mỗi hợp đồng có một bộ test nghiệm thu dùng đầu vào golden, nên từng tầng kiểm thử
+được độc lập với tầng trước. Bộ test hiện có 49 test, gồm test hợp đồng cho từng tầng
+và các ca hồi quy (\cref{sec:testing}).

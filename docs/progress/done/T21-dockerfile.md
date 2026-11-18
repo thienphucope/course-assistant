@@ -30,3 +30,4 @@ python3 tools/package_submission.py --verify-docker
 
 Lưu ý khi chạy lại trong WSL: `/etc/wsl.conf` mount ổ Windows với `uid=0,dmask=077` nên user thường
 không đọc được `/mnt/d`; chép repo vào home WSL (`git archive HEAD | wsl tar -x -C ~/...`) rồi chạy.
+Service `docker` trong WSL đang `disabled`: bật trước khi chạy bằng `wsl -u root systemctl start docker`.

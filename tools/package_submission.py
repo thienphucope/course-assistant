@@ -68,7 +68,14 @@ def main(argv=None):
                         ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
         for name in ("run.py", "README.md", "Dockerfile", ".dockerignore", "requirements.txt"):
             shutil.copy2(source / name, project / name)
-        for name in ("report.md", "demo-script.md", "demo-transcript.txt"):
+        # The compiled LaTeX report (report/) is the submitted report; the Markdown
+        # draft in docs/ is only a fallback when the PDF has not been built.
+        report_pdf = REPO / "report" / "report.pdf"
+        if report_pdf.is_file():
+            shutil.copy2(report_pdf, project / "report.pdf")
+        elif (REPO / "docs/report.md").is_file():
+            shutil.copy2(REPO / "docs/report.md", project / "report.md")
+        for name in ("demo-script.md", "demo-transcript.txt"):
             document = REPO / "docs" / name
             if document.is_file():
                 shutil.copy2(document, project / name)

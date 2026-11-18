@@ -6,8 +6,14 @@ offline bằng thư viện chuẩn Python. Phần III có bộ nhớ ngữ cản
 
 ## Thành viên
 
-Tên và MSSV: **chờ nhóm bổ sung trước khi nộp**. Cần điền 3–4 thành viên, thứ tự MSSV
-trong tên zip và người trình bày từng phần trong kịch bản demo.
+| Họ và tên | MSSV |
+| --- | --- |
+| Phan Gia Bảo | 2310251 |
+| Nguyễn Huy Bách | 2310198 |
+| Mai Anh Khoa | 2311601 |
+| Hoàng Ngô Thiên Phúc | 2212612 |
+
+Tên file nộp: `2310251-2310198-2311601-2212612.zip`.
 
 ## Cài đặt và chạy
 
@@ -148,8 +154,8 @@ python -m unittest discover -s tests -t .
 cd ..
 python tools/check_grammar.py --samples 1000 --json docs/validation/grammar-check.json
 python tools/package_submission.py
-# Bản nộp cuối: thay MSSV bằng số thật (cần Docker; trên Windows chạy được trong WSL2):
-python tools/package_submission.py --student-ids MSSV1 MSSV2 MSSV3 --verify-docker
+# Bản nộp cuối (cần Docker; trên Windows chạy được trong WSL2):
+python tools/package_submission.py --student-ids 2310251 2310198 2311601 2212612 --verify-docker
 ```
 
 Golden chạy code tham khảo nhánh `sample` với grammar hiện tại; adapter tường minh
@@ -185,8 +191,7 @@ còn thiếu, rồi đánh giá trên câu mới tách khỏi tập phát triể
   hồi quy, round-trip, trace query có nguồn và chạy gói giải nén; nhóm review trước
   khi đưa vào bản nộp và chịu trách nhiệm giải thích được mã nguồn đã nộp.
 
-Báo cáo và kịch bản demo: `report.md`, `demo-script.md` trong gói kiểm tra;
-bản repo ở `docs/`. Gói có `demo.mp4`, video tự động từ trace thật, 2 phút 8 giây,
+Báo cáo: `report.pdf` trong gói nộp (nguồn LaTeX ở `report/` của repo). Kịch bản demo:
+`demo-script.md`. Gói có `demo.mp4`, video tự động từ trace thật, 2 phút 8 giây,
 có phụ đề và không có tiếng. Tạo lại video bằng `python tools/render_demo.py`
-trong repo (cần Pillow/ffmpeg cho công cụ phát triển). Thông tin thành viên còn chờ
-nhóm bổ sung.
+trong repo (cần Pillow/ffmpeg cho công cụ phát triển).

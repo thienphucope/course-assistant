@@ -1,0 +1,77 @@
+% CO3085 Course Assistant — báo cáo bài tập lớn
+% Build: pdflatex report.tex (chạy 2 lần để có mục lục và số trang). Xem README.txt.
+\documentclass[oneside,final]{hcmut-report}
+\usepackage{codespace}
+\usepackage{amsmath}
+\usepackage{array,longtable,multirow,tabularx}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds,calc,shapes.geometric}
+\usepackage[linguistics]{forest}
+\usepackage[nameinlink]{cleveref}
+
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\emergencystretch}{3em} % long identifiers: stretch spaces before overflowing
+
+% Unicode symbols that appear verbatim in program traces (not in the T5 encoding)
+\DeclareUnicodeCharacter{03B5}{\ensuremath{\varepsilon}}
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2014}{\textemdash}
+\DeclareUnicodeCharacter{2013}{\textendash}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+% Cleveref names in Vietnamese
+\crefname{section}{mục}{mục}
+\Crefname{section}{Mục}{Mục}
+\crefname{subsection}{mục}{mục}
+\Crefname{subsection}{Mục}{Mục}
+\crefname{figure}{hình}{hình}
+\Crefname{figure}{Hình}{Hình}
+\crefname{table}{bảng}{bảng}
+\Crefname{table}{Bảng}{Bảng}
+\crefname{lstlisting}{đoạn mã}{đoạn mã}
+\newcommand{\crefrangeconjunction}{ đến~}
+\newcommand{\crefpairconjunction}{ và~}
+\newcommand{\crefmiddleconjunction}{, }
+\newcommand{\creflastconjunction}{ và~}
+
+% ------------------------------------------------------------- configuration
+\coursename{Xử lý Ngôn ngữ Tự nhiên}
+\coursecode{CO3085}
+\semester{HK261}
+\reporttype{Báo cáo bài tập lớn}
+\title{TRỢ LÝ HỎI ĐÁP MÔN HỌC\\[2pt]\LARGE COURSE ASSISTANT}
+\subtitle{Phần II -- Lựa chọn 1: Classical NLP (CFG, Earley, luật diễn giải)}
+\advisor{Võ Thanh Hùng}
+\class{L01}
+\reporttime{Tháng 11/2026}
+
+\addmember{Phan Gia Bảo}{2310251}
+\addmember{Nguyễn Huy Bách}{2310198}
+\addmember{Mai Anh Khoa}{2311601}
+\addmember{Hoàng Ngô Thiên Phúc}{2212612}
+
+\begin{document}
+\coverpage
+
+\tableofcontents
+\clearpage
+
+\input{chapters/01-introduction}
+\input{chapters/02-data}
+\input{chapters/03-architecture}
+\input{chapters/04-grammar-parser}
+\input{chapters/05-semantic-qa}
+\input{chapters/06-context}
+\input{chapters/07-evaluation}
+\input{chapters/08-discussion}
+\input{chapters/09-reproduce}
+\input{chapters/10-sources-ai}
+
+\clearpage
+\input{chapters/references}
+
+\end{document}

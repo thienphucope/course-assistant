@@ -1,0 +1,78 @@
+% codespace.sty — code and trace blocks for the CO3085 report.
+% Adapted from https://github.com/hoang-himself/hcmut-report (LPPL 1.3c).
+% minted was replaced by fvextra so the report builds with plain pdflatex
+% (no -shell-escape, no Pygments) and keeps Vietnamese UTF-8 text intact;
+% listings is kept for ASCII-only source code.
+\ProvidesPackage{codespace}[2026/11/18 code blocks, CO3085 edition]
+
+\RequirePackage{xcolor}
+\RequirePackage{fvextra}
+\RequirePackage{listings,lstautogobble}
+\RequirePackage[framemethod=tikz]{mdframed}
+
+\colorlet{codebackground}{gray!8}
+\colorlet{coderule}{gray!45}
+\definecolor{codebasic}{RGB}{40,40,40}
+\definecolor{codecomment}{RGB}{0,120,0}
+\definecolor{codestring}{RGB}{170,50,50}
+\definecolor{codekeyword}{RGB}{140,30,200}
+
+% ---- listings: ASCII source code (Python)
+\lstdefinestyle{codestyle}{
+  basicstyle=\color{codebasic}\ttfamily\small,
+  commentstyle=\color{codecomment}\itshape,
+  stringstyle=\color{codestring},
+  keywordstyle=\color{codekeyword}\bfseries,
+  backgroundcolor=\color{codebackground},
+  frame=lines,
+  rulecolor=\color{coderule},
+  numbers=left,
+  numbersep=4pt,
+  numberstyle=\tiny\color{gray},
+  autogobble=true,
+  breaklines=true,
+  showstringspaces=false,
+  tabsize=2,
+  captionpos=b
+}
+\lstset{style=codestyle}
+
+% ---- fvextra: traces, grammar excerpts and anything with Vietnamese text
+\fvset{
+  fontsize=\small,
+  breaklines=true,
+  breakanywhere=true,
+  breaksymbolleft={},
+  frame=lines,
+  rulecolor=\color{coderule},
+  framesep=2mm
+}
+
+% \begin{trace} ... \end{trace}: shaded verbatim block
+\newenvironment{trace}{%
+  \VerbatimEnvironment
+  \begin{mdframed}[backgroundcolor=codebackground,linecolor=coderule,nobreak=true,
+      leftline=false,rightline=false,innerleftmargin=6pt,innerrightmargin=6pt]%
+  \begin{Verbatim}[frame=none,fontsize=\footnotesize]%
+}{%
+  \end{Verbatim}%
+  \end{mdframed}%
+}
+
+% \begin{grammar} ... \end{grammar}: CFG excerpt
+\newenvironment{grammar}{%
+  \VerbatimEnvironment
+  \begin{mdframed}[backgroundcolor=blue!3,linecolor=coderule,
+      leftline=false,rightline=false,innerleftmargin=6pt,innerrightmargin=6pt]%
+  \begin{Verbatim}[frame=none,fontsize=\footnotesize,commandchars=\\\{\}]%
+}{%
+  \end{Verbatim}%
+  \end{mdframed}%
+}
+
+% Inline ASCII identifiers with underscores, line breaks allowed after _ . / -
+% e.g. \code{Q_SCHEDULE_WEEK}. Not for Vietnamese text (use \texttt) and not in
+% section titles or captions (moving arguments).
+\RequirePackage{url}
+\DeclareUrlCommand\code{\urlstyle{tt}}
+\g@addto@macro\UrlBreaks{\do\_\do\[\do\(\do\,\do\=}

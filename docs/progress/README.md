@@ -48,11 +48,11 @@ Legend dùng trong tiêu đề: ✅ có sẵn · 🔥 tốn công/ăn điểm ·
 | T17 | 🔧 Evaluation + mở rộng bộ test | `evaluate.py` · §8 | `evaluation.txt` đúng §9 | done |
 | T18 | 🔥 Grammar mở rộng sau phase 1 | `src/data/grammar.cfg` | 42/42 · 0 mơ hồ | done |
 | T19 | 🔧 Script kiểm tra grammar | `tools/` | — | done |
-| T20 | 🔧 README nộp bài | `README.md` | đủ mục đề 7.5 | nội dung kỹ thuật xong; chờ tên/MSSV |
+| T20 | 🔧 README nộp bài | `README.md` | đủ mục đề 7.5 | done |
 | T21 | 🔧 Dockerfile | `Dockerfile` | build + chạy được | done |
-| T22 | 🔥 Báo cáo (+ ghi nguồn, khai báo AI) | — | đủ mục đề 6, 7.6 | nội dung xong; chờ nhóm duyệt/định dạng |
-| T23 | 🔧 Video demo + thuyết trình | — | đủ cảnh đề 7.6 | nội dung/video tự động xong; chờ nhóm/phân vai |
-| T24 | 🔧 Đóng gói zip nộp bài | `project/` | đúng đề 7.4, < 10MB | gói kiểm tra xong, Docker pass; chờ MSSV |
+| T22 | 🔥 Báo cáo (+ ghi nguồn, khai báo AI) | — | đủ mục đề 6, 7.6 | PDF LaTeX `report/` xong (18/11); chờ nhóm duyệt + xác nhận phân công |
+| T23 | 🔧 Video demo + thuyết trình | — | đủ cảnh đề 7.6 | video tự động có tên nhóm; chờ phân vai |
+| T24 | 🔧 Đóng gói zip nộp bài | `project/` | đúng đề 7.4, < 10MB | zip cuối `2310251-2310198-2311601-2212612.zip` + Docker pass (18/11) |
 
 Đợt code (thứ tự gợi ý): **T08, T09, T12, T10** song song → **T11, T13** → **T14, T16** → **T17,
 T15** → **T20–T24**. Test hợp đồng dùng đầu vào golden nên T11, T13, T14 nghiệm thu được trước
@@ -66,12 +66,16 @@ ra 9 output khớp repo. Còn lại:
 
 **Chặn nộp bài**
 
-- [ ] Tên/MSSV trong README, báo cáo, tên zip (T20, T22, T24).
+- [x] Tên/MSSV trong README, báo cáo, video, tên zip (T20, T22, T23, T24) — 18/11.
 - [x] `docker build` + `run` thật: pass trong WSL2 ngày 17/11 (T21). Khi có MSSV chạy lại
-      `python tools/package_submission.py --student-ids ... --verify-docker` cho zip cuối (T24).
+      `python tools/package_submission.py --student-ids ... --verify-docker` cho zip cuối (T24):
+      pass 18/11, zip `dist/2310251-2310198-2311601-2212612.zip`.
 - [x] Khai báo AI (đề mục 8, `AI_usage`): đã bổ sung Claude Code cạnh Codex trong README và báo cáo
       §10 (17/11) theo lịch sử commit `Co-Authored-By: Claude` (T22, T20).
-- [ ] Phân vai thuyết trình; cân nhắc quay video có thuyết minh thay bản tự động không tiếng (T23).
+- [x] Báo cáo PDF LaTeX `report/report.pdf` (27 trang), zip cuối chứa `report.pdf`, Docker pass — 18/11 (T22, T24).
+- [ ] **Phúc dò lại báo cáo PDF**, nhóm xác nhận bảng phân công và khai báo AI (T22).
+- [ ] **Phúc làm video nộp**; phân vai thuyết trình (T23).
+- [ ] Sau hai việc trên: build lại PDF, đóng gói lại với `--video` và `--verify-docker` (T24).
 
 **Ghi chú thiết kế — không phải lỗi, giữ nguyên (chốt 17/11)**
 

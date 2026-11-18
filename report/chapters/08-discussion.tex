@@ -1,0 +1,53 @@
+% ============================================================
+\section{Ưu điểm, hạn chế và hướng mở rộng}
+\label{sec:discussion}
+% ============================================================
+
+\subsection{Ưu điểm}
+
+\begin{itemize}
+  \item \textbf{Giải thích được}: mọi câu trả lời lần ngược được qua truy vấn, frame
+        ngữ nghĩa, cây cú pháp và file KB nguồn; chế độ trace in đủ các bước.
+  \item \textbf{Không bịa dữ kiện}: câu trả lời chỉ dựng từ \code{QueryResult}; khi KB
+        thiếu dữ kiện hệ thống trả thông báo không tìm thấy, và phân biệt được ba
+        nguyên nhân thất bại (ngoài văn phạm, thiếu ngữ cảnh, thiếu dữ kiện).
+  \item \textbf{Tất định và nhẹ}: chạy offline bằng thư viện chuẩn Python, không cần
+        model hay GPU; cùng đầu vào luôn cho cùng output, nên output chạy trực tiếp, chạy
+        từ gói nộp và chạy trong Docker khớp nhau từng byte.
+  \item \textbf{Dễ kiểm thử và bảo trì}: hợp đồng giữa các tầng cho phép kiểm và thay
+        thuật toán bên trong một tầng mà không ảnh hưởng tầng khác.
+\end{itemize}
+
+\subsection{Hạn chế}
+
+\begin{itemize}
+  \item \textbf{Độ phủ văn phạm đóng}: câu có nghĩa trong miền nhưng diễn đạt khác các
+        luật đã viết sẽ bị từ chối (C007, C008). Mỗi cách hỏi mới cần sửa văn phạm và
+        chạy lại kiểm tra hồi quy.
+  \item \textbf{Tokenizer}: giữ dạng \texttt{chữ.chữ} để nhận \texttt{TP.HCM}, nhưng
+        cũng giữ nguyên lỗi gõ dính dấu chấm giữa hai từ.
+  \item \textbf{Bộ sinh câu} thiên về câu ngắn do duyệt theo chiều rộng, không đại
+        diện cho phân bố câu hỏi tự nhiên.
+  \item \textbf{Truy vấn dựa từ khóa}: tìm chủ đề và tài liệu phụ thuộc từ khóa; tài
+        liệu ``cho chương này'' là tài liệu nền của môn vì KB chưa có quan hệ tài
+        liệu--chương.
+  \item \textbf{Ngữ cảnh hẹp}: chỉ năm dạng tham chiếu định trước và thực thể gần nhất
+        theo loại; chưa xử lý tham chiếu xa, và có thể chọn ứng viên đầu tiên khi có
+        nhiều kết quả thay vì hỏi lại người dùng.
+  \item \textbf{Mơ hồ}: parser chỉ phát hiện mơ hồ có giới hạn (tối đa hai cây), chưa
+        cung cấp parse forest đầy đủ.
+  \item \textbf{Đánh giá}: chưa có tập kiểm thử độc lập với quá trình phát triển.
+\end{itemize}
+
+\subsection{Hướng mở rộng}
+
+\begin{itemize}
+  \item Thu thập câu hỏi thật của sinh viên, gán nhãn và tách tập đánh giá độc lập để đo
+        độ phủ một cách khách quan.
+  \item Bổ sung số thứ tự (``thứ ba''), từ đồng nghĩa và alias có kiểm thử hồi quy; xem
+        xét PCFG hoặc so khớp mềm để chọn nhánh gần nhất khi câu chỉ lệch văn phạm ít.
+  \item Bổ sung dữ kiện có nguồn vào KB (giảng viên, ngày thi, liên kết tài liệu--chương)
+        để các câu hiện trả lời ``không tìm thấy'' có câu trả lời chính xác.
+  \item Hỏi lại người dùng khi tham chiếu có nhiều ứng viên; mở rộng bộ nhớ hội thoại
+        cho tham chiếu xa.
+\end{itemize}

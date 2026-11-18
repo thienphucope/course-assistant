@@ -57,8 +57,9 @@ def main():
                "→ Semantic / Entity → Context → Query / KB → Answer\n\n"
                "Runtime: Python, thư viện chuẩn, chạy offline.\n"
                "Dữ kiện: 6 file KB do giảng viên cung cấp.\n\n"
-               "Video phát lại kết quả thực thi bằng code của nhóm.\n"
-               "Phụ đề thay lời thuyết minh; thông tin thành viên bổ sung sau.",
+               "Nhóm: Phan Gia Bảo 2310251 · Nguyễn Huy Bách 2310198\n"
+               "Mai Anh Khoa 2311601 · Hoàng Ngô Thiên Phúc 2212612\n\n"
+               "Video phát lại kết quả thực thi; phụ đề thay lời thuyết minh.",
                "Phần I: cú pháp · Phần II: hỏi đáp · Phần III: ngữ cảnh · Phần IV: đánh giá")]
     titles = ["01 · Từ câu hỏi tới dữ kiện", "02 · Parser và cây cú pháp", "03 · Giải tham chiếu trong cùng phiên",
               "04 · Tính năng BTL qua nhãn FEAT", "05 · Alias quy định", "06 · Có cây nhưng KB thiếu dữ kiện",
@@ -94,7 +95,7 @@ def main():
                    "grammar / samples / dialogue / evaluation\n\n"
                    "Các bộ đã dùng trong phát triển; chưa có tập đánh giá độc lập.\n"
                    "README và báo cáo nêu hạn chế, nguồn tham khảo và sử dụng AI.",
-                   "Kiểm chứng Docker còn chờ môi trường có Docker. Các số liệu trên lấy từ lần chạy tạo video."))
+                   "Docker build/run đã kiểm chứng: 9 output khớp byte. Số liệu lấy từ lần chạy tạo video."))
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     frames = output.parent / "demo-frames"

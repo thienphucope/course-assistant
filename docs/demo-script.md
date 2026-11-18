@@ -9,7 +9,7 @@ từng câu bằng `python src/run.py answer "..." --trace`.
 
 | Thời gian | Thao tác/cảnh | Lời giải thích |
 | --- | --- | --- |
-| 0:00–0:20 | Tên môn, đề tài, thành viên. | Nhóm chọn Classical NLP, dùng CFG và KB môn học; runtime offline. Điền tên/MSSV trước khi quay. |
+| 0:00–0:20 | Tên môn, đề tài, thành viên. | Nhóm gồm Phan Gia Bảo (2310251), Nguyễn Huy Bách (2310198), Mai Anh Khoa (2311601), Hoàng Ngô Thiên Phúc (2212612). Nhóm chọn Classical NLP, dùng CFG và KB môn học; runtime offline. |
 | 0:20–0:55 | Nhập `Môn NLP có bao nhiêu tín chỉ?` với `--trace`. | Chỉ token/cây, `Q_COURSE_CREDITS`, semantic, query, nguồn course_info và đáp án 3 tín chỉ. |
 | 0:55–1:35 | Trong một phiên, nhập `Tuần 3 học gì?`, tiếp `Nó có liên quan đến parsing không?`. | Câu đầu lưu CH03; câu sau có frame CONTEXT_DEPENDENT, resolver lấy CH03 rồi query quan hệ. Chỉ rõ frame trước/sau. |
 | 1:35–2:00 | `BTL có phần parse tree không?`. | Cây có FEAT_PARSING; semantic dùng nhãn để xác định PART_I. |
@@ -61,4 +61,4 @@ ngoài miền. Bản này có thể dùng để duyệt nội dung trước khi 
 Tạo lại bằng `python tools/render_demo.py`; công cụ phát triển cần Pillow và
 ffmpeg, font Segoe UI/Consolas trên Windows. Trên hệ khác dùng `--font` và
 `--mono-font` trỏ tới font hỗ trợ tiếng Việt. Runtime Course Assistant vẫn chỉ
-cần thư viện chuẩn. Còn thông tin thành viên, phân vai và quyết định bản video nộp.
+cần thư viện chuẩn. Còn phân vai thuyết trình và quyết định bản video nộp.

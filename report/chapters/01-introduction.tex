@@ -1,0 +1,97 @@
+% ============================================================
+\section{Giới thiệu}
+\label{sec:intro}
+% ============================================================
+
+\subsection{Bối cảnh và mục tiêu}
+
+Bài tập lớn yêu cầu xây dựng một \textbf{trợ lý hỗ trợ học tập} (Course Assistant) cho
+môn Xử lý Ngôn ngữ Tự nhiên (CO3085): người dùng đặt câu hỏi tiếng Việt về thông tin
+môn học, lịch học theo tuần, chương và chủ đề, chuẩn đầu ra (LO), bài tập lớn,
+deadline, tài liệu tham khảo và quy định của môn; hệ thống phải trả lời dựa trên
+knowledge base (KB) do giảng viên cung cấp \cite{spec}.
+
+Điểm cốt lõi của đề bài không nằm ở việc ``trả lời được'' mà ở việc thể hiện đầy đủ
+một \textbf{pipeline NLP} có thể giải thích từng bước:
+\begin{center}
+  \small
+  Câu hỏi $\rightarrow$ Grammar/Parser $\rightarrow$ Cây cú pháp $\rightarrow$
+  Diễn giải ngữ nghĩa $\rightarrow$ Intent/Entity $\rightarrow$ Truy vấn KB
+  $\rightarrow$ Câu trả lời
+\end{center}
+Khi KB không có dữ kiện, hệ thống phải báo rõ là không tìm thấy thay vì tự tạo câu
+trả lời.
+
+\subsection{Phạm vi và hướng tiếp cận}
+
+Nhóm chọn \textbf{Phần II -- Lựa chọn 1: Classical NLP}. Toàn bộ xử lý dựa trên văn
+phạm phi ngữ cảnh (CFG) viết tay, bộ phân tích cú pháp Earley và luật diễn giải cây
+cú pháp thành biểu diễn ngữ nghĩa. Chương trình chạy offline bằng thư viện chuẩn
+Python, không gọi API hay mô hình ngôn ngữ. Lý do lựa chọn:
+\begin{itemize}
+  \item Miền hỏi đáp hẹp và đóng (một môn học, sáu file KB), phù hợp với văn phạm
+        ngữ nghĩa (semantic grammar) như nội dung các chương 3--5 của môn học.
+  \item Mọi câu trả lời lần ngược được về truy vấn, frame ngữ nghĩa và cây cú pháp;
+        kết quả tất định nên dễ kiểm thử và chấm theo từng tầng.
+  \item Phân biệt rõ hai loại thất bại: câu nằm ngoài văn phạm (không có cây) và câu
+        hiểu được nhưng KB thiếu dữ kiện (có cây, có intent, truy vấn rỗng).
+\end{itemize}
+
+\Cref{tab:scope} tóm tắt mức độ thực hiện từng phần của đề và file output tương ứng.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{2.6cm}|P{1.9cm}|L|P{3.3cm}|}
+    \hline
+    \textbf{Phần} & \textbf{Yêu cầu} & \textbf{Hiện thực} & \textbf{Output} \\ \hline
+    I. Văn phạm và parser & Bắt buộc & CFG 26 nhánh câu hỏi, parser Earley, bộ sinh
+      câu có kiểm tra parse lại & \code{grammar.txt}, \code{samples.txt},
+      \code{parse-results.txt} \\ \hline
+    II. Ngữ nghĩa và hỏi đáp & Bắt buộc & Classical: luật diễn giải cây, entity lexicon,
+      truy vấn KB, sinh câu trả lời theo template & \code{semantic.txt},
+      \code{intent-entity.txt}, \code{query.txt}, \code{answer.txt} \\ \hline
+    III. Ngữ cảnh cục bộ & Mở rộng & Bộ nhớ thực thể gần nhất theo loại, 5 dạng tham
+      chiếu & \code{dialogue.txt} \\ \hline
+    IV. Đánh giá & Bắt buộc & Chấm end-to-end trên 42 câu của đề, 22 câu thử thách và
+      6 hội thoại & \code{evaluation.txt} \\ \hline
+  \end{tabularx}
+  \caption{Phạm vi thực hiện theo các phần của đề}
+  \label{tab:scope}
+\end{table}
+
+\subsection{Thành viên và phân công}
+
+Bảng~\ref{tab:members} tổng hợp phân công theo lịch sử commit và pull request của
+nhóm. Giai đoạn 1, mỗi thành viên viết grammar cho một nhóm nhánh câu hỏi; giai
+đoạn 2, mỗi người hiện thực các tầng của pipeline theo hợp đồng chung
+(\cref{sec:arch}).
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.6cm}|P{1.7cm}|L|}
+    \hline
+    \textbf{Thành viên} & \textbf{MSSV} & \textbf{Công việc chính} \\ \hline
+    Phan Gia Bảo & 2310251 & Grammar 9 nhánh thông tin môn học, giảng viên, lịch theo
+      tuần/chương; tokenizer, parser Earley, bộ sinh câu. \\ \hline
+    Nguyễn Huy Bách & 2310198 & Grammar 8 nhánh chủ đề, LO, bài tập lớn; nạp KB
+      (\code{kb.py}) và bộ truy vấn (\code{query.py}). \\ \hline
+    Mai Anh Khoa & 2311601 & Grammar 9 nhánh deadline, tài liệu, quy định và câu ngữ
+      cảnh; diễn giải ngữ nghĩa, sinh câu trả lời, ngữ cảnh hội thoại. \\ \hline
+    Hoàng Ngô Thiên Phúc & 2212612 & Review và gộp grammar; hợp đồng giữa các tầng,
+      golden test; pipeline, CLI, xuất output, đánh giá; mở rộng grammar; Docker,
+      README, báo cáo, video demo, đóng gói. \\ \hline
+  \end{tabularx}
+  \caption{Thành viên và phân công}
+  \label{tab:members}
+\end{table}
+
+\subsection{Cấu trúc báo cáo}
+
+\Cref{sec:data} mô tả dữ liệu và KB. \Cref{sec:arch} trình bày kiến trúc và ranh giới
+giữa các tầng. \Cref{sec:part1,sec:part2,sec:part3} lần lượt đi qua Phần I (grammar,
+parser, sinh câu), Phần II (ngữ nghĩa, truy vấn, trả lời) và Phần III (ngữ cảnh).
+\Cref{sec:eval} báo cáo kết quả đánh giá và phân tích lỗi; \cref{sec:discussion} nêu
+ưu điểm, hạn chế và hướng mở rộng. \Cref{sec:reproduce} hướng dẫn chạy lại; cuối cùng
+là nguồn tham khảo và khai báo sử dụng AI.

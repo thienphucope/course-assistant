@@ -1,0 +1,140 @@
+% ============================================================
+\section{Phần IV: Đánh giá hệ thống}
+\label{sec:eval}
+% ============================================================
+
+\subsection{Tập kiểm thử}
+
+Nhóm đánh giá trên ba bộ dữ liệu (\cref{tab:testsets}). Bộ của đề gồm 8 câu ví dụ trong
+đề bài (S001--S008) và 34 câu trong \code{sample_queries.txt} (Q001--Q034). Bộ thử thách
+22 câu do nhóm tự viết để nhắm vào các trường hợp đề yêu cầu bao phủ mà bộ của đề còn
+ít: cách diễn đạt khác, câu KB không có thông tin, thực thể không tồn tại và câu ngoài
+phạm vi. Câu có ngữ cảnh được đánh giá bằng 6 hội thoại mẫu của đề.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.4cm}|c|L|}
+    \hline
+    \textbf{Bộ} & \textbf{Số câu} & \textbf{Thành phần} \\ \hline
+    Bộ của đề & 42 & 6 thông tin môn học, 4 lịch học, 11 chủ đề, 2 LO, 6 bài tập lớn,
+      1 deadline, 3 tài liệu, 3 quy định, 3 câu ngữ cảnh, 3 câu ngoài phạm vi \\ \hline
+    Bộ thử thách (nhóm) & 22 & 6 cách diễn đạt khác (C001--C004, C008, C021); 3 câu KB
+      không có thông tin (C005--C007); 6 alias và tính năng BTL mới (C009--C014); 4 thực
+      thể không tồn tại (C015--C018); 3 câu không hợp lệ hoặc ngoài phạm vi (C019, C020,
+      C022) \\ \hline
+    Hội thoại của đề & 6 phiên & Mỗi phiên gồm câu cung cấp thực thể và câu tham chiếu
+      tới thực thể đó \\ \hline
+  \end{tabularx}
+  \caption{Thành phần các bộ kiểm thử}
+  \label{tab:testsets}
+\end{table}
+
+\subsection{Phương pháp chấm}
+
+Mỗi câu trong bộ kiểm thử có intent, entity, trạng thái truy vấn mong đợi
+(\code{FOUND}, \code{NOT_FOUND} hoặc \code{SKIPPED} khi không được phép truy vấn) và danh
+sách các fact bắt buộc phải xuất hiện trong câu trả lời. Một câu được tính là
+\textbf{đúng end-to-end} khi đồng thời:
+\begin{enumerate}
+  \item intent đúng; với câu ngữ cảnh, intent được chấm \emph{trước} khi giải
+        (\code{CONTEXT_DEPENDENT}) và entity được chấm \emph{sau} khi giải;
+  \item entity đúng sau khi chuẩn hóa về ID;
+  \item trạng thái truy vấn đúng; câu \code{UNKNOWN} chỉ đúng khi parser từ chối câu
+        và hệ thống không truy vấn KB;
+  \item câu trả lời chứa đủ mọi fact bắt buộc.
+\end{enumerate}
+Câu trả lời không được so nguyên văn vì cùng một dữ kiện có thể được diễn đạt theo
+nhiều cách; chấm theo fact giúp kiểm tra tính đúng của nội dung mà không phụ thuộc
+template. Các bộ chạy tuần tự, ngữ cảnh được xóa trước mỗi bộ và giữa các phiên hội
+thoại. Chỉ số chính là \textbf{độ chính xác end-to-end} = số câu đúng / tổng số câu;
+\code{evaluation.txt} còn báo cáo độ chính xác riêng của từng tầng.
+
+\subsection{Kết quả}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabular}{|l|r|r|r|r|r|r|}
+    \hline
+    \textbf{Bộ} & \textbf{Số câu} & \textbf{Intent} & \textbf{Entity} &
+      \textbf{Query} & \textbf{Answer} & \textbf{End-to-end} \\ \hline
+    Bộ của đề & 42 & 42 & 42 & 42 & 42 & 42 (100\%) \\ \hline
+    Bộ thử thách & 22 & 20 & 20 & 20 & 20 & 20 (90,91\%) \\ \hline
+    \textbf{Tổng hai bộ} & \textbf{64} & 62 & 62 & 62 & 62 & \textbf{62 (96,88\%)} \\ \hline
+    Hội thoại & 6 phiên & \multicolumn{5}{c|}{6/6 phiên giải đúng thực thể tham chiếu} \\ \hline
+  \end{tabular}
+  \caption{Kết quả đánh giá (trích \texttt{output/evaluation.txt} và \texttt{output/dialogue.txt})}
+  \label{tab:results}
+\end{table}
+
+Ở cả hai bộ, số câu đúng của từng tầng bằng số câu đúng end-to-end: hai câu sai của bộ
+thử thách sai ngay từ tầng cú pháp, các tầng sau không phát sinh thêm lỗi. Trong bộ thử
+thách, 7 câu mong đợi \code{NOT_FOUND} (C005, C006, C015--C018 và C007) kiểm tra rằng hệ
+thống báo không tìm thấy thay vì tự tạo câu trả lời; 6 trong 7 câu đạt, câu còn lại
+(C007) sai vì lý do cú pháp phân tích dưới đây.
+
+\subsection{Phân tích các trường hợp sai}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.5cm}|P{3cm}|L|L|}
+    \hline
+    \textbf{Câu} & \textbf{Mong đợi} & \textbf{Kết quả và nguyên nhân} &
+      \textbf{Hướng sửa} \\ \hline
+    C007: ``Môn NLP học mấy buổi mỗi tuần?'' &
+      \code{GET_COURSE_INFO}, \code{NOT_FOUND} (KB không có số buổi) &
+      Cây \texttt{()}, intent \code{UNKNOWN}. Văn phạm chưa có trường ``số buổi học''
+      nên câu bị coi là ngoài văn phạm thay vì ``hiểu nhưng thiếu dữ kiện''. &
+      Thêm trường và cách diễn đạt vào nhánh thông tin môn học; truy vấn vẫn phải trả
+      \code{NOT_FOUND}. \\ \hline
+    C008: ``Tuần thứ ba tụi mình học bài gì vậy?'' &
+      \code{GET_SCHEDULE}, \code{WEEK_03}, \code{FOUND} &
+      Cây \texttt{()}. \texttt{WEEK\_NUMBER} chỉ nhận chữ số, chưa nhận số thứ tự viết
+      bằng chữ (``thứ ba''); cụm ``tụi mình'', ``bài gì'' cũng chưa có trong nhánh. &
+      Thêm số thứ tự vào thành phần tuần và ánh xạ tương ứng trong entity lexicon;
+      chạy lại kiểm tra hồi quy. \\ \hline
+  \end{tabularx}
+  \caption{Các câu trả lời sai và nguyên nhân}
+  \label{tab:errors}
+\end{table}
+
+Cả hai lỗi có chung một nguyên nhân gốc: \textbf{độ phủ của văn phạm đóng}. Mọi cách
+diễn đạt chưa được viết thành luật đều bị từ chối, dù nghĩa của câu nằm trong miền. Đây
+là đánh đổi cố hữu của hướng Classical: đổi độ phủ lấy khả năng giải thích và độ chính
+xác trên các câu đã được hỗ trợ. Nhóm giữ hai ca này ở trạng thái sai để báo cáo trung
+thực, không thêm luật riêng cho đúng hai câu kiểm thử.
+
+Một số trường hợp \emph{không} phải lỗi dù câu trả lời là thông báo:
+\begin{itemize}
+  \item C015--C018 hỏi tuần 99, chương 13, LO9.9 và output Phần II; KB không có các
+        thực thể hoặc dữ kiện này, nên ``không tìm thấy'' là câu trả lời đúng.
+  \item C019 (``Tuần 3 học gì? xyz'') và C020 (hai câu hỏi trong một lượt) bị từ chối vì
+        hệ thống chỉ nhận một câu hỏi hoàn chỉnh mỗi lượt và phải tiêu thụ hết token.
+\end{itemize}
+
+\subsection{Kiểm thử tự động}
+\label{sec:testing}
+
+Ngoài đánh giá end-to-end, bộ test gồm 49 test (đều pass ở lần chạy gần nhất):
+\begin{itemize}
+  \item \textbf{Test hợp đồng} cho tokenizer, parser, semantic, KB, query, answer,
+        dialogue và pipeline; mỗi tầng được kiểm trên đầu vào golden nên lỗi được khoanh
+        vùng đúng tầng.
+  \item \textbf{Golden} được sinh tự động từ bản cài đặt tham khảo chạy với văn phạm
+        hiện tại; nhóm không sửa tay golden. Những chỗ bản tham khảo sai (ba kết quả
+        \code{found}/fallback) được sửa bằng adapter tường minh và ghi lại.
+  \item \textbf{Ca hồi quy}: luật rỗng và đệ quy trái trong parser, mơ hồ, token thừa
+        cuối câu, xóa ngữ cảnh, thiếu dữ kiện KB, giới hạn độ dài của bộ sinh câu.
+\end{itemize}
+Kết hợp với kiểm tra văn phạm ở \cref{sec:grammarcheck}, mỗi thay đổi văn phạm hoặc luật
+được kiểm trên câu mẫu, câu thử thách, hội thoại và 1.000 câu sinh.
+
+\subsection{Giới hạn của kết quả đánh giá}
+
+Các bộ kiểm thử trên đã được dùng trong quá trình phát triển văn phạm và luật; nhóm
+chưa có một tập giữ lại (held-out) độc lập. Vì vậy tỷ lệ 96,88\% phản ánh chất lượng trên
+64 câu hiện có, không nên dùng để dự đoán độ chính xác trên câu hỏi bất kỳ của người
+dùng thật. Golden dùng chung bản tham khảo nên có thể thừa hưởng giới hạn của bản đó;
+nhóm bổ sung kiểm tra trực tiếp trên dữ kiện KB và các ca phản ví dụ để giảm rủi ro này.

@@ -1,0 +1,69 @@
+% ============================================================
+\section{Phần III: Xử lý ngữ cảnh hội thoại cục bộ}
+\label{sec:part3}
+% ============================================================
+
+\subsection{Phạm vi}
+
+Phần III là phần mở rộng. Nhóm hiện thực ngữ cảnh \emph{cục bộ}: câu hỏi hiện tại được
+phép tham chiếu tới thực thể vừa được nhắc trong cùng phiên, qua đại từ hoặc cụm chỉ
+định như ``nó'', ``chương này'', ``phần đó'', ``chương tiếp theo''. Nhóm không xây dựng
+một dialogue manager tổng quát; chỉ hỗ trợ năm dạng tham chiếu đã định trước, tương ứng
+năm nhánh \texttt{Q\_CONTEXT\_*} của văn phạm:
+\begin{enumerate}
+  \item quan hệ giữa chương đang nhớ và một chủ đề (``Nó có liên quan đến parsing
+        không?'');
+  \item chương kế tiếp chương đang nhớ, trong phạm vi chương 1--12;
+  \item output của phần bài tập lớn đang nhớ;
+  \item tài liệu cho chương đang nhớ;
+  \item chương chứa chuẩn đầu ra (LO) đang nhớ.
+\end{enumerate}
+
+\subsection{Bộ nhớ và giải tham chiếu}
+
+Câu tham chiếu được văn phạm nhận diện như mọi câu khác, và tầng ngữ nghĩa sinh frame
+\code{CONTEXT_DEPENDENT} với slot \code{action} cho biết dạng tham chiếu. Bộ giải
+(\code{DialogueContext}) đứng giữa tầng ngữ nghĩa và tầng truy vấn:
+\begin{itemize}
+  \item \textbf{Bộ nhớ theo loại thực thể}: chương, phần bài tập lớn và LO gần nhất được
+        giữ ở các ô riêng. Vì vậy một câu hỏi về Phần II của BTL không ghi đè chương đang
+        được nhớ. Lịch sử giữ tối đa 20 thực thể.
+  \item \textbf{Giải tham chiếu}: \code{resolve()} lấy thực thể gần nhất đúng loại mà
+        dạng tham chiếu cần, thay frame \code{CONTEXT_DEPENDENT} bằng frame truy vấn
+        thông thường (ví dụ \code{GET_TOPIC}), và ghi lại lời giải thích tham chiếu.
+  \item \textbf{Cập nhật có điều kiện}: \code{update()} chỉ lưu thực thể khi truy vấn
+        tìm thấy dữ kiện; câu hỏi về thực thể không tồn tại (``Chương 13'') không thay
+        thế thực thể đang nhớ.
+  \item \textbf{Thiếu ngữ cảnh}: nếu chưa có thực thể phù hợp, frame giữ nguyên và câu
+        trả lời yêu cầu bổ sung ngữ cảnh (\cref{tab:fallback}).
+  \item Lệnh \code{/reset} trong chế độ tương tác xóa bộ nhớ của phiên.
+\end{itemize}
+Trace giữ cả frame gốc và frame đã giải, nên \code{semantic.txt} và
+\code{intent-entity.txt} cho thấy rõ câu nào phụ thuộc ngữ cảnh và đã được giải thành gì.
+
+\subsection{Ví dụ}
+
+Hội thoại D01 trong \code{dialogue.txt}: câu đầu cung cấp chương 3 qua tuần 3, câu sau
+hỏi ``chương này''.
+\begin{trace}
+D01 | PASS | expected=CH03 | resolved=CH03
+U1: Tuần 3 học gì?
+SEMANTIC1: GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)
+A1: Tuần 3 học Chương 3, gồm context-free grammar, grammar and sentence structure, ...
+U2: Tài liệu của chương này là gì?
+PARSE2: (S (PREFIX ε) (QUESTION (Q_CONTEXT_RESOURCE (RESOURCE_NOUN tài liệu) (CONTEXT_OF của) (CONTEXT_REFERENCE chương này) (RESOURCE_CONTEXT_QUESTION là gì))) (SUFFIX (END_MARK ?)))
+SEMANTIC2: GET_RESOURCE(entity=CH03, topic=CH03, chapter=CH03)
+CONTEXT2: chương gần nhất → CH03
+\end{trace}
+
+Trong chế độ trace, frame trước và sau khi giải được in cạnh nhau:
+\begin{trace}
+INPUT: Nó có liên quan đến parsing không?
+PARSE: (S (PREFIX ε) (QUESTION (Q_CONTEXT_TOPIC_RELATION (CONTEXT_PRONOUN nó) (RELATION_PHRASE có liên quan đến) (TOPIC_ENTITY parsing) (YES_NO không))) (SUFFIX (END_MARK ?)))
+SEMANTIC: CONTEXT_DEPENDENT(action=TOPIC_RELATION, relation=PARSING)
+CONTEXT: tham chiếu gần nhất → CH03
+RESOLVED: GET_TOPIC(entity=CH03, chapter=CH03, relation=PARSING)
+QUERY: KB.topics[CH03].contains(PARSING)
+ANSWER: Có. Chương 3 có nội dung liên quan đến parsing.
+\end{trace}
+Cả 6 hội thoại mẫu của đề đều giải đúng thực thể tham chiếu (\cref{sec:eval}).
