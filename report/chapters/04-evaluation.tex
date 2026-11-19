@@ -25,15 +25,10 @@ ngoài phạm vi.
   \label{tab:testsets}
 \end{table}
 
-\subsection{Phương pháp chấm}
-
-Một câu đúng end-to-end khi intent, entity, trạng thái truy vấn đều đúng và câu trả lời chứa
-đủ các fact bắt buộc. Câu ngữ cảnh được chấm intent trước khi giải và entity sau khi giải;
-câu ngoài phạm vi chỉ đúng khi parser từ chối và hệ thống không truy vấn KB. Câu trả lời
-được chấm theo fact thay vì so nguyên văn để không phụ thuộc template. Ngữ cảnh được xóa
-trước mỗi bộ và giữa các hội thoại.
-
 \subsection{Kết quả}
+
+Một câu được tính đúng end-to-end khi intent, entity, trạng thái truy vấn đều đúng và câu trả
+lời chứa đủ các fact bắt buộc.
 
 \begin{table}[htbp]
   \centering
@@ -73,7 +68,7 @@ Hai câu sai đều sai ngay từ tầng cú pháp; các tầng sau không thêm
   \label{tab:errors}
 \end{table}
 
-Cả hai lỗi cùng một gốc: văn phạm đóng không nhận cách diễn đạt chưa được viết thành luật,
+\Cref{tab:errors} là hai câu sai của bộ thử thách. Cả hai cùng một gốc: văn phạm đóng không nhận cách diễn đạt chưa được viết thành luật,
 dù nghĩa của câu nằm trong miền. Đây là đánh đổi của hướng Classical: mất độ phủ để đổi lấy
 khả năng giải thích. Nhóm giữ nguyên hai ca này thay vì thêm luật riêng cho đúng hai câu
 kiểm thử.
