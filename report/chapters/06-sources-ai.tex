@@ -1,27 +1,11 @@
 % ============================================================
-\section{Nguồn tham khảo và khai báo sử dụng AI}
+\section{Khai báo sử dụng AI}
 \label{sec:sources}
 % ============================================================
 
-\subsection{Nguồn dữ liệu và mã tham khảo}
-
-\begin{itemize}
-  \item \textbf{Đề bài, KB và scaffolding}: do giảng viên cung cấp \cite{spec}.
-  \item \textbf{Dữ liệu nhóm viết}: 22 câu thử thách và 32 cách hỏi trong câu đầu vào, chỉ
-        dùng để kiểm thử.
-  \item \textbf{Bản cài đặt tham khảo}: nhóm tham khảo cấu trúc mã khung và định dạng
-        output, dùng nó sinh dữ liệu kiểm thử chuẩn cho từng tầng. Mã nộp do nhóm tự viết,
-        kiểm thử và giải thích được.
-  \item \textbf{Lý thuyết}: thuật toán Earley \cite{earley1970}; CFG và văn phạm ngữ nghĩa
-        theo giáo trình \cite{phanthituoi,jurafsky,bird}.
-  \item \textbf{Mẫu báo cáo}: hcmut-report \cite{hcmutreport}, giấy phép LPPL 1.3c.
-\end{itemize}
-
-\subsection{Khai báo sử dụng AI}
-
-Theo quy định sử dụng AI của môn, nhóm khai báo việc dùng AI ở \cref{tab:ai}.
-\textbf{Khi chạy, hệ thống không dùng LLM hay mô hình học máy nào}; AI chỉ hỗ trợ trong quá
-trình phát triển.
+Quy định của môn yêu cầu khai báo việc dùng AI trong báo cáo \cite{spec}; \cref{tab:ai} liệt kê
+phạm vi hỗ trợ. \textbf{Khi chạy, hệ thống không dùng LLM hay mô hình học máy nào}; AI chỉ
+hỗ trợ trong quá trình phát triển.
 
 \begin{table}[htbp]
   \centering
@@ -45,4 +29,6 @@ trình phát triển.
 
 Mọi thay đổi có AI hỗ trợ đều phải qua test hợp đồng, test hồi quy và parse lại toàn bộ câu
 sinh, rồi được thành viên review trước khi đưa vào bản nộp. Nhóm không sửa KB để chữa ca
-sai và chịu trách nhiệm giải thích được toàn bộ mã nộp.
+sai và chịu trách nhiệm giải thích được toàn bộ mã nộp. Ngoài AI, nhóm tham khảo cấu trúc mã
+khung của một bản cài đặt tham khảo và dùng nó sinh dữ liệu kiểm thử chuẩn cho từng tầng;
+báo cáo dùng mẫu hcmut-report \cite{hcmutreport}.

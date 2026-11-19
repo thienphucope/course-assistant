@@ -38,7 +38,7 @@ lịch sử commit/PR — **nhóm cần xác nhận**. Gói nộp dùng `report.
 Phúc dò lại `report/report.pdf`. Những chỗ cần soát kỹ:
 - [x] Bảng 1.2 phân công: Phúc chốt 19/11 theo task (Bảo T08–T10, Bách T12–T13, Khoa T11, T14,
       ba người cùng grammar phase 1 T03; còn lại Phúc).
-- [ ] Bảng 6.1 khai báo AI (trước là 10.1, rồi 7.1): phạm vi và mốc thời gian đúng thực tế.
+- [ ] Bảng 6.1 khai báo AI (chương 6 giờ chỉ còn khai báo AI; quy định AI_usage bắt khai trong báo cáo): phạm vi và mốc thời gian đúng thực tế.
 - [ ] Đọc toàn bộ nội dung, số liệu (42/42, 20/22, 6/6, 49 test, 1.000 câu sinh), chính tả.
 - [ ] Sửa xong: build lại (`pdflatex report.tex` ×2 trong `report/`) rồi đóng gói lại (T24).
 
