@@ -3,14 +3,17 @@
 \label{sec:arch}
 % ============================================================
 
-\subsection{Kiến trúc}
+\subsection{Tổng quan}
 
-Hệ thống là một pipeline sáu bước, mỗi bước biến đổi câu hỏi sang một biểu diễn mới: dãy
-token, cây cú pháp, frame ngữ nghĩa, frame đã giải tham chiếu, dữ kiện và câu trả lời, như ở
-\cref{fig:pipeline}. Ý tưởng chính là tách việc \emph{hiểu câu hỏi} khỏi việc \emph{tra dữ
-kiện}: tầng ngữ nghĩa chỉ dựa vào cây cú pháp và từ điển thực thể, không đọc KB. Nhờ vậy hệ
-thống phân biệt được câu không hiểu với câu hiểu nhưng KB không có dữ kiện, và câu trả lời
-chỉ chứa những gì truy vấn tìm thấy.
+Hệ thống trả lời một câu hỏi qua sáu bước nối tiếp nhau, như ở \cref{fig:pipeline}. Câu hỏi
+được chuẩn hóa thành dãy token, parser dựng cây cú pháp, bước diễn giải đọc cây để xác định
+intent và thực thể, bước giải tham chiếu thay các từ như ``nó'' bằng thực thể đã nhắc, rồi
+hệ thống tra KB và điền kết quả vào câu trả lời.
+
+Nguyên tắc thiết kế quan trọng nhất là tách \emph{hiểu câu hỏi} khỏi \emph{tra dữ kiện}. Các
+bước hiểu câu chỉ dùng văn phạm và từ điển thực thể, không đọc KB; chỉ bước truy vấn mới chạm
+tới KB. Nhờ vậy hệ thống phân biệt được hai kiểu thất bại: không hiểu câu, và hiểu nhưng KB
+không có dữ kiện.
 
 \begin{figure}[tbp]
   \centering
@@ -51,15 +54,16 @@ chỉ chứa những gì truy vấn tìm thấy.
 
 \subsection{Văn phạm (Phần I)}
 
-Trước khi phân tích, câu được chuẩn hóa Unicode, chuyển chữ thường và tách dấu câu, nhưng
-giữ nguyên các thuật ngữ như ``context-free'' hay ``LO2.5''.
+Văn phạm là một CFG viết tay, quy định những câu hỏi nào hệ thống hiểu được. Nhóm viết theo
+kiểu \emph{semantic grammar}: ký hiệu không kết thúc được đặt theo nghĩa của miền, như
+\nt{WEEK\_ENTITY} cho ``tuần 3'' hay \nt{Q\_SCHEDULE\_WEEK} cho câu hỏi lịch theo tuần, thay vì
+theo từ loại như NP, VP. Nhờ vậy, khi parse xong, cây đã cho biết câu thuộc loại câu hỏi nào
+và thực thể nằm ở đâu.
 
-Văn phạm gồm 100 ký hiệu không kết thúc, 463 luật sinh và 330 terminal, viết theo kiểu
-\emph{semantic grammar}: ký hiệu không kết thúc mang nghĩa của miền như \nt{WEEK\_ENTITY}
-hay \nt{Q\_SCHEDULE\_WEEK} thay vì nhãn từ loại như NP, VP. Mỗi câu hợp lệ đi qua đúng một
-trong 26 nhánh câu hỏi, và nhánh đó quyết định intent; \cref{tab:branches} cho biết nhánh
-nào ứng với intent nào. Thực thể nằm sẵn trong các node có tên, nên bước diễn giải chỉ cần
-đọc cây. Ví dụ một phần văn phạm cho câu hỏi lịch học theo tuần:
+Mỗi câu gồm phần mở đầu lịch sự, nội dung câu hỏi và phần kết; phần mở đầu và phần kết có thể
+rỗng. Nội dung câu hỏi đi vào đúng một trong 26 nhánh, mỗi nhánh ứng với một intent như ở
+\cref{tab:branches}. Dưới đây là các luật dùng để phân tích câu ``Tuần 3 học gì?'', có cây ở
+\cref{fig:tree}:
 \begin{center}
   \begin{tabular}{r@{\ $\rightarrow$\ }l}
     \nt{S} & \nt{PREFIX} \nt{QUESTION} \nt{SUFFIX} \\
@@ -68,11 +72,14 @@ nào ứng với intent nào. Thực thể nằm sẵn trong các node có tên,
     \nt{WEEK\_ENTITY} & \textit{tuần} \nt{WEEK\_NUMBER} \\
     \nt{WEEK\_NUMBER} & \textit{1} $\mid$ \textit{2} $\mid$ \dots $\mid$ \textit{16}
       $\mid$ \textit{20} $\mid$ \textit{99} \\
+    \nt{WEEK\_CONTENT\_QUESTION} & \textit{học gì} $\mid$ \textit{học những gì} $\mid$ \dots \\
   \end{tabular}
 \end{center}
-\nt{WEEK\_NUMBER} cố ý nhận cả tuần không có trong lịch như tuần 99: câu đúng cú pháp thì
-được hiểu, còn tuần đó có tồn tại hay không là việc của KB. Vì vậy ``Tuần 99 học gì?'' được
-trả lời là không tìm thấy thay vì bị coi là câu ngoài văn phạm.
+Số tuần được liệt kê từ 1 đến 16, thêm 20 và 99, dù lịch chỉ có 15 tuần. Đây là chủ ý: câu
+hỏi về tuần không tồn tại vẫn đúng cú pháp nên vẫn được hiểu, rồi KB mới báo không tìm thấy.
+Tương tự, các cách gọi đồng nghĩa được gom về cùng một ký hiệu, ví dụ ``parser'', ``parse
+tree'' và ``phân tích cú pháp'' đều thuộc \nt{FEAT\_PARSING} nên cho cùng một nghĩa. Văn phạm
+hiện có 100 ký hiệu không kết thúc, 463 luật sinh và 330 terminal.
 
 \begin{table}[htbp]
   \centering
@@ -103,29 +110,27 @@ trả lời là không tìm thấy thay vì bị coi là câu ngoài văn phạm
   \label{tab:branches}
 \end{table}
 
-Ở giai đoạn 1, mỗi thành viên viết một nhóm nhánh; bản gộp giữ nguyên 26 nhánh và loại các
-lựa chọn gây mơ hồ. Các cách gọi đồng nghĩa được gom vào cùng một ký hiệu, ví dụ
-``parser'', ``parse tree'', ``phân tích cú pháp'' đều thuộc \nt{FEAT\_PARSING} và cùng chỉ
-Phần I của bài tập lớn.
-
 \subsection{Parser Earley và sinh câu (Phần I)}
-\label{sec:grammarcheck}
 
-Nhóm dùng thuật toán Earley \cite{earley1970,jurafsky} vì nó chạy được trên mọi CFG, kể cả
-luật rỗng và đệ quy trái, mà không phải đổi văn phạm sang dạng chuẩn Chomsky như CKY, nên
-cây giữ nguyên các node ngữ nghĩa. Với $n$ token, parser dựng các tập trạng thái
-$S_0, \dots, S_n$ bằng ba thao tác:
+Parser nhận dãy token, quyết định câu có thuộc văn phạm hay không và dựng cây cú pháp. Nhóm
+chọn thuật toán Earley \cite{earley1970,jurafsky} vì nó chạy trực tiếp trên mọi CFG, kể cả
+luật rỗng và đệ quy trái. CKY thì cần đổi văn phạm sang dạng chuẩn Chomsky, làm mất các ký
+hiệu mang nghĩa mà bước diễn giải cần đọc.
+
+Parser duyệt câu từ trái sang phải. Tại mỗi vị trí $i$, nó giữ một tập trạng thái $S_i$; mỗi
+trạng thái là một luật đang khớp dở, với dấu chấm đánh dấu phần đã khớp. Ba thao tác lặp lại
+cho đến khi các tập không đổi:
 \begin{itemize}
-  \item \textbf{Predictor}: gặp ký hiệu không kết thúc $B$ sau dấu chấm, thêm mọi luật
-        $B \rightarrow \bullet\,\gamma$.
-  \item \textbf{Scanner}: terminal sau dấu chấm khớp token kế tiếp, đưa trạng thái sang
-        $S_{i+1}$.
-  \item \textbf{Completer}: $B \rightarrow \gamma\,\bullet$ hoàn tất, dịch dấu chấm cho các
-        trạng thái đang chờ $B$ và gắn cây con.
+  \item \textbf{Predictor}: sau dấu chấm là ký hiệu không kết thúc $B$ thì thêm mọi luật
+        $B \rightarrow \bullet\,\gamma$, tức là dự đoán $B$ sẽ bắt đầu tại đây.
+  \item \textbf{Scanner}: sau dấu chấm là terminal khớp token kế tiếp thì dịch dấu chấm qua
+        token đó và đưa trạng thái sang $S_{i+1}$.
+  \item \textbf{Completer}: luật $B \rightarrow \gamma\,\bullet$ đã khớp trọn thì dịch dấu
+        chấm cho các trạng thái đang chờ $B$ và gắn $B$ làm cây con.
 \end{itemize}
-Câu được chấp nhận khi $S_n$ có \nt{S} hoàn tất từ vị trí 0; câu bị từ chối nhận intent
-\code{UNKNOWN}. Parser tìm tối đa hai cây để phát hiện câu mơ hồ. Độ phức tạp xấu nhất là
-$O(n^3)$.
+Câu được chấp nhận khi tập cuối $S_n$ có luật của \nt{S} đã khớp trọn từ vị trí 0. Câu không
+được chấp nhận nhận intent \code{UNKNOWN}. Nếu một câu có từ hai cây trở lên, parser báo mơ
+hồ. Độ phức tạp xấu nhất là $O(n^3)$ với $n$ là số token.
 
 \begin{figure}[tbp]
   \centering
@@ -147,21 +152,22 @@ $O(n^3)$.
   \label{fig:tree}
 \end{figure}
 
-Câu được sinh bằng dẫn xuất trái nhất theo chiều rộng, xoay vòng giữa 26 nhánh để nhánh nào
-cũng có câu. Dạng câu chắc chắn dài quá 32 token bị cắt sớm, nên quá trình luôn dừng kể cả
-với luật đệ quy và luật rỗng. Mọi câu sinh ra đều được parse lại để chắc chắn thuộc văn phạm.
+Bộ sinh câu làm chiều ngược lại: xuất phát từ \nt{S}, lần lượt thay ký hiệu không kết thúc
+trái nhất bằng vế phải của một luật, duyệt theo chiều rộng. Bộ sinh xoay vòng giữa 26 nhánh
+để nhánh nào cũng có câu, và bỏ sớm các dạng câu chắc chắn dài quá 32 token nên luôn dừng.
+Trong 1.000 câu sinh thử, cả 26 nhánh đều có mặt, mọi câu đều được parser nhận lại và không
+câu nào có hai cây.
 
-Sau mỗi lần sửa văn phạm, nhóm kiểm tra luật trùng và ký hiệu không dùng tới, rồi chạy lại
-toàn bộ câu kiểm thử và 1.000 câu sinh. Ở lần chạy gần nhất, 1.000 câu sinh phủ đủ 26 nhánh
-và đều parse lại được; không câu nào trong 1.047 câu được kiểm tra có hai cây.
+\subsection{Diễn giải ngữ nghĩa (Phần II)}
 
-\subsection{Ngữ nghĩa, truy vấn và trả lời (Phần II)}
-
-Ngữ nghĩa được dựng theo nguyên tắc tính hợp thành: nghĩa của câu ghép từ nghĩa các thành
-phần có tên trên cây. Nhánh câu hỏi cho intent, các node con như \nt{WEEK\_ENTITY} cho slot,
-và từ điển thực thể chuẩn hóa cụm từ về ID của KB, ví dụ ``tuần 3'' $\rightarrow$ WEEK\_03,
-``NLP'' $\rightarrow$ CO3085. Kết quả là một frame dạng vị từ
-\textit{intent}(\textit{slot} = \textit{giá trị}), xem \cref{tab:frames}.
+Bước này biến cây cú pháp thành frame ngữ nghĩa dạng
+\textit{intent}(\textit{slot} = \textit{giá trị}). Intent cho biết người dùng muốn hỏi gì;
+slot cho biết hỏi về thực thể nào, thuộc tính nào. Frame được dựng theo nguyên tắc tính hợp
+thành: nghĩa của câu ghép từ nghĩa các thành phần trên cây. Tên nhánh câu hỏi quyết định
+intent, ví dụ \nt{Q\_SCHEDULE\_WEEK} cho \code{GET_SCHEDULE}. Các node thực thể trên cây cho
+giá trị của slot, sau khi từ điển thực thể chuẩn hóa cụm từ về ID của KB, ví dụ ``tuần 3''
+$\rightarrow$ WEEK\_03, ``NLP'' $\rightarrow$ CO3085. \Cref{tab:frames} là một số frame thu
+được.
 
 \begin{table}[htbp]
   \centering
@@ -179,15 +185,17 @@ và từ điển thực thể chuẩn hóa cụm từ về ID của KB, ví dụ
   \label{tab:frames}
 \end{table}
 
-Mỗi intent ứng với một cách tra KB. Tuần, chương, LO và quy định được tra chính xác theo ID;
-chủ đề và tài liệu được tra theo từ khóa, ưu tiên khớp nguyên cụm. Câu trả lời được điền vào
-template theo loại dữ kiện. Ví dụ, ``Môn NLP có bao nhiêu tín chỉ?'' đi qua nhánh
-\nt{Q\_COURSE\_CREDITS}, cho frame hỏi trường tín chỉ của môn CO3085, và nhận câu trả lời
-``Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.''
+\subsection{Truy vấn và trả lời (Phần II)}
 
-Khi không trả lời được, hệ thống tách ba trường hợp ở \cref{tab:fallback}, để người dùng biết
-nên hỏi lại, bổ sung ngữ cảnh, hay dữ kiện thực sự không có. Câu cuối là nguyên văn thông báo
-đề yêu cầu \cite{spec}.
+Mỗi intent ứng với một cách tra KB. Tuần, chương, LO và quy định được tra chính xác theo ID;
+chủ đề và tài liệu được tra theo từ khóa, ưu tiên khớp nguyên cụm. Dữ kiện tìm được được điền
+vào template câu trả lời theo loại dữ kiện. Ví dụ, câu ``Môn NLP có bao nhiêu tín chỉ?'' cho
+frame hỏi trường tín chỉ của môn CO3085; hệ thống tra trường đó và trả lời ``Môn Xử lý Ngôn
+ngữ Tự nhiên (CO3085) có 3 tín chỉ.''
+
+Khi không trả lời được, hệ thống phân biệt ba trường hợp ở \cref{tab:fallback}, để người
+dùng biết nên hỏi lại, bổ sung ngữ cảnh, hay dữ kiện thực sự không có. Câu thứ ba là nguyên
+văn thông báo đề yêu cầu \cite{spec}.
 
 \begin{table}[htbp]
   \centering
@@ -208,18 +216,14 @@ nên hỏi lại, bổ sung ngữ cảnh, hay dữ kiện thực sự không có
 
 \subsection{Ngữ cảnh hội thoại (Phần III)}
 
-Phần III xử lý tham chiếu cục bộ: câu hỏi được dùng ``nó'', ``chương này'', ``phần đó'',
-``chương tiếp theo'' để chỉ thực thể vừa nhắc. Văn phạm có năm nhánh cho năm dạng tham
-chiếu; các câu này nhận intent \code{CONTEXT_DEPENDENT} và được giải trước khi truy vấn theo
-ba nguyên tắc:
-\begin{itemize}
-  \item nhớ thực thể gần nhất riêng cho từng loại: chương, phần bài tập lớn, LO, để câu hỏi
-        về bài tập lớn không xóa chương đang nhớ;
-  \item thay tham chiếu bằng thực thể gần nhất đúng loại, nếu chưa có thì báo thiếu ngữ
-        cảnh;
-  \item chỉ ghi nhớ thực thể khi truy vấn tìm thấy dữ kiện, nên câu hỏi về chương 13 không
-        thay chương đang nhớ.
-\end{itemize}
-Ví dụ, sau ``Tuần 3 học gì?'' hệ thống nhớ Chương 3; câu ``Nó có liên quan đến parsing
-không?'' được giải ``nó'' thành Chương 3, tra chủ đề của chương và trả lời ``Có''. Cả 6 hội
-thoại mẫu của đề đều giải đúng.
+Ngữ cảnh cho phép câu hỏi sau dùng ``nó'', ``chương này'', ``phần đó'' hay ``chương tiếp
+theo'' để chỉ thực thể vừa nhắc. Văn phạm có năm nhánh riêng cho năm dạng tham chiếu này; câu
+thuộc các nhánh đó nhận intent \code{CONTEXT_DEPENDENT} và được giải trước khi truy vấn.
+
+Hệ thống nhớ thực thể gần nhất riêng cho từng loại là chương, phần bài tập lớn và LO, rồi thay
+tham chiếu bằng thực thể đúng loại; nếu chưa có thì báo thiếu ngữ cảnh. Thực thể chỉ được ghi
+nhớ khi truy vấn tìm thấy dữ kiện, nên hỏi về chương 13 không xóa chương đang nhớ.
+
+Ví dụ, sau câu ``Tuần 3 học gì?'' hệ thống nhớ Chương 3. Câu tiếp theo ``Nó có liên quan đến
+parsing không?'' được hiểu là ``Chương 3 có liên quan đến parsing không?'' và nhận câu trả lời
+``Có''. Cả 6 hội thoại mẫu của đề đều được giải đúng.
