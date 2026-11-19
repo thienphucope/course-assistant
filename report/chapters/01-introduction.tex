@@ -29,18 +29,15 @@ thống cũng phân biệt rõ câu ngoài văn phạm với câu hiểu đượ
 \begin{table}[htbp]
   \centering
   \small
-  \begin{tabularx}{\linewidth}{|P{2.6cm}|P{1.9cm}|L|P{3.3cm}|}
+  \begin{tabularx}{\linewidth}{|P{3.6cm}|P{2cm}|L|}
     \hline
-    \textbf{Phần} & \textbf{Yêu cầu} & \textbf{Hiện thực} & \textbf{Output} \\ \hline
-    I. Văn phạm và parser & Bắt buộc & CFG 26 nhánh, parser Earley, bộ sinh câu &
-      \code{grammar.txt}, \code{samples.txt}, \code{parse-results.txt} \\ \hline
-    II. Ngữ nghĩa và hỏi đáp & Bắt buộc & Luật diễn giải cây, entity lexicon, truy vấn
-      KB, template trả lời & \code{semantic.txt}, \code{intent-entity.txt},
-      \code{query.txt}, \code{answer.txt} \\ \hline
-    III. Ngữ cảnh cục bộ & Mở rộng & Nhớ thực thể gần nhất, 5 dạng tham chiếu &
-      \code{dialogue.txt} \\ \hline
-    IV. Đánh giá & Bắt buộc & 42 câu của đề, 22 câu thử thách, 6 hội thoại &
-      \code{evaluation.txt} \\ \hline
+    \textbf{Phần} & \textbf{Yêu cầu} & \textbf{Hiện thực} \\ \hline
+    I. Văn phạm và parser & Bắt buộc & CFG 26 nhánh, parser Earley, sinh câu từ văn
+      phạm \\ \hline
+    II. Ngữ nghĩa và hỏi đáp & Bắt buộc & Luật diễn giải cây, từ điển thực thể, truy vấn
+      KB, template trả lời \\ \hline
+    III. Ngữ cảnh cục bộ & Mở rộng & Nhớ thực thể gần nhất, 5 dạng tham chiếu \\ \hline
+    IV. Đánh giá & Bắt buộc & 42 câu của đề, 22 câu thử thách, 6 hội thoại \\ \hline
   \end{tabularx}
   \caption{Phạm vi thực hiện}
   \label{tab:scope}
@@ -48,7 +45,7 @@ thống cũng phân biệt rõ câu ngoài văn phạm với câu hiểu đượ
 
 \subsection{Thành viên và phân công}
 
-Công việc chia thành các task T01--T24, theo dõi trong \code{docs/progress/}. Giai đoạn 1, ba
+Công việc chia thành các task T01--T24. Giai đoạn 1, ba
 thành viên mỗi người viết grammar cho một nhóm nhánh câu hỏi; giai đoạn 2, mỗi người hiện
 thực một số tầng của pipeline. \Cref{tab:members} ghi phân công cụ thể.
 
@@ -63,9 +60,9 @@ thực một số tầng của pipeline. \Cref{tab:members} ghi phân công cụ
     Nguyễn Huy Bách & 2310198 & T03, T12, T13 & Grammar 8 nhánh chủ đề, LO, bài tập lớn.
       Nạp KB, truy vấn KB. \\ \hline
     Mai Anh Khoa & 2311601 & T03, T11, T14 & Grammar 9 nhánh deadline, tài liệu, quy
-      định, ngữ cảnh. Diễn giải ngữ nghĩa, entity lexicon, sinh câu trả lời. \\ \hline
+      định, ngữ cảnh. Diễn giải ngữ nghĩa, từ điển thực thể, sinh câu trả lời. \\ \hline
     Hoàng Ngô Thiên Phúc & 2212612 & T02--T07, T15--T24 & Gộp grammar, hợp đồng giữa các
-      tầng, golden test. Ngữ cảnh hội thoại, pipeline, CLI, đánh giá, mở rộng grammar.
+      tầng, golden test. Ngữ cảnh hội thoại, ghép pipeline, đánh giá, mở rộng grammar.
       README, Docker, báo cáo, video, đóng gói. \\ \hline
   \end{tabularx}
   \caption{Thành viên và phân công}

@@ -5,86 +5,81 @@
 
 \subsection{Kiến trúc}
 
-Mỗi tầng ở \cref{fig:pipeline} là một module Python riêng, chỉ dùng thư viện chuẩn, nhận dữ
-liệu có kiểu từ tầng trước và ghi kết quả ra file output. Nhóm viết hợp đồng vào/ra cho từng
-tầng trước khi chia việc, kèm test nghiệm thu trên đầu vào golden, nên mỗi tầng kiểm thử
-được độc lập. Hai ràng buộc chính: tầng ngữ nghĩa \textbf{không đọc KB}, và tầng trả lời chỉ
-dựng câu từ kết quả truy vấn.
+Hệ thống là một pipeline sáu bước, mỗi bước biến đổi câu hỏi sang một biểu diễn mới: dãy
+token, cây cú pháp, frame ngữ nghĩa, frame đã giải tham chiếu, dữ kiện và câu trả lời, như ở
+\cref{fig:pipeline}. Ý tưởng chính là tách việc \emph{hiểu câu hỏi} khỏi việc \emph{tra dữ
+kiện}: tầng ngữ nghĩa chỉ dựa vào cây cú pháp và từ điển thực thể, không đọc KB. Nhờ vậy hệ
+thống phân biệt được câu không hiểu với câu hiểu nhưng KB không có dữ kiện, và câu trả lời
+chỉ chứa những gì truy vấn tìm thấy.
 
 \begin{figure}[tbp]
   \centering
   \begin{tikzpicture}[
       font=\small,
-      stage/.style={draw, rounded corners=2pt, fill=blue!6, minimum width=5.4cm,
+      stage/.style={draw, rounded corners=2pt, fill=blue!6, minimum width=6cm,
         minimum height=8.5mm, align=center},
-      res/.style={draw, rounded corners=2pt, fill=orange!10, minimum width=3.6cm,
+      res/.style={draw, rounded corners=2pt, fill=orange!10, minimum width=3.4cm,
         minimum height=8.5mm, align=center, font=\footnotesize},
-      io/.style={draw, rounded corners=6pt, fill=green!8, minimum width=5.4cm,
+      io/.style={draw, rounded corners=6pt, fill=green!8, minimum width=6cm,
         minimum height=7mm, align=center},
-      outfile/.style={font=\footnotesize\ttfamily, text=black!70, anchor=west},
       arr/.style={-{Stealth[length=2mm]}, thick},
       lab/.style={font=\scriptsize\itshape, text=black!65, right=1mm}
     ]
     \node[io] (in) {Câu hỏi tiếng Việt};
-    \node[stage, below=6mm of in] (tok) {Tokenizer \\ \scriptsize chuẩn hóa NFC, chữ thường, tách dấu câu};
-    \node[stage, below=6mm of tok] (parse) {Earley Parser \\ \scriptsize nhận/từ chối, dựng cây có nhãn};
-    \node[stage, below=6mm of parse] (sem) {Semantic Interpreter \\ \scriptsize nhánh \texttt{Q\_*} $\rightarrow$ intent, slot};
-    \node[stage, below=6mm of sem] (ctx) {Dialogue Context \\ \scriptsize giải tham chiếu; ghi nhớ thực thể khi FOUND};
-    \node[stage, below=6mm of ctx] (query) {Query Engine \\ \scriptsize tra cứu theo intent/slot};
-    \node[stage, below=6mm of query] (ans) {Answer Generator \\ \scriptsize template theo loại dữ kiện};
-    \node[io, below=6mm of ans] (outn) {Câu trả lời + trace};
+    \node[stage, below=6mm of in] (tok) {Tách token \\ \scriptsize chuẩn hóa Unicode, chữ thường, tách dấu câu};
+    \node[stage, below=6mm of tok] (parse) {Parser Earley \\ \scriptsize nhận hoặc từ chối câu, dựng cây};
+    \node[stage, below=6mm of parse] (sem) {Diễn giải ngữ nghĩa \\ \scriptsize nhánh câu hỏi $\rightarrow$ intent, slot};
+    \node[stage, below=6mm of sem] (ctx) {Giải tham chiếu \\ \scriptsize thay ``nó'', ``chương này'' bằng thực thể đã nhớ};
+    \node[stage, below=6mm of ctx] (query) {Truy vấn KB \\ \scriptsize tra cứu theo intent và slot};
+    \node[stage, below=6mm of query] (ans) {Sinh câu trả lời \\ \scriptsize template theo loại dữ kiện};
+    \node[io, below=6mm of ans] (outn) {Câu trả lời};
 
-    \node[res, left=9mm of parse] (cfg) {\texttt{grammar.cfg} \\ CFG 26 nhánh};
-    \node[res, left=9mm of sem] (lex) {Entity lexicon \\ \texttt{entities.txt}};
-    \node[res, left=9mm of query] (kb) {Knowledge base \\ 6 file \texttt{data/kb/}};
+    \node[res, left=9mm of parse] (cfg) {Văn phạm CFG \\ 26 nhánh câu hỏi};
+    \node[res, left=9mm of sem] (lex) {Từ điển thực thể};
+    \node[res, left=9mm of query] (kb) {Knowledge base};
 
-    \foreach \a/\b/\t in {in/tok/{str}, tok/parse/{tokens}, parse/sem/{Tree hoặc ()},
-        sem/ctx/{SemanticFrame}, ctx/query/{frame đã giải}, query/ans/{QueryResult},
-        ans/outn/{}}
+    \foreach \a/\b/\t in {in/tok/{}, tok/parse/{token}, parse/sem/{cây cú pháp},
+        sem/ctx/{frame}, ctx/query/{frame đã giải}, query/ans/{dữ kiện}, ans/outn/{}}
       {\draw[arr] (\a) -- (\b) node[midway, lab] {\t};}
     \draw[arr, dashed] (cfg) -- (parse);
     \draw[arr, dashed] (lex) -- (sem);
     \draw[arr, dashed] (kb) -- (query);
-    \node[outfile] at ($(parse.east)+(1.2cm,0)$) {parse-results.txt};
-    \node[outfile] at ($(sem.east)+(1.2cm,0.2)$) {semantic.txt};
-    \node[outfile] at ($(sem.east)+(1.2cm,-0.2)$) {intent-entity.txt};
-    \node[outfile] at ($(query.east)+(1.2cm,0)$) {query.txt};
-    \node[outfile] at ($(ans.east)+(1.2cm,0)$) {answer.txt};
-    \foreach \n in {parse, sem, query, ans}
-      {\draw[black!35, densely dotted] (\n.east) -- ++(1.1cm,0);}
   \end{tikzpicture}
-  \caption{Pipeline xử lý một câu hỏi và file output tương ứng}
+  \caption{Pipeline xử lý một câu hỏi}
   \label{fig:pipeline}
 \end{figure}
 
-Lệnh \code{run.py all} chạy pipeline trên 73 câu đầu vào và ghi đủ 9 file vào \code{output/}.
-
 \subsection{Văn phạm (Phần I)}
 
-Tokenizer chuẩn hóa Unicode NFC, chữ thường và tách dấu câu, nhưng giữ nguyên từ ghép kỹ
-thuật như \texttt{context-free}, \texttt{lo2.5}.
+Trước khi phân tích, câu được chuẩn hóa Unicode, chuyển chữ thường và tách dấu câu, nhưng
+giữ nguyên các thuật ngữ như ``context-free'' hay ``LO2.5''.
 
-Văn phạm \code{grammar.cfg} gồm 100 ký hiệu không kết thúc, 463 luật và 330 terminal, viết
-theo kiểu \emph{semantic grammar}: tên ký hiệu mang nghĩa của miền thay vì nhãn từ loại. Mỗi
-câu hợp lệ đi qua đúng một trong \textbf{26 nhánh} \texttt{Q\_*}, và nhánh này quyết định
-intent như ở \cref{tab:branches}. Thực thể nằm trong các node có tên như
-\texttt{WEEK\_ENTITY}, nên tầng ngữ nghĩa đọc thẳng trên cây:
-\begin{grammar}
-S               -> PREFIX QUESTION SUFFIX
-QUESTION        -> Q_COURSE_CREDITS | Q_SCHEDULE_WEEK | ...      # 26 nhánh
-Q_SCHEDULE_WEEK -> WEEK_ENTITY WEEK_CONTENT_QUESTION | ...
-WEEK_ENTITY     -> "tuần" WEEK_NUMBER
-WEEK_NUMBER     -> "1" | "01" | ... | "16" | "20" | "99"
-\end{grammar}
-\texttt{WEEK\_NUMBER} cố ý nhận cả tuần không có trong KB, để ``Tuần 99 học gì?'' được trả
-lời là không tìm thấy thay vì bị coi là câu ngoài văn phạm.
+Văn phạm gồm 100 ký hiệu không kết thúc, 463 luật sinh và 330 terminal, viết theo kiểu
+\emph{semantic grammar}: ký hiệu không kết thúc mang nghĩa của miền như \nt{WEEK\_ENTITY}
+hay \nt{Q\_SCHEDULE\_WEEK} thay vì nhãn từ loại như NP, VP. Mỗi câu hợp lệ đi qua đúng một
+trong 26 nhánh câu hỏi, và nhánh đó quyết định intent; \cref{tab:branches} cho biết nhánh
+nào ứng với intent nào. Thực thể nằm sẵn trong các node có tên, nên bước diễn giải chỉ cần
+đọc cây. Ví dụ một phần văn phạm cho câu hỏi lịch học theo tuần:
+\begin{center}
+  \begin{tabular}{r@{\ $\rightarrow$\ }l}
+    \nt{S} & \nt{PREFIX} \nt{QUESTION} \nt{SUFFIX} \\
+    \nt{QUESTION} & \nt{Q\_COURSE\_CREDITS} $\mid$ \nt{Q\_SCHEDULE\_WEEK} $\mid$ \dots \\
+    \nt{Q\_SCHEDULE\_WEEK} & \nt{WEEK\_ENTITY} \nt{WEEK\_CONTENT\_QUESTION} $\mid$ \dots \\
+    \nt{WEEK\_ENTITY} & \textit{tuần} \nt{WEEK\_NUMBER} \\
+    \nt{WEEK\_NUMBER} & \textit{1} $\mid$ \textit{2} $\mid$ \dots $\mid$ \textit{16}
+      $\mid$ \textit{20} $\mid$ \textit{99} \\
+  \end{tabular}
+\end{center}
+\nt{WEEK\_NUMBER} cố ý nhận cả tuần không có trong lịch như tuần 99: câu đúng cú pháp thì
+được hiểu, còn tuần đó có tồn tại hay không là việc của KB. Vì vậy ``Tuần 99 học gì?'' được
+trả lời là không tìm thấy thay vì bị coi là câu ngoài văn phạm.
 
 \begin{table}[htbp]
   \centering
   \small
   \begin{tabularx}{\linewidth}{|P{3.3cm}|L|}
     \hline
-    \textbf{Intent} & \textbf{Nhánh \texttt{Q\_*} trong văn phạm} \\ \hline
+    \textbf{Intent} & \textbf{Nhánh câu hỏi trong văn phạm} \\ \hline
     \code{GET_COURSE_INFO} & \code{Q_COURSE_CREDITS}, \code{Q_COURSE_PARTS},
       \code{Q_COURSE_DESCRIPTION}, \code{Q_COURSE_EXAM_DURATION},
       \code{Q_COURSE_EXAM_TIME}, \code{Q_COURSE_ASSESSMENT} \\ \hline
@@ -108,9 +103,10 @@ lời là không tìm thấy thay vì bị coi là câu ngoài văn phạm.
   \label{tab:branches}
 \end{table}
 
-Ở giai đoạn 1, mỗi thành viên viết một nhóm nhánh; bản gộp giữ nguyên 26 nhánh, dùng lại
-biến chung và loại các lựa chọn gây mơ hồ. Sau đó văn phạm được mở rộng thêm, ví dụ node
-\texttt{FEAT\_PARSING} gom các cách gọi Phần I của BTL như ``parser'', ``phân tích cú pháp''.
+Ở giai đoạn 1, mỗi thành viên viết một nhóm nhánh; bản gộp giữ nguyên 26 nhánh và loại các
+lựa chọn gây mơ hồ. Các cách gọi đồng nghĩa được gom vào cùng một ký hiệu, ví dụ
+``parser'', ``parse tree'', ``phân tích cú pháp'' đều thuộc \nt{FEAT\_PARSING} và cùng chỉ
+Phần I của bài tập lớn.
 
 \subsection{Parser Earley và sinh câu (Phần I)}
 \label{sec:grammarcheck}
@@ -127,15 +123,15 @@ $S_0, \dots, S_n$ bằng ba thao tác:
   \item \textbf{Completer}: $B \rightarrow \gamma\,\bullet$ hoàn tất, dịch dấu chấm cho các
         trạng thái đang chờ $B$ và gắn cây con.
 \end{itemize}
-Câu được chấp nhận khi $S_n$ có \texttt{S} hoàn tất từ vị trí 0; câu bị từ chối xuất ra
-\texttt{()} với intent \code{UNKNOWN}. Parser tìm tối đa hai cây để phát hiện câu mơ hồ. Độ
-phức tạp xấu nhất là $O(n^3)$.
+Câu được chấp nhận khi $S_n$ có \nt{S} hoàn tất từ vị trí 0; câu bị từ chối nhận intent
+\code{UNKNOWN}. Parser tìm tối đa hai cây để phát hiện câu mơ hồ. Độ phức tạp xấu nhất là
+$O(n^3)$.
 
 \begin{figure}[tbp]
   \centering
   \begin{adjustbox}{max width=\linewidth}
   \begin{forest}
-    for tree={font=\footnotesize\ttfamily, s sep=4mm, l sep=4mm, inner sep=1.5pt,
+    for tree={font=\footnotesize\sffamily, s sep=4mm, l sep=4mm, inner sep=1.5pt,
       edge={black!60}},
     where n children=0{font=\small\itshape, text=blue!50!black}{}
     [S
@@ -151,21 +147,21 @@ phức tạp xấu nhất là $O(n^3)$.
   \label{fig:tree}
 \end{figure}
 
-Bộ sinh câu mở rộng ký hiệu trái nhất theo chiều rộng, xoay vòng giữa 26 nhánh để nhánh nào
-cũng có câu, và cắt sớm dạng câu vượt 32 token nên luôn dừng. Mọi câu sinh ra được parse lại
-trước khi ghi \code{samples.txt}.
+Câu được sinh bằng dẫn xuất trái nhất theo chiều rộng, xoay vòng giữa 26 nhánh để nhánh nào
+cũng có câu. Dạng câu chắc chắn dài quá 32 token bị cắt sớm, nên quá trình luôn dừng kể cả
+với luật đệ quy và luật rỗng. Mọi câu sinh ra đều được parse lại để chắc chắn thuộc văn phạm.
 
-Công cụ \code{tools/check_grammar.py} chạy sau mỗi lần sửa văn phạm: tìm luật trùng, ký hiệu
-chưa định nghĩa hoặc không dùng tới, rồi cho toàn bộ câu kiểm thử và 1.000 câu sinh qua
-parser, tầng ngữ nghĩa và truy vấn. Ở lần chạy gần nhất, 1.000 câu sinh phủ đủ 26 nhánh và
-đều parse lại được; không câu nào trong 1.047 câu kiểm tra có hai cây.
+Sau mỗi lần sửa văn phạm, nhóm kiểm tra luật trùng và ký hiệu không dùng tới, rồi chạy lại
+toàn bộ câu kiểm thử và 1.000 câu sinh. Ở lần chạy gần nhất, 1.000 câu sinh phủ đủ 26 nhánh
+và đều parse lại được; không câu nào trong 1.047 câu được kiểm tra có hai cây.
 
 \subsection{Ngữ nghĩa, truy vấn và trả lời (Phần II)}
 
-Bộ diễn giải ánh xạ cây thành frame ngữ nghĩa theo tính hợp thành: tên nhánh \texttt{Q\_*}
-cho intent, các node có tên trong cây con cho slot, và entity lexicon chuẩn hóa cụm từ về ID
-của KB, ví dụ ``tuần 3'' $\rightarrow$ \code{WEEK_03}. Frame được ghi ra \code{semantic.txt}
-và \code{intent-entity.txt}; \cref{tab:frames} là vài ví dụ.
+Ngữ nghĩa được dựng theo nguyên tắc tính hợp thành: nghĩa của câu ghép từ nghĩa các thành
+phần có tên trên cây. Nhánh câu hỏi cho intent, các node con như \nt{WEEK\_ENTITY} cho slot,
+và từ điển thực thể chuẩn hóa cụm từ về ID của KB, ví dụ ``tuần 3'' $\rightarrow$ WEEK\_03,
+``NLP'' $\rightarrow$ CO3085. Kết quả là một frame dạng vị từ
+\textit{intent}(\textit{slot} = \textit{giá trị}), xem \cref{tab:frames}.
 
 \begin{table}[htbp]
   \centering
@@ -173,22 +169,25 @@ và \code{intent-entity.txt}; \cref{tab:frames} là vài ví dụ.
   \begin{tabularx}{\linewidth}{|P{4cm}|L|}
     \hline
     \textbf{Câu hỏi} & \textbf{Frame ngữ nghĩa} \\ \hline
-    Môn NLP có bao nhiêu tín chỉ? & \code{GET_COURSE_INFO(entity=CO3085, course=CO3085, field=CREDITS)} \\ \hline
-    Tuần 3 học gì? & \code{GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)} \\ \hline
-    BTL có phần parse tree không? & \code{GET_ASSIGNMENT(entity=PART_I, assignment=BTL01, section=PART_I, feature=parse tree)} \\ \hline
-    Có được dùng thư viện có sẵn không? & \code{GET_RULE(entity=EXTERNAL_LIBRARIES, rule=EXTERNAL_LIBRARIES)} \\ \hline
+    Môn NLP có bao nhiêu tín chỉ? & \code{GET_COURSE_INFO(course=CO3085, field=CREDITS)} \\ \hline
+    Tuần 3 học gì? & \code{GET_SCHEDULE(week=WEEK_03)} \\ \hline
+    BTL có phần parse tree không? & \code{GET_ASSIGNMENT(section=PART_I, feature=parse tree)} \\ \hline
+    Có được dùng thư viện có sẵn không? & \code{GET_RULE(rule=EXTERNAL_LIBRARIES)} \\ \hline
     Hôm nay trời có mưa không? & \code{UNKNOWN()} \\ \hline
   \end{tabularx}
   \caption{Ví dụ frame ngữ nghĩa}
   \label{tab:frames}
 \end{table}
 
-Bộ truy vấn chọn cách tra theo intent và slot, trả về cờ \code{found}, dữ kiện và file nguồn;
-biểu thức truy vấn như \code{KB.weeks[WEEK_03]} được ghi ra \code{query.txt}. Tuần, chương, LO
-và quy định được tra theo ID; chủ đề và tài liệu tra theo từ khóa.
+Mỗi intent ứng với một cách tra KB. Tuần, chương, LO và quy định được tra chính xác theo ID;
+chủ đề và tài liệu được tra theo từ khóa, ưu tiên khớp nguyên cụm. Câu trả lời được điền vào
+template theo loại dữ kiện. Ví dụ, ``Môn NLP có bao nhiêu tín chỉ?'' đi qua nhánh
+\nt{Q\_COURSE\_CREDITS}, cho frame hỏi trường tín chỉ của môn CO3085, và nhận câu trả lời
+``Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.''
 
-Câu trả lời được điền vào template theo loại dữ kiện. Khi không trả lời được, hệ thống tách
-ba trường hợp ở \cref{tab:fallback}; câu cuối là nguyên văn thông báo đề yêu cầu \cite{spec}.
+Khi không trả lời được, hệ thống tách ba trường hợp ở \cref{tab:fallback}, để người dùng biết
+nên hỏi lại, bổ sung ngữ cảnh, hay dữ kiện thực sự không có. Câu cuối là nguyên văn thông báo
+đề yêu cầu \cite{spec}.
 
 \begin{table}[htbp]
   \centering
@@ -196,48 +195,31 @@ ba trường hợp ở \cref{tab:fallback}; câu cuối là nguyên văn thông 
   \begin{tabularx}{\linewidth}{|P{3.2cm}|P{3.6cm}|L|}
     \hline
     \textbf{Trường hợp} & \textbf{Dấu hiệu} & \textbf{Câu trả lời} \\ \hline
-    Ngoài văn phạm & Không có cây, intent \code{UNKNOWN} &
+    Ngoài văn phạm & Không có cây cú pháp &
       Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant. \\ \hline
-    Thiếu ngữ cảnh & \code{CONTEXT_DEPENDENT} chưa giải được &
+    Thiếu ngữ cảnh & Câu tham chiếu nhưng chưa có thực thể để thay &
       Xin lỗi, tôi chưa có đủ ngữ cảnh để hiểu tham chiếu trong câu hỏi này. \\ \hline
-    KB thiếu dữ kiện & Có intent, \code{found=False} &
+    KB thiếu dữ kiện & Hiểu câu nhưng truy vấn rỗng &
       Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học. \\ \hline
   \end{tabularx}
   \caption{Ba loại fallback}
   \label{tab:fallback}
 \end{table}
 
-Chế độ \code{--trace} in mọi bước của một câu:
-\begin{trace}
-INPUT: Môn NLP có bao nhiêu tín chỉ?
-TOKENS: môn / nlp / có / bao / nhiêu / tín / chỉ / ?
-PARSE: (S (PREFIX ε) (QUESTION (Q_COURSE_CREDITS (COURSE_SUBJECT môn (COURSE_ENTITY nlp)) (CREDIT_VERB có) (CREDIT_QUESTION bao nhiêu tín chỉ))) (SUFFIX (END_MARK ?)))
-SEMANTIC: GET_COURSE_INFO(entity=CO3085, course=CO3085, field=CREDITS)
-QUERY: KB.course[CREDITS]
-STATUS: FOUND
-SOURCE: kb/course_info.txt
-ANSWER: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
-\end{trace}
-
 \subsection{Ngữ cảnh hội thoại (Phần III)}
 
-Phần III xử lý tham chiếu cục bộ như ``nó'', ``chương này'', ``chương tiếp theo''. Năm nhánh
-\texttt{Q\_CONTEXT\_*} ứng với năm dạng tham chiếu và cho frame \code{CONTEXT_DEPENDENT}.
-\code{DialogueContext} đứng giữa tầng ngữ nghĩa và tầng truy vấn:
+Phần III xử lý tham chiếu cục bộ: câu hỏi được dùng ``nó'', ``chương này'', ``phần đó'',
+``chương tiếp theo'' để chỉ thực thể vừa nhắc. Văn phạm có năm nhánh cho năm dạng tham
+chiếu; các câu này nhận intent \code{CONTEXT_DEPENDENT} và được giải trước khi truy vấn theo
+ba nguyên tắc:
 \begin{itemize}
-  \item nhớ thực thể gần nhất riêng cho từng loại: chương, phần BTL, LO;
-  \item thay frame \code{CONTEXT_DEPENDENT} bằng frame truy vấn thường với thực thể đúng
-        loại, hoặc báo thiếu ngữ cảnh nếu chưa có;
-  \item chỉ ghi nhớ khi truy vấn tìm thấy dữ kiện, nên hỏi ``Chương 13'' không xóa chương
-        đang nhớ.
+  \item nhớ thực thể gần nhất riêng cho từng loại: chương, phần bài tập lớn, LO, để câu hỏi
+        về bài tập lớn không xóa chương đang nhớ;
+  \item thay tham chiếu bằng thực thể gần nhất đúng loại, nếu chưa có thì báo thiếu ngữ
+        cảnh;
+  \item chỉ ghi nhớ thực thể khi truy vấn tìm thấy dữ kiện, nên câu hỏi về chương 13 không
+        thay chương đang nhớ.
 \end{itemize}
-Ví dụ sau câu ``Tuần 3 học gì?'':
-\begin{trace}
-INPUT: Nó có liên quan đến parsing không?
-SEMANTIC: CONTEXT_DEPENDENT(action=TOPIC_RELATION, relation=PARSING)
-CONTEXT: tham chiếu gần nhất → CH03
-RESOLVED: GET_TOPIC(entity=CH03, chapter=CH03, relation=PARSING)
-QUERY: KB.topics[CH03].contains(PARSING)
-ANSWER: Có. Chương 3 có nội dung liên quan đến parsing.
-\end{trace}
-Cả 6 hội thoại mẫu của đề đều giải đúng thực thể tham chiếu.
+Ví dụ, sau ``Tuần 3 học gì?'' hệ thống nhớ Chương 3; câu ``Nó có liên quan đến parsing
+không?'' được giải ``nó'' thành Chương 3, tra chủ đề của chương và trả lời ``Có''. Cả 6 hội
+thoại mẫu của đề đều giải đúng.

@@ -62,12 +62,12 @@ Hai câu sai đều sai ngay từ tầng cú pháp; các tầng sau không thêm
   \begin{tabularx}{\linewidth}{|P{3.5cm}|P{3cm}|L|L|}
     \hline
     \textbf{Câu} & \textbf{Mong đợi} & \textbf{Nguyên nhân} & \textbf{Hướng sửa} \\ \hline
-    C007: ``Môn NLP học mấy buổi mỗi tuần?'' & \code{GET_COURSE_INFO}, \code{NOT_FOUND} &
+    C007: ``Môn NLP học mấy buổi mỗi tuần?'' & Hiểu câu, báo KB không có dữ kiện &
       Văn phạm chưa có trường số buổi học nên câu bị từ chối thay vì báo thiếu dữ kiện. &
       Thêm trường này vào nhánh thông tin môn học. \\ \hline
-    C008: ``Tuần thứ ba tụi mình học bài gì vậy?'' & \code{GET_SCHEDULE}, \code{WEEK_03},
-      \code{FOUND} & \texttt{WEEK\_NUMBER} chưa nhận số viết bằng chữ; ``tụi mình'', ``bài
-      gì'' chưa có trong nhánh. & Thêm số thứ tự vào văn phạm và entity lexicon. \\ \hline
+    C008: ``Tuần thứ ba tụi mình học bài gì vậy?'' & Lịch học tuần 3 &
+      Văn phạm chưa nhận số thứ tự viết bằng chữ như ``thứ ba'', và chưa có cụm ``tụi
+      mình'', ``bài gì''. & Thêm số thứ tự vào văn phạm và từ điển thực thể. \\ \hline
   \end{tabularx}
   \caption{Các câu trả lời sai}
   \label{tab:errors}
@@ -84,8 +84,8 @@ các thực thể đó. Câu có token thừa hoặc hai câu hỏi trong một 
 \subsection{Kiểm thử tự động}
 \label{sec:testing}
 
-Dự án có 49 test, đều pass: test hợp đồng cho từng tầng chạy trên đầu vào golden, và các ca
-hồi quy như luật rỗng, đệ quy trái, mơ hồ, token thừa, thiếu dữ kiện KB. Golden được sinh tự
-động từ bản cài đặt tham khảo, không sửa tay. Cùng với công cụ kiểm tra văn phạm ở
-\cref{sec:grammarcheck}, mọi thay đổi đều được kiểm lại trên toàn bộ câu kiểm thử và 1.000
-câu sinh.
+Ngoài đánh giá end-to-end, mỗi tầng được kiểm thử riêng trên đầu vào chuẩn sinh từ bản cài
+đặt tham khảo, nên lỗi được khoanh vùng đúng tầng. Bộ test còn có các ca hồi quy như luật
+rỗng, đệ quy trái, mơ hồ, token thừa và thiếu dữ kiện KB; tổng cộng 49 test, đều pass. Cùng
+với việc kiểm tra văn phạm ở \cref{sec:grammarcheck}, mọi thay đổi đều được kiểm lại trên
+toàn bộ câu kiểm thử và 1.000 câu sinh.

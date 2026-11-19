@@ -38,7 +38,7 @@ lịch sử commit/PR — **nhóm cần xác nhận**. Gói nộp dùng `report.
 Phúc dò lại `report/report.pdf`. Những chỗ cần soát kỹ:
 - [x] Bảng 1.2 phân công: Phúc chốt 19/11 theo task (Bảo T08–T10, Bách T12–T13, Khoa T11, T14,
       ba người cùng grammar phase 1 T03; còn lại Phúc).
-- [ ] Bảng 7.1 khai báo AI (trước là 10.1): phạm vi và mốc thời gian đúng thực tế.
+- [ ] Bảng 6.1 khai báo AI (trước là 10.1, rồi 7.1): phạm vi và mốc thời gian đúng thực tế.
 - [ ] Đọc toàn bộ nội dung, số liệu (42/42, 20/22, 6/6, 49 test, 1.000 câu sinh), chính tả.
 - [ ] Sửa xong: build lại (`pdflatex report.tex` ×2 trong `report/`) rồi đóng gói lại (T24).
 
@@ -52,3 +52,7 @@ chạy lại 6, nguồn + AI 7. PDF còn 21 trang (trước 27).
 Cùng ngày, lượt 2: viết gọn toàn bộ 7 chương, bỏ chú thích trong ngoặc thừa; gộp mục "Giới hạn của
 kết quả đánh giá" vào Hạn chế (§5.2); bảng KB bỏ cột collection. PDF còn 17 trang. Bảng AI 7.1
 đổi mốc Claude Code thành 22/10–19/11 (có biên tập báo cáo hôm nay) — vẫn chờ duyệt.
+
+Lượt 3 (19/11): báo cáo chỉ nói lý thuyết và ý tưởng, không còn tên file .py/.txt, tên hàm, lệnh hay
+trace. Bỏ chương "Hướng dẫn chạy và sản phẩm nộp" (thuộc README theo đề 7.5); chương 2 chỉ còn hai bảng;
+văn phạm trình bày dạng luật sinh. Chương nguồn + AI giờ là 6. PDF 14 trang.

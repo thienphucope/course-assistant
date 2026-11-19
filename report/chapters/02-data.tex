@@ -10,17 +10,16 @@
   \small
   \begin{tabularx}{\linewidth}{|P{3.4cm}|L|}
     \hline
-    \textbf{File} & \textbf{Nội dung} \\ \hline
-    \code{course_info.txt} & Mã, tên môn, tín chỉ, mô tả, LO, cấu trúc đánh giá, hình thức
+    \textbf{Thành phần} & \textbf{Nội dung} \\ \hline
+    Thông tin môn học & Mã, tên môn, tín chỉ, mô tả, LO, cấu trúc đánh giá, hình thức
       thi \\ \hline
-    \code{schedule.txt} & Lịch 15 tuần: chương, chủ đề, mốc bài tập lớn \\ \hline
-    \code{topics.txt} & 12 chương: tóm tắt, chủ đề con, từ khóa \\ \hline
-    \code{assignments.txt} & Bài tập lớn: mục tiêu, yêu cầu Phần I--IV, output gợi ý \\ \hline
-    \code{resources.txt} & 8 tài liệu tham khảo \\ \hline
-    \code{regulations.txt} & Quy định về chuyên cần, liêm chính, sử dụng AI, thư viện
-      ngoài, LLM/RAG \\ \hline
+    Lịch học & 15 tuần: chương, chủ đề, mốc bài tập lớn \\ \hline
+    Chủ đề & 12 chương: tóm tắt, chủ đề con, từ khóa \\ \hline
+    Bài tập lớn & Mục tiêu, yêu cầu Phần I--IV, output gợi ý \\ \hline
+    Tài liệu & 8 tài liệu tham khảo \\ \hline
+    Quy định & Chuyên cần, liêm chính, sử dụng AI, thư viện ngoài, LLM/RAG \\ \hline
   \end{tabularx}
-  \caption{Sáu file KB}
+  \caption{Sáu thành phần của KB}
   \label{tab:kb}
 \end{table}
 
@@ -29,16 +28,16 @@
 \begin{table}[H]
   \centering
   \small
-  \begin{tabularx}{\linewidth}{|P{4.6cm}|L|P{1.9cm}|}
+  \begin{tabularx}{\linewidth}{|P{3.4cm}|L|P{1.9cm}|}
     \hline
-    \textbf{File} & \textbf{Nội dung} & \textbf{Nguồn} \\ \hline
-    \code{entities.txt} & Lược đồ thực thể và alias, ví dụ ``NLP'' $\rightarrow$
-      \code{CO3085} & Đề \\ \hline
-    \code{sample_queries.txt} & 42 câu mẫu kèm kết quả mong đợi & Đề \\ \hline
-    \code{dialogues.txt} & 6 hội thoại mẫu cho Phần III & Đề \\ \hline
-    \code{challenge_queries.txt} & 22 câu thử thách, chỉ dùng khi đánh giá & Nhóm \\ \hline
-    \code{input/sentences.txt} & 73 câu đầu vào cho \code{run.py all}: 41 câu của đề và 32
-      cách hỏi nhóm viết ở giai đoạn 1 & Đề, nhóm \\ \hline
+    \textbf{Dữ liệu} & \textbf{Nội dung} & \textbf{Nguồn} \\ \hline
+    Từ điển thực thể & Lược đồ thực thể và alias, ví dụ ``NLP'' $\rightarrow$ CO3085 &
+      Đề \\ \hline
+    Câu hỏi mẫu & 42 câu kèm kết quả mong đợi & Đề \\ \hline
+    Hội thoại mẫu & 6 hội thoại cho Phần III & Đề \\ \hline
+    Câu thử thách & 22 câu, chỉ dùng khi đánh giá & Nhóm \\ \hline
+    Câu đầu vào & 73 câu chạy qua toàn bộ pipeline: 41 câu của đề và 32 cách hỏi nhóm viết
+      ở giai đoạn 1 & Đề, nhóm \\ \hline
   \end{tabularx}
   \caption{Dữ liệu hỗ trợ và kiểm thử}
   \label{tab:testdata}
