@@ -75,12 +75,3 @@ kiểm thử.
 
 Các câu hỏi tuần 99, chương 13, LO9.9 được trả lời ``không tìm thấy'' là đúng vì KB không có
 các thực thể đó. Câu có token thừa hoặc hai câu hỏi trong một lượt bị từ chối theo thiết kế.
-
-\subsection{Kiểm thử tự động}
-\label{sec:testing}
-
-Ngoài đánh giá end-to-end, mỗi tầng được kiểm thử riêng trên đầu vào chuẩn sinh từ bản cài
-đặt tham khảo, nên lỗi được khoanh vùng đúng tầng. Bộ test còn có các ca hồi quy như luật
-rỗng, đệ quy trái, mơ hồ, token thừa và thiếu dữ kiện KB; tổng cộng 49 test, đều pass. Cùng
-với việc kiểm tra văn phạm ở \cref{sec:grammarcheck}, mọi thay đổi đều được kiểm lại trên
-toàn bộ câu kiểm thử và 1.000 câu sinh.
