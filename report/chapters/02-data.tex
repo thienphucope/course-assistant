@@ -5,10 +5,7 @@
 
 \subsection{Knowledge base}
 
-KB gồm sáu file trong \code{data/kb/}, liệt kê ở \cref{tab:kb}. Đây là nguồn dữ kiện duy
-nhất của câu trả lời; nhóm không sửa hay bổ sung dữ kiện KB.
-
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \small
   \begin{tabularx}{\linewidth}{|P{3.4cm}|L|}
@@ -27,19 +24,9 @@ nhất của câu trả lời; nhóm không sửa hay bổ sung dữ kiện KB.
   \label{tab:kb}
 \end{table}
 
-Bộ nạp \code{kb.py} đọc mỗi file thành một collection có kiểu, chuẩn hóa ID như \code{CH03},
-\code{WEEK_03}, lập chỉ mục chương sang tuần và kiểm tra lịch học khớp danh sách chương.
-
-KB không có tên giảng viên, ngày thi, số buổi học mỗi tuần, output riêng của Phần II--IV và
-quan hệ tài liệu--chương. Câu hỏi về các trường này vẫn được phân tích đúng intent, nhưng
-truy vấn rỗng và hệ thống báo không tìm thấy. Nhóm không điền các trường này bằng suy đoán.
-
 \subsection{Dữ liệu kiểm thử}
 
-\Cref{tab:testdata} liệt kê dữ liệu hỗ trợ và kiểm thử. Dữ liệu nhóm thêm chỉ dùng để kiểm
-thử, không thêm dữ kiện vào KB.
-
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \small
   \begin{tabularx}{\linewidth}{|P{4.6cm}|L|P{1.9cm}|}
