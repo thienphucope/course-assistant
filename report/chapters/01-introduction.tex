@@ -62,36 +62,31 @@ Python, không gọi API hay mô hình ngôn ngữ. Lý do lựa chọn:
 
 \subsection{Thành viên và phân công}
 
-Bảng~\ref{tab:members} tổng hợp phân công theo lịch sử commit và pull request của
-nhóm. Giai đoạn 1, mỗi thành viên viết grammar cho một nhóm nhánh câu hỏi; giai
-đoạn 2, mỗi người hiện thực các tầng của pipeline theo hợp đồng chung
-(\cref{sec:arch}).
+Công việc được chia thành các task T01--T24, theo dõi trong \code{docs/progress/}
+(\cref{tab:members}). Giai đoạn 1, ba thành viên mỗi người viết grammar cho một nhóm
+nhánh câu hỏi (T03); giai đoạn 2, mỗi người hiện thực một số tầng của pipeline theo
+hợp đồng chung giữa các tầng.
 
 \begin{table}[htbp]
   \centering
   \small
-  \begin{tabularx}{\linewidth}{|P{3.6cm}|P{1.7cm}|L|}
+  \begin{tabularx}{\linewidth}{|P{3.2cm}|P{1.5cm}|P{1.9cm}|L|}
     \hline
-    \textbf{Thành viên} & \textbf{MSSV} & \textbf{Công việc chính} \\ \hline
-    Phan Gia Bảo & 2310251 & Grammar 9 nhánh thông tin môn học, giảng viên, lịch theo
-      tuần/chương; tokenizer, parser Earley, bộ sinh câu. \\ \hline
-    Nguyễn Huy Bách & 2310198 & Grammar 8 nhánh chủ đề, LO, bài tập lớn; nạp KB
-      (\code{kb.py}) và bộ truy vấn (\code{query.py}). \\ \hline
-    Mai Anh Khoa & 2311601 & Grammar 9 nhánh deadline, tài liệu, quy định và câu ngữ
-      cảnh; diễn giải ngữ nghĩa, sinh câu trả lời, ngữ cảnh hội thoại. \\ \hline
-    Hoàng Ngô Thiên Phúc & 2212612 & Review và gộp grammar; hợp đồng giữa các tầng,
-      golden test; pipeline, CLI, xuất output, đánh giá; mở rộng grammar; Docker,
-      README, báo cáo, video demo, đóng gói. \\ \hline
+    \textbf{Thành viên} & \textbf{MSSV} & \textbf{Task} & \textbf{Công việc} \\ \hline
+    Phan Gia Bảo & 2310251 & T03, T08, T09, T10 & Grammar giai đoạn 1: 9 nhánh
+      thông tin môn học, giảng viên, lịch theo tuần/chương. Tokenizer; nạp văn phạm và
+      parser Earley; bộ sinh câu từ văn phạm. \\ \hline
+    Nguyễn Huy Bách & 2310198 & T03, T12, T13 & Grammar giai đoạn 1: 8 nhánh
+      chủ đề, LO, bài tập lớn. Nạp và kiểm tra KB (\code{kb.py}); truy vấn KB theo
+      intent/slot (\code{query.py}). \\ \hline
+    Mai Anh Khoa & 2311601 & T03, T11, T14 & Grammar giai đoạn 1: 9 nhánh
+      deadline, tài liệu, quy định, câu ngữ cảnh. Diễn giải cây thành frame ngữ nghĩa
+      và entity lexicon; sinh câu trả lời và fallback (\code{answer.py}). \\ \hline
+    Hoàng Ngô Thiên Phúc & 2212612 & T02--T07, T15--T24 & Đồng bộ dữ liệu; review và gộp
+      grammar giai đoạn 1; hợp đồng giữa các tầng và golden test. Ngữ cảnh hội thoại;
+      pipeline, CLI và 9 file output; đánh giá; mở rộng grammar và công cụ kiểm tra
+      grammar. README, Docker, báo cáo, video demo, đóng gói. \\ \hline
   \end{tabularx}
   \caption{Thành viên và phân công}
   \label{tab:members}
 \end{table}
-
-\subsection{Cấu trúc báo cáo}
-
-\Cref{sec:data} mô tả dữ liệu và KB. \Cref{sec:arch} trình bày kiến trúc và ranh giới
-giữa các tầng. \Cref{sec:part1,sec:part2,sec:part3} lần lượt đi qua Phần I (grammar,
-parser, sinh câu), Phần II (ngữ nghĩa, truy vấn, trả lời) và Phần III (ngữ cảnh).
-\Cref{sec:eval} báo cáo kết quả đánh giá và phân tích lỗi; \cref{sec:discussion} nêu
-ưu điểm, hạn chế và hướng mở rộng. \Cref{sec:reproduce} hướng dẫn chạy lại; cuối cùng
-là nguồn tham khảo và khai báo sử dụng AI.

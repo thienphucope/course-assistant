@@ -1,0 +1,278 @@
+% ============================================================
+\section{Thiết kế và hiện thực}
+\label{sec:arch}
+% ============================================================
+
+\subsection{Kiến trúc}
+
+Mỗi tầng của pipeline là một module Python riêng trong gói \code{hcmut.iaslab.nlp.app}
+(khoảng 3.000 dòng, chỉ dùng thư viện chuẩn). Mỗi tầng nhận dữ liệu có kiểu tường minh
+từ tầng trước và ghi kết quả ra một file output (\cref{fig:pipeline}). Trước khi chia
+việc, nhóm viết hợp đồng vào/ra cho từng tầng, kèm test nghiệm thu trên đầu vào golden
+(\cref{sec:testing}), nên mỗi tầng được kiểm thử độc lập với tầng trước. Hai ràng buộc
+chính:
+\begin{itemize}
+  \item Tầng ngữ nghĩa \textbf{không đọc KB}: intent và entity chỉ suy ra từ cây cú pháp
+        và entity lexicon.
+  \item Tầng trả lời chỉ dùng kết quả truy vấn: \code{found=True} phải cho câu trả lời
+        chứa dữ kiện, \code{found=False} phải đi vào fallback.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+      font=\small,
+      stage/.style={draw, rounded corners=2pt, fill=blue!6, minimum width=5.4cm,
+        minimum height=8.5mm, align=center},
+      res/.style={draw, rounded corners=2pt, fill=orange!10, minimum width=3.6cm,
+        minimum height=8.5mm, align=center, font=\footnotesize},
+      io/.style={draw, rounded corners=6pt, fill=green!8, minimum width=5.4cm,
+        minimum height=7mm, align=center},
+      outfile/.style={font=\footnotesize\ttfamily, text=black!70, anchor=west},
+      arr/.style={-{Stealth[length=2mm]}, thick},
+      lab/.style={font=\scriptsize\itshape, text=black!65, right=1mm}
+    ]
+    \node[io] (in) {Câu hỏi tiếng Việt};
+    \node[stage, below=6mm of in] (tok) {Tokenizer \\ \scriptsize chuẩn hóa NFC, chữ thường, tách dấu câu};
+    \node[stage, below=6mm of tok] (parse) {Earley Parser \\ \scriptsize nhận/từ chối, dựng cây có nhãn};
+    \node[stage, below=6mm of parse] (sem) {Semantic Interpreter \\ \scriptsize nhánh \texttt{Q\_*} $\rightarrow$ intent, slot};
+    \node[stage, below=6mm of sem] (ctx) {Dialogue Context \\ \scriptsize giải tham chiếu; ghi nhớ thực thể khi FOUND};
+    \node[stage, below=6mm of ctx] (query) {Query Engine \\ \scriptsize tra cứu theo intent/slot};
+    \node[stage, below=6mm of query] (ans) {Answer Generator \\ \scriptsize template theo loại dữ kiện};
+    \node[io, below=6mm of ans] (outn) {Câu trả lời + trace};
+
+    \node[res, left=9mm of parse] (cfg) {\texttt{grammar.cfg} \\ CFG 26 nhánh};
+    \node[res, left=9mm of sem] (lex) {Entity lexicon \\ \texttt{entities.txt}};
+    \node[res, left=9mm of query] (kb) {Knowledge base \\ 6 file \texttt{data/kb/}};
+
+    \foreach \a/\b/\t in {in/tok/{str}, tok/parse/{tokens}, parse/sem/{Tree hoặc ()},
+        sem/ctx/{SemanticFrame}, ctx/query/{frame đã giải}, query/ans/{QueryResult},
+        ans/outn/{}}
+      {\draw[arr] (\a) -- (\b) node[midway, lab] {\t};}
+    \draw[arr, dashed] (cfg) -- (parse);
+    \draw[arr, dashed] (lex) -- (sem);
+    \draw[arr, dashed] (kb) -- (query);
+    \node[outfile] at ($(parse.east)+(1.2cm,0)$) {parse-results.txt};
+    \node[outfile] at ($(sem.east)+(1.2cm,0.2)$) {semantic.txt};
+    \node[outfile] at ($(sem.east)+(1.2cm,-0.2)$) {intent-entity.txt};
+    \node[outfile] at ($(query.east)+(1.2cm,0)$) {query.txt};
+    \node[outfile] at ($(ans.east)+(1.2cm,0)$) {answer.txt};
+    \foreach \n in {parse, sem, query, ans}
+      {\draw[black!35, densely dotted] (\n.east) -- ++(1.1cm,0);}
+  \end{tikzpicture}
+  \caption{Pipeline xử lý một câu hỏi và file output tương ứng}
+  \label{fig:pipeline}
+\end{figure}
+
+Lệnh \code{run.py all} chạy pipeline trên toàn bộ 73 câu đầu vào và sinh đủ 9 file trong
+\code{output/}: 5 file theo từng câu ở \cref{fig:pipeline}, cùng \code{grammar.txt},
+\code{samples.txt}, \code{dialogue.txt} và \code{evaluation.txt}.
+
+\subsection{Văn phạm (Phần I)}
+
+Trước khi parse, tokenizer chuẩn hóa câu về Unicode NFC và chữ thường, tách dấu câu thành
+token riêng nhưng giữ nguyên từ ghép kỹ thuật như \texttt{context-free}, \texttt{lo2.5}.
+Parser, bộ sinh câu và entity lexicon dùng chung tokenizer này, nên câu sinh ra luôn được
+tách token giống hệt khi parse lại.
+
+Văn phạm \code{data/grammar.cfg} có 100 ký hiệu không kết thúc, 463 luật sinh và 330
+terminal, viết theo hướng \emph{semantic grammar}: tên ký hiệu mang nghĩa của miền thay vì
+nhãn từ loại. Luật gốc tách phần lịch sự khỏi nội dung câu hỏi. Mỗi câu hợp lệ đi qua đúng
+một trong \textbf{26 nhánh} \texttt{Q\_*}, và nhánh này quyết định intent
+(\cref{tab:branches}). Thực thể được bắt bằng các node có tên như \texttt{WEEK\_ENTITY},
+\texttt{CHAPTER\_ENTITY}, \texttt{TOPIC\_ENTITY}, nên tầng ngữ nghĩa đọc thẳng trên cây
+thay vì tìm lại từ khóa trong câu thô:
+\begin{grammar}
+S               -> PREFIX QUESTION SUFFIX     # PREFIX: "cho mình hỏi", ...
+QUESTION        -> Q_COURSE_CREDITS | Q_SCHEDULE_WEEK | ...      # 26 nhánh
+Q_SCHEDULE_WEEK -> WEEK_ENTITY WEEK_CONTENT_QUESTION | ...
+WEEK_ENTITY     -> "tuần" WEEK_NUMBER
+WEEK_NUMBER     -> "1" | "01" | ... | "15" | "16" | "20" | "99"
+\end{grammar}
+\texttt{WEEK\_NUMBER} cố ý nhận cả tuần không có trong KB: ``Tuần 99 học gì?'' hợp lệ về cú
+pháp, nên hệ thống trả lời ``không tìm thấy dữ kiện'' thay vì coi là câu ngoài văn phạm.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.3cm}|L|}
+    \hline
+    \textbf{Intent} & \textbf{Nhánh \texttt{Q\_*} trong văn phạm} \\ \hline
+    \code{GET_COURSE_INFO} & \code{Q_COURSE_CREDITS}, \code{Q_COURSE_PARTS},
+      \code{Q_COURSE_DESCRIPTION}, \code{Q_COURSE_EXAM_DURATION},
+      \code{Q_COURSE_EXAM_TIME}, \code{Q_COURSE_ASSESSMENT} \\ \hline
+    \code{GET_INSTRUCTOR} & \code{Q_INSTRUCTOR} \\ \hline
+    \code{GET_SCHEDULE} & \code{Q_SCHEDULE_WEEK}, \code{Q_SCHEDULE_CHAPTER},
+      \code{Q_SCHEDULE_TOPICS} \\ \hline
+    \code{GET_TOPIC} & \code{Q_TOPIC_BY_NAME}, \code{Q_TOPIC_BY_CHAPTER},
+      \code{Q_TOPIC_RELATION} \\ \hline
+    \code{GET_LO} & \code{Q_LO} \\ \hline
+    \code{GET_ASSIGNMENT} & \code{Q_ASSIGNMENT_OVERVIEW}, \code{Q_ASSIGNMENT_PART},
+      \code{Q_ASSIGNMENT_FEATURE}, \code{Q_ASSIGNMENT_OUTPUT} \\ \hline
+    \code{GET_DEADLINE} & \code{Q_DEADLINE} \\ \hline
+    \code{GET_RESOURCE} & \code{Q_RESOURCE} \\ \hline
+    \code{GET_RULE} & \code{Q_RULE} \\ \hline
+    \code{CONTEXT_DEPENDENT} & \code{Q_CONTEXT_TOPIC_RELATION},
+      \code{Q_CONTEXT_NEXT_CHAPTER}, \code{Q_CONTEXT_ASSIGNMENT_OUTPUT},
+      \code{Q_CONTEXT_RESOURCE}, \code{Q_CONTEXT_LO_CHAPTER} \\ \hline
+    \code{UNKNOWN} & Không có cây (câu ngoài văn phạm) \\ \hline
+  \end{tabularx}
+  \caption{26 nhánh câu hỏi và intent tương ứng}
+  \label{tab:branches}
+\end{table}
+
+Ở giai đoạn 1, mỗi thành viên viết một nhóm nhánh (\cref{tab:members}). Bản gộp giữ nguyên
+26 nhánh đã chốt: chỉ nhận lựa chọn mới vào nhánh có sẵn, dùng lại biến chung
+(\texttt{YES\_NO}, \texttt{TOPIC\_ENTITY}, \dots) và loại lựa chọn gây mơ hồ hoặc làm rớt
+câu đang đúng. Sau đó văn phạm được mở rộng thêm, ví dụ gom các cách gọi một tính năng của
+bài tập lớn vào node theo phần (\texttt{FEAT\_PARSING} gồm ``parser'', ``parse tree'',
+``phân tích cú pháp'', \dots) để tầng ngữ nghĩa xác định phần BTL bằng nhãn trên cây.
+
+\subsection{Parser Earley và sinh câu (Phần I)}
+\label{sec:grammarcheck}
+
+Nhóm dùng thuật toán Earley \cite{earley1970,jurafsky} vì nó xử lý được mọi CFG, kể cả luật
+$\varepsilon$ (\texttt{PREFIX}, \texttt{SUFFIX}) và đệ quy trái, mà không phải đưa văn phạm
+về dạng chuẩn Chomsky như CKY; nhờ vậy cây trả về giữ nguyên các node ngữ nghĩa. Với $n$
+token, parser dựng các tập trạng thái $S_0, \dots, S_n$ bằng ba thao tác:
+\begin{itemize}
+  \item \textbf{Predictor}: ký hiệu sau dấu chấm là ký hiệu không kết thúc $B$ thì thêm
+        mọi luật $B \rightarrow \bullet\,\gamma$ tại vị trí hiện tại.
+  \item \textbf{Scanner}: terminal sau dấu chấm khớp token kế tiếp thì dịch dấu chấm sang
+        tập $S_{i+1}$.
+  \item \textbf{Completer}: trạng thái $B \rightarrow \gamma\,\bullet$ hoàn tất thì dịch
+        dấu chấm cho các trạng thái đang chờ $B$ và gắn node $B$ làm cây con.
+\end{itemize}
+Câu được chấp nhận khi $S_n$ có trạng thái \texttt{S} hoàn tất bắt đầu từ vị trí 0, tức là
+đã tiêu thụ hết token; câu bị từ chối được xuất là \texttt{()} và nhận intent
+\code{UNKNOWN}. Node $\varepsilon$ được lưu vào chỉ mục theo vị trí để predictor dùng lại,
+tránh bỏ sót dẫn xuất. \code{parse_trees(limit=2)} tìm tối đa hai cây để phát hiện câu mơ
+hồ. Độ phức tạp xấu nhất là $O(n^3)$, không đáng kể với câu vài chục token.
+
+\begin{figure}[H]
+  \centering
+  \begin{adjustbox}{max width=\linewidth}
+  \begin{forest}
+    for tree={font=\footnotesize\ttfamily, s sep=4mm, l sep=4mm, inner sep=1.5pt,
+      edge={black!60}},
+    where n children=0{font=\small\itshape, text=blue!50!black}{}
+    [S
+      [PREFIX [$\varepsilon$]]
+      [QUESTION
+        [Q\_SCHEDULE\_WEEK
+          [WEEK\_ENTITY [tuần] [WEEK\_NUMBER [3]]]
+          [WEEK\_CONTENT\_QUESTION [học] [gì]]]]
+      [SUFFIX [END\_MARK [?]]]]
+  \end{forest}
+  \end{adjustbox}
+  \caption{Cây cú pháp của câu ``Tuần 3 học gì?''}
+  \label{fig:tree}
+\end{figure}
+
+\paragraph{Sinh câu.} \code{generator.py} mở rộng ký hiệu trái nhất theo chiều rộng, mỗi
+nhánh \texttt{Q\_*} có một hàng đợi riêng và các hàng đợi được lấy xoay vòng để mọi loại
+câu hỏi đều xuất hiện. Số token tối thiểu của mỗi ký hiệu được tính trước, dạng câu chắc
+chắn vượt 32 token bị loại sớm, nên quá trình luôn dừng kể cả với luật đệ quy và luật rỗng.
+Mọi câu sinh ra được \textbf{parse lại} trước khi ghi \code{samples.txt} (mặc định 1.000
+câu, tối đa 10.000).
+
+\paragraph{Kiểm tra văn phạm.} \code{tools/check_grammar.py} chạy sau mỗi lần sửa văn phạm.
+Phần tĩnh tìm luật trùng, ký hiệu chưa định nghĩa hoặc không tới được từ \texttt{S}, và kiểm
+tra đủ 26 nhánh. Phần động chạy câu mẫu, câu thử thách, hội thoại, rồi sinh 1.000 câu, parse
+lại và cho qua tiếp tầng ngữ nghĩa và truy vấn. Ở lần chạy gần nhất, 1.000 câu sinh phủ
+26/26 nhánh và đều parse lại được; 1.047 câu được kiểm tra mơ hồ, không câu nào có hai cây.
+Đây là kết quả trên tập đã chạy, không phải chứng minh văn phạm không mơ hồ.
+
+\subsection{Ngữ nghĩa, truy vấn và trả lời (Phần II)}
+
+Bộ diễn giải (\code{SemanticInterpreter}) ánh xạ cây thành frame \code{SemanticFrame} theo
+nguyên tắc tính hợp thành. Tên nhánh \texttt{Q\_*} xác định intent và chọn handler; handler
+đọc các node có tên trong cây con (\texttt{WEEK\_ENTITY}, \texttt{TOPIC\_ENTITY},
+\texttt{FEAT\_PARSING}, \dots). Entity lexicon (\code{entities.py}, xây từ
+\code{entities.txt}) chuẩn hóa cụm từ về ID của KB, ví dụ ``tuần 3'' $\rightarrow$
+\code{WEEK_03}, ``NLP'' $\rightarrow$ \code{CO3085}. Frame gồm intent, entity chính, các
+slot và nhánh nguồn; nó được ghi ra \code{semantic.txt} dạng vị từ và
+\code{intent-entity.txt} dạng JSON Lines (\cref{tab:frames}).
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{4cm}|L|}
+    \hline
+    \textbf{Câu hỏi} & \textbf{Frame ngữ nghĩa} \\ \hline
+    Môn NLP có bao nhiêu tín chỉ? & \code{GET_COURSE_INFO(entity=CO3085, course=CO3085, field=CREDITS)} \\ \hline
+    Tuần 3 học gì? & \code{GET_SCHEDULE(entity=WEEK_03, week=WEEK_03)} \\ \hline
+    BTL có phần parse tree không? & \code{GET_ASSIGNMENT(entity=PART_I, assignment=BTL01, section=PART_I, feature=parse tree)} \\ \hline
+    Có được dùng thư viện có sẵn không? & \code{GET_RULE(entity=EXTERNAL_LIBRARIES, rule=EXTERNAL_LIBRARIES)} \\ \hline
+    Hôm nay trời có mưa không? & \code{UNKNOWN()} -- không có cây \\ \hline
+  \end{tabularx}
+  \caption{Ví dụ frame ngữ nghĩa (trích từ kết quả chạy thật)}
+  \label{tab:frames}
+\end{table}
+
+Bộ truy vấn (\code{QueryEngine}) chọn cách tra theo intent và slot, trả về
+\code{QueryResult} gồm \code{found}, loại dữ kiện, dữ liệu, file nguồn và lý do khi không
+tìm thấy. Biểu thức truy vấn được ghi ra \code{query.txt}, ví dụ \code{KB.course[CREDITS]},
+\code{KB.weeks[WEEK_03]}, \code{KB.topics[CH03].contains(PARSING)}. Tuần, chương, LO và quy
+định được tra chính xác theo ID; chủ đề và tài liệu được tra theo từ khóa có chấm điểm.
+
+Bộ sinh câu trả lời chọn template tiếng Việt theo loại dữ kiện rồi điền dữ kiện vào. Khi
+không trả lời được, hệ thống tách ba nguyên nhân (\cref{tab:fallback}) để người dùng biết
+nên diễn đạt lại, bổ sung ngữ cảnh, hay dữ kiện thực sự không có trong KB. Câu thứ ba là
+nguyên văn thông báo mà đề yêu cầu \cite{spec}.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{3.6cm}|P{3.4cm}|L|}
+    \hline
+    \textbf{Nguyên nhân} & \textbf{Dấu hiệu} & \textbf{Câu trả lời} \\ \hline
+    Câu ngoài văn phạm hoặc ngoài miền & Cây \texttt{()}, intent \code{UNKNOWN} &
+      Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant. \\ \hline
+    Thiếu ngữ cảnh & \code{CONTEXT_DEPENDENT} chưa giải được &
+      Xin lỗi, tôi chưa có đủ ngữ cảnh để hiểu tham chiếu trong câu hỏi này. \\ \hline
+    KB thiếu dữ kiện (ví dụ ``Ai dạy NLP?'') & Có cây và intent, \code{found=False} &
+      Xin lỗi, tôi không tìm thấy thông tin này trong dữ liệu của môn học. \\ \hline
+  \end{tabularx}
+  \caption{Ba loại fallback}
+  \label{tab:fallback}
+\end{table}
+
+Chế độ \code{--trace} in mọi bước cho một câu (trích lần chạy thật):
+\begin{trace}
+INPUT: Môn NLP có bao nhiêu tín chỉ?
+TOKENS: môn / nlp / có / bao / nhiêu / tín / chỉ / ?
+PARSE: (S (PREFIX ε) (QUESTION (Q_COURSE_CREDITS (COURSE_SUBJECT môn (COURSE_ENTITY nlp)) (CREDIT_VERB có) (CREDIT_QUESTION bao nhiêu tín chỉ))) (SUFFIX (END_MARK ?)))
+SEMANTIC: GET_COURSE_INFO(entity=CO3085, course=CO3085, field=CREDITS)
+QUERY: KB.course[CREDITS]
+STATUS: FOUND
+SOURCE: kb/course_info.txt
+ANSWER: Môn Xử lý Ngôn ngữ Tự nhiên (CO3085) có 3 tín chỉ.
+\end{trace}
+
+\subsection{Ngữ cảnh hội thoại (Phần III)}
+
+Phần III được hiện thực ở mức \emph{cục bộ}: câu hỏi được phép tham chiếu tới thực thể vừa
+nhắc trong phiên qua ``nó'', ``chương này'', ``phần đó'', ``chương tiếp theo''. Văn phạm có
+5 nhánh \texttt{Q\_CONTEXT\_*} cho 5 dạng tham chiếu: quan hệ giữa chương và chủ đề, chương
+kế tiếp, output của phần BTL, tài liệu của chương, và chương chứa LO. Các câu này cho frame
+\code{CONTEXT_DEPENDENT}. Bộ giải \code{DialogueContext} đứng giữa tầng ngữ nghĩa và tầng
+truy vấn:
+\begin{itemize}
+  \item Thực thể gần nhất được nhớ theo từng loại (chương, phần BTL, LO) ở các ô riêng, nên
+        câu hỏi về Phần II của BTL không ghi đè chương đang nhớ.
+  \item \code{resolve()} thay \code{CONTEXT_DEPENDENT} bằng frame truy vấn thông thường với
+        thực thể đúng loại; nếu chưa có thực thể phù hợp thì đi vào fallback thiếu ngữ cảnh.
+  \item \code{update()} chỉ ghi nhớ khi truy vấn tìm thấy dữ kiện, nên hỏi ``Chương 13''
+        không thay thế chương đang nhớ; lệnh \code{/reset} xóa bộ nhớ của phiên.
+\end{itemize}
+Ví dụ sau câu ``Tuần 3 học gì?'' (chương 3 được nhớ), trace in frame trước và sau khi giải:
+\begin{trace}
+INPUT: Nó có liên quan đến parsing không?
+SEMANTIC: CONTEXT_DEPENDENT(action=TOPIC_RELATION, relation=PARSING)
+CONTEXT: tham chiếu gần nhất → CH03
+RESOLVED: GET_TOPIC(entity=CH03, chapter=CH03, relation=PARSING)
+QUERY: KB.topics[CH03].contains(PARSING)
+ANSWER: Có. Chương 3 có nội dung liên quan đến parsing.
+\end{trace}
+Cả 6 hội thoại mẫu của đề đều giải đúng thực thể tham chiếu (\cref{sec:eval}).
