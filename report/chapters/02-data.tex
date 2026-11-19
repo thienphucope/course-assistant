@@ -36,13 +36,22 @@ truy vấn rỗng và hệ thống báo không tìm thấy. Nhóm không điền
 
 \subsection{Dữ liệu kiểm thử}
 
-Thư mục \code{data/scaffolding/} gồm:
-\begin{itemize}
-  \item \code{entities.txt}: lược đồ thực thể và alias, ví dụ ``NLP'' $\rightarrow$
-        \code{CO3085}.
-  \item \code{sample_queries.txt}: 42 câu mẫu của đề kèm kết quả mong đợi.
-  \item \code{dialogues.txt}: 6 hội thoại mẫu cho Phần III.
-  \item \code{challenge_queries.txt}: 22 câu thử thách \textbf{do nhóm tự viết}.
-\end{itemize}
-\code{input/sentences.txt} chứa 73 câu đầu vào cho \code{run.py all}. Dữ liệu nhóm thêm chỉ
-dùng để kiểm thử, không thêm dữ kiện vào KB.
+\Cref{tab:testdata} liệt kê dữ liệu hỗ trợ và kiểm thử. Dữ liệu nhóm thêm chỉ dùng để kiểm
+thử, không thêm dữ kiện vào KB.
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{4.6cm}|L|P{1.9cm}|}
+    \hline
+    \textbf{File} & \textbf{Nội dung} & \textbf{Nguồn} \\ \hline
+    \code{entities.txt} & Lược đồ thực thể và alias, ví dụ ``NLP'' $\rightarrow$
+      \code{CO3085} & Đề \\ \hline
+    \code{sample_queries.txt} & 42 câu mẫu kèm kết quả mong đợi & Đề \\ \hline
+    \code{dialogues.txt} & 6 hội thoại mẫu cho Phần III & Đề \\ \hline
+    \code{challenge_queries.txt} & 22 câu thử thách & Nhóm \\ \hline
+    \code{input/sentences.txt} & 73 câu đầu vào cho \code{run.py all} & Đề, nhóm \\ \hline
+  \end{tabularx}
+  \caption{Dữ liệu hỗ trợ và kiểm thử}
+  \label{tab:testdata}
+\end{table}
