@@ -5,48 +5,46 @@
 
 \subsection{Chạy chương trình}
 
-Yêu cầu Python 3.11 trở lên, không cần cài thêm thư viện. Các lệnh chạy tại thư mục
-chứa \code{run.py} (thư mục \code{project/} của gói nộp):
+Cần Python 3.11 trở lên, không cần thư viện ngoài. Chạy tại thư mục \code{project/} của gói
+nộp:
 \begin{trace}
 python run.py answer "Môn NLP có bao nhiêu tín chỉ?" --trace
 python run.py answer "Tuần 3 học gì?" "Nó có liên quan đến parsing không?" --trace
 python run.py parse "Tuần 3 học gì?" "Hôm nay trời có mưa không?"
 python run.py interactive        # giữ ngữ cảnh trong phiên; /reset, /quit
-python run.py all                # đọc input/, ghi đủ 9 file vào output/
+python run.py all                # đọc input/, ghi 9 file vào output/
 \end{trace}
 
 \subsection{Chạy bằng Docker}
 
-Image dựa trên \code{python:3.12-slim}; container mặc định chạy \code{all}:
+Image dựa trên \code{python:3.12-slim}, mặc định chạy \code{all}:
 \begin{trace}
 docker build -t course-assistant .
 docker run --rm course-assistant
 docker run --rm course-assistant answer "Tuần 3 học gì?" --trace
 docker run --rm -v "$(pwd)/output:/app/output" course-assistant
 \end{trace}
-Nhóm đã kiểm chứng với Docker Engine 29.6.1 trong WSL2 (Ubuntu): build từ gói zip đã
-giải nén, container sinh đủ 9 output và khớp từng byte với lần chạy Python trực tiếp.
+Đã kiểm chứng với Docker Engine 29.6.1 trong WSL2: build từ gói zip đã giải nén, 9 output
+khớp từng byte với lần chạy Python trực tiếp.
 
 \subsection{Gói nộp}
 
-Gói \code{2310251-2310198-2311601-2212612.zip} (khoảng 1~MB, dưới giới hạn 10~MB) theo cấu trúc của đề:
+Gói \code{2310251-2310198-2311601-2212612.zip} khoảng 1~MB, theo cấu trúc của đề:
 \begin{trace}
 project/
   src/hcmut/...      mã nguồn
   data/              grammar.cfg, kb/, scaffolding/
-  models/            (không dùng model)
+  models/            trống, không dùng model
   input/             sentences.txt
-  output/            9 file kết quả chạy thật
+  output/            9 file kết quả
   README.md  Dockerfile  run.py
   report.pdf  demo.mp4
 \end{trace}
-Công cụ \code{tools/package_submission.py} tạo gói, giải nén sang thư mục mới, chạy lại
-từ thư mục làm việc khác và đối chiếu 9 output; với \code{--verify-docker} công cụ build
-và chạy container trên chính gói đó.
+\code{tools/package_submission.py} tạo gói, giải nén và chạy lại để đối chiếu 9 output; cờ
+\code{--verify-docker} build và chạy container trên chính gói đó.
 
 \subsection{Video demo}
 
-Video \code{demo.mp4} (2 phút 8 giây, 1280$\times$720, có phụ đề) phát lại kết quả thực
-thi thật của 7 câu: nhận câu hỏi, token và cây cú pháp, frame ngữ nghĩa, giải ngữ cảnh,
-truy vấn và câu trả lời, cùng một câu KB không có dữ kiện và một câu ngoài miền mà hệ
-thống không trả lời được.
+Video \code{demo.mp4} phát lại kết quả chạy thật của 7 câu: token, cây cú pháp, frame ngữ
+nghĩa, giải ngữ cảnh, truy vấn và câu trả lời, cùng một câu KB thiếu dữ kiện và một câu
+ngoài miền.

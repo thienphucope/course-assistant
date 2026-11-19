@@ -48,3 +48,7 @@ Theo góp ý của Phúc: bỏ mục 1.4 (cấu trúc báo cáo); bảng 1.2 ph�
 3–6 (kiến trúc, Phần I, II, III) thành một chương 3 "Thiết kế và hiện thực", viết gọn (bỏ bảng
 module, bảng truy vấn, bảng FEAT_*, trace thứ hai). Các chương sau đổi số: đánh giá 4, thảo luận 5,
 chạy lại 6, nguồn + AI 7. PDF còn 21 trang (trước 27).
+
+Cùng ngày, lượt 2: viết gọn toàn bộ 7 chương, bỏ chú thích trong ngoặc thừa; gộp mục "Giới hạn của
+kết quả đánh giá" vào Hạn chế (§5.2); bảng KB bỏ cột collection. PDF còn 17 trang. Bảng AI 7.1
+đổi mốc Claude Code thành 22/10–19/11 (có biên tập báo cáo hôm nay) — vẫn chờ duyệt.

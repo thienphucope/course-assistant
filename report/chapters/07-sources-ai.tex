@@ -6,27 +6,22 @@
 \subsection{Nguồn dữ liệu và mã tham khảo}
 
 \begin{itemize}
-  \item \textbf{Đề bài, KB và scaffolding} do giảng viên cung cấp \cite{spec}: sáu file KB,
-        bảng thực thể và alias, 42 câu kiểm thử, 6 hội thoại mẫu.
-  \item \textbf{Dữ liệu nhóm bổ sung}: 22 câu thử thách trong
-        \code{challenge_queries.txt} và các cách diễn đạt thêm trong
-        \code{input/sentences.txt} do nhóm tự biên soạn; chỉ dùng để kiểm thử, không bổ
-        sung dữ kiện vào KB.
-  \item \textbf{Bản cài đặt tham khảo}: nhóm tham khảo cấu trúc mã khung, cách làm từng
-        tầng và định dạng output của một bản cài đặt tham khảo (nhánh \code{sample} của
-        repository), dùng nó để sinh golden test; nhóm không sửa bản tham khảo và tự viết,
-        kiểm thử, giải thích được mã nộp.
-  \item \textbf{Lý thuyết}: thuật toán Earley \cite{earley1970}; CFG, phân tích cú pháp và
-        văn phạm ngữ nghĩa theo giáo trình của môn \cite{phanthituoi,jurafsky,bird}.
-  \item \textbf{Mẫu báo cáo}: class \LaTeX{} \code{hcmut-report} \cite{hcmutreport}
-        (LPPL 1.3c), đã chỉnh trang bìa và định dạng cho môn học này.
+  \item \textbf{Đề bài, KB và scaffolding}: do giảng viên cung cấp \cite{spec}.
+  \item \textbf{Dữ liệu nhóm viết}: 22 câu thử thách và các cách diễn đạt thêm trong
+        \code{input/sentences.txt}, chỉ dùng để kiểm thử.
+  \item \textbf{Bản cài đặt tham khảo} ở nhánh \code{sample}: nhóm tham khảo cấu trúc mã
+        khung và định dạng output, dùng nó sinh golden test. Mã nộp do nhóm tự viết, kiểm
+        thử và giải thích được.
+  \item \textbf{Lý thuyết}: thuật toán Earley \cite{earley1970}; CFG và văn phạm ngữ nghĩa
+        theo giáo trình \cite{phanthituoi,jurafsky,bird}.
+  \item \textbf{Mẫu báo cáo}: \code{hcmut-report} \cite{hcmutreport}, giấy phép LPPL 1.3c.
 \end{itemize}
 
 \subsection{Khai báo sử dụng AI}
 
-Theo quy định sử dụng AI của môn học (\code{AI_usage} trong \code{regulations.txt}),
-nhóm khai báo như sau. \textbf{Runtime hỏi đáp không dùng LLM hay bất kỳ mô hình học
-máy nào}; AI chỉ hỗ trợ trong quá trình phát triển.
+Theo quy định \code{AI_usage} của môn, nhóm khai báo việc dùng AI ở \cref{tab:ai}.
+\textbf{Khi chạy, hệ thống không dùng LLM hay mô hình học máy nào}; AI chỉ hỗ trợ trong quá
+trình phát triển.
 
 \begin{table}[htbp]
   \centering
@@ -34,24 +29,20 @@ máy nào}; AI chỉ hỗ trợ trong quá trình phát triển.
   \begin{tabularx}{\linewidth}{|P{3cm}|L|}
     \hline
     \textbf{Công cụ} & \textbf{Phạm vi hỗ trợ} \\ \hline
-    Claude Code (Claude Opus, Claude Sonnet), 22/10--18/11/2026 &
-      Gộp grammar giai đoạn 1 và lập bảng theo dõi công việc; soạn hợp đồng giữa các
-      tầng và công cụ sinh golden test; nối pipeline, CLI, xuất output và đánh giá; sửa
-      tokenizer giữ chữ viết tắt; chặn độ dài câu sinh; công cụ minh họa; rà soát đề so
-      với output; kiểm chứng Docker; chuyển báo cáo sang \LaTeX. Các commit liên quan có
-      dòng \texttt{Co-Authored-By: Claude}. \\ \hline
-    Codex, 16--17/11/2026 &
-      Sửa xử lý luật rỗng và kiểm tra mơ hồ của parser; mở rộng grammar và semantic cho
-      nhóm tính năng BTL; bổ sung câu thử thách C009--C022; công cụ kiểm tra grammar và
-      đóng gói; soạn nháp README, báo cáo, kịch bản demo; đối chiếu thiết kế với mã và
-      bổ sung test phản ví dụ. \\ \hline
+    Claude Code: Claude Opus, Claude Sonnet; 22/10--19/11/2026 &
+      Gộp grammar giai đoạn 1; hợp đồng giữa các tầng và công cụ sinh golden test;
+      pipeline, CLI, xuất output, đánh giá; sửa tokenizer và bộ sinh câu; kiểm chứng
+      Docker; soạn và biên tập báo cáo \LaTeX. Commit liên quan có dòng
+      \texttt{Co-Authored-By: Claude}. \\ \hline
+    Codex; 16--17/11/2026 &
+      Sửa luật rỗng và kiểm tra mơ hồ của parser; mở rộng grammar và semantic cho tính
+      năng BTL; câu thử thách C009--C022; công cụ kiểm tra grammar và đóng gói; nháp
+      README, báo cáo, kịch bản demo; bổ sung test phản ví dụ. \\ \hline
   \end{tabularx}
   \caption{Khai báo sử dụng công cụ AI}
   \label{tab:ai}
 \end{table}
 
-\paragraph{Cách nhóm kiểm tra lại.} Mọi thay đổi có AI hỗ trợ đều phải qua test hợp đồng
-và test hồi quy, sinh lại golden từ bản tham khảo, parse lại toàn bộ câu sinh, đối chiếu
-trace truy vấn với file KB nguồn và chạy lại từ gói nộp. Nhóm không thêm dữ kiện vào KB
-để sửa ca trả lời sai. Các thành viên review thay đổi trước khi đưa vào bản nộp và chịu
-trách nhiệm hiểu, giải thích được mã nguồn và thuật toán đã nộp.
+Mọi thay đổi có AI hỗ trợ đều phải qua test hợp đồng, test hồi quy và parse lại toàn bộ câu
+sinh, rồi được thành viên review trước khi đưa vào bản nộp. Nhóm không sửa KB để chữa ca
+sai và chịu trách nhiệm giải thích được toàn bộ mã nộp.

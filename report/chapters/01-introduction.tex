@@ -5,39 +5,30 @@
 
 \subsection{Bối cảnh và mục tiêu}
 
-Bài tập lớn yêu cầu xây dựng một \textbf{trợ lý hỗ trợ học tập} (Course Assistant) cho
-môn Xử lý Ngôn ngữ Tự nhiên (CO3085): người dùng đặt câu hỏi tiếng Việt về thông tin
-môn học, lịch học theo tuần, chương và chủ đề, chuẩn đầu ra (LO), bài tập lớn,
-deadline, tài liệu tham khảo và quy định của môn; hệ thống phải trả lời dựa trên
-knowledge base (KB) do giảng viên cung cấp \cite{spec}.
-
-Điểm cốt lõi của đề bài không nằm ở việc ``trả lời được'' mà ở việc thể hiện đầy đủ
-một \textbf{pipeline NLP} có thể giải thích từng bước:
+Đề bài yêu cầu xây dựng Course Assistant cho môn Xử lý Ngôn ngữ Tự nhiên: trả lời câu hỏi
+tiếng Việt về thông tin môn học, lịch học, chủ đề, chuẩn đầu ra (LO), bài tập lớn, deadline,
+tài liệu và quy định, dựa trên knowledge base (KB) do giảng viên cung cấp \cite{spec}. Trọng
+tâm là một pipeline NLP giải thích được từng bước:
 \begin{center}
   \small
   Câu hỏi $\rightarrow$ Grammar/Parser $\rightarrow$ Cây cú pháp $\rightarrow$
   Diễn giải ngữ nghĩa $\rightarrow$ Intent/Entity $\rightarrow$ Truy vấn KB
   $\rightarrow$ Câu trả lời
 \end{center}
-Khi KB không có dữ kiện, hệ thống phải báo rõ là không tìm thấy thay vì tự tạo câu
-trả lời.
+Khi KB không có dữ kiện, hệ thống phải báo không tìm thấy thay vì tự tạo câu trả lời.
 
-\subsection{Phạm vi và hướng tiếp cận}
+\subsection{Hướng tiếp cận}
 
-Nhóm chọn \textbf{Phần II -- Lựa chọn 1: Classical NLP}. Toàn bộ xử lý dựa trên văn
-phạm phi ngữ cảnh (CFG) viết tay, bộ phân tích cú pháp Earley và luật diễn giải cây
-cú pháp thành biểu diễn ngữ nghĩa. Chương trình chạy offline bằng thư viện chuẩn
-Python, không gọi API hay mô hình ngôn ngữ. Lý do lựa chọn:
+Nhóm chọn \textbf{Phần II -- Lựa chọn 1: Classical NLP}: CFG viết tay, parser Earley và luật
+diễn giải cây thành biểu diễn ngữ nghĩa. Chương trình chạy offline bằng thư viện chuẩn
+Python, không gọi API hay mô hình ngôn ngữ. Lý do:
 \begin{itemize}
-  \item Miền hỏi đáp hẹp và đóng (một môn học, sáu file KB), phù hợp với văn phạm
-        ngữ nghĩa (semantic grammar) như nội dung các chương 3--5 của môn học.
-  \item Mọi câu trả lời lần ngược được về truy vấn, frame ngữ nghĩa và cây cú pháp;
-        kết quả tất định nên dễ kiểm thử và chấm theo từng tầng.
-  \item Phân biệt rõ hai loại thất bại: câu nằm ngoài văn phạm (không có cây) và câu
-        hiểu được nhưng KB thiếu dữ kiện (có cây, có intent, truy vấn rỗng).
+  \item Miền hỏi đáp hẹp và đóng, hợp với văn phạm ngữ nghĩa.
+  \item Mọi câu trả lời lần ngược được về cây cú pháp; kết quả tất định nên dễ kiểm thử
+        từng tầng.
+  \item Phân biệt rõ câu ngoài văn phạm với câu hiểu được nhưng KB thiếu dữ kiện.
 \end{itemize}
-
-\Cref{tab:scope} tóm tắt mức độ thực hiện từng phần của đề và file output tương ứng.
+\Cref{tab:scope} tóm tắt phạm vi thực hiện.
 
 \begin{table}[htbp]
   \centering
@@ -45,27 +36,25 @@ Python, không gọi API hay mô hình ngôn ngữ. Lý do lựa chọn:
   \begin{tabularx}{\linewidth}{|P{2.6cm}|P{1.9cm}|L|P{3.3cm}|}
     \hline
     \textbf{Phần} & \textbf{Yêu cầu} & \textbf{Hiện thực} & \textbf{Output} \\ \hline
-    I. Văn phạm và parser & Bắt buộc & CFG 26 nhánh câu hỏi, parser Earley, bộ sinh
-      câu có kiểm tra parse lại & \code{grammar.txt}, \code{samples.txt},
-      \code{parse-results.txt} \\ \hline
-    II. Ngữ nghĩa và hỏi đáp & Bắt buộc & Classical: luật diễn giải cây, entity lexicon,
-      truy vấn KB, sinh câu trả lời theo template & \code{semantic.txt},
-      \code{intent-entity.txt}, \code{query.txt}, \code{answer.txt} \\ \hline
-    III. Ngữ cảnh cục bộ & Mở rộng & Bộ nhớ thực thể gần nhất theo loại, 5 dạng tham
-      chiếu & \code{dialogue.txt} \\ \hline
-    IV. Đánh giá & Bắt buộc & Chấm end-to-end trên 42 câu của đề, 22 câu thử thách và
-      6 hội thoại & \code{evaluation.txt} \\ \hline
+    I. Văn phạm và parser & Bắt buộc & CFG 26 nhánh, parser Earley, bộ sinh câu &
+      \code{grammar.txt}, \code{samples.txt}, \code{parse-results.txt} \\ \hline
+    II. Ngữ nghĩa và hỏi đáp & Bắt buộc & Luật diễn giải cây, entity lexicon, truy vấn
+      KB, template trả lời & \code{semantic.txt}, \code{intent-entity.txt},
+      \code{query.txt}, \code{answer.txt} \\ \hline
+    III. Ngữ cảnh cục bộ & Mở rộng & Nhớ thực thể gần nhất, 5 dạng tham chiếu &
+      \code{dialogue.txt} \\ \hline
+    IV. Đánh giá & Bắt buộc & 42 câu của đề, 22 câu thử thách, 6 hội thoại &
+      \code{evaluation.txt} \\ \hline
   \end{tabularx}
-  \caption{Phạm vi thực hiện theo các phần của đề}
+  \caption{Phạm vi thực hiện}
   \label{tab:scope}
 \end{table}
 
 \subsection{Thành viên và phân công}
 
-Công việc được chia thành các task T01--T24, theo dõi trong \code{docs/progress/}
-(\cref{tab:members}). Giai đoạn 1, ba thành viên mỗi người viết grammar cho một nhóm
-nhánh câu hỏi (T03); giai đoạn 2, mỗi người hiện thực một số tầng của pipeline theo
-hợp đồng chung giữa các tầng.
+Công việc chia thành các task T01--T24, theo dõi trong \code{docs/progress/}. Giai đoạn 1, ba
+thành viên mỗi người viết grammar cho một nhóm nhánh câu hỏi; giai đoạn 2, mỗi người hiện
+thực một số tầng của pipeline. \Cref{tab:members} ghi phân công cụ thể.
 
 \begin{table}[htbp]
   \centering
@@ -73,19 +62,15 @@ hợp đồng chung giữa các tầng.
   \begin{tabularx}{\linewidth}{|P{3.2cm}|P{1.5cm}|P{1.9cm}|L|}
     \hline
     \textbf{Thành viên} & \textbf{MSSV} & \textbf{Task} & \textbf{Công việc} \\ \hline
-    Phan Gia Bảo & 2310251 & T03, T08, T09, T10 & Grammar giai đoạn 1: 9 nhánh
-      thông tin môn học, giảng viên, lịch theo tuần/chương. Tokenizer; nạp văn phạm và
-      parser Earley; bộ sinh câu từ văn phạm. \\ \hline
-    Nguyễn Huy Bách & 2310198 & T03, T12, T13 & Grammar giai đoạn 1: 8 nhánh
-      chủ đề, LO, bài tập lớn. Nạp và kiểm tra KB (\code{kb.py}); truy vấn KB theo
-      intent/slot (\code{query.py}). \\ \hline
-    Mai Anh Khoa & 2311601 & T03, T11, T14 & Grammar giai đoạn 1: 9 nhánh
-      deadline, tài liệu, quy định, câu ngữ cảnh. Diễn giải cây thành frame ngữ nghĩa
-      và entity lexicon; sinh câu trả lời và fallback (\code{answer.py}). \\ \hline
-    Hoàng Ngô Thiên Phúc & 2212612 & T02--T07, T15--T24 & Đồng bộ dữ liệu; review và gộp
-      grammar giai đoạn 1; hợp đồng giữa các tầng và golden test. Ngữ cảnh hội thoại;
-      pipeline, CLI và 9 file output; đánh giá; mở rộng grammar và công cụ kiểm tra
-      grammar. README, Docker, báo cáo, video demo, đóng gói. \\ \hline
+    Phan Gia Bảo & 2310251 & T03, T08, T09, T10 & Grammar 9 nhánh thông tin môn học,
+      giảng viên, lịch học. Tokenizer, parser Earley, bộ sinh câu. \\ \hline
+    Nguyễn Huy Bách & 2310198 & T03, T12, T13 & Grammar 8 nhánh chủ đề, LO, bài tập lớn.
+      Nạp KB, truy vấn KB. \\ \hline
+    Mai Anh Khoa & 2311601 & T03, T11, T14 & Grammar 9 nhánh deadline, tài liệu, quy
+      định, ngữ cảnh. Diễn giải ngữ nghĩa, entity lexicon, sinh câu trả lời. \\ \hline
+    Hoàng Ngô Thiên Phúc & 2212612 & T02--T07, T15--T24 & Gộp grammar, hợp đồng giữa các
+      tầng, golden test. Ngữ cảnh hội thoại, pipeline, CLI, đánh giá, mở rộng grammar.
+      README, Docker, báo cáo, video, đóng gói. \\ \hline
   \end{tabularx}
   \caption{Thành viên và phân công}
   \label{tab:members}
