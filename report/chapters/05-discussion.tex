@@ -3,39 +3,31 @@
 \label{sec:discussion}
 % ============================================================
 
-\subsection{Ưu điểm}
+\Cref{tab:proscons} tóm tắt ưu điểm và hạn chế theo từng khía cạnh.
 
-\begin{itemize}
-  \item \textbf{Giải thích được}: mọi câu trả lời lần ngược được về truy vấn, frame ngữ
-        nghĩa, cây cú pháp và file KB nguồn.
-  \item \textbf{Không bịa dữ kiện}: câu trả lời chỉ dựng từ kết quả truy vấn; ba loại thất
-        bại được báo riêng.
-  \item \textbf{Nhẹ và tất định}: chạy offline, không cần model hay GPU; cùng đầu vào luôn
-        cho cùng kết quả.
-  \item \textbf{Dễ kiểm thử}: ranh giới rõ giữa các tầng cho phép sửa một tầng mà không ảnh
-        hưởng tầng khác.
-\end{itemize}
+\begin{table}[H]
+  \centering
+  \small
+  \begin{tabularx}{\linewidth}{|P{2.2cm}|L|L|}
+    \hline
+    \textbf{Khía cạnh} & \textbf{Ưu điểm} & \textbf{Hạn chế} \\ \hline
+    Văn phạm & Mọi câu trả lời lần ngược được về cây cú pháp & Độ phủ đóng: câu đúng miền
+      nhưng diễn đạt lạ bị từ chối, như C007, C008 \\ \hline
+    Parser & Earley chạy trên mọi CFG, kể cả luật rỗng và đệ quy trái & Chỉ phát hiện mơ hồ
+      tới hai cây \\ \hline
+    Trả lời & Không bịa dữ kiện; ba loại thất bại được báo riêng & Chủ đề, tài liệu tra theo
+      từ khóa; KB thiếu quan hệ tài liệu--chương \\ \hline
+    Ngữ cảnh & Giải đúng 6/6 hội thoại mẫu & Chỉ năm dạng tham chiếu; chưa hỏi lại khi có
+      nhiều ứng viên \\ \hline
+    Vận hành & Chạy offline, không cần model hay GPU, kết quả tất định & -- \\ \hline
+    Kiểm thử & Từng tầng được kiểm thử độc lập & Chưa có tập đánh giá độc lập, nên 96,88\%
+      chưa đại diện cho câu hỏi thật \\ \hline
+  \end{tabularx}
+  \caption{Ưu điểm và hạn chế}
+  \label{tab:proscons}
+\end{table}
 
-\subsection{Hạn chế}
-
-\begin{itemize}
-  \item \textbf{Độ phủ văn phạm đóng}: câu đúng miền nhưng diễn đạt lạ bị từ chối, như C007
-        và C008.
-  \item \textbf{Truy vấn dựa trên từ khóa}: tài liệu ``cho chương này'' chỉ là tài liệu nền
-        vì KB không có quan hệ tài liệu--chương.
-  \item \textbf{Ngữ cảnh hẹp}: chỉ năm dạng tham chiếu định trước và thực thể gần nhất;
-        chưa hỏi lại khi có nhiều ứng viên.
-  \item \textbf{Mơ hồ}: parser chỉ phát hiện tới hai cây, chưa dựng parse forest.
-  \item \textbf{Bộ sinh câu} thiên về câu ngắn.
-  \item \textbf{Đánh giá}: các bộ kiểm thử đã dùng trong lúc phát triển và chưa có tập
-        độc lập, nên 96,88\% chưa đại diện cho câu hỏi thật.
-\end{itemize}
-
-\subsection{Hướng mở rộng}
-
-\begin{itemize}
-  \item Thu thập câu hỏi thật của sinh viên làm tập đánh giá độc lập.
-  \item Thêm số thứ tự, từ đồng nghĩa; thử PCFG hoặc so khớp mềm cho câu lệch văn phạm ít.
-  \item Bổ sung dữ kiện có nguồn vào KB như giảng viên, ngày thi.
-  \item Hỏi lại người dùng khi tham chiếu có nhiều ứng viên.
-\end{itemize}
+Hướng mở rộng tiếp theo là thu thập câu hỏi thật của sinh viên làm tập đánh giá độc lập,
+thêm số thứ tự và từ đồng nghĩa vào văn phạm, thử PCFG hoặc so khớp mềm cho câu chỉ lệch văn
+phạm ít, bổ sung dữ kiện có nguồn vào KB như giảng viên và ngày thi, và hỏi lại người dùng
+khi tham chiếu có nhiều ứng viên.
