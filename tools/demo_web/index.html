@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Assistant · CO3085</title>
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="page-header">
+      <div>
+        <p class="course">CO3085 · Xử lý Ngôn ngữ Tự nhiên</p>
+        <h1>Course Assistant</h1>
+      </div>
+      <div class="session-actions">
+        <span id="session-label">Chưa có lượt hỏi</span>
+        <button type="button" class="button" id="reset" disabled>Phiên mới</button>
+      </div>
+    </header>
+
+    <form id="question-form" class="question-form card">
+      <div class="question-field">
+        <label for="question">Câu hỏi</label>
+        <input id="question" name="question" placeholder="Nhập câu hỏi về môn học" required autocomplete="off">
+      </div>
+      <div class="examples-field">
+        <label for="examples">Câu mẫu</label>
+        <select id="examples" disabled>
+          <option value="">Chọn câu mẫu</option>
+        </select>
+      </div>
+      <button class="button primary" type="submit" id="submit">Phân tích</button>
+      <p id="notice" role="status" hidden></p>
+    </form>
+
+    <div class="workspace">
+      <aside class="card steps-card">
+        <nav aria-label="Các bước xử lý">
+          <h2>Các bước xử lý</h2>
+          <ol id="steps" class="steps"></ol>
+        </nav>
+        <div id="history" class="history" hidden>
+          <label for="turns">Lượt hỏi trong phiên</label>
+          <select id="turns"></select>
+        </div>
+      </aside>
+
+      <section id="trace" class="trace card" aria-label="Kết quả xử lý" aria-busy="false">
+        <div id="empty" class="empty">
+          <h2>Nhập câu hỏi để bắt đầu</h2>
+          <p>Chọn từng bước để xem kết quả xử lý.</p>
+        </div>
+        <div id="result" hidden>
+          <header class="trace-header">
+            <p id="active-question" class="active-question"></p>
+            <button type="button" class="button" id="overview" aria-pressed="false">Xem toàn bộ</button>
+          </header>
+          <div id="stage-view"></div>
+          <footer class="trace-footer" id="stage-controls">
+            <span id="step-count" aria-live="polite"></span>
+            <div class="stage-actions">
+              <button type="button" class="button" id="previous">Bước trước</button>
+              <button type="button" class="button primary" id="next">Bước tiếp</button>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -154,13 +154,13 @@ python -m unittest discover -s tests -t .
 cd ..
 python tools/check_grammar.py --samples 1000 --json docs/validation/grammar-check.json
 python tools/package_submission.py
-# Bản nộp cuối (cần Docker; trên Windows chạy được trong WSL2):
-python tools/package_submission.py --student-ids 2310251 2310198 2311601 2212612 --verify-docker
+# Bản nộp dùng video lưu ngoài ZIP (điền link xem video và chạy với Docker):
+python tools/package_submission.py --student-ids 2310251 2310198 2311601 2212612 --video-url "<link video>" --verify-docker
 ```
 
 Golden chạy code tham khảo nhánh `sample` với grammar hiện tại; adapter tường minh
 cho extension và lỗi sample nằm trong `tools/make_golden.py`. Golden KB so khớp
-tuyệt đối. Golden và tools chỉ dùng trong repo phát triển, không nằm trong gói nộp.
+tuyệt đối. Bộ golden và công cụ kiểm thử dùng trong repo phát triển.
 
 ## Hạn chế và hướng mở rộng
 
@@ -191,7 +191,12 @@ còn thiếu, rồi đánh giá trên câu mới tách khỏi tập phát triể
   hồi quy, round-trip, trace query có nguồn và chạy gói giải nén; nhóm review trước
   khi đưa vào bản nộp và chịu trách nhiệm giải thích được mã nguồn đã nộp.
 
-Báo cáo: `report.pdf` trong gói nộp (nguồn LaTeX ở `report/` của repo). Kịch bản demo:
-`demo-script.md`. Gói có `demo.mp4`, video tự động từ trace thật, 2 phút 8 giây,
-có phụ đề và không có tiếng. Tạo lại video bằng `python tools/render_demo.py`
-trong repo (cần Pillow/ffmpeg cho công cụ phát triển).
+Báo cáo nằm ở `report.pdf`. Xem video qua
+đường dẫn trong `demo-video.txt` hoặc mở `demo.mp4` khi gói đính kèm video.
+
+Để chạy giao diện demo, mở terminal trong thư mục `project/` đã giải nén và chạy
+lệnh dưới đây. Giao diện dùng cùng pipeline Python và dữ liệu trong gói.
+
+```bash
+python tools/demo_web.py --open
+```

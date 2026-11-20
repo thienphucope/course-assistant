@@ -61,6 +61,6 @@ TOKENS: hôm / nay / trời / có / mưa / không / ?
 PARSE: ()
 SEMANTIC: UNKNOWN()
 QUERY: NO_QUERY
-STATUS: NOT_FOUND
+STATUS: SKIPPED
 SOURCE: -
 ANSWER: Xin lỗi, câu hỏi không thuộc văn phạm hoặc ngoài phạm vi Course Assistant.

@@ -14,6 +14,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+from urllib.parse import urlsplit
 from zipfile import ZipFile, ZIP_DEFLATED
 
 REPO = Path(__file__).resolve().parents[1]
@@ -46,11 +47,22 @@ def main(argv=None):
     parser.add_argument("--student-ids", nargs="+", help="3 or 4 MSSV values in final filename order")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--verify-docker", action="store_true")
-    parser.add_argument("--video", type=Path, help="include a demo video; defaults to dist/course-assistant-demo.mp4 if present")
+    video_source = parser.add_mutually_exclusive_group()
+    video_source.add_argument("--video", type=Path, help="include a demo video; defaults to dist/course-assistant-demo.mp4 if present")
+    video_source.add_argument("--video-url", help="include an external demo video link in the README and demo-video.txt")
     args = parser.parse_args(argv)
     if args.student_ids and (len(args.student_ids) not in (3, 4) or
                              any(not re.fullmatch(r"[0-9]+", value) for value in args.student_ids)):
         parser.error("provide 3 or 4 numeric student IDs")
+    if args.video_url is not None:
+        try:
+            parsed_url = urlsplit(args.video_url)
+            valid_url = (parsed_url.scheme in {"https", "http"} and parsed_url.hostname
+                         and not any(char.isspace() or char in "<>" for char in args.video_url))
+        except ValueError:
+            valid_url = False
+        if not valid_url:
+            parser.error("--video-url requires a valid HTTP or HTTPS link")
     filename = "-".join(args.student_ids) if args.student_ids else "course-assistant-review"
     destination = (args.output or REPO / "dist" / f"{filename}.zip").resolve()
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -68,6 +80,11 @@ def main(argv=None):
                         ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
         for name in ("run.py", "README.md", "Dockerfile", ".dockerignore", "requirements.txt"):
             shutil.copy2(source / name, project / name)
+        demo_tools = project / "tools"
+        shutil.copytree(REPO / "tools/demo_web", demo_tools / "demo_web",
+                        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+        for name in ("demo.py", "demo_web.py"):
+            shutil.copy2(REPO / "tools" / name, demo_tools / name)
         # The compiled LaTeX report (report/) is the submitted report; the Markdown
         # draft in docs/ is only a fallback when the PDF has not been built.
         report_pdf = REPO / "report" / "report.pdf"
@@ -75,15 +92,16 @@ def main(argv=None):
             shutil.copy2(report_pdf, project / "report.pdf")
         elif (REPO / "docs/report.md").is_file():
             shutil.copy2(REPO / "docs/report.md", project / "report.md")
-        for name in ("demo-script.md", "demo-transcript.txt"):
-            document = REPO / "docs" / name
-            if document.is_file():
-                shutil.copy2(document, project / name)
-        video = args.video or REPO / "dist/course-assistant-demo.mp4"
-        if args.video and not video.is_file():
-            parser.error(f"video does not exist: {video}")
-        if video.is_file():
-            shutil.copy2(video, project / "demo.mp4")
+        if args.video_url:
+            (project / "demo-video.txt").write_text(args.video_url + "\n", encoding="utf-8")
+            with (project / "README.md").open("a", encoding="utf-8") as readme:
+                readme.write(f"\n[Xem video demo](<{args.video_url}>)\n")
+        else:
+            video = args.video or REPO / "dist/course-assistant-demo.mp4"
+            if args.video and not video.is_file():
+                parser.error(f"video does not exist: {video}")
+            if video.is_file():
+                shutil.copy2(video, project / "demo.mp4")
         with ZipFile(destination, "w", ZIP_DEFLATED, compresslevel=9) as archive:
             for path in sorted(project.rglob("*")):
                 if path.is_file():
